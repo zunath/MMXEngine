@@ -36,11 +36,8 @@ namespace MMXEngine.Windows
 
             builder.RegisterType<Texture2D>();
             builder.RegisterType<EntityWorld>().SingleInstance();
-
-            builder.RegisterType<CameraManager>().As<ICameraManager>().SingleInstance();
-            builder.RegisterType<GameObjectManager>().As<IGameObjectManager>().SingleInstance();
+            
             builder.RegisterType<GraphicsManager>().As<IGraphicsManager>().SingleInstance();
-            builder.RegisterType<ScreenManager>().As<IScreenManager>().SingleInstance();
             builder.RegisterType<GameManager>().As<IGameManager>().SingleInstance();
 
             builder.RegisterType<EntityFactory>().As<IEntityFactory>().SingleInstance();

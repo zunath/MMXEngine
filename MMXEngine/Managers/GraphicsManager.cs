@@ -7,28 +7,28 @@ namespace MMXEngine.Windows.Managers
 {
     public class GraphicsManager :IGraphicsManager
     {
-        private XnaGraphicsDeviceManager graphics;
+        private XnaGraphicsDeviceManager _graphics;
         
         // Initialize all graphics properties.
         public void Initialize(XnaGraphicsDeviceManager xnaGraphics)
         {
-            if (null != graphics)
+            if (null != _graphics)
             {
                 return;
             }
 
-            graphics = xnaGraphics;
-            graphics.PreferredBackBufferWidth = 800;
-            graphics.PreferredBackBufferHeight = 600;
-            graphics.IsFullScreen = false;
-            graphics.ApplyChanges();
+            _graphics = xnaGraphics;
+            _graphics.PreferredBackBufferWidth = 800;
+            _graphics.PreferredBackBufferHeight = 600;
+            _graphics.IsFullScreen = false;
+            _graphics.ApplyChanges();
 
-            GraphicsDevice = graphics.GraphicsDevice;
+            GraphicsDevice = _graphics.GraphicsDevice;
             SpriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
         public GraphicsDevice GraphicsDevice { get; private set; }
-        public Single AspectRatio => GraphicsDevice.Viewport.AspectRatio;
+        public float AspectRatio => GraphicsDevice.Viewport.AspectRatio;
         public SpriteBatch SpriteBatch { get; private set; }
     }
 }

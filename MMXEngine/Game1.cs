@@ -25,12 +25,10 @@ namespace MMXEngine.Windows
         
         protected override void LoadContent()
         {
-            _gameManager.LoadContent(Content);
         }
         
         protected override void UnloadContent()
         {
-            _gameManager.UnloadContent();
         }
         
         protected override void Update(GameTime gameTime)
