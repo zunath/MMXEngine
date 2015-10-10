@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\x86\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -35,6 +35,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\MMXEngine.Common\Libraries\artemis.dll</HintPath>
     </Reference>
+    <Reference Include="MonoGame.Framework, Version=3.4.0.456, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,8 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Animation.cs" />
+    <Compile Include="Components\Frame.cs" />
+    <Compile Include="Components\Sprite.cs" />
     <Compile Include="Factories\ComponentFactory.cs" />
-    <Compile Include="Components\HealthComponent.cs" />
+    <Compile Include="Components\Health.cs" />
     <Compile Include="Entities\Enemy.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Player.cs" />
@@ -57,6 +61,10 @@
     <ProjectReference Include="..\MMXEngine.Common\MMXEngine.Common.csproj">
       <Project>{3ad013d0-9e57-49b7-a48b-8bfaeaff1db8}</Project>
       <Name>MMXEngine.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMXEngine.Data\MMXEngine.Data.csproj">
+      <Project>{4b339b8a-29b5-4ab1-92d3-1a1564b0257f}</Project>
+      <Name>MMXEngine.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\MMXEngine.Interfaces\MMXEngine.Interfaces.csproj">
       <Project>{345d211c-7ec0-4be4-ae58-24df72534d9f}</Project>

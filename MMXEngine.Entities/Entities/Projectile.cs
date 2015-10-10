@@ -1,10 +1,9 @@
 ﻿using Artemis;
 using Artemis.Interface;
-using MMXEngine.Interfaces.Entities;
 
 namespace MMXEngine.ECS.Entities
 {
-    public class Projectile : IProjectile, IEntityTemplate
+    public class Projectile : IEntityTemplate
     {
         public Entity BuildEntity(Entity entity, EntityWorld entityWorld, params object[] args)
         {

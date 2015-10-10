@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{345D211C-7EC0-4BE4-AE58-24DF72534D9F}</ProjectGuid>
+    <ProjectGuid>{4B339B8A-29B5-4AB1-92D3-1A1564B0257F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MMXEngine.Interfaces</RootNamespace>
-    <AssemblyName>MMXEngine.Interfaces</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <RootNamespace>MMXEngine.Data</RootNamespace>
+    <AssemblyName>MMXEngine.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,13 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="artemis, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MMXEngine.Common\Libraries\artemis.dll</HintPath>
-    </Reference>
-    <Reference Include="MonoGame.Framework, Version=3.4.0.456, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,22 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Factories\IComponentFactory.cs" />
-    <Compile Include="Managers\ICameraManager.cs" />
-    <Compile Include="Managers\IGameManager.cs" />
-    <Compile Include="Managers\IGameObjectManager.cs" />
-    <Compile Include="Managers\IGraphicsManager.cs" />
-    <Compile Include="Managers\IInputManager.cs" />
-    <Compile Include="Managers\IScreenManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MMXEngine.Common\MMXEngine.Common.csproj">
-      <Project>{3ad013d0-9e57-49b7-a48b-8bfaeaff1db8}</Project>
-      <Name>MMXEngine.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

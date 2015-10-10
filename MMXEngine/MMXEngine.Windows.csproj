@@ -58,7 +58,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\x86\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -79,7 +79,6 @@
     <Compile Include="Factories\GameFactory.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Managers\CameraManager.cs" />
-    <Compile Include="Managers\ContentManager.cs" />
     <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Managers\GameObjectManager.cs" />
     <Compile Include="Managers\GraphicsManager.cs" />
@@ -113,6 +112,10 @@
       <Project>{3ad013d0-9e57-49b7-a48b-8bfaeaff1db8}</Project>
       <Name>MMXEngine.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MMXEngine.Data\MMXEngine.Data.csproj">
+      <Project>{4b339b8a-29b5-4ab1-92d3-1a1564b0257f}</Project>
+      <Name>MMXEngine.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MMXEngine.Entities\MMXEngine.ECS.csproj">
       <Project>{42df8606-533d-4c5c-9cf0-437446b8f6dc}</Project>
       <Name>MMXEngine.ECS</Name>
@@ -120,6 +123,10 @@
     <ProjectReference Include="..\MMXEngine.Interfaces\MMXEngine.Interfaces.csproj">
       <Project>{345d211c-7ec0-4be4-ae58-24df72534d9f}</Project>
       <Name>MMXEngine.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMXEngine.Systems\MMXEngine.Systems.csproj">
+      <Project>{802df28f-e080-4d2d-8b2a-d11637830adf}</Project>
+      <Name>MMXEngine.Systems</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
