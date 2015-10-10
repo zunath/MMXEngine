@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using Artemis;
+using Artemis.Interface;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace MMXEngine.ECS.Components
 {
-    public class Sprite : ComponentPoolable
+    public class Sprite : IComponent
     {
         public Texture2D Texture { get; set; }
         public IEnumerable<Animation> Animations { get; set; }

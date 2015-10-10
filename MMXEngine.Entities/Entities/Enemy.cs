@@ -1,14 +1,12 @@
 ﻿using Artemis;
-using Artemis.Interface;
+using MMXEngine.Interfaces.Entities;
 
 namespace MMXEngine.ECS.Entities
 {
-    public class Enemy : IEntityTemplate
+    public class Enemy : IGameEntity
     {
-        public Entity BuildEntity(Entity entity, EntityWorld entityWorld, params object[] args)
+        public Entity BuildEntity(Entity entity)
         {
-
-
             return entity;
         }
     }

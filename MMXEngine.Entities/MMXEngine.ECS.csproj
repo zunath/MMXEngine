@@ -35,6 +35,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\MMXEngine.Common\Libraries\artemis.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MonoGame.Framework, Version=3.4.0.456, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,7 +53,6 @@
     <Compile Include="Components\Animation.cs" />
     <Compile Include="Components\Frame.cs" />
     <Compile Include="Components\Sprite.cs" />
-    <Compile Include="Factories\ComponentFactory.cs" />
     <Compile Include="Components\Health.cs" />
     <Compile Include="Entities\Enemy.cs" />
     <Compile Include="Entities\Item.cs" />
@@ -71,6 +74,10 @@
       <Name>MMXEngine.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

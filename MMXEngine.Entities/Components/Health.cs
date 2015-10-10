@@ -1,8 +1,8 @@
-﻿using Artemis;
+﻿using Artemis.Interface;
 
 namespace MMXEngine.ECS.Components
 {
-    public class Health : ComponentPoolable
+    public class Health : IComponent
     {
         public int CurrentHitPoints { get; set; }
         public int MaxHitPoints { get; set; }

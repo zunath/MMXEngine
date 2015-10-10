@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Artemis;
+using Artemis.Interface;
 
 namespace MMXEngine.ECS.Components
 {
-    public class Animation: ComponentPoolable
+    public class Animation: IComponent
     {
         public IEnumerable<Frame> Frames { get; set; }
         public int CurrentFrame { get; set; }

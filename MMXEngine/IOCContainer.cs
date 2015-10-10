@@ -6,9 +6,10 @@ using Autofac;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.ECS.Entities;
-using MMXEngine.ECS.Factories;
+using MMXEngine.Interfaces.Entities;
 using MMXEngine.Interfaces.Factories;
 using MMXEngine.Interfaces.Managers;
+using MMXEngine.Windows.Factories;
 using MMXEngine.Windows.Managers;
 
 namespace MMXEngine.Windows
@@ -24,6 +25,7 @@ namespace MMXEngine.Windows
         
         public static void Register(Game game)
         {
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
             var builder = new ContainerBuilder();
             game.Content.RootDirectory = "Content";
 
@@ -33,20 +35,31 @@ namespace MMXEngine.Windows
 
             builder.RegisterType<Texture2D>();
             builder.RegisterType<EntityWorld>().SingleInstance();
+
             builder.RegisterType<CameraManager>().As<ICameraManager>().SingleInstance();
             builder.RegisterType<GameObjectManager>().As<IGameObjectManager>().SingleInstance();
             builder.RegisterType<GraphicsManager>().As<IGraphicsManager>().SingleInstance();
             builder.RegisterType<ScreenManager>().As<IScreenManager>().SingleInstance();
             builder.RegisterType<GameManager>().As<IGameManager>().SingleInstance();
 
-            builder.RegisterType<Player>();
-            builder.RegisterType<ComponentFactory>().As<IComponentFactory>();
+            builder.RegisterType<EntityFactory>().As<IEntityFactory>().SingleInstance();
+            
+            var loadAssemblyCall = new Player(); // At the moment the Entities assembly isn't loaded when this is called, so the next set of instructions don't pick up anything.
+                                                 // This statement is a workaround for the time being to ensure it's loaded before we register components.
 
-            builder.RegisterTypes((from a in AppDomain.CurrentDomain.GetAssemblies()
+            var gameEntities = assemblies
+                .SelectMany(s => s.GetTypes())
+                .Where(p => typeof(IGameEntity).IsAssignableFrom(p) && p.IsClass);
+            foreach (Type type in gameEntities)
+            {
+                builder.RegisterType(type).As<IGameEntity>().Named<IGameEntity>(type.ToString());
+            }
+
+            builder.RegisterTypes((from a in assemblies
                                    from t in a.GetTypes()
                                    where t.IsDefined(typeof(EntityProcessingSystem), true)
                                    select t).ToArray());
-
+            
             _container = builder.Build();
         }
     }
