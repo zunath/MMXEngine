@@ -1,6 +1,5 @@
 ﻿using Artemis;
 using Autofac;
-using MMXEngine.ECS.Entities;
 using MMXEngine.Interfaces.Entities;
 using MMXEngine.Interfaces.Factories;
 

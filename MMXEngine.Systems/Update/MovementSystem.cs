@@ -2,24 +2,22 @@
 using Artemis.Attributes;
 using Artemis.Manager;
 using Artemis.System;
-using MMXEngine.ECS.Components;
 
 namespace MMXEngine.Systems.Update
 {
     [ArtemisEntitySystem(
-        ExecutionType = ExecutionType.Synchronous, 
-        GameLoopType = GameLoopType.Update, 
+        ExecutionType = ExecutionType.Synchronous,
+        GameLoopType = GameLoopType.Update,
         Layer = 1)]
-    public class HealthSystem : EntityProcessingSystem
+    public class MovementSystem : EntityProcessingSystem
     {
-        public HealthSystem() 
-            : base(Artemis.Aspect.All(typeof(Health)))
+        public MovementSystem() : base(Aspect.All())
         {
         }
 
         public override void Process(Entity entity)
         {
-
+            
         }
     }
 }

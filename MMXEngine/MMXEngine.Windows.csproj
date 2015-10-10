@@ -82,6 +82,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Managers\GraphicsManager.cs" />
+    <Compile Include="Managers\SystemLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
