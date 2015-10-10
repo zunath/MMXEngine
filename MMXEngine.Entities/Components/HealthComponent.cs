@@ -1,5 +1,4 @@
-﻿
-using Artemis;
+﻿using Artemis;
 
 namespace MMXEngine.ECS.Components
 {

@@ -1,19 +1,26 @@
 ﻿using System;
 using Artemis;
+using Artemis.Interface;
+using MMXEngine.ECS.Components;
 using MMXEngine.Interfaces.Entities;
+using MMXEngine.Interfaces.Factories;
 
 namespace MMXEngine.ECS.Entities
 {
-    public class Player : IPlayer
+    public class Player : IPlayer, IEntityTemplate
     {
-        public Player(IEnemy enemy, EntityWorld world)
-        {
-            Console.WriteLine(("Enemy val: " + enemy.TestValue));
+        private readonly IComponentFactory _factory;
 
+        public Player(IComponentFactory factory)
+        {
+            _factory = factory;
         }
-
-        public void test()
+        
+        public Entity BuildEntity(Entity entity, EntityWorld entityWorld, params object[] args)
         {
+            _factory.Create<HealthComponent>();
+
+            return entity;
         }
     }
 }
