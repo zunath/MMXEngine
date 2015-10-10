@@ -4,7 +4,7 @@ using Artemis.Manager;
 using Artemis.System;
 using MMXEngine.ECS.Components;
 
-namespace MMXEngine.Systems
+namespace MMXEngine.Systems.Update
 {
     [ArtemisEntitySystem(
         ExecutionType = ExecutionType.Synchronous, 

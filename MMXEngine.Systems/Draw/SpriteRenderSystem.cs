@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.ECS.Components;
 
-namespace MMXEngine.Systems
+namespace MMXEngine.Systems.Draw
 {
     [ArtemisEntitySystem(
         ExecutionType = ExecutionType.Synchronous,

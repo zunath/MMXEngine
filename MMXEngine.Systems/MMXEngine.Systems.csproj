@@ -51,8 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="HealthSystem.cs" />
-    <Compile Include="SpriteRenderSystem.cs" />
+    <Compile Include="Update\HealthSystem.cs" />
+    <Compile Include="Draw\SpriteRenderSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MMXEngine.Data\MMXEngine.Data.csproj">

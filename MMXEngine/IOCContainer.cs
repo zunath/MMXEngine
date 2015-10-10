@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Artemis;
+using Artemis.Interface;
 using Artemis.System;
 using Autofac;
 using Microsoft.Xna.Framework;
@@ -43,17 +44,29 @@ namespace MMXEngine.Windows
             builder.RegisterType<GameManager>().As<IGameManager>().SingleInstance();
 
             builder.RegisterType<EntityFactory>().As<IEntityFactory>().SingleInstance();
-            
-            var loadAssemblyCall = new Player(); // At the moment the Entities assembly isn't loaded when this is called, so the next set of instructions don't pick up anything.
+            builder.RegisterType<ComponentFactory>().As<IComponentFactory>().SingleInstance();
+
+            var loadAssemblyCall = new Enemy(); // At the moment the Entities assembly isn't loaded when this is called, so the next set of instructions don't pick up anything.
                                                  // This statement is a workaround for the time being to ensure it's loaded before we register components.
 
+            // Register IGameEntity implementations
             var gameEntities = assemblies
                 .SelectMany(s => s.GetTypes())
-                .Where(p => typeof(IGameEntity).IsAssignableFrom(p) && p.IsClass);
+                .Where(p => typeof(IGameEntity).IsAssignableFrom(p) && p.IsClass).ToArray();
             foreach (Type type in gameEntities)
             {
                 builder.RegisterType(type).As<IGameEntity>().Named<IGameEntity>(type.ToString());
             }
+
+            // Register IComponent implementations
+            var components = assemblies
+                .SelectMany(s => s.GetTypes())
+                .Where(p => typeof(IComponent).IsAssignableFrom(p) && p.IsClass);
+            foreach (Type type in components)
+            {
+                builder.RegisterType(type).As<IComponent>().Named<IComponent>(type.ToString());
+            }
+
 
             builder.RegisterTypes((from a in assemblies
                                    from t in a.GetTypes()

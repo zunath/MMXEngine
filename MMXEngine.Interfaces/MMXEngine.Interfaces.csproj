@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\IGameEntity.cs" />
+    <Compile Include="Factories\IComponentFactory.cs" />
     <Compile Include="Factories\IEntityFactory.cs" />
     <Compile Include="Managers\ICameraManager.cs" />
     <Compile Include="Managers\IGameManager.cs" />

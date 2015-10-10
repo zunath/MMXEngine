@@ -39,9 +39,7 @@ namespace MMXEngine.Windows.Managers
             _cameraManager.Initialize(new Vector3(0.0f, 50.0f, 5000.0f));
             _world.InitializeAll(true);
 
-
-            var player = _entityFactory.Create<Player>();
-
+            _entityFactory.Create<Player>();
         }
         
         public void LoadContent(XnaContentManager content)

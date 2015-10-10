@@ -75,6 +75,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Factories\ComponentFactory.cs" />
     <Compile Include="Factories\EntityFactory.cs" />
     <Compile Include="IOCContainer.cs" />
     <Compile Include="Factories\GameFactory.cs" />
