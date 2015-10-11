@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Interfaces.Managers;
 
 namespace MMXEngine.Windows.Managers
@@ -10,16 +9,14 @@ namespace MMXEngine.Windows.Managers
         public float Rotation { get; set; }
         public Matrix Transform { get; private set; }
         public Matrix InverseTransform { get; private set; }
-        private Vector2 _position;
+        public Vector2 Position { get; set; }
 
         public CameraManager()
         {
             Transform = new Matrix();
             InverseTransform = new Matrix();
-            _position = Vector2.Zero;
-
+            Position = Vector2.Zero;
             Zoom = 3.0f;
-            Rotation = 0.0f;
         }
 
         public void Update()
@@ -28,7 +25,7 @@ namespace MMXEngine.Windows.Managers
             Rotation = ClampAngle(Rotation);
             Transform = Matrix.CreateRotationZ(Rotation)*
                         Matrix.CreateScale(new Vector3(Zoom, Zoom, 1))*
-                        Matrix.CreateTranslation(_position.X, _position.Y, 0);
+                        Matrix.CreateTranslation(Position.X, Position.Y, 0);
 
             InverseTransform = Matrix.Invert(Transform);
         }

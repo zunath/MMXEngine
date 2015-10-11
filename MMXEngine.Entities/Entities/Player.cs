@@ -34,6 +34,7 @@ namespace MMXEngine.ECS.Entities
             entity.AddComponent(_componentFactory.Create<Health>());
             entity.AddComponent(_componentFactory.Create<Position>());
             entity.AddComponent(_componentFactory.Create<Velocity>());
+            entity.AddComponent(_componentFactory.Create<Renderable>());
 
             return entity;
         }

@@ -50,9 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Draw\RenderSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Draw\HealthRenderSystem.cs" />
-    <Compile Include="Draw\SpriteRenderSystem.cs" />
+    <Compile Include="Update\SpriteSystem.cs" />
     <Compile Include="Single\LoadButtonConfigurationSystem.cs" />
     <Compile Include="Update\CollisionSystem.cs" />
     <Compile Include="Update\PhysicsSystem.cs" />
