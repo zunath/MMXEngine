@@ -42,6 +42,7 @@ namespace MMXEngine.Windows
             builder.RegisterType<GraphicsManager>().As<IGraphicsManager>().SingleInstance();
             builder.RegisterType<GameManager>().As<IGameManager>().SingleInstance();
             builder.RegisterType<ScreenManager>().As<IScreenManager>().SingleInstance();
+            builder.RegisterType<DataManager>().As<IDataManager>().SingleInstance();
 
             builder.RegisterType<EntityFactory>().As<IEntityFactory>().SingleInstance();
             builder.RegisterType<ComponentFactory>().As<IComponentFactory>().SingleInstance();

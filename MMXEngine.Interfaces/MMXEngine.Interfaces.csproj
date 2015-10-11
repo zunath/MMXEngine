@@ -57,6 +57,7 @@
     <Compile Include="Factories\IComponentFactory.cs" />
     <Compile Include="Factories\IEntityFactory.cs" />
     <Compile Include="Factories\IScreenFactory.cs" />
+    <Compile Include="Managers\IDataManager.cs" />
     <Compile Include="Managers\IGameManager.cs" />
     <Compile Include="Managers\IGraphicsManager.cs" />
     <Compile Include="Managers\IScreenManager.cs" />

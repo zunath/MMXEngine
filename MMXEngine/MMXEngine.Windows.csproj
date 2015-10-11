@@ -81,6 +81,7 @@
     <Compile Include="IOCContainer.cs" />
     <Compile Include="Factories\GameFactory.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Managers\DataManager.cs" />
     <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Managers\GraphicsManager.cs" />
     <Compile Include="Managers\ScreenManager.cs" />
@@ -100,6 +101,10 @@
     <Reference Include="MonoGame.Framework">
       <HintPath>$(MSBuildProgramFiles32)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -113,10 +118,6 @@
     <ProjectReference Include="..\MMXEngine.Common\MMXEngine.Common.csproj">
       <Project>{3ad013d0-9e57-49b7-a48b-8bfaeaff1db8}</Project>
       <Name>MMXEngine.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MMXEngine.Data\MMXEngine.Data.csproj">
-      <Project>{4b339b8a-29b5-4ab1-92d3-1a1564b0257f}</Project>
-      <Name>MMXEngine.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\MMXEngine.Entities\MMXEngine.ECS.csproj">
       <Project>{42df8606-533d-4c5c-9cf0-437446b8f6dc}</Project>

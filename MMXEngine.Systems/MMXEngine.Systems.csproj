@@ -56,10 +56,6 @@
     <Compile Include="Update\MovementSystem.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MMXEngine.Data\MMXEngine.Data.csproj">
-      <Project>{4b339b8a-29b5-4ab1-92d3-1a1564b0257f}</Project>
-      <Name>MMXEngine.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MMXEngine.Entities\MMXEngine.ECS.csproj">
       <Project>{42df8606-533d-4c5c-9cf0-437446b8f6dc}</Project>
       <Name>MMXEngine.ECS</Name>

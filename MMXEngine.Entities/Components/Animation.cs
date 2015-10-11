@@ -5,7 +5,10 @@ namespace MMXEngine.ECS.Components
 {
     public class Animation: IComponent
     {
-        public IEnumerable<Frame> Frames { get; set; }
-        public int CurrentFrame { get; set; }
+        public string Name { get; set; }
+        public IList<Frame> Frames { get; set; }
+        public int CurrentFrameID { get; set; }
+        
+        
     }
 }

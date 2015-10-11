@@ -70,10 +70,6 @@
       <Project>{3ad013d0-9e57-49b7-a48b-8bfaeaff1db8}</Project>
       <Name>MMXEngine.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MMXEngine.Data\MMXEngine.Data.csproj">
-      <Project>{4b339b8a-29b5-4ab1-92d3-1a1564b0257f}</Project>
-      <Name>MMXEngine.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MMXEngine.Interfaces\MMXEngine.Interfaces.csproj">
       <Project>{345d211c-7ec0-4be4-ae58-24df72534d9f}</Project>
       <Name>MMXEngine.Interfaces</Name>

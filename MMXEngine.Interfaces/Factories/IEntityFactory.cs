@@ -5,6 +5,6 @@ namespace MMXEngine.Interfaces.Factories
 {
     public interface IEntityFactory
     {
-        Entity Create<T>() where T: IGameEntity;
+        Entity Create<T>(params object[] args) where T: IGameEntity;
     }
 }

@@ -16,12 +16,12 @@ namespace MMXEngine.Windows.Factories
             _context = context;
         }
 
-        public Entity Create<T>()
+        public Entity Create<T>(params object[] args)
             where T: IGameEntity
         {
             Entity entity = _world.CreateEntity();
             IGameEntity gameObject = _context.ResolveNamed<IGameEntity>(typeof (T).ToString());
-            return gameObject.BuildEntity(entity);
+            return gameObject.BuildEntity(entity, args);
         }
     }
 }
