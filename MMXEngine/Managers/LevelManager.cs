@@ -1,8 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.ECS.Components;
 using MMXEngine.Interfaces.Managers;
+using TiledSharp;
 
 namespace MMXEngine.Windows.Managers
 {
@@ -10,10 +12,14 @@ namespace MMXEngine.Windows.Managers
     {
         private readonly ContentManager _contentManager;
         private readonly IDataManager _dataManager;
-        private Texture2D _texture;
-        private Map _map;
+        private Texture2D _tileset;
+        private TmxMap _map;
         private readonly SpriteBatch _spriteBatch;
         private readonly ICameraManager _cameraManager;
+        private int _tileWidth;
+        private int _tileHeight;
+        private int _tilesetTilesWide;
+        private int _tilesetTilesHigh;
 
         public LevelManager(IDataManager dataManager, ICameraManager cameraManager, ContentManager contentManager, SpriteBatch spriteBatch)
         {
@@ -25,8 +31,14 @@ namespace MMXEngine.Windows.Managers
         
         public void ChangeLevel(string levelName)
         {
-            _map = _dataManager.Load<Map>("./Levels/" + levelName + ".json");
-            _texture = _contentManager.Load<Texture2D>("./Tilesets/" + _map.SpritesheetName);
+            _map = new TmxMap("./Data/Levels/" + levelName + ".tmx");
+            _tileset = _contentManager.Load<Texture2D>("Tilesets/" + _map.Tilesets[0].Name + ".png");
+
+            _tileWidth = _map.Tilesets[0].TileWidth;
+            _tileHeight = _map.Tilesets[0].TileHeight;
+
+            _tilesetTilesWide = _tileset.Width / _tileWidth;
+            _tilesetTilesHigh = _tileset.Height / _tileHeight;
         }
 
         public void Draw()
@@ -35,20 +47,24 @@ namespace MMXEngine.Windows.Managers
 
             _spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, _cameraManager.Transform);
 
-            var tiles = _map.Tiles;
-            for (int x = 0; x < tiles.GetLength(0); x++)
+
+            for (var i = 0; i < _map.Layers[0].Tiles.Count; i++)
             {
-                for (int y = 0; y < tiles.GetLength(1); y++)
-                {
-                    Tile tile = _map.Tiles[x, y];
-                    if (tile == null) continue;
+                int gid = _map.Layers[0].Tiles[i].Gid;
+                if (gid == 0) continue;
 
-                    Vector2 position = new Vector2(tile.X * 32, tile.Y * 32);
-                    Rectangle source = new Rectangle(tile.TextureX * 32, tile.TextureY * 32,  32, 32);
+                int tileFrame = gid - 1;
+                int column = tileFrame % _tilesetTilesWide;
+                int row = (tileFrame + 1 > _tilesetTilesWide) ? tileFrame - column * _tilesetTilesWide : 0;
 
-                    _spriteBatch.Draw(_texture, position, source, Color.White);
-                }
+                float x = (i % _map.Width) * _map.TileWidth;
+                float y = (float)Math.Floor(i / (double)_map.Width) * _map.TileHeight;
+
+                Rectangle tilesetRec = new Rectangle(_tileWidth * column, _tileHeight * row, _tileWidth, _tileHeight);
+
+                _spriteBatch.Draw(_tileset, new Rectangle((int)x, (int)y, _tileWidth, _tileHeight), tilesetRec, Color.White);
             }
+
 
             _spriteBatch.End();
         }

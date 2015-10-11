@@ -16,7 +16,7 @@ namespace MMXEngine.Windows.Managers
             Transform = new Matrix();
             InverseTransform = new Matrix();
             Position = Vector2.Zero;
-            Zoom = 3.0f;
+            Zoom = 2.5f;
         }
 
         public void Update()
