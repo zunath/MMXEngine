@@ -27,5 +27,10 @@ namespace MMXEngine.ECS.Screens
         {
 
         }
+
+        public void Close()
+        {
+            
+        }
     }
 }

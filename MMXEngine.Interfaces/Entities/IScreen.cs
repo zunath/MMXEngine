@@ -5,5 +5,6 @@
         void Initialize();
         void Update();
         void Draw();
+        void Close();
     }
 }
