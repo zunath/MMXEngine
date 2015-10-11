@@ -81,6 +81,7 @@
     <Compile Include="IOCContainer.cs" />
     <Compile Include="Factories\GameFactory.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Managers\CameraManager.cs" />
     <Compile Include="Managers\DataManager.cs" />
     <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Managers\GraphicsManager.cs" />

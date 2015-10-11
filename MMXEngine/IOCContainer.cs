@@ -12,7 +12,6 @@ using MMXEngine.Interfaces.Factories;
 using MMXEngine.Interfaces.Managers;
 using MMXEngine.Interfaces.Systems;
 using MMXEngine.Systems.Draw;
-using MMXEngine.Systems.Update;
 using MMXEngine.Windows.Factories;
 using MMXEngine.Windows.Managers;
 
@@ -45,6 +44,7 @@ namespace MMXEngine.Windows
             builder.RegisterType<ScreenManager>().As<IScreenManager>().SingleInstance();
             builder.RegisterType<DataManager>().As<IDataManager>().SingleInstance();
             builder.RegisterType<InputManager>().As<IInputManager>().SingleInstance();
+            builder.RegisterType<CameraManager>().As<ICameraManager>().SingleInstance();
 
             builder.RegisterType<EntityFactory>().As<IEntityFactory>().SingleInstance();
             builder.RegisterType<ComponentFactory>().As<IComponentFactory>().SingleInstance();

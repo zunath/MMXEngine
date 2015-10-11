@@ -28,22 +28,14 @@ namespace MMXEngine.ECS.Entities
         public Entity BuildEntity(Entity entity, params object[] args)
         {
             CharacterType characterType = args.Length > 0 ? (CharacterType) args[0] : CharacterType.X;
-            
-            entity.AddComponent(BuildPhysics());
+
             entity.AddComponent(BuildSprite(characterType));
+            entity.AddComponent(_componentFactory.Create<PlayerPhysics>());
             entity.AddComponent(_componentFactory.Create<Health>());
             entity.AddComponent(_componentFactory.Create<Position>());
+            entity.AddComponent(_componentFactory.Create<Velocity>());
 
             return entity;
-        }
-
-        private Physics BuildPhysics()
-        {
-            Physics physics = _componentFactory.Create<Physics>();
-            physics.TargetSpeed = 10.0f;
-            physics.Acceleration = 5;
-
-            return physics;
         }
 
         private Sprite BuildSprite(CharacterType characterType)

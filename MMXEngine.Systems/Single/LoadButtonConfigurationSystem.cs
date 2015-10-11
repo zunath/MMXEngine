@@ -1,4 +1,5 @@
-﻿using Artemis.Attributes;
+﻿using Artemis;
+using Artemis.Attributes;
 using Artemis.Manager;
 using Artemis.System;
 using MMXEngine.ECS.Components;

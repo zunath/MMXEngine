@@ -1,12 +1,10 @@
 ﻿using Artemis.Interface;
-using MMXEngine.Common.Enumerations;
 
 namespace MMXEngine.ECS.Components
 {
-    public class Position : IComponent
+    public class Velocity : IComponent
     {
         public float X { get; set; }
         public float Y { get; set; }
-        public Direction Facing { get; set; }
     }
 }

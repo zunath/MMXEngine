@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Enemies\" />
+    <Folder Include="Data\Levels\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\Animations\MMXAnimations.json">
@@ -64,7 +65,9 @@
     <None Include="Data\Animations\ZeroAnimations.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Data\ButtonConfiguration.json" />
+    <None Include="Data\ButtonConfiguration.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
