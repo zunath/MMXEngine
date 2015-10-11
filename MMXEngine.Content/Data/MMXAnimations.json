@@ -1,13 +1,15 @@
-﻿{
+﻿[
+  {
     "Name": "Idle",
     "Frames": [
-        {
-            "X": 0,
-            "Y": 0,
-            "Height": 64,
-            "Width": 64,
-            "Length": 0.5
-        }
+      {
+        "X": 0,
+        "Y": 0,
+        "Height": 64,
+        "Width": 64,
+        "Length": 0.5
+      }
     ],
     "CurrentFrameID": 0
-}
+  }
+]

@@ -40,6 +40,7 @@ namespace MMXEngine.Windows
         
         protected override void Draw(GameTime gameTime)
         {
+            GraphicsDevice.Clear(Color.Black);
             _gameManager.Draw();
             base.Draw(gameTime);
         }

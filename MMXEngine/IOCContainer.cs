@@ -35,7 +35,7 @@ namespace MMXEngine.Windows
             builder.RegisterInstance(new SpriteBatch(game.GraphicsDevice)).AsSelf();
             builder.RegisterInstance(game.Content).AsSelf();
             builder.RegisterInstance(game.GraphicsDevice).AsSelf();
-
+            
             builder.RegisterType<Texture2D>();
             builder.RegisterType<EntityWorld>().SingleInstance();
             

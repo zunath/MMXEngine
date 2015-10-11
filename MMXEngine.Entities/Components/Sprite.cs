@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Artemis.Interface;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace MMXEngine.ECS.Components
@@ -9,8 +8,8 @@ namespace MMXEngine.ECS.Components
     {
         public Texture2D Texture { get; set; }
         public IDictionary<int, Animation> Animations { get; set; }
-        public Vector2 Position { get; set; }
         public int CurrentAnimationID { get; set; }
+        public float FrameActiveTime { get; set; }
 
         public Sprite()
         {

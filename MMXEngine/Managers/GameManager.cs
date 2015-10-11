@@ -44,11 +44,13 @@ namespace MMXEngine.Windows.Managers
         public void Update(GameTime gameTime)
         {
             _world.Update();
+            _screenManager.Update();
         }
         
         public void Draw()
         {
             _world.Draw();
+            _screenManager.Draw();
         }
         
         public void Exit()

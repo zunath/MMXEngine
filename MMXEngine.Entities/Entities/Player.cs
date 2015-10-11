@@ -37,6 +37,7 @@ namespace MMXEngine.ECS.Entities
                 animationFile = "Animations/ZeroAnimations.json";
             }
 
+            entity.AddComponent(_componentFactory.Create<Position>());
             Sprite sprite = _componentFactory.Create<Sprite>();
             sprite.Texture = _contentManager.Load<Texture2D>(textureFile);
             sprite.Animations = new Dictionary<int, Animation>();
