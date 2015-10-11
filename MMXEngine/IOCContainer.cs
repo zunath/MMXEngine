@@ -12,6 +12,7 @@ using MMXEngine.Interfaces.Factories;
 using MMXEngine.Interfaces.Managers;
 using MMXEngine.Interfaces.Systems;
 using MMXEngine.Systems.Draw;
+using MMXEngine.Systems.Update;
 using MMXEngine.Windows.Factories;
 using MMXEngine.Windows.Managers;
 
@@ -45,6 +46,7 @@ namespace MMXEngine.Windows
             builder.RegisterType<DataManager>().As<IDataManager>().SingleInstance();
             builder.RegisterType<InputManager>().As<IInputManager>().SingleInstance();
             builder.RegisterType<CameraManager>().As<ICameraManager>().SingleInstance();
+            builder.RegisterType<LevelManager>().As<ILevelManager>().SingleInstance();
 
             builder.RegisterType<EntityFactory>().As<IEntityFactory>().SingleInstance();
             builder.RegisterType<ComponentFactory>().As<IComponentFactory>().SingleInstance();
@@ -52,7 +54,7 @@ namespace MMXEngine.Windows
             builder.RegisterType<SystemLoader>().As<ISystemLoader>();
 
             var loadAssemblyCall = new Enemy();         // At the moment the Entities assembly isn't loaded when this is called, so the next set of instructions don't pick up anything.
-            var loadAssemblyCall2 = new HealthRenderSystem(); // These statements are a workaround for the time being to ensure the assembly is loaded before we register components.
+            var loadAssemblyCall2 = new PhysicsSystem(); // These statements are a workaround for the time being to ensure the assembly is loaded before we register components.
 
             // Register IGameEntity implementations
             var gameEntities = assemblies

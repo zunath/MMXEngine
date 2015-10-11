@@ -1,6 +1,8 @@
-﻿using Artemis.Attributes;
+﻿using Artemis;
+using Artemis.Attributes;
 using Artemis.Manager;
 using Artemis.System;
+using Artemis.Utils;
 
 namespace MMXEngine.Systems.Update
 {
@@ -10,5 +12,17 @@ namespace MMXEngine.Systems.Update
         Layer = 1)]
     public class CollisionSystem : EntitySystem
     {
+        private EntityWorld _world;
+
+        public CollisionSystem(EntityWorld world)
+        {
+            _world = world;
+        }
+
+        public override void Process()
+        {
+
+            base.Process();
+        }
     }
 }

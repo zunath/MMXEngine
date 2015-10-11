@@ -63,6 +63,7 @@
     <Compile Include="Managers\IGameManager.cs" />
     <Compile Include="Managers\IGraphicsManager.cs" />
     <Compile Include="Managers\IInputManager.cs" />
+    <Compile Include="Managers\ILevelManager.cs" />
     <Compile Include="Managers\IScreenManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Systems\ISystemLoader.cs" />

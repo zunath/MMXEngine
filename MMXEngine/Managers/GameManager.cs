@@ -17,6 +17,7 @@ namespace MMXEngine.Windows.Managers
         private readonly IScreenFactory _screenFactory;
         private readonly IInputManager _inputManager;
         private readonly ICameraManager _cameraManager;
+        private readonly ILevelManager _levelManager;
 
         public GameManager(
             IGraphicsManager graphicsManager,
@@ -25,7 +26,8 @@ namespace MMXEngine.Windows.Managers
             IScreenManager screenManager,
             IScreenFactory screenFactory,
             IInputManager inputManager,
-            ICameraManager cameraManager
+            ICameraManager cameraManager,
+            ILevelManager levelManager
             )
         {
             _graphicsManager = graphicsManager;
@@ -35,6 +37,7 @@ namespace MMXEngine.Windows.Managers
             _screenFactory = screenFactory;
             _inputManager = inputManager;
             _cameraManager = cameraManager;
+            _levelManager = levelManager;
         }
         
         public void Initialize(GraphicsDeviceManager graphics)
@@ -57,6 +60,7 @@ namespace MMXEngine.Windows.Managers
         public void Draw()
         {
             _world.Draw();
+            _levelManager.Draw();
             _screenManager.Draw();
         }
         

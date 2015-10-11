@@ -86,6 +86,7 @@
     <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Managers\GraphicsManager.cs" />
     <Compile Include="Managers\InputManager.cs" />
+    <Compile Include="Managers\LevelManager.cs" />
     <Compile Include="Managers\ScreenManager.cs" />
     <Compile Include="Managers\SystemLoader.cs" />
     <Compile Include="Program.cs" />
@@ -120,6 +121,10 @@
     <ProjectReference Include="..\MMXEngine.Common\MMXEngine.Common.csproj">
       <Project>{3ad013d0-9e57-49b7-a48b-8bfaeaff1db8}</Project>
       <Name>MMXEngine.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMXEngine.Content\MMXEngine.Content.csproj">
+      <Project>{6604a977-5d69-4a51-9cd5-4a07c360280f}</Project>
+      <Name>MMXEngine.Content</Name>
     </ProjectReference>
     <ProjectReference Include="..\MMXEngine.Entities\MMXEngine.ECS.csproj">
       <Project>{42df8606-533d-4c5c-9cf0-437446b8f6dc}</Project>

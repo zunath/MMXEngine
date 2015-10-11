@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Artemis;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Common.Enumerations;
@@ -35,6 +36,7 @@ namespace MMXEngine.ECS.Entities
             entity.AddComponent(_componentFactory.Create<Position>());
             entity.AddComponent(_componentFactory.Create<Velocity>());
             entity.AddComponent(_componentFactory.Create<Renderable>());
+            entity.AddComponent(BuildCollisionBox());
 
             return entity;
         }
@@ -58,8 +60,17 @@ namespace MMXEngine.ECS.Entities
             {
                 sprite.Animations.Add(animationID, animations[animationID]);
             }
-
+            
             return sprite;
+        }
+
+        private CollisionBox BuildCollisionBox()
+        {
+            CollisionBox box = _componentFactory.Create<CollisionBox>();
+            box.Bounds = new Rectangle(0, 0, 60, 60);
+            box.IsVisible = true;
+
+            return box;
         }
 
     }
