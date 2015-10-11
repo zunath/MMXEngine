@@ -1,0 +1,22 @@
+﻿using MMXEngine.Interfaces.Entities;
+
+namespace MMXEngine.ECS.Screens
+{
+    public class MenuScreen : IScreen
+    {
+        public void Initialize()
+        {
+            
+        }
+
+        public void Update()
+        {
+            
+        }
+
+        public void Draw()
+        {
+            
+        }
+    }
+}

@@ -77,11 +77,13 @@
   <ItemGroup>
     <Compile Include="Factories\ComponentFactory.cs" />
     <Compile Include="Factories\EntityFactory.cs" />
+    <Compile Include="Factories\ScreenFactory.cs" />
     <Compile Include="IOCContainer.cs" />
     <Compile Include="Factories\GameFactory.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Managers\GraphicsManager.cs" />
+    <Compile Include="Managers\ScreenManager.cs" />
     <Compile Include="Managers\SystemLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

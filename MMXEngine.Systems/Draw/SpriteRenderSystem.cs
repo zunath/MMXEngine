@@ -15,13 +15,7 @@ namespace MMXEngine.Systems.Draw
     public class SpriteRenderSystem: EntityProcessingSystem
     {
         private readonly SpriteBatch _spriteBatch;
-
-        public SpriteRenderSystem()
-            : base(Aspect.All(typeof (Sprite)))
-        {
-            
-        }
-
+        
         public SpriteRenderSystem(SpriteBatch spriteBatch)
             : base(Aspect.All(typeof(Sprite)))
         {

@@ -41,9 +41,11 @@ namespace MMXEngine.Windows
             
             builder.RegisterType<GraphicsManager>().As<IGraphicsManager>().SingleInstance();
             builder.RegisterType<GameManager>().As<IGameManager>().SingleInstance();
+            builder.RegisterType<ScreenManager>().As<IScreenManager>().SingleInstance();
 
             builder.RegisterType<EntityFactory>().As<IEntityFactory>().SingleInstance();
             builder.RegisterType<ComponentFactory>().As<IComponentFactory>().SingleInstance();
+            builder.RegisterType<ScreenFactory>().As<IScreenFactory>().SingleInstance();
             builder.RegisterType<SystemLoader>().As<ISystemLoader>();
 
             var loadAssemblyCall = new Enemy();         // At the moment the Entities assembly isn't loaded when this is called, so the next set of instructions don't pick up anything.
@@ -75,13 +77,16 @@ namespace MMXEngine.Windows
             {
                 builder.RegisterType(type).As<EntitySystem>().Named<EntitySystem>(type.ToString());
             }
-
-
-            builder.RegisterTypes((from a in assemblies
-                                   from t in a.GetTypes()
-                                   where t.IsDefined(typeof(EntityProcessingSystem), true)
-                                   select t).ToArray());
             
+            // Register screens
+            var screens = assemblies
+                .SelectMany(s => s.GetTypes())
+                .Where(p => typeof (IScreen).IsAssignableFrom(p) && p.IsClass);
+            foreach (Type type in screens)
+            {
+                builder.RegisterType(type).As<IScreen>().Named<IScreen>(type.ToString());
+            }
+
             _container = builder.Build();
         }
     }
