@@ -1,0 +1,10 @@
+﻿{
+    "MoveLeft": 65,
+    "MoveRight": 68,
+    "MoveUp": 87,
+    "MoveDown": 83,
+    "Jump": 76,
+    "Dash": 75,
+    "Shoot": 74,
+    "Menu": 32
+}

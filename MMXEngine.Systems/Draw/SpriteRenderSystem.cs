@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Artemis;
 using Artemis.Attributes;
 using Artemis.Manager;
@@ -34,7 +33,6 @@ namespace MMXEngine.Systems.Draw
             Sprite sprite = entity.GetComponent<Sprite>();
             Position position = entity.GetComponent<Position>();
             var animation = sprite.Animations[sprite.CurrentAnimationID];
-            float delta = _world.DeltaSeconds();
             Frame frame = animation.Frames[animation.CurrentFrameID];
 
             sprite.FrameActiveTime += _world.DeltaSeconds();
@@ -49,8 +47,7 @@ namespace MMXEngine.Systems.Draw
             {
                 animation.CurrentFrameID = 0;
             }
-
-
+            
             _sourceRectangle.X = frame.X;
             _sourceRectangle.Y = frame.Y;
             _sourceRectangle.Width = frame.Width;

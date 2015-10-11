@@ -1,4 +1,6 @@
-﻿using MMXEngine.Common.Enumerations;
+﻿using Microsoft.Xna.Framework.Input;
+using MMXEngine.Common.Enumerations;
+using MMXEngine.ECS.Components;
 using MMXEngine.ECS.Entities;
 using MMXEngine.Interfaces.Entities;
 using MMXEngine.Interfaces.Factories;

@@ -4,16 +4,16 @@ using Artemis.Manager;
 using Artemis.System;
 using MMXEngine.ECS.Components;
 
-namespace MMXEngine.Systems.Update
+namespace MMXEngine.Systems.Draw
 {
     [ArtemisEntitySystem(
         ExecutionType = ExecutionType.Synchronous, 
-        GameLoopType = GameLoopType.Update, 
+        GameLoopType = GameLoopType.Draw, 
         Layer = 1)]
-    public class HealthSystem : EntityProcessingSystem
+    public class HealthRenderSystem : EntityProcessingSystem
     {
-        public HealthSystem() 
-            : base(Artemis.Aspect.All(typeof(Health)))
+        public HealthRenderSystem() 
+            : base(Aspect.All(typeof(Health)))
         {
         }
 

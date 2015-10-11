@@ -58,12 +58,13 @@
     <Folder Include="Content\Enemies\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\MMXAnimations.json">
+    <None Include="Data\Animations\MMXAnimations.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Data\ZeroAnimations.json">
+    <None Include="Data\Animations\ZeroAnimations.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Data\ButtonConfiguration.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
