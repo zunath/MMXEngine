@@ -1,4 +1,5 @@
-﻿using Artemis.Interface;
+﻿using System.Collections.Generic;
+using Artemis.Interface;
 using Microsoft.Xna.Framework.Graphics;
 using TiledSharp;
 
@@ -14,6 +15,6 @@ namespace MMXEngine.ECS.Components
 
         public TmxMap LevelMap { get; set; }
         public Texture2D Tileset { get; set; }
-
+        public IEnumerable<CollisionBox> Collisions { get; set; }
     }
 }

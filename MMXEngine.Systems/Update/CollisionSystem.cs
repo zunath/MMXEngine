@@ -2,6 +2,9 @@
 using Artemis.Attributes;
 using Artemis.Manager;
 using Artemis.System;
+using MMXEngine.ECS.Components;
+using MMXEngine.ECS.Entities;
+using TiledSharp;
 
 namespace MMXEngine.Systems.Update
 {
@@ -11,7 +14,7 @@ namespace MMXEngine.Systems.Update
         Layer = 1)]
     public class CollisionSystem : EntitySystem
     {
-        private EntityWorld _world;
+        private readonly EntityWorld _world;
 
         public CollisionSystem(EntityWorld world)
         {
@@ -20,6 +23,13 @@ namespace MMXEngine.Systems.Update
 
         public override void Process()
         {
+            Entity level = _world.EntityManager.GetEntities(Aspect.All(typeof (Map)))[0];
+            if (level == null) return;
+
+            Map levelMap = level.GetComponent<Map>();
+            TmxMap map = levelMap.LevelMap;
+
+            
 
             base.Process();
         }

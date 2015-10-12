@@ -1,10 +1,13 @@
-﻿using Artemis;
+﻿using System.Collections.Generic;
+using Artemis;
 using Artemis.Attributes;
 using Artemis.Manager;
 using Artemis.System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.ECS.Components;
+using MMXEngine.Interfaces.Factories;
 using TiledSharp;
 
 namespace MMXEngine.Systems.Update
@@ -16,11 +19,13 @@ namespace MMXEngine.Systems.Update
     public class LevelSystem : EntityProcessingSystem
     {
         private readonly ContentManager _contentManager;
+        private readonly IComponentFactory _componentFactory;
 
-        public LevelSystem(ContentManager contentManager) 
+        public LevelSystem(ContentManager contentManager, IComponentFactory componentFactory) 
             : base(Aspect.All(typeof(Map)))
         {
             _contentManager = contentManager;
+            _componentFactory = componentFactory;
         }
 
         public override void Process(Entity entity)
@@ -36,7 +41,25 @@ namespace MMXEngine.Systems.Update
 
                 mapComponent.TilesetTilesWide = mapComponent.Tileset.Width / mapComponent.TileWidth;
                 mapComponent.TilesetTilesHigh = mapComponent.Tileset.Height / mapComponent.TileHeight;
+
+                mapComponent.Collisions = BuildCollisions(mapComponent);
             }
+        }
+
+        IEnumerable<CollisionBox> BuildCollisions(Map levelMap)
+        {
+            List<CollisionBox> collisions = new List<CollisionBox>();
+            TmxMap map = levelMap.LevelMap;
+            
+            foreach (var collision in map.ObjectGroups["Collision"].Objects)
+            {
+                var box = _componentFactory.Create<CollisionBox>();
+                box.Bounds = new Rectangle((int)collision.X, (int)collision.Y, (int)collision.Width, (int)collision.Height);
+                collisions.Add(box);
+            }
+
+
+            return collisions;
         }
     }
 }
