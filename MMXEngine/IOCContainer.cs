@@ -46,7 +46,6 @@ namespace MMXEngine.Windows
             builder.RegisterType<DataManager>().As<IDataManager>().SingleInstance();
             builder.RegisterType<InputManager>().As<IInputManager>().SingleInstance();
             builder.RegisterType<CameraManager>().As<ICameraManager>().SingleInstance();
-            builder.RegisterType<LevelManager>().As<ILevelManager>().SingleInstance();
 
             builder.RegisterType<EntityFactory>().As<IEntityFactory>().SingleInstance();
             builder.RegisterType<ComponentFactory>().As<IComponentFactory>().SingleInstance();

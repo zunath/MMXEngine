@@ -48,12 +48,17 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="TiledSharp, Version=0.10.5500.41039, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TiledSharp.0.11.1\lib\net40\TiledSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\Animation.cs" />
     <Compile Include="Components\ButtonConfiguration.cs" />
     <Compile Include="Components\CollisionBox.cs" />
     <Compile Include="Components\Frame.cs" />
+    <Compile Include="Components\Map.cs" />
     <Compile Include="Components\PlayerPhysics.cs" />
     <Compile Include="Components\Position.cs" />
     <Compile Include="Components\Renderable.cs" />
@@ -62,6 +67,7 @@
     <Compile Include="Components\Velocity.cs" />
     <Compile Include="Entities\Enemy.cs" />
     <Compile Include="Entities\Item.cs" />
+    <Compile Include="Entities\Level.cs" />
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\Projectile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

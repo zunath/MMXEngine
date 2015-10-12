@@ -2,7 +2,6 @@
 using Artemis.Attributes;
 using Artemis.Manager;
 using Artemis.System;
-using Artemis.Utils;
 
 namespace MMXEngine.Systems.Update
 {
