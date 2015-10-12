@@ -59,9 +59,9 @@ namespace MMXEngine.Windows.Managers
         
         public void Draw()
         {
-            _world.Draw();
             _levelManager.Draw();
             _screenManager.Draw();
+            _world.Draw();
         }
         
         public void Exit()
