@@ -9,30 +9,32 @@ namespace MMXEngine.Windows.Managers
     public class InputManager : IInputManager
     {
         private KeyboardState _lastFrameKBState;
+        private KeyboardState _currentKBState;
         private IButtonConfiguration Configuration { get; set; }
 
         public bool IsPressed(GameButton button)
         {
             Keys key = ButtonToKey(button);
-            return Keyboard.GetState().IsKeyUp(key) &&
+            return _currentKBState.IsKeyUp(key) &&
                 _lastFrameKBState.IsKeyDown(key);
         }
 
         public bool IsDown(GameButton button)
         {
             Keys key = ButtonToKey(button);
-            return Keyboard.GetState().IsKeyDown(key);
+            return _currentKBState.IsKeyDown(key);
         }
 
         public bool IsUp(GameButton button)
         {
             Keys key = ButtonToKey(button);
-            return Keyboard.GetState().IsKeyUp(key);
+            return _currentKBState.IsKeyUp(key);
         }
 
         public void Update()
         {
-            _lastFrameKBState = Keyboard.GetState();
+            _lastFrameKBState = _currentKBState;
+            _currentKBState = Keyboard.GetState();
         }
 
         public void SetConfiguration(IButtonConfiguration configuration)

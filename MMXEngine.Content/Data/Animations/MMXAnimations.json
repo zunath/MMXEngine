@@ -3,13 +3,219 @@
     "Name": "Idle",
     "Frames": [
       {
-        "X": 0,
-        "Y": 0,
-        "Height": 64,
-        "Width": 64,
-        "Length": 0.5
+        "X": 323,
+        "Y": 17,
+        "Width": 30,
+        "Height": 34,
+        "Length": 3.0,
+        "OffsetX": 0,
+        "OffsetY": 0
+      },
+      {
+        "X": 357,
+        "Y": 17,
+        "Width": 30,
+        "Height": 34,
+        "Length": 0.1,
+        "OffsetX": 0,
+        "OffsetY": 0
+      },
+      {
+        "X": 391,
+        "Y": 17,
+        "Width": 30,
+        "Height": 34,
+        "Length": 0.1,
+        "OffsetX": 0,
+        "OffsetY": 0
+      },
+      {
+        "X": 357,
+        "Y": 17,
+        "Width": 30,
+        "Height": 34,
+        "Length": 0.1,
+        "OffsetX": 0,
+        "OffsetY": 0
+      },
+      {
+        "X": 323,
+        "Y": 17,
+        "Width": 30,
+        "Height": 34,
+        "Length": 1.0,
+        "OffsetX": 0,
+        "OffsetY": 0
+      },
+      {
+        "X": 357,
+        "Y": 17,
+        "Width": 30,
+        "Height": 34,
+        "Length": 0.1,
+        "OffsetX": 0,
+        "OffsetY": 0
+      },
+      {
+        "X": 391,
+        "Y": 17,
+        "Width": 30,
+        "Height": 34,
+        "Length": 0.1,
+        "OffsetX": 0,
+        "OffsetY": 0
+      },
+      {
+        "X": 357,
+        "Y": 17,
+        "Width": 30,
+        "Height": 34,
+        "Length": 0.1,
+        "OffsetX": 0,
+        "OffsetY": 0
+      },
+      {
+        "X": 323,
+        "Y": 17,
+        "Width": 30,
+        "Height": 34,
+        "Length": 0.1,
+        "OffsetX": 0,
+        "OffsetY": 0
+      },
+      {
+        "X": 357,
+        "Y": 17,
+        "Width": 30,
+        "Height": 34,
+        "Length": 0.1,
+        "OffsetX": 0,
+        "OffsetY": 0
+      },
+      {
+        "X": 391,
+        "Y": 17,
+        "Width": 30,
+        "Height": 34,
+        "Length": 0.1,
+        "OffsetX": 0,
+        "OffsetY": 0
+      },
+      {
+        "X": 357,
+        "Y": 17,
+        "Width": 30,
+        "Height": 34,
+        "Length": 0.1,
+        "OffsetX": 0,
+        "OffsetY": 0
       }
     ],
     "CurrentFrameID": 0
+  },
+  {
+    "Name": "Run",
+    "Frames": [
+      {
+        "X": 106,
+        "Y": 107,
+        "Width": 30,
+        "Height": 34,
+        "Length": 0.05,
+        "OffsetX": 0,
+        "OffsetY": 0,
+        "OnlyRunOnce":  true
+      },
+      {
+        "X": 137,
+        "Y": 107,
+        "Width": 20,
+        "Height": 34,
+        "Length": 0.1,
+        "OffsetX": 6,
+        "OffsetY": 0
+      },
+      {
+        "X": 158,
+        "Y": 106,
+        "Width": 23,
+        "Height": 35,
+        "Length": 0.1,
+        "OffsetX": 3,
+        "OffsetY": 0
+      },
+      {
+        "X": 181,
+        "Y": 107,
+        "Width": 32,
+        "Height": 34,
+        "Length": 0.1,
+        "OffsetX": -1,
+        "OffsetY": 0
+      },
+      {
+        "X": 213,
+        "Y": 108,
+        "Width": 34,
+        "Height": 33,
+        "Length": 0.1,
+        "OffsetX": -3,
+        "OffsetY": 0
+      },
+      {
+        "X": 247,
+        "Y": 108,
+        "Width": 26,
+        "Height": 33,
+        "Length": 0.1,
+        "OffsetX": 1,
+        "OffsetY": 0
+      },
+      {
+        "X": 276,
+        "Y": 107,
+        "Width": 22,
+        "Height": 34,
+        "Length": 0.1,
+        "OffsetX": 4,
+        "OffsetY": 0
+      },
+      {
+        "X": 298,
+        "Y": 106,
+        "Width": 25,
+        "Height": 35,
+        "Length": 0.1,
+        "OffsetX": 2,
+        "OffsetY": 0
+      },
+      {
+        "X": 326,
+        "Y": 107,
+        "Width": 30,
+        "Height": 34,
+        "Length": 0.1,
+        "OffsetX": 1,
+        "OffsetY": 0
+      },
+      {
+        "X": 357,
+        "Y": 108,
+        "Width": 34,
+        "Height": 33,
+        "Length": 0.1,
+        "OffsetX": -2,
+        "OffsetY": 0
+      },
+      {
+        "X": 391,
+        "Y": 108,
+        "Width": 29,
+        "Height": 33,
+        "Length": 0.1,
+        "OffsetX": 0,
+        "OffsetY": 0
+      }
+    ]
   }
 ]

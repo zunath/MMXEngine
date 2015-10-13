@@ -22,7 +22,7 @@ namespace MMXEngine.ECS.Screens
         public void Initialize()
         {
             _entityFactory.Create<Level>("TestLevel");
-            _entityFactory.Create<Player>(CharacterType.Zero);
+            _entityFactory.Create<Player>(CharacterType.X);
         }
 
         public void Update()
