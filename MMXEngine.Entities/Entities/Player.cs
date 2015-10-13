@@ -60,7 +60,7 @@ namespace MMXEngine.ECS.Entities
             {
                 sprite.Animations.Add(animationID, animations[animationID]);
             }
-            sprite.CurrentAnimationID = 1; // TODO: Remove
+            sprite.CurrentAnimationID = 3; // TODO: Remove
 
             return sprite;
         }

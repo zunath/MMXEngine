@@ -124,14 +124,14 @@
         "Length": 0.05,
         "OffsetX": 0,
         "OffsetY": 0,
-        "OnlyRunOnce":  true
+        "OnlyRunOnce": true
       },
       {
         "X": 137,
         "Y": 107,
         "Width": 20,
         "Height": 34,
-        "Length": 0.1,
+        "Length": 0.05,
         "OffsetX": 6,
         "OffsetY": 0
       },
@@ -140,7 +140,7 @@
         "Y": 106,
         "Width": 23,
         "Height": 35,
-        "Length": 0.1,
+        "Length": 0.05,
         "OffsetX": 3,
         "OffsetY": 0
       },
@@ -149,7 +149,7 @@
         "Y": 107,
         "Width": 32,
         "Height": 34,
-        "Length": 0.1,
+        "Length": 0.05,
         "OffsetX": -1,
         "OffsetY": 0
       },
@@ -158,7 +158,7 @@
         "Y": 108,
         "Width": 34,
         "Height": 33,
-        "Length": 0.1,
+        "Length": 0.05,
         "OffsetX": -3,
         "OffsetY": 0
       },
@@ -167,7 +167,7 @@
         "Y": 108,
         "Width": 26,
         "Height": 33,
-        "Length": 0.1,
+        "Length": 0.05,
         "OffsetX": 1,
         "OffsetY": 0
       },
@@ -176,7 +176,7 @@
         "Y": 107,
         "Width": 22,
         "Height": 34,
-        "Length": 0.1,
+        "Length": 0.05,
         "OffsetX": 4,
         "OffsetY": 0
       },
@@ -185,7 +185,7 @@
         "Y": 106,
         "Width": 25,
         "Height": 35,
-        "Length": 0.1,
+        "Length": 0.05,
         "OffsetX": 2,
         "OffsetY": 0
       },
@@ -194,7 +194,7 @@
         "Y": 107,
         "Width": 30,
         "Height": 34,
-        "Length": 0.1,
+        "Length": 0.05,
         "OffsetX": 1,
         "OffsetY": 0
       },
@@ -203,7 +203,7 @@
         "Y": 108,
         "Width": 34,
         "Height": 33,
-        "Length": 0.1,
+        "Length": 0.05,
         "OffsetX": -2,
         "OffsetY": 0
       },
@@ -212,8 +212,83 @@
         "Y": 108,
         "Width": 29,
         "Height": 33,
+        "Length": 0.05,
+        "OffsetX": 0,
+        "OffsetY": 0
+      }
+    ]
+  },
+  {
+    "Name": "Jump",
+    "Frames": [
+      {
+        "X": 202,
+        "Y": 63,
+        "Width": 24,
+        "Height": 37,
         "Length": 0.1,
         "OffsetX": 0,
+        "OffsetY": 0,
+        "OnlyRunOnce": true
+      },
+      {
+        "X": 231,
+        "Y": 59,
+        "Width": 15,
+        "Height": 41,
+        "Length": 0.1,
+        "OffsetX": 5,
+        "OffsetY": 0,
+        "OnlyRunOnce": true
+      },
+      {
+        "X": 252,
+        "Y": 54,
+        "Width": 19,
+        "Height": 46,
+        "Length": 0.1,
+        "OffsetX": 2,
+        "OffsetY": -3,
+        "OnlyRunOnce": true
+      },
+      {
+        "X": 274,
+        "Y": 59,
+        "Width": 23,
+        "Height": 41,
+        "Length": 0.1,
+        "OffsetX": -2,
+        "OffsetY": 0,
+        "OnlyRunOnce": true
+      },
+      {
+        "X": 299,
+        "Y": 58,
+        "Width": 27,
+        "Height": 42,
+        "Length": 0.1,
+        "OffsetX": -5,
+        "OffsetY": 0
+      }
+    ]
+  },
+  {
+    "Name": "Land",
+    "Frames": [
+      {
+        "X": 331,
+        "Y": 62,
+        "Width": 24,
+        "Height": 38,
+        "OffsetX": -1,
+        "OffsetY": 0
+      },
+      {
+        "X": 356,
+        "Y": 68,
+        "Width": 30,
+        "Height": 32,
+        "OffsetX": -7,
         "OffsetY": 0
       }
     ]

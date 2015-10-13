@@ -44,9 +44,10 @@ namespace MMXEngine.Systems.Update
             //if(_inputManager.IsPressed(GameButton.Shoot)) // DEBUGGING
             if (sprite.FrameActiveTime > frame.Length)
             {
+                frame.HasRunOnce = true;
                 animation.CurrentFrameID++;
                 sprite.FrameActiveTime = 0;
-                frame.HasRunOnce = true;
+                frame = animation.Frames[animation.CurrentFrameID];
             }
 
             while (frame.OnlyRunOnce && frame.HasRunOnce)

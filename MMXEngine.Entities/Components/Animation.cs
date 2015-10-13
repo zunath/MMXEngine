@@ -18,7 +18,19 @@ namespace MMXEngine.ECS.Components
             }
             set
             {
-                _currentFrameID = value > Frames.Count - 1 ? 0 : value;
+                if (value > Frames.Count - 1)
+                {
+                    _currentFrameID = 0;
+                }
+                else if (value < 0)
+                {
+                    _currentFrameID = Frames.Count - 1;
+                }
+                else
+                {
+                    _currentFrameID = value;
+                }
+
             }
         }
         
