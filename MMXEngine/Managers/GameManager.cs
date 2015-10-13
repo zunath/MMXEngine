@@ -1,5 +1,6 @@
 ﻿using Artemis;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.ECS.Screens;
 using MMXEngine.Interfaces.Entities;
 using MMXEngine.Interfaces.Factories;
@@ -11,6 +12,7 @@ namespace MMXEngine.Windows.Managers
     public class GameManager : IGameManager
     {
         private readonly EntityWorld _world;
+        private readonly SpriteBatch _spriteBatch;
         private readonly IGraphicsManager _graphicsManager;
         private readonly ISystemLoader _systemLoader;
         private readonly IScreenManager _screenManager;
@@ -19,8 +21,9 @@ namespace MMXEngine.Windows.Managers
         private readonly ICameraManager _cameraManager;
 
         public GameManager(
-            IGraphicsManager graphicsManager,
             EntityWorld world,
+            SpriteBatch spriteBatch,
+            IGraphicsManager graphicsManager,
             ISystemLoader systemLoader,
             IScreenManager screenManager,
             IScreenFactory screenFactory,
@@ -28,8 +31,9 @@ namespace MMXEngine.Windows.Managers
             ICameraManager cameraManager
             )
         {
-            _graphicsManager = graphicsManager;
             _world = world;
+            _spriteBatch = spriteBatch;
+            _graphicsManager = graphicsManager;
             _systemLoader = systemLoader;
             _screenManager = screenManager;
             _screenFactory = screenFactory;
@@ -56,8 +60,11 @@ namespace MMXEngine.Windows.Managers
         
         public void Draw()
         {
+            _spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, _cameraManager.Transform);
             _screenManager.Draw();
             _world.Draw();
+
+            _spriteBatch.End();
         }
         
         public void Exit()

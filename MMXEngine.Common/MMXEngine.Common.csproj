@@ -39,6 +39,7 @@
       <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MonoGame.Framework, Version=3.4.0.456, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -53,6 +54,7 @@
     <Compile Include="Enumerations\Direction.cs" />
     <Compile Include="Enumerations\GameButton.cs" />
     <Compile Include="Extensions\EntityWorldExtensions.cs" />
+    <Compile Include="Extensions\SpriteBatchExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

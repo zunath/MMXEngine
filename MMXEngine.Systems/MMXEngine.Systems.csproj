@@ -54,6 +54,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Draw\RenderCollisionBoxSystem.cs" />
     <Compile Include="Draw\RenderLevelSystem.cs" />
     <Compile Include="Draw\RenderSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

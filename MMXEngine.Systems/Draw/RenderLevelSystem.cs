@@ -6,7 +6,6 @@ using Artemis.System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.ECS.Components;
-using MMXEngine.Interfaces.Managers;
 using TiledSharp;
 
 namespace MMXEngine.Systems.Draw
@@ -18,21 +17,17 @@ namespace MMXEngine.Systems.Draw
     public class RenderLevelSystem: EntityProcessingSystem
     {
         private readonly SpriteBatch _spriteBatch;
-        private readonly ICameraManager _cameraManager;
 
-        public RenderLevelSystem(SpriteBatch spriteBatch, ICameraManager cameraManager) 
+        public RenderLevelSystem(SpriteBatch spriteBatch) 
             : base(Aspect.All(typeof(Map)))
         {
             _spriteBatch = spriteBatch;
-            _cameraManager = cameraManager;
         }
 
         public override void Process(Entity entity)
         {
             Map component = entity.GetComponent<Map>();
             TmxMap map = component.LevelMap;
-
-            _spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, _cameraManager.Transform);
             
             for (var i = 0; i < map.Layers[0].Tiles.Count; i++)
             {
@@ -50,9 +45,6 @@ namespace MMXEngine.Systems.Draw
 
                 _spriteBatch.Draw(component.Tileset, new Rectangle((int)x, (int)y, component.TileWidth, component.TileHeight), tilesetRec, Color.White);
             }
-
-
-            _spriteBatch.End();
         }
     }
 }

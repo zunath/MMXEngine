@@ -7,5 +7,11 @@ namespace MMXEngine.ECS.Components
     {
         public Rectangle Bounds { get; set; }
         public bool IsVisible { get; set; }
+        public Color Color { get; set; }
+
+        public CollisionBox()
+        {
+            Color = Color.Red;
+        }
     }
 }
