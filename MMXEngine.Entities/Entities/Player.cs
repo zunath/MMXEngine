@@ -54,13 +54,12 @@ namespace MMXEngine.ECS.Entities
 
             Sprite sprite = _componentFactory.Create<Sprite>();
             sprite.Texture = _contentManager.Load<Texture2D>(textureFile);
-            sprite.Animations = new Dictionary<int, Animation>();
             IList<Animation> animations = _dataManager.Load<IList<Animation>>(animationFile);
-            for (int animationID = 0; animationID < animations.Count; animationID++)
+            foreach(Animation animation in animations)
             {
-                sprite.Animations.Add(animationID, animations[animationID]);
+                sprite.Animations.Add(animation.Name, animation);
             }
-            sprite.CurrentAnimationID = 3; // TODO: Remove
+            sprite.CurrentAnimationName = "Move";
 
             return sprite;
         }

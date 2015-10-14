@@ -114,7 +114,7 @@
     "CurrentFrameID": 0
   },
   {
-    "Name": "Run",
+    "Name": "Move",
     "Frames": [
       {
         "X": 106,
@@ -132,16 +132,16 @@
         "Width": 20,
         "Height": 34,
         "Length": 0.05,
-        "OffsetX": 6,
+        "OffsetX": 1,
         "OffsetY": 0
       },
       {
-        "X": 158,
+        "X": 157,
         "Y": 106,
-        "Width": 23,
+        "Width": 24,
         "Height": 35,
         "Length": 0.05,
-        "OffsetX": 3,
+        "OffsetX": -1,
         "OffsetY": 0
       },
       {
@@ -150,7 +150,7 @@
         "Width": 32,
         "Height": 34,
         "Length": 0.05,
-        "OffsetX": -1,
+        "OffsetX": 0,
         "OffsetY": 0
       },
       {
@@ -159,8 +159,8 @@
         "Width": 34,
         "Height": 33,
         "Length": 0.05,
-        "OffsetX": -3,
-        "OffsetY": 0
+        "OffsetX": -1,
+        "OffsetY": -1
       },
       {
         "X": 247,
@@ -168,8 +168,8 @@
         "Width": 26,
         "Height": 33,
         "Length": 0.05,
-        "OffsetX": 1,
-        "OffsetY": 0
+        "OffsetX": -1,
+        "OffsetY": -1
       },
       {
         "X": 276,
@@ -177,16 +177,16 @@
         "Width": 22,
         "Height": 34,
         "Length": 0.05,
-        "OffsetX": 4,
+        "OffsetX": 0,
         "OffsetY": 0
       },
       {
         "X": 298,
         "Y": 106,
-        "Width": 25,
+        "Width": 26,
         "Height": 35,
         "Length": 0.05,
-        "OffsetX": 2,
+        "OffsetX": 0,
         "OffsetY": 0
       },
       {
@@ -204,17 +204,17 @@
         "Width": 34,
         "Height": 33,
         "Length": 0.05,
-        "OffsetX": -2,
-        "OffsetY": 0
+        "OffsetX": 0,
+        "OffsetY": -1
       },
       {
         "X": 391,
-        "Y": 108,
-        "Width": 29,
-        "Height": 33,
+        "Y": 107,
+        "Width": 30,
+        "Height": 34,
         "Length": 0.05,
         "OffsetX": 0,
-        "OffsetY": 0
+        "OffsetY": -1
       }
     ]
   },

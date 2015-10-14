@@ -19,7 +19,8 @@ namespace MMXEngine.Systems.Update
         public PlayerMovementSystem(IInputManager inputManager) 
             : base(Aspect.All(typeof(Position), 
                 typeof(Velocity),
-                typeof(PlayerPhysics)))
+                typeof(PlayerPhysics),
+                typeof(Sprite)))
         {
             _inputManager = inputManager;
         }
@@ -29,13 +30,28 @@ namespace MMXEngine.Systems.Update
             Position position = entity.GetComponent<Position>();
             Velocity velocity = entity.GetComponent<Velocity>();
             PlayerPhysics physics = entity.GetComponent<PlayerPhysics>();
+            Sprite sprite = entity.GetComponent<Sprite>();
 
             position.X += velocity.X;
             position.Y += velocity.Y;
 
-            if (_inputManager.IsDown(GameButton.MoveRight)) velocity.X = 3;
-            else if (_inputManager.IsDown(GameButton.MoveLeft)) velocity.X = -3;
-            else velocity.X = 0;
+            if (_inputManager.IsDown(GameButton.MoveRight))
+            {
+                velocity.X = 3;
+                sprite.Facing = Direction.Right;
+                sprite.CurrentAnimationName = "Move";
+            }
+            else if (_inputManager.IsDown(GameButton.MoveLeft))
+            {
+                velocity.X = -3;
+                sprite.Facing = Direction.Left;
+                sprite.CurrentAnimationName = "Move";
+            }
+            else
+            {
+                velocity.X = 0;
+                sprite.CurrentAnimationName = "Idle";
+            }
 
             if (_inputManager.IsDown(GameButton.Jump) && !physics.HasJumped)
             {

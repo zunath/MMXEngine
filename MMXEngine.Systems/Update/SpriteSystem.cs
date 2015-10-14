@@ -35,7 +35,7 @@ namespace MMXEngine.Systems.Update
             Renderable renderable = entity.GetComponent<Renderable>();
             Sprite sprite = entity.GetComponent<Sprite>();
             Position position = entity.GetComponent<Position>();
-            Animation animation = sprite.Animations[sprite.CurrentAnimationID];
+            Animation animation = sprite.Animations[sprite.CurrentAnimationName];
             Frame frame = animation.Frames[animation.CurrentFrameID];
 
             // Determine next frame to use.
@@ -49,17 +49,25 @@ namespace MMXEngine.Systems.Update
                 sprite.FrameActiveTime = 0;
                 frame = animation.Frames[animation.CurrentFrameID];
             }
-
+            
             while (frame.OnlyRunOnce && frame.HasRunOnce)
             {
                 animation.CurrentFrameID++;
                 frame = animation.Frames[animation.CurrentFrameID];
             }
 
+            int offsetX = frame.OffsetX;
+            int offsetY = frame.OffsetY;
+            if (sprite.Facing == Direction.Left)
+            {
+                offsetX = -offsetX;
+            }
+
             // Update renderable
             renderable.Source = new Rectangle(frame.X, frame.Y, frame.Width, frame.Height);
             renderable.Texture = sprite.Texture;
-            renderable.Position = new Vector2(position.X + frame.OffsetX, position.Y + frame.OffsetY);
+            renderable.Position = new Vector2(position.X + offsetX, position.Y + offsetY);
+            renderable.Facing = sprite.Facing;
         }
     }
 }
