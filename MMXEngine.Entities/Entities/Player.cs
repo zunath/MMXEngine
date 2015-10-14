@@ -31,7 +31,7 @@ namespace MMXEngine.ECS.Entities
             CharacterType characterType = args.Length > 0 ? (CharacterType) args[0] : CharacterType.X;
 
             entity.AddComponent(BuildSprite(characterType));
-            entity.AddComponent(_componentFactory.Create<PlayerPhysics>());
+            entity.AddComponent(_componentFactory.Create<PlayerAction>());
             entity.AddComponent(_componentFactory.Create<Health>());
             entity.AddComponent(_componentFactory.Create<Position>());
             entity.AddComponent(_componentFactory.Create<Velocity>());
@@ -59,7 +59,7 @@ namespace MMXEngine.ECS.Entities
             {
                 sprite.Animations.Add(animation.Name, animation);
             }
-            sprite.CurrentAnimationName = "Move";
+            sprite.CurrentAnimationName = "Jump";
 
             return sprite;
         }

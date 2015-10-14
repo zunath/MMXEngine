@@ -2,8 +2,9 @@
 
 namespace MMXEngine.ECS.Components
 {
-    public class PlayerPhysics : IComponent
+    public class PlayerAction : IComponent
     {
         public bool HasJumped { get; set; }
+        public bool IsShooting { get; set; }
     }
 }

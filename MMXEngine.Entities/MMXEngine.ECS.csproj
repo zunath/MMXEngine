@@ -59,7 +59,7 @@
     <Compile Include="Components\CollisionBox.cs" />
     <Compile Include="Components\Frame.cs" />
     <Compile Include="Components\Map.cs" />
-    <Compile Include="Components\PlayerPhysics.cs" />
+    <Compile Include="Components\PlayerAction.cs" />
     <Compile Include="Components\Position.cs" />
     <Compile Include="Components\Renderable.cs" />
     <Compile Include="Components\Sprite.cs" />

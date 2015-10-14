@@ -237,7 +237,7 @@
         "Width": 15,
         "Height": 41,
         "Length": 0.1,
-        "OffsetX": 5,
+        "OffsetX": 0,
         "OffsetY": 0,
         "OnlyRunOnce": true
       },
@@ -247,8 +247,8 @@
         "Width": 19,
         "Height": 46,
         "Length": 0.1,
-        "OffsetX": 2,
-        "OffsetY": -3,
+        "OffsetX": 0,
+        "OffsetY": 0,
         "OnlyRunOnce": true
       },
       {
@@ -257,7 +257,7 @@
         "Width": 23,
         "Height": 41,
         "Length": 0.1,
-        "OffsetX": -2,
+        "OffsetX": 0,
         "OffsetY": 0,
         "OnlyRunOnce": true
       },
@@ -267,8 +267,8 @@
         "Width": 27,
         "Height": 42,
         "Length": 0.1,
-        "OffsetX": -5,
-        "OffsetY": 0
+        "OffsetX": -1,
+        "OffsetY": 1
       }
     ]
   },
