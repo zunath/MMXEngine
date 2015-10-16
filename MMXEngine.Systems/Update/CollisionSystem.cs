@@ -5,6 +5,8 @@ using Artemis.Attributes;
 using Artemis.Manager;
 using Artemis.System;
 using Microsoft.Xna.Framework;
+using MMXEngine.Common.Enumerations;
+using MMXEngine.Common.Extensions;
 using MMXEngine.ECS.Components;
 using MMXEngine.ECS.Entities;
 using TiledSharp;
@@ -35,7 +37,14 @@ namespace MMXEngine.Systems.Update
         {
             Position position = entity.GetComponent<Position>();
             CollisionBox box = entity.GetComponent<CollisionBox>();
-            box.Bounds = new Rectangle((int)position.X, (int)position.Y, box.Bounds.Width, box.Bounds.Height);
+
+            int offsetX = box.OffsetX;
+            if (position.Facing == Direction.Left)
+            {
+                offsetX = -offsetX;
+            }
+
+            box.Bounds = new Rectangle((int)position.X + offsetX, (int)position.Y + box.OffsetY, box.Bounds.Width, box.Bounds.Height);
         }
 
         private void ProcessLevelCollisions(Entity entity)
@@ -50,6 +59,7 @@ namespace MMXEngine.Systems.Update
                 if (collision.Bounds.Intersects(box.Bounds))
                 {
                     entity.GetComponent<Velocity>().Y = 0f;
+                    
                 }
             }
         }
