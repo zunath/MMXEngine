@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using Microsoft.Xna.Framework;
+using MMXEngine.Common.Enumerations;
 
 namespace MMXEngine.Common.Extensions
 {
@@ -51,9 +53,11 @@ namespace MMXEngine.Common.Extensions
             return new Vector2(rect.X + rect.Width / 2.0f, rect.Bottom);
         }
 
-        public static Vector4 GetCorrectionVector(this Rectangle rect, Rectangle target)
+        public static Tuple<Direction, Direction, Vector2> GetCorrectionVector(this Rectangle rect, Rectangle target)
         {
-            Vector4 vector = new Vector4();
+            Vector2 vector = new Vector2();
+            Direction directionX = Direction.Unknown;
+            Direction directionY = Direction.Unknown;
 
             float x1 = Math.Abs(rect.Right - target.Left);
             float x2 = Math.Abs(rect.Left - target.Right);
@@ -64,27 +68,26 @@ namespace MMXEngine.Common.Extensions
             if (x1 < x2)
             {
                 vector.X = x1;
-                // vector.DirectionX = Left
+                directionX = Direction.Left;
             }
             else if (x1 > x2)
             {
                 vector.X = x2;
-                // vector.DirectionX = Right;
+                directionX = Direction.Right;
             }
 
             if (y1 < y2)
             {
                 vector.Y = y1;
-                // vector.directionY = Up
+                directionY = Direction.Up;
             }
             else if (y1 > y2)
             {
                 vector.Y = y2;
-                // vector.DirectionY = Down
+                directionY = Direction.Down;
             }
             
-            return vector;
+            return new Tuple<Direction, Direction, Vector2>(directionX, directionY, vector);
         }
-
     }
 }

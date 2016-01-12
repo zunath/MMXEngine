@@ -36,12 +36,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="artemis, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MMXEngine.Common\Libraries\artemis.dll</HintPath>
+    </Reference>
     <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Moq, Version=4.2.1507.118, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
-      <HintPath>..\packages\Moq.4.2.1507.0118\lib\net40\Moq.dll</HintPath>
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -65,6 +69,10 @@
     <ProjectReference Include="..\MMXEngine.Entities\MMXEngine.ECS.csproj">
       <Project>{42df8606-533d-4c5c-9cf0-437446b8f6dc}</Project>
       <Name>MMXEngine.ECS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMXEngine.Interfaces\MMXEngine.Interfaces.csproj">
+      <Project>{345d211c-7ec0-4be4-ae58-24df72534d9f}</Project>
+      <Name>MMXEngine.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

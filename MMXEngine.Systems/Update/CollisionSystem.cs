@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Artemis;
 using Artemis.Attributes;
 using Artemis.Manager;
@@ -8,8 +8,6 @@ using Microsoft.Xna.Framework;
 using MMXEngine.Common.Enumerations;
 using MMXEngine.Common.Extensions;
 using MMXEngine.ECS.Components;
-using MMXEngine.ECS.Entities;
-using TiledSharp;
 
 namespace MMXEngine.Systems.Update
 {
@@ -53,15 +51,12 @@ namespace MMXEngine.Systems.Update
             if (level == null) return;
             CollisionBox box = entity.GetComponent<CollisionBox>();
             var levelCollisions = level.GetComponent<Map>().Collisions;
+            List<Vector2> corrections = new List<Vector2>();
 
             foreach (CollisionBox collision in levelCollisions)
             {
-                if (collision.Bounds.Intersects(box.Bounds))
-                {
-                    entity.GetComponent<Velocity>().Y = 0f;
-                    
-                }
             }
+            
         }
     }
 }
