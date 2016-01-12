@@ -63,6 +63,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Components\AnimationTests.cs" />
+    <Compile Include="Components\SpriteTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -79,7 +81,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Components\" />
     <Folder Include="Entities\" />
   </ItemGroup>
   <Choose>

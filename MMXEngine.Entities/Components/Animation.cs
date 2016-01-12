@@ -33,7 +33,5 @@ namespace MMXEngine.ECS.Components
 
             }
         }
-        
-        
     }
 }
