@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Microsoft.Xna.Framework;
 using MMXEngine.Common.Enumerations;
 
@@ -7,6 +6,23 @@ namespace MMXEngine.Common.Extensions
 {
     public static class RectangleExtensions
     {
+        public static CollisionType GetCollisionType(this Rectangle rectA, Rectangle rectB)
+        {
+            if (!rectA.Intersects(rectB)) return CollisionType.None;
+
+            float wy = (rectA.Width + rectB.Width) *
+                       (rectA.Height / 2 - rectB.Height / 2);
+            float hx = (rectA.Height + rectB.Height) *
+                       (rectA.Width / 2 - rectB.Height / 2);
+
+            if (wy > hx)
+            {
+                return wy > -hx ? CollisionType.Top : CollisionType.Left;
+            }
+            return wy < -hx ? CollisionType.Right : CollisionType.Bottom;
+        }
+
+
         /// <summary>
         /// Calculates the signed depth of intersection between two rectangles.
         /// </summary>

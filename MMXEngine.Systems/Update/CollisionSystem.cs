@@ -50,11 +50,23 @@ namespace MMXEngine.Systems.Update
             Entity level = _world.EntityManager.GetEntities(Aspect.All(typeof(Map)))[0];
             if (level == null) return;
             CollisionBox box = entity.GetComponent<CollisionBox>();
+            Position position = entity.GetComponent<Position>();
             var levelCollisions = level.GetComponent<Map>().Collisions;
-            List<Vector2> corrections = new List<Vector2>();
-
+            
             foreach (CollisionBox collision in levelCollisions)
             {
+                CollisionType collisionType = collision.Bounds.GetCollisionType(box.Bounds);
+
+                if (collisionType == CollisionType.Bottom)
+                {
+                    position.Y = collision.Bounds.Top;
+                    position.IsOnGround = true;
+
+                    if (entity.HasComponent<PlayerAction>())
+                    {
+                        entity.GetComponent<PlayerAction>().HasJumped = false;
+                    }
+                }
             }
             
         }

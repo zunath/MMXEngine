@@ -62,15 +62,9 @@ namespace MMXEngine.Systems.Update
 
             if (action.HasJumped)
             {
-                velocity.Y += 0.15f;
-                if (velocity.Y > 10f) velocity.Y = 10f;
+                velocity.Y += 1.0f;
+                if (velocity.Y > 4.0f) velocity.Y = 4.0f;
             }
-
-            if (!action.HasJumped)
-            {
-                velocity.Y = 0;
-            }
-
         }
     }
 }

@@ -14,6 +14,7 @@ namespace MMXEngine.ECS.Components
         public CollisionBox()
         {
             Color = Color.Red;
+            IsVisible = true;
         }
     }
 }

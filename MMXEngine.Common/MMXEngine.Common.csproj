@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enumerations\CharacterType.cs" />
+    <Compile Include="Enumerations\CollisionType.cs" />
     <Compile Include="Enumerations\Direction.cs" />
     <Compile Include="Enumerations\GameButton.cs" />
     <Compile Include="Extensions\EntityWorldExtensions.cs" />
