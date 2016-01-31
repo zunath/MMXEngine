@@ -67,7 +67,7 @@ namespace MMXEngine.ECS.Entities
         private CollisionBox BuildCollisionBox()
         {
             CollisionBox box = _componentFactory.Create<CollisionBox>();
-            box.Bounds = new Rectangle(0, 0, 12, 30);
+            box.Bounds = new Rectangle(0, 0, 12, 25);
             box.OffsetX = -5;
             box.OffsetY = -10;
             box.IsVisible = true;

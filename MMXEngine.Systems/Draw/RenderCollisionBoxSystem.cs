@@ -12,7 +12,7 @@ namespace MMXEngine.Systems.Draw
     [ArtemisEntitySystem(
         ExecutionType = ExecutionType.Synchronous,
         GameLoopType = GameLoopType.Draw,
-        Layer = 1)]
+        Layer = 10)]
     public class RenderCollisionBoxSystem : EntityProcessingSystem
     {
         private readonly SpriteBatch _spriteBatch;

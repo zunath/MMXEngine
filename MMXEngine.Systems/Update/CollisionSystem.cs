@@ -51,7 +51,7 @@ namespace MMXEngine.Systems.Update
             if (level == null) return;
             CollisionBox box = entity.GetComponent<CollisionBox>();
             Position position = entity.GetComponent<Position>();
-            var levelCollisions = level.GetComponent<Map>().Collisions;
+            IEnumerable<CollisionBox> levelCollisions = level.GetComponent<Map>().Collisions;
             
             foreach (CollisionBox collision in levelCollisions)
             {
@@ -59,7 +59,7 @@ namespace MMXEngine.Systems.Update
 
                 if (collisionType == CollisionType.Bottom)
                 {
-                    position.Y = collision.Bounds.Top;
+                    position.Y = collision.Bounds.Top-18;
                     position.IsOnGround = true;
 
                     if (entity.HasComponent<PlayerAction>())

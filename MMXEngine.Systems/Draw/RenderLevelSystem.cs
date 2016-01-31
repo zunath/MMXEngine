@@ -5,6 +5,7 @@ using Artemis.Manager;
 using Artemis.System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MMXEngine.Common.Extensions;
 using MMXEngine.ECS.Components;
 using TiledSharp;
 
@@ -44,6 +45,14 @@ namespace MMXEngine.Systems.Draw
                 Rectangle tilesetRec = new Rectangle(component.TileWidth * column, component.TileWidth * row, component.TileWidth, component.TileHeight);
 
                 _spriteBatch.Draw(component.Tileset, new Rectangle((int)x, (int)y, component.TileWidth, component.TileHeight), tilesetRec, Color.White);
+            }
+
+            foreach (CollisionBox box in component.Collisions)
+            {
+                if (box.IsVisible)
+                {
+                    _spriteBatch.DrawRectangle(box.Bounds, box.Color);
+                }
             }
         }
     }

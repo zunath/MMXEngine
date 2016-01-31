@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Artemis;
+﻿using Artemis;
 using Artemis.Attributes;
 using Artemis.Manager;
 using Artemis.System;
@@ -7,7 +6,6 @@ using Microsoft.Xna.Framework;
 using MMXEngine.Common.Enumerations;
 using MMXEngine.Common.Extensions;
 using MMXEngine.ECS.Components;
-using MMXEngine.Interfaces.Managers;
 
 namespace MMXEngine.Systems.Update
 {
@@ -18,16 +16,14 @@ namespace MMXEngine.Systems.Update
     public class SpriteSystem: EntityProcessingSystem
     {
         private readonly EntityWorld _world;
-        private readonly IInputManager _inputManager;
 
-        public SpriteSystem(EntityWorld world, IInputManager inputManager)
+        public SpriteSystem(EntityWorld world)
             : base(Aspect.All(
                 typeof(Sprite),
                 typeof(Renderable),
                 typeof(Position)))
         {
             _world = world;
-            _inputManager = inputManager;
         }
 
         public override void Process(Entity entity)
@@ -40,8 +36,7 @@ namespace MMXEngine.Systems.Update
 
             // Determine next frame to use.
             sprite.FrameActiveTime += _world.DeltaSeconds();
-
-            //if(_inputManager.IsPressed(GameButton.Shoot)) // DEBUGGING
+            
             if (sprite.FrameActiveTime > frame.Length)
             {
                 frame.HasRunOnce = true;

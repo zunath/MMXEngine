@@ -53,18 +53,14 @@ namespace MMXEngine.Systems.Update
                 sprite.CurrentAnimationName = "Idle";
             }
 
-            if (_inputManager.IsDown(GameButton.Jump) && !action.HasJumped)
+            if (_inputManager.IsDown(GameButton.Jump) && 
+                !action.HasJumped && 
+                !_inputManager.WasDownLastFrame(GameButton.Jump))
             {
-                position.Y -= 10;
-                velocity.Y = -5;
+                velocity.Y = -22.0f;
                 action.HasJumped = true;
             }
-
-            if (action.HasJumped)
-            {
-                velocity.Y += 1.0f;
-                if (velocity.Y > 4.0f) velocity.Y = 4.0f;
-            }
+            
         }
     }
 }

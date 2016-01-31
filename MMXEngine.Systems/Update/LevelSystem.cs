@@ -46,7 +46,7 @@ namespace MMXEngine.Systems.Update
             }
         }
 
-        IEnumerable<CollisionBox> BuildCollisions(Map levelMap)
+        private IEnumerable<CollisionBox> BuildCollisions(Map levelMap)
         {
             List<CollisionBox> collisions = new List<CollisionBox>();
             TmxMap map = levelMap.LevelMap;

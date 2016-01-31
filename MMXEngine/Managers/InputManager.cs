@@ -19,6 +19,18 @@ namespace MMXEngine.Windows.Managers
                 _lastFrameKBState.IsKeyDown(key);
         }
 
+        public bool WasDownLastFrame(GameButton button)
+        {
+            Keys key = ButtonToKey(button);
+            return _lastFrameKBState.IsKeyDown(key);
+        }
+
+        public bool WasUpLastFrame(GameButton button)
+        {
+            Keys key = ButtonToKey(button);
+            return _lastFrameKBState.IsKeyUp(key);
+        }
+
         public bool IsDown(GameButton button)
         {
             Keys key = ButtonToKey(button);
