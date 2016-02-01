@@ -1,0 +1,29 @@
+{
+    "Name": "Gun Volt",
+    "TextureFile": "Enemies_1.png",
+    "Animations": [
+        {
+            "Name": "Idle",
+            "IsDefaultAnimation": true,
+            "Frames": [
+                {
+                    "X": 2,
+                    "Y": 744,
+                    "Height": 57,
+                    "Width": 42,
+                    "Length": 0.5
+                },
+                {
+                    "X": 52,
+                    "Y": 744,
+                    "Height": 58,
+                    "Width": 42,
+                    "Length": 0.5
+                }
+
+            ],
+            "CurrentFrameID": 0
+        }
+    ],
+    "Script": "GunVolt.lua"
+}

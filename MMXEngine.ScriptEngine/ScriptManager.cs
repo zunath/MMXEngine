@@ -16,25 +16,25 @@ namespace MMXEngine.ScriptEngine
     {
         private readonly EntityWorld _world;
         private readonly Lua _lua;
-        private readonly Queue<Tuple<string, IGameEntity>> _scriptQueue; 
+        private readonly Queue<Tuple<string, IGameEntity, string>> _scriptQueue; 
 
         public ScriptManager(EntityWorld world)
         {
-            _scriptQueue = new Queue<Tuple<string, IGameEntity>>();
+            _scriptQueue = new Queue<Tuple<string, IGameEntity, string>>();
             _world = world;
             _lua = new Lua();
             SandboxVM();
             RegisterScriptMethods();
         }
 
-        public void QueueScript(string fileName, IGameEntity entity)
+        public void QueueScript(string fileName, IGameEntity entity, string MethodName = "Main")
         {
             if (!File.Exists("./Scripts/" + fileName))
             {
                 throw new Exception("Script '" + fileName + "' could not be found.");
             }
 
-            _scriptQueue.Enqueue(new Tuple<string, IGameEntity>(fileName, entity));
+            _scriptQueue.Enqueue(new Tuple<string, IGameEntity, string>(fileName, entity, MethodName));
         }
 
         public void ExecuteScripts()
@@ -44,8 +44,12 @@ namespace MMXEngine.ScriptEngine
                 var script = _scriptQueue.Dequeue();
                 _lua["this"] = script.Item2;
                 _lua.DoFile("./Scripts/" + script.Item1);
-                LuaFunction function = (LuaFunction)_lua["Main"];
-                function.Call();
+
+                if (_lua.GetFunction(script.Item3) != null)
+                {
+                    LuaFunction function = (LuaFunction)_lua[script.Item3];
+                    function.Call();
+                }
             }
         }
 

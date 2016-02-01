@@ -9,6 +9,7 @@ namespace MMXEngine.ECS.Components
 
         public string Name { get; set; }
         public IList<Frame> Frames { get; set; }
+        public bool IsDefaultAnimation { get; set; }
 
         public int CurrentFrameID
         {

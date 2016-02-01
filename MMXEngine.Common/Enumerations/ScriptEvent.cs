@@ -5,6 +5,7 @@
         OnTouch = 1,
         OnDamaged = 2,
         OnDeath = 3,
-        OnSpawn = 4
+        OnSpawn = 4,
+        OnHeartbeat = 5
     }
 }

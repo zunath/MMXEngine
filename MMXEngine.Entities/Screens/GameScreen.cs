@@ -1,4 +1,6 @@
-﻿using MMXEngine.Common.Enumerations;
+﻿using System.Collections.Generic;
+using Artemis;
+using MMXEngine.Common.Enumerations;
 using MMXEngine.ECS.Components;
 using MMXEngine.ECS.Entities;
 using MMXEngine.Interfaces.Entities;
@@ -23,6 +25,9 @@ namespace MMXEngine.ECS.Screens
         {
             _entityFactory.Create<Level>("TestLevel");
             _entityFactory.Create<Player>(CharacterType.X);
+            Entity enemy = _entityFactory.Create<Enemy>("GunVolt");
+            enemy.GetComponent<Position>().X += 100;
+            enemy.GetComponent<Position>().Facing = Direction.Right;
         }
 
         public void Update()

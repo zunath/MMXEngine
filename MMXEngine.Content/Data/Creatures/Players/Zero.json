@@ -1,0 +1,29 @@
+{
+    "Name": "Zero",
+    "TextureFile": "Zero.png",
+    "Script": "Player.lua",
+    "Animations": [
+        {
+            "Name": "Idle",
+            "IsDefaultAnimation": true,
+            "Frames": [
+                {
+                    "X": 0,
+                    "Y": 0,
+                    "Height": 64,
+                    "Width": 64,
+                    "Length": 2.0
+                },
+                {
+                    "X": 150,
+                    "Y": 0,
+                    "Height": 64,
+                    "Width": 64,
+                    "Length": 2.0
+                }
+
+            ],
+            "CurrentFrameID": 0
+        }
+    ]
+}

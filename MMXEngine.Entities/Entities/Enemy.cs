@@ -1,4 +1,5 @@
 ﻿using Artemis;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.ECS.Components;
@@ -27,21 +28,34 @@ namespace MMXEngine.ECS.Entities
         public Entity BuildEntity(Entity entity, params object[] args)
         {
             string enemyResourceFile = args[0] as string;
-            string dataFile = "./Data/Enemies/" + enemyResourceFile;
-            EnemyData data = _dataManager.Load<EnemyData>(dataFile);
+            string dataFile = "/Creatures/Enemies/" + enemyResourceFile + ".json";
+            CreatureData data = _dataManager.Load<CreatureData>(dataFile);
 
             Sprite sprite = _componentFactory.Create<Sprite>();
-            sprite.Texture = _contentManager.Load<Texture2D>("./Graphics/" + data.TextureFile);
+            sprite.Texture = _contentManager.Load<Texture2D>("./Graphics/Enemies/" + data.TextureFile);
+            foreach (Animation animation in data.Animations)
+            {
+                sprite.Animations.Add(animation.Name, animation);
+                if (animation.IsDefaultAnimation)
+                {
+                    sprite.CurrentAnimationName = animation.Name;
+                }
+            }
+
             entity.AddComponent(sprite);
             entity.AddComponent(_componentFactory.Create<Health>());
             entity.AddComponent(_componentFactory.Create<Position>());
             entity.AddComponent(_componentFactory.Create<Renderable>());
             entity.AddComponent(_componentFactory.Create<Velocity>());
+            Script script = _componentFactory.Create<Script>();
+            script.FilePath = data.Script;
+            entity.AddComponent(script);
 
-            foreach (Script script in data.Scripts)
-            {
-                entity.AddComponent(script);
-            }
+            CollisionBox box = _componentFactory.Create<CollisionBox>();
+            box.Bounds = new Rectangle(0, 0, 36, 52);
+            box.OffsetX = -18;
+            box.OffsetY = -25;
+            entity.AddComponent(box);
 
             return entity;
         }

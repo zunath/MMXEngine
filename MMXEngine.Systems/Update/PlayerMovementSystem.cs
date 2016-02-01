@@ -17,8 +17,7 @@ namespace MMXEngine.Systems.Update
         private readonly IInputManager _inputManager;
         
         public PlayerMovementSystem(IInputManager inputManager) 
-            : base(Aspect.All(typeof(Position), 
-                typeof(Velocity),
+            : base(Aspect.All(typeof(Velocity),
                 typeof(PlayerAction),
                 typeof(Sprite)))
         {
@@ -27,14 +26,10 @@ namespace MMXEngine.Systems.Update
 
         public override void Process(Entity entity)
         {
-            Position position = entity.GetComponent<Position>();
             Velocity velocity = entity.GetComponent<Velocity>();
             PlayerAction action = entity.GetComponent<PlayerAction>();
             Sprite sprite = entity.GetComponent<Sprite>();
-
-            position.X += velocity.X;
-            position.Y += velocity.Y;
-
+            
             if (_inputManager.IsDown(GameButton.MoveRight))
             {
                 velocity.X = 3;

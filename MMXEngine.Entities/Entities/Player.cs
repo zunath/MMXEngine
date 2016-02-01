@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Common.Enumerations;
 using MMXEngine.ECS.Components;
+using MMXEngine.ECS.Data;
 using MMXEngine.Interfaces.Entities;
 using MMXEngine.Interfaces.Factories;
 using MMXEngine.Interfaces.Managers;
@@ -43,23 +44,19 @@ namespace MMXEngine.ECS.Entities
 
         private Sprite BuildSprite(CharacterType characterType)
         {
-            string textureFile = "Graphics/Characters/MMX.png";
-            string animationFile = "Animations/Player/MMXAnimations.json";
-
-            if (characterType == CharacterType.Zero)
-            {
-                textureFile = "Graphics/Characters/Zero.png";
-                animationFile = "Animations/Player/ZeroAnimations.json";
-            }
-
+            string dataFile = characterType == CharacterType.X ? "X.json" : "Zero.json";
+            CreatureData data = _dataManager.Load<CreatureData>("Creatures/Players/" + dataFile);
+            
             Sprite sprite = _componentFactory.Create<Sprite>();
-            sprite.Texture = _contentManager.Load<Texture2D>(textureFile);
-            IList<Animation> animations = _dataManager.Load<IList<Animation>>(animationFile);
-            foreach(Animation animation in animations)
+            sprite.Texture = _contentManager.Load<Texture2D>("Graphics/Characters/" + data.TextureFile);
+            foreach(Animation animation in data.Animations)
             {
                 sprite.Animations.Add(animation.Name, animation);
+                if (animation.IsDefaultAnimation)
+                {
+                    sprite.CurrentAnimationName = animation.Name;
+                }
             }
-            sprite.CurrentAnimationName = "Jump";
 
             return sprite;
         }
