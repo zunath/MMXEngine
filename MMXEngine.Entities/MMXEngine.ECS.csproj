@@ -66,6 +66,7 @@
     <Compile Include="Components\Sprite.cs" />
     <Compile Include="Components\Health.cs" />
     <Compile Include="Components\Velocity.cs" />
+    <Compile Include="Data\EnemyData.cs" />
     <Compile Include="Entities\Enemy.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Level.cs" />
@@ -88,9 +89,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

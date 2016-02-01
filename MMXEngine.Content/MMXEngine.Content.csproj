@@ -47,46 +47,50 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Characters\MMX.png">
+    <Content Include="Content\Graphics\Characters\MMX.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Graphics\Characters\Zero.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Graphics\Enemies\Enemies_1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Characters\Zero.png">
+    <Content Include="Content\Graphics\Enemies\Enemies_2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Enemies\Enemies_1.png">
+    <Content Include="Content\Graphics\Enemies\Enemies_3.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Enemies\Enemies_2.png">
+    <Content Include="Content\Graphics\Enemies\Enemies_4.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Enemies\Enemies_3.png">
+    <Content Include="Content\Graphics\Enemies\Enemies_5.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Enemies\Enemies_4.png">
+    <Content Include="Content\Graphics\Enemies\Enemies_6.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Enemies\Enemies_5.png">
+    <Content Include="Content\Graphics\Enemies\Enemies_7.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Enemies\Enemies_6.png">
+    <Content Include="Content\Graphics\Items\Items.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Enemies\Enemies_7.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Items\Items.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Tilesets\Tileset.png">
+    <Content Include="Content\Graphics\Tilesets\Tileset.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <None Include="Data\Animations\MMXAnimations.json">
+    <Folder Include="Content\Audio\Music\" />
+    <Folder Include="Content\Audio\SFX\" />
+    <Folder Include="Data\Enemies\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\Animations\Player\MMXAnimations.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Data\Animations\ZeroAnimations.json">
+    <None Include="Data\Animations\Player\ZeroAnimations.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Data\ButtonConfiguration.json">

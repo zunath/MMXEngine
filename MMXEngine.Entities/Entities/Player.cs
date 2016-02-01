@@ -43,13 +43,13 @@ namespace MMXEngine.ECS.Entities
 
         private Sprite BuildSprite(CharacterType characterType)
         {
-            string textureFile = "Characters/MMX.png";
-            string animationFile = "Animations/MMXAnimations.json";
+            string textureFile = "Graphics/Characters/MMX.png";
+            string animationFile = "Animations/Player/MMXAnimations.json";
 
             if (characterType == CharacterType.Zero)
             {
-                textureFile = "Characters/Zero.png";
-                animationFile = "Animations/ZeroAnimations.json";
+                textureFile = "Graphics/Characters/Zero.png";
+                animationFile = "Animations/Player/ZeroAnimations.json";
             }
 
             Sprite sprite = _componentFactory.Create<Sprite>();

@@ -54,7 +54,7 @@ namespace MMXEngine.Windows
             builder.RegisterType<ScreenFactory>().As<IScreenFactory>().SingleInstance();
             builder.RegisterType<SystemLoader>().As<ISystemLoader>();
 
-            var loadAssemblyCall = new Enemy();         // At the moment the Entities assembly isn't loaded when this is called, so the next set of instructions don't pick up anything.
+            var loadAssemblyCall = new Item();         // At the moment the Entities assembly isn't loaded when this is called, so the next set of instructions don't pick up anything.
             var loadAssemblyCall2 = new PhysicsSystem(); // These statements are a workaround for the time being to ensure the assembly is loaded before we register components.
 
             // Register IGameEntity implementations
