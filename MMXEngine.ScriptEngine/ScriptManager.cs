@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using Artemis;
+using MMXEngine.Common.Enumerations;
 using MMXEngine.Interfaces.Entities;
 using MMXEngine.Interfaces.Managers;
 using MMXEngine.Interfaces.Systems;
@@ -51,11 +52,21 @@ namespace MMXEngine.ScriptEngine
         private void SandboxVM()
         {
             _lua.DoString("import = function() end");
+            EnumerationToTable("CharacterType", typeof(CharacterType));
+            EnumerationToTable("CollisionType", typeof(CollisionType));
+            EnumerationToTable("DirectionType", typeof(Direction));
+            EnumerationToTable("GameButton", typeof(GameButton));
         }
 
-        private void EnumerationToTable()
+        private void EnumerationToTable(string luaTableName, Type enumType)
         {
-            
+            _lua.NewTable(luaTableName);
+            LuaTable lt = (LuaTable)_lua[luaTableName];
+
+            foreach (var val in Enum.GetValues(enumType))
+            {
+                lt[Enum.GetName(enumType, val)] = val;
+            }
         }
 
         private void RegisterScriptMethods()

@@ -22,8 +22,6 @@ namespace MMXEngine.Systems.Single
         {
             _dataManager = dataManager;
             _inputManager = inputManager;
-
-            scriptManager.QueueScript("Test.lua", null);
         }
 
         public override void Process()

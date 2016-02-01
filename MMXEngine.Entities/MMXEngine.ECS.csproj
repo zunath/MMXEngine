@@ -62,6 +62,7 @@
     <Compile Include="Components\PlayerAction.cs" />
     <Compile Include="Components\Position.cs" />
     <Compile Include="Components\Renderable.cs" />
+    <Compile Include="Components\Script.cs" />
     <Compile Include="Components\Sprite.cs" />
     <Compile Include="Components\Health.cs" />
     <Compile Include="Components\Velocity.cs" />
