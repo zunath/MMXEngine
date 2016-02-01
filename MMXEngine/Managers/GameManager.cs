@@ -19,6 +19,7 @@ namespace MMXEngine.Windows.Managers
         private readonly IScreenFactory _screenFactory;
         private readonly IInputManager _inputManager;
         private readonly ICameraManager _cameraManager;
+        private readonly IScriptManager _scriptManager;
 
         public GameManager(
             EntityWorld world,
@@ -28,7 +29,8 @@ namespace MMXEngine.Windows.Managers
             IScreenManager screenManager,
             IScreenFactory screenFactory,
             IInputManager inputManager,
-            ICameraManager cameraManager
+            ICameraManager cameraManager,
+            IScriptManager scriptManager
             )
         {
             _world = world;
@@ -39,6 +41,7 @@ namespace MMXEngine.Windows.Managers
             _screenFactory = screenFactory;
             _inputManager = inputManager;
             _cameraManager = cameraManager;
+            _scriptManager = scriptManager;
         }
         
         public void Initialize(GraphicsDeviceManager graphics)
@@ -56,6 +59,7 @@ namespace MMXEngine.Windows.Managers
             _world.Update();
             _screenManager.Update();
             _cameraManager.Update();
+            _scriptManager.ExecuteScripts();
         }
         
         public void Draw()

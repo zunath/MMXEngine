@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{345D211C-7EC0-4BE4-AE58-24DF72534D9F}</ProjectGuid>
+    <ProjectGuid>{BD8A123C-867B-4EE3-84E7-CA942FDFDB69}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MMXEngine.Interfaces</RootNamespace>
-    <AssemblyName>MMXEngine.Interfaces</AssemblyName>
+    <RootNamespace>MMXEngine.ScriptEngine</RootNamespace>
+    <AssemblyName>MMXEngine.ScriptEngine</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\x86\Debug\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -31,16 +31,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="artemis, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="artemis">
       <HintPath>..\MMXEngine.Common\Libraries\artemis.dll</HintPath>
     </Reference>
-    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    <Reference Include="KeraLua, Version=1.3.2.0, Culture=neutral, PublicKeyToken=04d04586786c6f34, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLua.1.3.2.1\lib\net45\KeraLua.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MonoGame.Framework, Version=3.4.0.456, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="NLua, Version=1.3.2.0, Culture=neutral, PublicKeyToken=8df2ab518030ea95, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLua.1.3.2.1\lib\net45\NLua.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -52,34 +52,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\IButtonConfiguration.cs" />
-    <Compile Include="Entities\IGameEntity.cs" />
-    <Compile Include="Entities\IScreen.cs" />
-    <Compile Include="Factories\IComponentFactory.cs" />
-    <Compile Include="Factories\IEntityFactory.cs" />
-    <Compile Include="Factories\IScreenFactory.cs" />
-    <Compile Include="Managers\ICameraManager.cs" />
-    <Compile Include="Managers\IDataManager.cs" />
-    <Compile Include="Managers\IGameManager.cs" />
-    <Compile Include="Managers\IGraphicsManager.cs" />
-    <Compile Include="Managers\IInputManager.cs" />
-    <Compile Include="Managers\IScreenManager.cs" />
-    <Compile Include="Managers\IScriptManager.cs" />
+    <Compile Include="Methods\LevelMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Systems\IScriptMethodGroup.cs" />
-    <Compile Include="Systems\ISystemLoader.cs" />
+    <Compile Include="ScriptManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MMXEngine.Common\MMXEngine.Common.csproj">
       <Project>{3ad013d0-9e57-49b7-a48b-8bfaeaff1db8}</Project>
       <Name>MMXEngine.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MMXEngine.Entities\MMXEngine.ECS.csproj">
+      <Project>{42df8606-533d-4c5c-9cf0-437446b8f6dc}</Project>
+      <Name>MMXEngine.ECS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMXEngine.Interfaces\MMXEngine.Interfaces.csproj">
+      <Project>{345d211c-7ec0-4be4-ae58-24df72534d9f}</Project>
+      <Name>MMXEngine.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+xcopy /s /y "C:\Projects\MMXEngine\packages\NLua.1.3.2.1\lib\native\*.*" "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

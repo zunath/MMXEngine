@@ -18,10 +18,12 @@ namespace MMXEngine.Systems.Single
         private readonly IDataManager _dataManager;
         private bool _isLoaded;
 
-        public LoadButtonConfigurationSystem(IInputManager inputManager, IDataManager dataManager)
+        public LoadButtonConfigurationSystem(IInputManager inputManager, IDataManager dataManager, IScriptManager scriptManager)
         {
             _dataManager = dataManager;
             _inputManager = inputManager;
+
+            scriptManager.QueueScript("Test.lua", null);
         }
 
         public override void Process()

@@ -79,6 +79,10 @@
       <Project>{345d211c-7ec0-4be4-ae58-24df72534d9f}</Project>
       <Name>MMXEngine.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MMXEngine.ScriptEngine\MMXEngine.ScriptEngine.csproj">
+      <Project>{bd8a123c-867b-4ee3-84e7-ca942fdfdb69}</Project>
+      <Name>MMXEngine.ScriptEngine</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
