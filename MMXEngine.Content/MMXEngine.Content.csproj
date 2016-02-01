@@ -53,13 +53,18 @@
     <Content Include="Content\Characters\Zero.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Enemies\Enemies_1.png" />
+    <Content Include="Content\Enemies\Enemies_2.png" />
+    <Content Include="Content\Enemies\Enemies_3.png" />
+    <Content Include="Content\Enemies\Enemies_4.png" />
+    <Content Include="Content\Enemies\Enemies_5.png" />
+    <Content Include="Content\Enemies\Enemies_6.png" />
+    <Content Include="Content\Enemies\Enemies_7.png" />
     <Content Include="Content\Tilesets\Tileset.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\Enemies\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Data\Animations\MMXAnimations.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
