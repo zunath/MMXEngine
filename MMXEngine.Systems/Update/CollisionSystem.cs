@@ -59,7 +59,7 @@ namespace MMXEngine.Systems.Update
 
                 if (collisionType == CollisionType.Bottom)
                 {
-                    position.Y = collision.Bounds.Top-18;
+                    position.Y = collision.Bounds.Top;
                     position.IsOnGround = true;
 
                     if (entity.HasComponent<PlayerAction>())
