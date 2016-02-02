@@ -102,7 +102,7 @@ namespace MMXEngine.Common.Extensions
             double anglePerSide = MathHelper.TwoPi / sides;
 
             // "Rotate" to the starting point
-            while ((curAngle + (anglePerSide / 2.0)) < startingAngle)
+            while (curAngle + anglePerSide / 2.0 < startingAngle)
             {
                 curAngle += anglePerSide;
 
@@ -115,7 +115,7 @@ namespace MMXEngine.Common.Extensions
             points.Add(points[0]);
 
             // Now remove the points at the end of the circle to create the arc
-            int sidesInArc = (int)((radians / anglePerSide) + 0.5);
+            int sidesInArc = (int)(radians / anglePerSide + 0.5);
             points.RemoveRange(sidesInArc + 1, points.Count - sidesInArc - 1);
 
             return points;

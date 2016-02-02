@@ -1,5 +1,4 @@
-﻿using Artemis;
-using Artemis.Attributes;
+﻿using Artemis.Attributes;
 using Artemis.Manager;
 using Artemis.System;
 using MMXEngine.ECS.Components;
@@ -18,7 +17,7 @@ namespace MMXEngine.Systems.Single
         private readonly IDataManager _dataManager;
         private bool _isLoaded;
 
-        public LoadButtonConfigurationSystem(IInputManager inputManager, IDataManager dataManager, IScriptManager scriptManager)
+        public LoadButtonConfigurationSystem(IInputManager inputManager, IDataManager dataManager)
         {
             _dataManager = dataManager;
             _inputManager = inputManager;

@@ -37,9 +37,9 @@ namespace MMXEngine.Systems.Draw
 
                 int tileFrame = gid - 1;
                 int column = tileFrame % component.TilesetTilesWide;
-                int row = (tileFrame + 1 > component.TilesetTilesWide) ? tileFrame - column * component.TilesetTilesWide : 0;
+                int row = tileFrame + 1 > component.TilesetTilesWide ? tileFrame - column * component.TilesetTilesWide : 0;
 
-                float x = (i % map.Width) * map.TileWidth;
+                float x = i % map.Width * map.TileWidth;
                 float y = (float)Math.Floor(i / (double)map.Width) * map.TileHeight;
 
                 Rectangle tilesetRec = new Rectangle(component.TileWidth * column, component.TileWidth * row, component.TileWidth, component.TileHeight);

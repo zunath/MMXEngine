@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Artemis;
-using Artemis.Blackboard;
+﻿using Artemis;
 using Artemis.System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;

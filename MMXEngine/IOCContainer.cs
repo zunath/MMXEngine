@@ -12,7 +12,6 @@ using MMXEngine.Interfaces.Factories;
 using MMXEngine.Interfaces.Managers;
 using MMXEngine.Interfaces.Systems;
 using MMXEngine.ScriptEngine;
-using MMXEngine.Systems.Draw;
 using MMXEngine.Systems.Update;
 using MMXEngine.Windows.Factories;
 using MMXEngine.Windows.Managers;

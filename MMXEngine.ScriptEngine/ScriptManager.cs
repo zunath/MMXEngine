@@ -5,7 +5,6 @@ using System.Linq;
 using System.Reflection;
 using Artemis;
 using MMXEngine.Common.Enumerations;
-using MMXEngine.Interfaces.Entities;
 using MMXEngine.Interfaces.Managers;
 using MMXEngine.Interfaces.Systems;
 using NLua;
@@ -14,14 +13,12 @@ namespace MMXEngine.ScriptEngine
 {
     public class ScriptManager : IScriptManager
     {
-        private readonly EntityWorld _world;
         private readonly Lua _lua;
         private readonly Queue<Tuple<string, Entity, string>> _scriptQueue; 
 
-        public ScriptManager(EntityWorld world)
+        public ScriptManager()
         {
             _scriptQueue = new Queue<Tuple<string, Entity, string>>();
-            _world = world;
             _lua = new Lua();
             SandboxVM();
             RegisterScriptMethods();

@@ -59,6 +59,21 @@ namespace MMXEngine.ScriptEngine.Methods
             }
         }
 
+        public static int ApplyDamage(Entity entity, int amount)
+        {
+            try
+            {
+                Health health = entity.GetComponent<Health>();
+                health.CurrentHitPoints -= amount;
+
+                return health.CurrentHitPoints;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+        
         public static bool GetIsHostile(Entity entity)
         {
             try

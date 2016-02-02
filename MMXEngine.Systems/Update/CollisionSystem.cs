@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Artemis;
 using Artemis.Attributes;
 using Artemis.Manager;
