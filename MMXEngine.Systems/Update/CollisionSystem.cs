@@ -20,7 +20,7 @@ namespace MMXEngine.Systems.Update
         private readonly EntityWorld _world;
 
         public CollisionSystem(EntityWorld world):
-            base(Aspect.All(typeof(CollisionBox), typeof(Position)))
+            base(Aspect.All(typeof(CollisionBox), typeof(Position), typeof(Velocity)))
         {
             _world = world;
         }
@@ -52,6 +52,7 @@ namespace MMXEngine.Systems.Update
             CollisionBox box = entity.GetComponent<CollisionBox>();
             Position position = entity.GetComponent<Position>();
             IEnumerable<CollisionBox> levelCollisions = level.GetComponent<Map>().Collisions;
+            Velocity velocity = entity.GetComponent<Velocity>();
             
             foreach (CollisionBox collision in levelCollisions)
             {
@@ -59,12 +60,14 @@ namespace MMXEngine.Systems.Update
 
                 if (collisionType == CollisionType.Bottom)
                 {
-                    position.Y = collision.Bounds.Top;
-                    position.IsOnGround = true;
-
-                    if (entity.HasComponent<PlayerAction>())
+                    if (velocity.Y > 0.0f)
                     {
-                        entity.GetComponent<PlayerAction>().HasJumped = false;
+                        entity.GetComponent<Velocity>().Y = 0.0f;
+                        position.IsOnGround = true;
+                        if (entity.HasComponent<PlayerAction>())
+                        {
+                            entity.GetComponent<PlayerAction>().HasJumped = false;
+                        }
                     }
                 }
             }
