@@ -16,6 +16,9 @@ end
 
 function OnTouch()
 
-
+	local x = GetPlayer();
+	local type = GetCharacterType(x);
+	
+	
 end
 

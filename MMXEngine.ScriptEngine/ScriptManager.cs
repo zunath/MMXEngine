@@ -16,25 +16,25 @@ namespace MMXEngine.ScriptEngine
     {
         private readonly EntityWorld _world;
         private readonly Lua _lua;
-        private readonly Queue<Tuple<string, IGameEntity, string>> _scriptQueue; 
+        private readonly Queue<Tuple<string, Entity, string>> _scriptQueue; 
 
         public ScriptManager(EntityWorld world)
         {
-            _scriptQueue = new Queue<Tuple<string, IGameEntity, string>>();
+            _scriptQueue = new Queue<Tuple<string, Entity, string>>();
             _world = world;
             _lua = new Lua();
             SandboxVM();
             RegisterScriptMethods();
         }
 
-        public void QueueScript(string fileName, IGameEntity entity, string MethodName = "Main")
+        public void QueueScript(string fileName, Entity entity, string MethodName = "Main")
         {
             if (!File.Exists("./Scripts/" + fileName))
             {
                 throw new Exception("Script '" + fileName + "' could not be found.");
             }
 
-            _scriptQueue.Enqueue(new Tuple<string, IGameEntity, string>(fileName, entity, MethodName));
+            _scriptQueue.Enqueue(new Tuple<string, Entity, string>(fileName, entity, MethodName));
         }
 
         public void ExecuteScripts()

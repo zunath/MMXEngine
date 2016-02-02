@@ -7,7 +7,6 @@ namespace MMXEngine.ECS.Components
 {
     public class Map : IComponent
     {
-        public string MapName { get; set; }
         public int TileWidth { get; set; }
         public int TileHeight { get; set; }
         public int TilesetTilesWide { get; set; }

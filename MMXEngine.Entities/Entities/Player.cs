@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Artemis;
+using Artemis.Blackboard;
+using Artemis.System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -38,6 +40,15 @@ namespace MMXEngine.ECS.Entities
             entity.AddComponent(_componentFactory.Create<Velocity>());
             entity.AddComponent(_componentFactory.Create<Renderable>());
             entity.AddComponent(BuildCollisionBox());
+            PlayerCharacter playerCharacter = _componentFactory.Create<PlayerCharacter>();
+            playerCharacter.CharacterType = characterType;
+            entity.AddComponent(playerCharacter);
+
+            Nameable nameable = _componentFactory.Create<Nameable>();
+            nameable.Name = characterType == CharacterType.X ? "X" : "Zero";
+            entity.AddComponent(nameable);
+
+            EntitySystem.BlackBoard.SetEntry("Player", entity);
 
             return entity;
         }

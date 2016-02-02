@@ -16,9 +16,11 @@ namespace MMXEngine.ECS.Entities
 
         public Entity BuildEntity(Entity entity, params object[] args)
         {
+            Nameable nameable = _componentFactory.Create<Nameable>();
             Map map = _componentFactory.Create<Map>();
-            map.MapName = args[0] as string;
+            nameable.Name = args[0] as string;
             entity.AddComponent(map);
+            entity.AddComponent(nameable);
             return entity;
         }
     }

@@ -33,7 +33,7 @@ namespace MMXEngine.Systems.Update
             Map mapComponent = entity.GetComponent<Map>();
             if (mapComponent.LevelMap == null)
             {
-                mapComponent.LevelMap = new TmxMap("./Data/Levels/" + mapComponent.MapName + ".tmx");
+                mapComponent.LevelMap = new TmxMap("./Data/Levels/" + entity.GetComponent<Nameable>().Name + ".tmx");
                 mapComponent.Tileset = _contentManager.Load<Texture2D>("Graphics/Tilesets/" + mapComponent.LevelMap.Tilesets[0].Name + ".png");
 
                 mapComponent.TileWidth = mapComponent.LevelMap.Tilesets[0].TileWidth;

@@ -47,6 +47,11 @@ namespace MMXEngine.ECS.Entities
             entity.AddComponent(_componentFactory.Create<Position>());
             entity.AddComponent(_componentFactory.Create<Renderable>());
             entity.AddComponent(_componentFactory.Create<Velocity>());
+            entity.AddComponent(_componentFactory.Create<Hostile>());
+            Nameable nameable = _componentFactory.Create<Nameable>();
+            nameable.Name = data.Name;
+            entity.AddComponent(nameable);
+
             Script script = _componentFactory.Create<Script>();
             script.FilePath = data.Script;
             entity.AddComponent(script);

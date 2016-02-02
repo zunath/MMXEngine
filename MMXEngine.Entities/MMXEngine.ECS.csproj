@@ -60,9 +60,12 @@
     <Compile Include="Components\Animation.cs" />
     <Compile Include="Components\ButtonConfiguration.cs" />
     <Compile Include="Components\CollisionBox.cs" />
+    <Compile Include="Components\Hostile.cs" />
     <Compile Include="Components\Frame.cs" />
     <Compile Include="Components\Map.cs" />
+    <Compile Include="Components\Nameable.cs" />
     <Compile Include="Components\PlayerAction.cs" />
+    <Compile Include="Components\PlayerCharacter.cs" />
     <Compile Include="Components\Position.cs" />
     <Compile Include="Components\Renderable.cs" />
     <Compile Include="Components\Script.cs" />
