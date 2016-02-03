@@ -28,7 +28,7 @@ namespace MMXEngine.ScriptEngine
         {
             if (!File.Exists("./Scripts/" + fileName))
             {
-                throw new Exception("Script '" + fileName + "' could not be found.");
+                throw new FileNotFoundException("Script '" + fileName + "' could not be found.");
             }
 
             _scriptQueue.Enqueue(new Tuple<string, Entity, string>(fileName, entity, MethodName));
