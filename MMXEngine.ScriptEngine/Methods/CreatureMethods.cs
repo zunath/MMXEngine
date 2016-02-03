@@ -11,15 +11,7 @@ namespace MMXEngine.ScriptEngine.Methods
     {
         public static Entity GetPlayer()
         {
-            try
-            {
-                return (Entity)EntitySystem.BlackBoard.GetEntry("Player");
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-            
+            return (Entity)EntitySystem.BlackBoard.GetEntry("Player");
         }
 
         public static CharacterType GetCharacterType(Entity entity)

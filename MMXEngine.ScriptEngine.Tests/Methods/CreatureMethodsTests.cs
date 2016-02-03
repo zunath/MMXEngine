@@ -28,7 +28,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
             Entity result = CreatureMethods.GetPlayer();
             Assert.IsNull(result);
         }
-
+        
         private Entity BuildPlayerEntity(CharacterType charType)
         {
             EntityWorld world = TestHelpers.CreateEntityWorld();
@@ -138,6 +138,13 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         {
             Entity player = BuildPlayerEntity(CharacterType.X);
             bool isHostile = CreatureMethods.GetIsHostile(player);
+            Assert.AreEqual(isHostile, false);
+        }
+
+        [Test]
+        public void GetIsHostile_Exception_ShouldBeNotHostile()
+        {
+            bool isHostile = CreatureMethods.GetIsHostile(null);
             Assert.AreEqual(isHostile, false);
         }
     }

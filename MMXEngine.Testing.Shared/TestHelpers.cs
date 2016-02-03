@@ -1,4 +1,7 @@
-﻿using Artemis;
+﻿using System;
+using System.IO;
+using System.Reflection;
+using Artemis;
 
 namespace MMXEngine.Testing.Shared
 {
