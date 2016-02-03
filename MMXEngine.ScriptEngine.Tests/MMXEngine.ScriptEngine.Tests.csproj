@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MMXEngine.ScriptEngine.Tests</RootNamespace>
     <AssemblyName>MMXEngine.ScriptEngine.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -16,6 +16,7 @@
     <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,6 +36,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="artemis, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MMXEngine.Common\Libraries\artemis.dll</HintPath>
+    </Reference>
+    <Reference Include="NSubstitute, Version=1.9.2.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\NSubstitute.1.9.2.0\lib\net45\NSubstitute.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.0.5813.39031, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.0.1\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -43,20 +56,36 @@
         <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
       </ItemGroup>
     </When>
-    <Otherwise>
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
-      </ItemGroup>
-    </Otherwise>
+    <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Methods\CreatureMethodsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MMXEngine.Common\MMXEngine.Common.csproj">
+      <Project>{3ad013d0-9e57-49b7-a48b-8bfaeaff1db8}</Project>
+      <Name>MMXEngine.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMXEngine.Entities\MMXEngine.ECS.csproj">
+      <Project>{42df8606-533d-4c5c-9cf0-437446b8f6dc}</Project>
+      <Name>MMXEngine.ECS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMXEngine.Interfaces\MMXEngine.Interfaces.csproj">
+      <Project>{345d211c-7ec0-4be4-ae58-24df72534d9f}</Project>
+      <Name>MMXEngine.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MMXEngine.ScriptEngine\MMXEngine.ScriptEngine.csproj">
       <Project>{bd8a123c-867b-4ee3-84e7-ca942fdfdb69}</Project>
       <Name>MMXEngine.ScriptEngine</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MMXEngine.Testing.Shared\MMXEngine.Testing.Shared.csproj">
+      <Project>{33b6bf66-2a68-42ef-95dc-b289424d3c95}</Project>
+      <Name>MMXEngine.Testing.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

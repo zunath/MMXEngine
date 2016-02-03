@@ -1,12 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MMXEngine.ECS.Components;
+﻿using MMXEngine.ECS.Components;
+using NUnit.Framework;
 
 namespace MMXEngine.ECS.Tests.Components
 {
-    [TestClass]
+    [TestFixture]
     public class SpriteTests
     {
-        [TestMethod]
+        [Test]
         public void Sprite_InitialAnimations_NotNull()
         {
             Sprite sprite = new Sprite();
