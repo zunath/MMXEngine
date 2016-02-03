@@ -67,6 +67,7 @@
     <Compile Include="Methods\EntityMethodsTests.cs" />
     <Compile Include="Methods\LevelMethodsTests.cs" />
     <Compile Include="Methods\MiscellaneousMethodsTests.cs" />
+    <Compile Include="Methods\PhysicsMethodsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

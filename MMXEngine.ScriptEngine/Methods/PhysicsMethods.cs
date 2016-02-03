@@ -34,12 +34,18 @@ namespace MMXEngine.ScriptEngine.Methods
 
         public static void SetVelocityX(Entity entity, float x)
         {
-            entity.GetComponent<Velocity>().X = x;
+            if (entity.HasComponent<Velocity>())
+            {
+                entity.GetComponent<Velocity>().X = x;
+            }
         }
 
         public static void SetVelocityY(Entity entity, float y)
         {
-            entity.GetComponent<Velocity>().Y = y;
+            if (entity.HasComponent<Velocity>())
+            {
+                entity.GetComponent<Velocity>().Y = y;
+            }
         }
 
         public static float GetPositionX(Entity entity)
