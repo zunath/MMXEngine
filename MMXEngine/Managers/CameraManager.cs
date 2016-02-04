@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Interfaces.Managers;
 
 namespace MMXEngine.Windows.Managers
@@ -10,38 +11,36 @@ namespace MMXEngine.Windows.Managers
         public Matrix Transform { get; private set; }
         public Matrix InverseTransform { get; private set; }
         public Vector2 Position { get; set; }
+        public Vector2 Origin { get; private set; }
+        public Vector2 ScreenCenter { get; private set; }
+        private readonly GraphicsDevice _graphics;
+        public Vector2 Focus { get; set; }
 
-        public CameraManager()
+        public CameraManager(GraphicsDevice graphics)
         {
             Transform = new Matrix();
             InverseTransform = new Matrix();
             Position = Vector2.Zero;
             Zoom = 2.5f;
+            _graphics = graphics;
         }
 
         public void Update()
         {
-            Zoom = MathHelper.Clamp(Zoom, 0.0f, 10.0f);
-            Rotation = ClampAngle(Rotation);
-            Transform = Matrix.CreateRotationZ(Rotation)*
-                        Matrix.CreateScale(new Vector3(Zoom, Zoom, 1))*
-                        Matrix.CreateTranslation(Position.X, Position.Y, 0);
+            ScreenCenter = new Vector2(_graphics.Viewport.Width / 2, _graphics.Viewport.Height / 2);
+            Origin = ScreenCenter / Zoom;
+            
+            Transform = Matrix.Identity *
+                    Matrix.CreateTranslation(-Position.X, -Position.Y, 0) *
+                    Matrix.CreateRotationZ(Rotation) *
+                    Matrix.CreateTranslation(Origin.X, Origin.Y, 0) *
+                    Matrix.CreateScale(new Vector3(Zoom, Zoom, Zoom));
+
+            Position = new Vector2(
+                Position.X + (Focus.X - Position.X),
+                Position.Y + (Focus.Y - Position.Y));
 
             InverseTransform = Matrix.Invert(Transform);
         }
-
-        private float ClampAngle(float radians)
-        {
-            while (radians < -MathHelper.Pi)
-            {
-                radians += MathHelper.TwoPi;
-            }
-            while (radians > MathHelper.Pi)
-            {
-                radians -= MathHelper.TwoPi;
-            }
-            return radians;
-        }
-
     }
 }

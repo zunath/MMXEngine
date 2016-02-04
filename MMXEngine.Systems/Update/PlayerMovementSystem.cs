@@ -32,28 +32,35 @@ namespace MMXEngine.Systems.Update
             
             if (_inputManager.IsDown(GameButton.MoveRight))
             {
-                velocity.X = 3;
+                if (!action.HasJumped)
+                    sprite.SetCurrentAnimation("Move");
+
+                velocity.X = 1.5f;
                 sprite.Facing = Direction.Right;
-                sprite.CurrentAnimationName = "Move";
             }
             else if (_inputManager.IsDown(GameButton.MoveLeft))
             {
-                velocity.X = -3;
+                if(!action.HasJumped)
+                    sprite.SetCurrentAnimation("Move");
+
+                velocity.X = -1.5f;
                 sprite.Facing = Direction.Left;
-                sprite.CurrentAnimationName = "Move";
             }
-            else
+            else if(!action.HasJumped)
             {
+                if(!action.HasJumped)
+                    sprite.SetCurrentAnimation("Idle");
+
                 velocity.X = 0;
-                sprite.CurrentAnimationName = "Idle";
             }
 
             if (_inputManager.IsDown(GameButton.Jump) && 
                 !action.HasJumped && 
                 !_inputManager.WasDownLastFrame(GameButton.Jump))
             {
-                velocity.Y = -22.0f;
+                velocity.Y = -21.0f;
                 action.HasJumped = true;
+                sprite.SetCurrentAnimation("Jump");
             }
             
         }

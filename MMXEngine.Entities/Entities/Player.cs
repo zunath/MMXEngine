@@ -63,7 +63,7 @@ namespace MMXEngine.ECS.Entities
                 sprite.Animations.Add(animation.Name, animation);
                 if (animation.IsDefaultAnimation)
                 {
-                    sprite.CurrentAnimationName = animation.Name;
+                    sprite.SetCurrentAnimation(animation.Name);
                 }
             }
 

@@ -18,8 +18,11 @@ namespace MMXEngine.ECS.Screens
 
         public void Initialize()
         {
-            _entityFactory.Create<Level>("TestLevel");
-            _entityFactory.Create<Player>(CharacterType.X);
+            _entityFactory.Create<Level>("ChillPenguin");
+            Entity player = _entityFactory.Create<Player>(CharacterType.X);
+            player.GetComponent<Position>().X = 66;
+            player.GetComponent<Position>().Y = 1442;
+
             Entity enemy = _entityFactory.Create<Enemy>("GunVolt");
             enemy.GetComponent<Position>().X += 100;
             enemy.GetComponent<Position>().Facing = Direction.Right;

@@ -64,7 +64,13 @@ namespace MMXEngine.Windows.Managers
         
         public void Draw()
         {
-            _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, _cameraManager.Transform);
+            _spriteBatch.Begin(SpriteSortMode.Deferred, 
+                BlendState.AlphaBlend, 
+                null, 
+                null,
+                null, 
+                null, 
+                _cameraManager.Transform);
             _screenManager.Draw();
             _world.Draw();
 
