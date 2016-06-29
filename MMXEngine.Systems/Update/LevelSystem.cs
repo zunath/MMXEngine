@@ -6,12 +6,14 @@ using Artemis.System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using MMXEngine.Common.Attributes;
 using MMXEngine.ECS.Components;
 using MMXEngine.Interfaces.Factories;
 using TiledSharp;
 
 namespace MMXEngine.Systems.Update
 {
+    [LoadableSystem(2)]
     [ArtemisEntitySystem(
         ExecutionType = ExecutionType.Synchronous,
         GameLoopType = GameLoopType.Update,

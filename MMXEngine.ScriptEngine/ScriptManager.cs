@@ -24,14 +24,14 @@ namespace MMXEngine.ScriptEngine
             RegisterScriptMethods();
         }
 
-        public void QueueScript(string fileName, Entity entity, string MethodName = "Main")
+        public void QueueScript(string fileName, Entity entity, string methodName = "Main")
         {
             if (!File.Exists("./Scripts/" + fileName))
             {
                 throw new FileNotFoundException("Script '" + fileName + "' could not be found.");
             }
 
-            _scriptQueue.Enqueue(new Tuple<string, Entity, string>(fileName, entity, MethodName));
+            _scriptQueue.Enqueue(new Tuple<string, Entity, string>(fileName, entity, methodName));
         }
 
         public void ExecuteScripts()

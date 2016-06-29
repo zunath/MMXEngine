@@ -3,11 +3,13 @@ using Artemis.Attributes;
 using Artemis.Manager;
 using Artemis.System;
 using Microsoft.Xna.Framework.Graphics;
+using MMXEngine.Common.Attributes;
 using MMXEngine.Common.Extensions;
 using MMXEngine.ECS.Components;
 
 namespace MMXEngine.Systems.Draw
 {
+    [LoadableSystem(3)]
     [ArtemisEntitySystem(
         ExecutionType = ExecutionType.Synchronous,
         GameLoopType = GameLoopType.Draw,

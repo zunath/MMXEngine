@@ -2,6 +2,7 @@
 using Artemis.Attributes;
 using Artemis.Manager;
 using Artemis.System;
+using MMXEngine.Common.Attributes;
 using MMXEngine.Common.Enumerations;
 using MMXEngine.Common.Extensions;
 using MMXEngine.ECS.Components;
@@ -9,6 +10,7 @@ using MMXEngine.Interfaces.Managers;
 
 namespace MMXEngine.Systems.Update
 {
+    [LoadableSystem(5)]
     [ArtemisEntitySystem(
         ExecutionType = ExecutionType.Synchronous,
         GameLoopType = GameLoopType.Update,
@@ -29,8 +31,10 @@ namespace MMXEngine.Systems.Update
             Entity player = (Entity)BlackBoard.GetEntry("Player");
             
             // Player collision
-            if (player.GetComponent<CollisionBox>().Bounds.GetCollisionType(
-                    entity.GetComponent<CollisionBox>().Bounds) != CollisionType.None)
+            var type = player.GetComponent<CollisionBox>().Bounds.GetCollisionType(
+                entity.GetComponent<CollisionBox>().Bounds);
+
+            if ( type != CollisionType.None)
             {
                 if (entity.HasComponent<Script>())
                 {

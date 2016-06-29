@@ -5,12 +5,14 @@ using Artemis.Manager;
 using Artemis.System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MMXEngine.Common.Attributes;
 using MMXEngine.Common.Extensions;
 using MMXEngine.ECS.Components;
 using TiledSharp;
 
 namespace MMXEngine.Systems.Draw
 {
+    [LoadableSystem(2)]
     [ArtemisEntitySystem(
         ExecutionType = ExecutionType.Synchronous,
         GameLoopType = GameLoopType.Draw,

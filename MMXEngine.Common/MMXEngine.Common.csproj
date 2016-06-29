@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\LoadableSystemAttribute.cs" />
     <Compile Include="Enumerations\CharacterType.cs" />
     <Compile Include="Enumerations\CollisionType.cs" />
     <Compile Include="Enumerations\Direction.cs" />

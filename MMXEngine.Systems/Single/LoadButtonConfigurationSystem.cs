@@ -1,12 +1,14 @@
 ﻿using Artemis.Attributes;
 using Artemis.Manager;
 using Artemis.System;
+using MMXEngine.Common.Attributes;
 using MMXEngine.ECS.Components;
 using MMXEngine.Interfaces.Components;
 using MMXEngine.Interfaces.Managers;
 
 namespace MMXEngine.Systems.Single
 {
+    [LoadableSystem(1)]
     [ArtemisEntitySystem(
         ExecutionType = ExecutionType.Synchronous,
         GameLoopType = GameLoopType.Update,

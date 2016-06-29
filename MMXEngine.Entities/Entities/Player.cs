@@ -34,7 +34,11 @@ namespace MMXEngine.ECS.Entities
             entity.AddComponent(BuildSprite(characterType));
             entity.AddComponent(_componentFactory.Create<PlayerAction>());
             entity.AddComponent(_componentFactory.Create<Health>());
-            entity.AddComponent(_componentFactory.Create<Position>());
+
+            Position position = _componentFactory.Create<Position>();
+            position.Facing = Direction.Right;
+            entity.AddComponent(position);
+
             entity.AddComponent(_componentFactory.Create<Velocity>());
             entity.AddComponent(_componentFactory.Create<Renderable>());
             entity.AddComponent(BuildCollisionBox());

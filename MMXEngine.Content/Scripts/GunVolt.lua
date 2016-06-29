@@ -18,7 +18,7 @@ function OnTouch()
 
 	local x = GetPlayer();
 	local type = GetCharacterType(x);
-	
-	
+	local name = GetName(this);
+	print(name);
 end
 

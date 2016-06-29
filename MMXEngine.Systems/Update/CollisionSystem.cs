@@ -4,12 +4,14 @@ using Artemis.Attributes;
 using Artemis.Manager;
 using Artemis.System;
 using Microsoft.Xna.Framework;
+using MMXEngine.Common.Attributes;
 using MMXEngine.Common.Enumerations;
 using MMXEngine.Common.Extensions;
 using MMXEngine.ECS.Components;
 
 namespace MMXEngine.Systems.Update
 {
+    [LoadableSystem(6)]
     [ArtemisEntitySystem(
         ExecutionType = ExecutionType.Synchronous,
         GameLoopType = GameLoopType.Update,
@@ -51,7 +53,6 @@ namespace MMXEngine.Systems.Update
             CollisionBox box = entity.GetComponent<CollisionBox>();
             Position position = entity.GetComponent<Position>();
             IEnumerable<CollisionBox> levelCollisions = level.GetComponent<Map>().Collisions;
-            Velocity velocity = entity.GetComponent<Velocity>();
             
             foreach (CollisionBox collision in levelCollisions)
             {
@@ -59,15 +60,13 @@ namespace MMXEngine.Systems.Update
 
                 if (collisionType == CollisionType.Bottom)
                 {
-                    if (velocity.Y > 0.0f)
+                    entity.GetComponent<Velocity>().Y = 0.0f;
+                    position.IsOnGround = true;
+                    if (entity.HasComponent<PlayerAction>())
                     {
-                        entity.GetComponent<Velocity>().Y = 0.0f;
-                        position.IsOnGround = true;
-                        if (entity.HasComponent<PlayerAction>())
-                        {
-                            entity.GetComponent<PlayerAction>().HasJumped = false;
-                        }
+                        entity.GetComponent<PlayerAction>().HasJumped = false;
                     }
+                    entity.GetComponent<Position>().Y = collision.Bounds.Y;
                 }
             }
             

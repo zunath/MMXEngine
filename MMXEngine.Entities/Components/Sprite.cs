@@ -11,7 +11,6 @@ namespace MMXEngine.ECS.Components
         public IDictionary<string, Animation> Animations { get; set; }
         public string CurrentAnimationName { get; private set; }
         public float FrameActiveTime { get; set; }
-        public Direction Facing { get; set; }
 
         public Sprite()
         {

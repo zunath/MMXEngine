@@ -3,12 +3,14 @@ using Artemis.Attributes;
 using Artemis.Manager;
 using Artemis.System;
 using Microsoft.Xna.Framework;
+using MMXEngine.Common.Attributes;
 using MMXEngine.Common.Enumerations;
 using MMXEngine.Common.Extensions;
 using MMXEngine.ECS.Components;
 
 namespace MMXEngine.Systems.Update
 {
+    [LoadableSystem(8)]
     [ArtemisEntitySystem(
         ExecutionType = ExecutionType.Synchronous,
         GameLoopType = GameLoopType.Update,
@@ -53,7 +55,7 @@ namespace MMXEngine.Systems.Update
 
             int offsetX = frame.OffsetX;
             int offsetY = frame.OffsetY;
-            if (sprite.Facing == Direction.Left)
+            if (position.Facing == Direction.Left)
             {
                 offsetX = -offsetX;
             }
@@ -62,7 +64,7 @@ namespace MMXEngine.Systems.Update
             renderable.Source = new Rectangle(frame.X, frame.Y, frame.Width, frame.Height);
             renderable.Texture = sprite.Texture;
             renderable.Position = new Vector2(position.X + offsetX, position.Y + offsetY);
-            renderable.Facing = sprite.Facing;
+            renderable.Facing = position.Facing;
         }
     }
 }
