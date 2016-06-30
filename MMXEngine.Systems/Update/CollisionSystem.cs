@@ -36,14 +36,7 @@ namespace MMXEngine.Systems.Update
         {
             Position position = entity.GetComponent<Position>();
             CollisionBox box = entity.GetComponent<CollisionBox>();
-
-            int offsetX = box.OffsetX;
-            if (position.Facing == Direction.Left)
-            {
-                offsetX = -offsetX;
-            }
-
-            box.Bounds = new Rectangle((int)position.X + offsetX, (int)position.Y + box.OffsetY, box.Bounds.Width, box.Bounds.Height);
+            box.Bounds = new Rectangle((int)position.X + box.OffsetX, (int)position.Y + box.OffsetY, box.Bounds.Width, box.Bounds.Height);
         }
 
         private void ProcessLevelCollisions(Entity entity)
