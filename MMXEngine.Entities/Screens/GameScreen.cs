@@ -19,13 +19,10 @@ namespace MMXEngine.ECS.Screens
         public void Initialize()
         {
             _entityFactory.Create<Level>("DemoMap");
-            Entity player = _entityFactory.Create<Player>(CharacterType.X);
-            player.GetComponent<Position>().X = 16;
-            player.GetComponent<Position>().Y = -16;
+            _entityFactory.Create<Player>(CharacterType.X, 16, -16);
 
-            Entity enemy = _entityFactory.Create<Enemy>("GunVolt");
-            enemy.GetComponent<Position>().X += 100;
-            enemy.GetComponent<Position>().Facing = Direction.Right;
+            Entity enemy = _entityFactory.Create<Enemy>("GunVolt", 100, 0);
+            enemy.GetComponent<Position>().Facing = Direction.Left;
         }
 
         public void Update()

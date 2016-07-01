@@ -44,7 +44,10 @@ namespace MMXEngine.ECS.Entities
 
             entity.AddComponent(sprite);
             entity.AddComponent(_componentFactory.Create<Health>());
-            entity.AddComponent(_componentFactory.Create<Position>());
+            Position position = _componentFactory.Create<Position>();
+            position.X = (int?) args[1] ?? 0;
+            position.Y = (int?) args[2] ?? 0;
+            entity.AddComponent(position);
             entity.AddComponent(_componentFactory.Create<Renderable>());
             entity.AddComponent(_componentFactory.Create<Velocity>());
             entity.AddComponent(_componentFactory.Create<Hostile>());
@@ -57,9 +60,9 @@ namespace MMXEngine.ECS.Entities
             entity.AddComponent(script);
 
             CollisionBox box = _componentFactory.Create<CollisionBox>();
-            box.Bounds = new Rectangle(0, 0, 36, 52);
-            box.OffsetX = -18;
-            box.OffsetY = -25;
+            box.Bounds = new Rectangle((int)position.X, (int)position.Y, data.CollisionWidth, data.CollisionHeight);
+            box.OffsetX = data.CollisionOffsetX;
+            box.OffsetY = data.CollisionOffsetY;
             entity.AddComponent(box);
 
             return entity;

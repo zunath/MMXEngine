@@ -1,29 +1,33 @@
 {
-    "Name": "Gun Volt",
-    "TextureFile": "Enemies_1.png",
-    "Animations": [
+  "Name": "Gun Volt",
+  "TextureFile": "Enemies_1.png",
+  "CollisionWidth": 36,
+  "CollisionHeight": 52,
+  "CollisionOffsetX": -18,
+  "CollisionOffsetY":  -25,
+  "Animations": [
+    {
+      "Name": "Idle",
+      "IsDefaultAnimation": true,
+      "Frames": [
         {
-            "Name": "Idle",
-            "IsDefaultAnimation": true,
-            "Frames": [
-                {
-                    "X": 2,
-                    "Y": 744,
-                    "Height": 57,
-                    "Width": 42,
-                    "Length": 0.5
-                },
-                {
-                    "X": 52,
-                    "Y": 744,
-                    "Height": 58,
-                    "Width": 42,
-                    "Length": 0.5
-                }
-
-            ],
-            "CurrentFrameID": 0
+          "X": 402,
+          "Y": 744,
+          "Height": 57,
+          "Width": 42,
+          "Length": 0.5
+        },
+        {
+          "X": 352,
+          "Y": 744,
+          "Height": 58,
+          "Width": 42,
+          "Length": 0.5
         }
-    ],
-    "Script": "GunVolt.lua"
+
+      ],
+      "CurrentFrameID": 0
+    }
+  ],
+  "Script": "GunVolt.lua"
 }
