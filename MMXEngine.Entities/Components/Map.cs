@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Artemis.Interface;
+﻿using Artemis.Interface;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.ECS.Data;
 

@@ -4,7 +4,6 @@ using Artemis.Manager;
 using Artemis.System;
 using Microsoft.Xna.Framework;
 using MMXEngine.Common.Attributes;
-using MMXEngine.Common.Enumerations;
 using MMXEngine.ECS.Components;
 using MMXEngine.Interfaces.Managers;
 

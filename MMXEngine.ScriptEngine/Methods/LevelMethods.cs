@@ -11,8 +11,7 @@ namespace MMXEngine.ScriptEngine.Methods
         {
             try
             {
-                //return entity.GetComponent<Map>().LevelMap.Width;
-                return -1; // TODO: Update
+                return entity.GetComponent<Map>().Width;
             }
             catch (Exception)
             {
@@ -24,8 +23,7 @@ namespace MMXEngine.ScriptEngine.Methods
         {
             try
             {
-                //return entity.GetComponent<Map>().LevelMap.Height;
-                return -1; // TODO: Update
+                return entity.GetComponent<Map>().Height;
             }
             catch (Exception)
             {

@@ -1,5 +1,4 @@
-﻿using System.IO;
-using Artemis;
+﻿using Artemis;
 using MMXEngine.ECS.Components;
 using MMXEngine.ScriptEngine.Methods;
 using MMXEngine.Testing.Shared;
@@ -14,7 +13,13 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         {
             EntityWorld world = TestHelpers.CreateEntityWorld();
             Entity entity = world.CreateEntity();
-           
+            Map mapComponent = new Map
+            {
+                Height = 20,
+                Width = 32
+            };
+            entity.AddComponent(mapComponent);
+
             return entity;
         }
 

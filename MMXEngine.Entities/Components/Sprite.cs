@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Artemis.Interface;
 using Microsoft.Xna.Framework.Graphics;
-using MMXEngine.Common.Enumerations;
 
 namespace MMXEngine.ECS.Components
 {

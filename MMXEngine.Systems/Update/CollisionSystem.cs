@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Artemis;
 using Artemis.Attributes;
 using Artemis.Manager;
@@ -7,7 +6,6 @@ using Artemis.System;
 using Microsoft.Xna.Framework;
 using MMXEngine.Common.Attributes;
 using MMXEngine.Common.Constants;
-using MMXEngine.Common.Enumerations;
 using MMXEngine.Common.Extensions;
 using MMXEngine.ECS.Components;
 using MMXEngine.ECS.Data;
