@@ -4,6 +4,7 @@ using Artemis.Manager;
 using Artemis.System;
 using MMXEngine.Common.Attributes;
 using MMXEngine.Common.Enumerations;
+using MMXEngine.Common.Extensions;
 using MMXEngine.ECS.Components;
 using MMXEngine.Interfaces.Managers;
 
@@ -17,14 +18,17 @@ namespace MMXEngine.Systems.Update
     public class PlayerMovementSystem : EntityProcessingSystem
     {
         private readonly IInputManager _inputManager;
+        private readonly EntityWorld _world;
         
-        public PlayerMovementSystem(IInputManager inputManager) 
+        public PlayerMovementSystem(IInputManager inputManager,
+            EntityWorld world) 
             : base(Aspect.All(typeof(Velocity),
                 typeof(Position),
                 typeof(PlayerAction),
                 typeof(Sprite)))
         {
             _inputManager = inputManager;
+            _world = world;
         }
 
         public override void Process(Entity entity)
@@ -33,17 +37,30 @@ namespace MMXEngine.Systems.Update
             PlayerAction action = entity.GetComponent<PlayerAction>();
             Sprite sprite = entity.GetComponent<Sprite>();
             Position position = entity.GetComponent<Position>();
-            
-            if (_inputManager.IsDown(GameButton.Dash))
+
+            if (_inputManager.IsUp(GameButton.Dash) && action.IsDashing)
+            {
+                action.IsDashing = false;
+                action.CurrentDashLength = 0.0f;
+            }
+
+            if (_inputManager.IsDown(GameButton.Dash) && action.CurrentDashLength < action.MaxDashLength)
             {
                 sprite.SetCurrentAnimation("Dash");
+                action.IsDashing = true;
 
-                if (position.Facing == Direction.Right)
-                    velocity.X = 2.5f;
-                else
-                    velocity.X = -2.5f;
+                if (position.Facing == Direction.Right) velocity.X = 2.5f;
+                else velocity.X = -2.5f;
+                
+                if (action.IsDashing)
+                {
+                    action.CurrentDashLength += _world.DeltaSeconds();
+                }
             }
-            else if (_inputManager.IsDown(GameButton.MoveRight))
+
+            if (action.IsDashing && action.CurrentDashLength < action.MaxDashLength) return;
+
+            if (_inputManager.IsDown(GameButton.MoveRight))
             {
                 sprite.SetCurrentAnimation("Move");
 

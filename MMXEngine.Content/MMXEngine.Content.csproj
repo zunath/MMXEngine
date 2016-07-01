@@ -102,6 +102,7 @@
   <ItemGroup>
     <Folder Include="Content\Audio\Music\" />
     <Folder Include="Content\Audio\SFX\" />
+    <Folder Include="Data\Effects\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\Creatures\Enemies\GunVolt.json">

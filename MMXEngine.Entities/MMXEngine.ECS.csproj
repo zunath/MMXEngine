@@ -88,6 +88,7 @@
     <Compile Include="Components\Velocity.cs" />
     <Compile Include="Data\CreatureData.cs" />
     <Compile Include="Data\LevelData.cs" />
+    <Compile Include="Data\PlayerData.cs" />
     <Compile Include="Data\TileData.cs" />
     <Compile Include="Entities\Enemy.cs" />
     <Compile Include="Entities\Item.cs" />

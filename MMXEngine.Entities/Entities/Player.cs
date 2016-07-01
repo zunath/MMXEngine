@@ -17,6 +17,8 @@ namespace MMXEngine.ECS.Entities
         private readonly IComponentFactory _componentFactory;
         private readonly IDataManager _dataManager;
         private readonly ContentManager _contentManager;
+        private CharacterType _characterType;
+        private PlayerData _playerData;
 
         public Player(IComponentFactory factory,
             IDataManager dataManager,
@@ -29,10 +31,13 @@ namespace MMXEngine.ECS.Entities
 
         public Entity BuildEntity(Entity entity, params object[] args)
         {
-            CharacterType characterType = args.Length > 0 ? (CharacterType) args[0] : CharacterType.X;
+            _characterType = args.Length > 0 ? (CharacterType) args[0] : CharacterType.X;
+            LoadPlayerDataFile();
 
-            entity.AddComponent(BuildSprite(characterType));
-            entity.AddComponent(_componentFactory.Create<PlayerAction>());
+            entity.AddComponent(BuildSprite());
+            PlayerAction action = _componentFactory.Create<PlayerAction>();
+            action.MaxDashLength = _playerData.MaxDashLength;
+            entity.AddComponent(action);
             entity.AddComponent(_componentFactory.Create<Health>());
 
             Position position = _componentFactory.Create<Position>();
@@ -43,11 +48,11 @@ namespace MMXEngine.ECS.Entities
             entity.AddComponent(_componentFactory.Create<Renderable>());
             entity.AddComponent(BuildCollisionBox());
             PlayerCharacter playerCharacter = _componentFactory.Create<PlayerCharacter>();
-            playerCharacter.CharacterType = characterType;
+            playerCharacter.CharacterType = _characterType;
             entity.AddComponent(playerCharacter);
 
             Nameable nameable = _componentFactory.Create<Nameable>();
-            nameable.Name = characterType == CharacterType.X ? "X" : "Zero";
+            nameable.Name = _playerData.Name;
             entity.AddComponent(nameable);
 
             EntitySystem.BlackBoard.SetEntry("Player", entity);
@@ -55,14 +60,17 @@ namespace MMXEngine.ECS.Entities
             return entity;
         }
 
-        private Sprite BuildSprite(CharacterType characterType)
+        private void LoadPlayerDataFile()
         {
-            string dataFile = characterType == CharacterType.X ? "X.json" : "Zero.json";
-            CreatureData data = _dataManager.Load<CreatureData>("Creatures/Players/" + dataFile);
-            
+            string dataFile = _characterType == CharacterType.X ? "X.json" : "Zero.json";
+            _playerData = _dataManager.Load<PlayerData>("Creatures/Players/" + dataFile);
+        }
+
+        private Sprite BuildSprite()
+        {
             Sprite sprite = _componentFactory.Create<Sprite>();
-            sprite.Texture = _contentManager.Load<Texture2D>("Graphics/Characters/" + data.TextureFile);
-            foreach(Animation animation in data.Animations)
+            sprite.Texture = _contentManager.Load<Texture2D>("Graphics/Characters/" + _playerData.TextureFile);
+            foreach(Animation animation in _playerData.Animations)
             {
                 sprite.Animations.Add(animation.Name, animation);
                 if (animation.IsDefaultAnimation)
