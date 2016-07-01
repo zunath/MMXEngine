@@ -10,7 +10,7 @@ using MMXEngine.ECS.Components;
 
 namespace MMXEngine.Systems.Draw
 {
-    [LoadableSystem(1)]
+    [LoadableSystem(2)]
     [ArtemisEntitySystem(
         ExecutionType = ExecutionType.Synchronous,
         GameLoopType = GameLoopType.Draw,

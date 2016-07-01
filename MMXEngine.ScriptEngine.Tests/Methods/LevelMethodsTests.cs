@@ -4,7 +4,6 @@ using MMXEngine.ECS.Components;
 using MMXEngine.ScriptEngine.Methods;
 using MMXEngine.Testing.Shared;
 using NUnit.Framework;
-using TiledSharp;
 
 namespace MMXEngine.ScriptEngine.Tests.Methods
 {
@@ -15,19 +14,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         {
             EntityWorld world = TestHelpers.CreateEntityWorld();
             Entity entity = world.CreateEntity();
-
-            // TmxMap requires a file to be loaded and I can't mock it out.
-            string tempFilePath = "./TestTMXFile.tmx";
-            File.WriteAllText(tempFilePath, @"<?xml version=""1.0"" encoding=""UTF-8""?><map version=""1.0"" orientation=""orthogonal"" width=""32"" height=""20"" tilewidth=""32"" tileheight=""32""/>");
-            TmxMap tmxMap = new TmxMap(tempFilePath);
-            File.Delete(tempFilePath);
-            
-            Map mapComponent = new Map
-            {
-                LevelMap = tmxMap
-            };
-            entity.AddComponent(mapComponent);
-
+           
             return entity;
         }
 

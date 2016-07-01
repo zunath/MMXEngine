@@ -1,19 +1,15 @@
 ﻿using System.Collections.Generic;
 using Artemis.Interface;
 using Microsoft.Xna.Framework.Graphics;
-using TiledSharp;
+using MMXEngine.ECS.Data;
 
 namespace MMXEngine.ECS.Components
 {
     public class Map : IComponent
     {
-        public int TileWidth { get; set; }
-        public int TileHeight { get; set; }
-        public int TilesetTilesWide { get; set; }
-        public int TilesetTilesHigh { get; set; }
-
-        public TmxMap LevelMap { get; set; }
-        public Texture2D Tileset { get; set; }
-        public IEnumerable<CollisionBox> Collisions { get; set; }
+        public Texture2D Spritesheet { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
+        public TileData[,] Tiles { get; set; }
     }
 }

@@ -22,8 +22,8 @@ namespace MMXEngine.Systems.Update
         public override void Process(Entity entity)
         {
             Velocity velocity = entity.GetComponent<Velocity>();
-            velocity.Y += 4.0f;
-            if (velocity.Y > 4.0f) velocity.Y = 4.0f;
+            velocity.Y += 1.0f;
+            if (velocity.Y > 1.0f) velocity.Y = 1.0f;
         }
     }
 }

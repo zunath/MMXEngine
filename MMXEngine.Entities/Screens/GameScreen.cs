@@ -1,6 +1,7 @@
 ﻿using Artemis;
 using MMXEngine.Common.Enumerations;
 using MMXEngine.ECS.Components;
+using MMXEngine.ECS.Data;
 using MMXEngine.ECS.Entities;
 using MMXEngine.Interfaces.Entities;
 using MMXEngine.Interfaces.Factories;
@@ -18,14 +19,14 @@ namespace MMXEngine.ECS.Screens
 
         public void Initialize()
         {
-            _entityFactory.Create<Level>("ChillPenguin");
+            _entityFactory.Create<Level>("DemoMap");
             Entity player = _entityFactory.Create<Player>(CharacterType.X);
-            player.GetComponent<Position>().X = 66;
-            player.GetComponent<Position>().Y = 1442;
+            player.GetComponent<Position>().X = 16;
+            player.GetComponent<Position>().Y = -16;
 
-            Entity enemy = _entityFactory.Create<Enemy>("GunVolt");
-            enemy.GetComponent<Position>().X += 100;
-            enemy.GetComponent<Position>().Facing = Direction.Right;
+            //Entity enemy = _entityFactory.Create<Enemy>("GunVolt");
+            //enemy.GetComponent<Position>().X += 100;
+            //enemy.GetComponent<Position>().Facing = Direction.Right;
         }
 
         public void Update()
