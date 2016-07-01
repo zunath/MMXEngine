@@ -6,6 +6,7 @@
   "CollisionOffsetX": -8,
   "CollisionOffsetY": -16,
   "Script": "Player.lua",
+  "HeartbeatInterval": 1.0,
   "MaxDashLength": 0.5,
   "Animations": [
     {

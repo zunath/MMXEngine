@@ -57,6 +57,14 @@ namespace MMXEngine.ECS.Entities
             nameable.Name = _playerData.Name;
             entity.AddComponent(nameable);
 
+            Heartbeat heartbeat = _componentFactory.Create<Heartbeat>();
+            heartbeat.Interval = _playerData.HeartbeatInterval;
+            entity.AddComponent(heartbeat);
+
+            Script script = _componentFactory.Create<Script>();
+            script.FilePath = _playerData.Script;
+            entity.AddComponent(script);
+
             EntitySystem.BlackBoard.SetEntry("Player", entity);
 
             return entity;

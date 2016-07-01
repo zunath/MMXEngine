@@ -7,7 +7,7 @@ function OnDeath()
 end
 
 function OnHeartbeat()
-
+	print("firing player heartbeat");
 end
 
 function OnSpawn()

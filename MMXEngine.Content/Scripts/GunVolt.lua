@@ -7,7 +7,7 @@ function OnDeath()
 end
 
 function OnHeartbeat()
-
+	print("firing gun volt heartbeat");
 end
 
 function OnSpawn()

@@ -1,29 +1,30 @@
 {
-    "Name": "Zero",
-    "TextureFile": "Zero.png",
-    "Script": "Player.lua",
-    "Animations": [
+  "Name": "Zero",
+  "TextureFile": "Zero.png",
+  "Script": "Player.lua",
+  "HeartbeatInterval": 1.0,
+  "Animations": [
+    {
+      "Name": "Idle",
+      "IsDefaultAnimation": true,
+      "Frames": [
         {
-            "Name": "Idle",
-            "IsDefaultAnimation": true,
-            "Frames": [
-                {
-                    "X": 0,
-                    "Y": 0,
-                    "Height": 64,
-                    "Width": 64,
-                    "Length": 2.0
-                },
-                {
-                    "X": 150,
-                    "Y": 0,
-                    "Height": 64,
-                    "Width": 64,
-                    "Length": 2.0
-                }
-
-            ],
-            "CurrentFrameID": 0
+          "X": 0,
+          "Y": 0,
+          "Height": 64,
+          "Width": 64,
+          "Length": 2.0
+        },
+        {
+          "X": 150,
+          "Y": 0,
+          "Height": 64,
+          "Width": 64,
+          "Length": 2.0
         }
-    ]
+
+      ],
+      "CurrentFrameID": 0
+    }
+  ]
 }

@@ -18,53 +18,25 @@ namespace MMXEngine.Systems.Update
     public class EnemySystem: EntityProcessingSystem
     {
         private readonly IScriptManager _scriptManager;
-        private readonly EntityWorld _world;
 
-        public EnemySystem(IScriptManager scriptManager,
-            EntityWorld world)
+        public EnemySystem(IScriptManager scriptManager)
             : base(Aspect.All(typeof(Hostile), 
                 typeof(CollisionBox)))
         {
             _scriptManager = scriptManager;
-            _world = world;
         }
 
         public override void Process(Entity entity)
         {
             Entity player = (Entity)BlackBoard.GetEntry("Player");
             
-            // Player collision
             var type = player.GetComponent<CollisionBox>().Bounds.GetCollisionType(
                 entity.GetComponent<CollisionBox>().Bounds);
 
-            if ( type != CollisionType.None)
-            {
-                if (entity.HasComponent<Script>())
-                {
-                    Script script = entity.GetComponent<Script>();
-                    _scriptManager.QueueScript(script.FilePath, entity, "OnTouch");
-
-                }
-            }
-
-            RunHeartbeat(entity);
+            if (type == CollisionType.None || !entity.HasComponent<Script>()) return;
+            Script script = entity.GetComponent<Script>();
+            _scriptManager.QueueScript(script.FilePath, entity, "OnTouch");
         }
-
-        private void RunHeartbeat(Entity entity)
-        {
-            if (!entity.HasComponent<Heartbeat>()) return;
-            Heartbeat hb = entity.GetComponent<Heartbeat>();
-            if (hb.Interval <= 0.0f) return;
-            hb.CurrentTimer += _world.DeltaSeconds();
-            if (!(hb.CurrentTimer >= hb.Interval)) return;
-
-            if (entity.HasComponent<Script>())
-            {
-                Script script = entity.GetComponent<Script>();
-                _scriptManager.QueueScript(script.FilePath, entity, "OnHeartbeat");
-            }
-
-            hb.CurrentTimer = 0.0f;
-        }
+        
     }
 }
