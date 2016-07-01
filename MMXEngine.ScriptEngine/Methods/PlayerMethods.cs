@@ -8,19 +8,6 @@ namespace MMXEngine.ScriptEngine.Methods
 {
     public class PlayerMethods: IScriptMethodGroup
     {
-        public static bool IsPlayerJumping()
-        {
-            try
-            {
-                Entity player = (Entity)EntitySystem.BlackBoard.GetEntry("Player");
-                return player.GetComponent<PlayerAction>().HasJumped;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
         public static bool IsPlayerShooting()
         {
             try

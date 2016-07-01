@@ -84,6 +84,14 @@ namespace MMXEngine.ScriptEngine.Methods
             }
         }
 
+        public static void SetFacing(Entity entity, Direction facing)
+        {
+            if (entity.HasComponent<Position>())
+            {
+                entity.GetComponent<Position>().Facing = facing;
+            }
+        }
+
         public static bool GetIsOnGround(Entity entity)
         {
             try

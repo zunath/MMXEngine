@@ -16,7 +16,6 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
             Entity entity = world.CreateEntity();
             PlayerAction actionComponent = new PlayerAction
             {
-                HasJumped = true,
                 IsShooting = true
             };
             entity.AddComponent(actionComponent);
@@ -29,32 +28,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
             Entity entity = world.CreateEntity();
             EntitySystem.BlackBoard.SetEntry("Player", entity);
         }
-
-        [Test]
-        public void IsPlayerJumping_ShouldBeTrue()
-        {
-            BuildValidEntity();
-            bool isJumping = PlayerMethods.IsPlayerJumping();
-            Assert.IsTrue(isJumping);
-        }
-
-        [Test]
-        public void IsPlayerJumping_ShouldBeFalse()
-        {
-            BuildValidEntity();
-            EntitySystem.BlackBoard.GetEntry<Entity>("Player").GetComponent<PlayerAction>().HasJumped = false;
-            bool isJumping = PlayerMethods.IsPlayerJumping();
-            Assert.IsFalse(isJumping);
-        }
-
-        [Test]
-        public void IsPlayerJumping_InvalidPlayer_ShouldBeFalse()
-        {
-            BuildInvalidEntity();
-            bool isJumping = PlayerMethods.IsPlayerJumping();
-            Assert.IsFalse(isJumping);
-        }
-
+        
         [Test]
         public void IsPlayerShooting_ShouldBeTrue()
         {

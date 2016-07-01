@@ -154,6 +154,20 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
             Direction facing = PhysicsMethods.GetFacing(entity);
             Assert.AreEqual(facing, Direction.Unknown);
         }
+        [Test]
+        public void SetFacing_ShouldEqualDown()
+        {
+            Entity entity = BuildValidEntity();
+            PhysicsMethods.SetFacing(entity, Direction.Down);
+
+            Assert.AreEqual(entity.GetComponent<Position>().Facing, Direction.Down);
+        }
+        [Test]
+        public void SetFacing_NoComponent_ShouldNotThrowException()
+        {
+            Entity entity = BuildInvalidEntity();
+            Assert.DoesNotThrow(() => PhysicsMethods.SetFacing(entity, Direction.Down));
+        }
 
         [Test]
         public void GetIsOnGround_ShouldBeTrue()
