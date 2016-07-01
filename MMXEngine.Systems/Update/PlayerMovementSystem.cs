@@ -37,11 +37,14 @@ namespace MMXEngine.Systems.Update
             PlayerAction action = entity.GetComponent<PlayerAction>();
             Sprite sprite = entity.GetComponent<Sprite>();
             Position position = entity.GetComponent<Position>();
-
+            
             if (_inputManager.IsUp(GameButton.Dash) && action.IsDashing)
             {
                 action.IsDashing = false;
                 action.CurrentDashLength = 0.0f;
+                if(sprite.CurrentAnimationName != "Idle")
+                    sprite.SetCurrentAnimation("DashEnd");
+                velocity.X = 0.0f;
             }
 
             if (_inputManager.IsDown(GameButton.Dash) && action.CurrentDashLength < action.MaxDashLength)
@@ -58,8 +61,17 @@ namespace MMXEngine.Systems.Update
                 }
             }
 
-            if (action.IsDashing && action.CurrentDashLength < action.MaxDashLength) return;
+            if (action.IsDashing &&
+                action.CurrentDashLength >= action.MaxDashLength &&
+                sprite.CurrentAnimationName == "Dash")
+            {
+                sprite.SetCurrentAnimation("DashEnd");
+                velocity.X = 0.0f;
+            }
 
+            if (action.IsDashing && 
+                action.CurrentDashLength < action.MaxDashLength) return;
+            
             if (_inputManager.IsDown(GameButton.MoveRight))
             {
                 sprite.SetCurrentAnimation("Move");
@@ -74,7 +86,7 @@ namespace MMXEngine.Systems.Update
                 velocity.X = -1.5f;
                 position.Facing = Direction.Left;
             }
-            else
+            else if(sprite.CurrentAnimationName != "DashEnd")
             {
                 sprite.SetCurrentAnimation("Idle");
                 velocity.X = 0;

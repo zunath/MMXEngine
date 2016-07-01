@@ -41,10 +41,20 @@ namespace MMXEngine.Systems.Update
             
             if (sprite.FrameActiveTime > frame.Length)
             {
-                frame.HasRunOnce = true;
-                animation.CurrentFrameID++;
-                sprite.FrameActiveTime = 0;
-                frame = animation.Frames[animation.CurrentFrameID];
+                if (animation.CurrentFrameID == animation.Frames.Count - 1 &&
+                    !string.IsNullOrEmpty(animation.NextAnimation))
+                {
+                    sprite.SetCurrentAnimation(animation.NextAnimation);
+                    animation = sprite.Animations[sprite.CurrentAnimationName];
+                    frame = animation.Frames[animation.CurrentFrameID];
+                }
+                else
+                {
+                    frame.HasRunOnce = true;
+                    animation.CurrentFrameID++;
+                    sprite.FrameActiveTime = 0;
+                    frame = animation.Frames[animation.CurrentFrameID];
+                }
             }
             
             while (frame.OnlyRunOnce && frame.HasRunOnce)
@@ -59,7 +69,7 @@ namespace MMXEngine.Systems.Update
             {
                 offsetX = -offsetX;
             }
-
+            
             // Update renderable
             renderable.Source = new Rectangle(frame.X, frame.Y, frame.Width, frame.Height);
             renderable.Texture = sprite.Texture;
