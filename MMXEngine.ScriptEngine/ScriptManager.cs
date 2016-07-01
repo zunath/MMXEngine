@@ -76,6 +76,7 @@ namespace MMXEngine.ScriptEngine
                 .SelectMany(x => x.GetTypes())
                 .Where(p => typeof(IScriptMethodGroup).IsAssignableFrom(p))
                 .SelectMany(m => m.GetMethods())
+                .Where(p => p.DeclaringType != typeof(object))
                 .ToList();
             
             foreach (MethodInfo method in methods)
