@@ -80,7 +80,6 @@ namespace MMXEngine.Systems.Update
                         if(depth.Y != 0.0f)
                         {
                             position.Y += depth.Y;
-                            velocity.Y = 0.0f;
                             break;
                         }
 

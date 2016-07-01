@@ -34,38 +34,35 @@ namespace MMXEngine.Systems.Update
             Sprite sprite = entity.GetComponent<Sprite>();
             Position position = entity.GetComponent<Position>();
             
-            if (_inputManager.IsDown(GameButton.MoveRight))
+            if (_inputManager.IsDown(GameButton.Dash))
             {
-                if (!action.HasJumped)
-                    sprite.SetCurrentAnimation("Move");
+                sprite.SetCurrentAnimation("Dash");
+
+                if (position.Facing == Direction.Right)
+                    velocity.X = 2.5f;
+                else
+                    velocity.X = -2.5f;
+            }
+            else if (_inputManager.IsDown(GameButton.MoveRight))
+            {
+                sprite.SetCurrentAnimation("Move");
 
                 velocity.X = 1.5f;
                 position.Facing = Direction.Right;
             }
             else if (_inputManager.IsDown(GameButton.MoveLeft))
             {
-                if(!action.HasJumped)
-                    sprite.SetCurrentAnimation("Move");
+                sprite.SetCurrentAnimation("Move");
 
                 velocity.X = -1.5f;
                 position.Facing = Direction.Left;
             }
-            else if(!action.HasJumped)
+            else
             {
-                if(!action.HasJumped)
-                    sprite.SetCurrentAnimation("Idle");
-
+                sprite.SetCurrentAnimation("Idle");
                 velocity.X = 0;
             }
-
-            if (_inputManager.IsDown(GameButton.Jump) && 
-                !action.HasJumped && 
-                !_inputManager.WasDownLastFrame(GameButton.Jump))
-            {
-                velocity.Y = -21.0f;
-                action.HasJumped = true;
-                sprite.SetCurrentAnimation("Jump");
-            }
+            
             
         }
     }

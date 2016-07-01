@@ -78,7 +78,6 @@
     <Compile Include="Update\CameraSystem.cs" />
     <Compile Include="Update\EnemySystem.cs" />
     <Compile Include="Update\GravitySystem.cs" />
-    <Compile Include="Update\LevelSystem.cs" />
     <Compile Include="Update\SpriteSystem.cs" />
     <Compile Include="Single\LoadButtonConfigurationSystem.cs" />
     <Compile Include="Update\CollisionSystem.cs" />
