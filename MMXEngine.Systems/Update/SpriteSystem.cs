@@ -75,6 +75,7 @@ namespace MMXEngine.Systems.Update
             renderable.Texture = sprite.Texture;
             renderable.Position = new Vector2(position.X + offsetX, position.Y + offsetY);
             renderable.Facing = position.Facing;
+            renderable.ColorOverride = sprite.ColorOverride;
         }
     }
 }

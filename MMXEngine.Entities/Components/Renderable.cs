@@ -11,5 +11,6 @@ namespace MMXEngine.ECS.Components
         public Vector2 Position { get; set; }
         public Rectangle Source { get; set; }
         public Direction Facing { get; set; }
+        public Color? ColorOverride { get; set; }
     }
 }

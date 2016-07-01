@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Artemis.Interface;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace MMXEngine.ECS.Components
@@ -10,6 +11,7 @@ namespace MMXEngine.ECS.Components
         public IDictionary<string, Animation> Animations { get; set; }
         public string CurrentAnimationName { get; private set; }
         public float FrameActiveTime { get; set; }
+        public Color? ColorOverride { get; private set; }
 
         public Sprite()
         {
@@ -28,6 +30,16 @@ namespace MMXEngine.ECS.Components
             }
 
             CurrentAnimationName = animationName;
+        }
+
+        public void SetColorOverride(int red, int green, int blue, int alpha)
+        {
+            ColorOverride = new Color(red, green, blue, alpha);
+        }
+
+        public void RemoveColorOverride()
+        {
+            ColorOverride = null;
         }
     }
 }

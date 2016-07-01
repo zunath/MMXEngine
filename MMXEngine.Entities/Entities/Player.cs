@@ -46,9 +46,10 @@ namespace MMXEngine.ECS.Entities
             position.Y = (int?) args[2] ?? 0;
             entity.AddComponent(position);
 
+            entity.AddComponent(_componentFactory.Create<LocalData>());
             entity.AddComponent(_componentFactory.Create<Velocity>());
             entity.AddComponent(_componentFactory.Create<Renderable>());
-            entity.AddComponent(BuildCollisionBox((int)position.X, (int)position.Y));
+            entity.AddComponent(BuildCollisionBox());
             PlayerCharacter playerCharacter = _componentFactory.Create<PlayerCharacter>();
             playerCharacter.CharacterType = _characterType;
             entity.AddComponent(playerCharacter);
@@ -92,10 +93,11 @@ namespace MMXEngine.ECS.Entities
             return sprite;
         }
 
-        private CollisionBox BuildCollisionBox(int positionX, int positionY)
+        private CollisionBox BuildCollisionBox()
         {
             CollisionBox box = _componentFactory.Create<CollisionBox>();
-            box.Bounds = new Rectangle(positionX, positionY, _playerData.CollisionWidth, _playerData.CollisionHeight);
+            box.Width = _playerData.CollisionWidth;
+            box.Height = _playerData.CollisionHeight;
             box.OffsetX = _playerData.CollisionOffsetX;
             box.OffsetY = _playerData.CollisionOffsetY;
             box.IsVisible = true;

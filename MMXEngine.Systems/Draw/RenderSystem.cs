@@ -36,15 +36,15 @@ namespace MMXEngine.Systems.Draw
                 flip = SpriteEffects.FlipHorizontally;
             }
             
-            _spriteBatch.Draw(renderable.Texture,   // Texture
-                renderable.Position,                // Position
-                renderable.Source,                  // Source
-                Color.White,                        // Color
-                0.0f,                               // Rotation
-                origin,                             // Origin 
-                1.0f,                               // Scale
-                flip,                               // SpriteEffects
-                0.0f);                              // Layer Depth
+            _spriteBatch.Draw(renderable.Texture,                   // Texture
+                renderable.Position,                                // Position
+                renderable.Source,                                  // Source
+                renderable.ColorOverride ?? Color.White,            // Color
+                0.0f,                                               // Rotation
+                origin,                                             // Origin 
+                1.0f,                                               // Scale
+                flip,                                               // SpriteEffects
+                0.0f);                                              // Layer Depth
         }
     }
 }

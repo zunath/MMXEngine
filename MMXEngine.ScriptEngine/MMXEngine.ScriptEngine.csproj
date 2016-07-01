@@ -73,9 +73,11 @@
     <Compile Include="Methods\CreatureMethods.cs" />
     <Compile Include="Methods\EntityMethods.cs" />
     <Compile Include="Methods\LevelMethods.cs" />
+    <Compile Include="Methods\LocalDataMethods.cs" />
     <Compile Include="Methods\MiscellaneousMethods.cs" />
     <Compile Include="Methods\PhysicsMethods.cs" />
     <Compile Include="Methods\PlayerMethods.cs" />
+    <Compile Include="Methods\SpriteMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScriptManager.cs" />
   </ItemGroup>

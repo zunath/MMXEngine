@@ -77,6 +77,7 @@
     <Compile Include="Components\Heartbeat.cs" />
     <Compile Include="Components\Hostile.cs" />
     <Compile Include="Components\Frame.cs" />
+    <Compile Include="Components\LocalData.cs" />
     <Compile Include="Components\Map.cs" />
     <Compile Include="Components\Nameable.cs" />
     <Compile Include="Components\PlayerAction.cs" />

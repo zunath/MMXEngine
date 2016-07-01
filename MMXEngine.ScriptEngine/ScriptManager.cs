@@ -57,6 +57,7 @@ namespace MMXEngine.ScriptEngine
             EnumerationToTable("CollisionType", typeof(CollisionType));
             EnumerationToTable("DirectionType", typeof(Direction));
             EnumerationToTable("GameButton", typeof(GameButton));
+            EnumerationToTable("Color", typeof(ColorType));
         }
 
         private void EnumerationToTable(string luaTableName, Type enumType)
