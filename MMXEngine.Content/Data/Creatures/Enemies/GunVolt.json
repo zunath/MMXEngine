@@ -4,7 +4,8 @@
   "CollisionWidth": 36,
   "CollisionHeight": 52,
   "CollisionOffsetX": -18,
-  "CollisionOffsetY":  -25,
+  "CollisionOffsetY": -25,
+  "HeartbeatInterval":  1.0,
   "Animations": [
     {
       "Name": "Idle",

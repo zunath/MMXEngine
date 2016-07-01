@@ -74,6 +74,7 @@
     <Compile Include="Components\Animation.cs" />
     <Compile Include="Components\ButtonConfiguration.cs" />
     <Compile Include="Components\CollisionBox.cs" />
+    <Compile Include="Components\Heartbeat.cs" />
     <Compile Include="Components\Hostile.cs" />
     <Compile Include="Components\Frame.cs" />
     <Compile Include="Components\Map.cs" />

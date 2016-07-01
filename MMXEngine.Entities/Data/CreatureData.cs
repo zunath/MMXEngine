@@ -12,6 +12,7 @@ namespace MMXEngine.ECS.Data
         public int CollisionOffsetX { get; set; }
         public int CollisionOffsetY { get; set; }
         public string TextureFile { get; set; }
+        public float HeartbeatInterval { get; set; }
         public string Script { get; set; }
         public IEnumerable<Animation> Animations { get; set; }
         

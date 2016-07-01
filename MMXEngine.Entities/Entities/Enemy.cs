@@ -65,6 +65,10 @@ namespace MMXEngine.ECS.Entities
             box.OffsetY = data.CollisionOffsetY;
             entity.AddComponent(box);
 
+            Heartbeat hb = _componentFactory.Create<Heartbeat>();
+            hb.Interval = data.HeartbeatInterval;
+            entity.AddComponent(hb);
+
             return entity;
         }
     }

@@ -48,7 +48,6 @@ namespace MMXEngine.Systems.Update
             CollisionBox box = entity.GetComponent<CollisionBox>();
             Rectangle bounds = box.Bounds;
             Position position = entity.GetComponent<Position>();
-            Velocity velocity = entity.GetComponent<Velocity>();
 
             int leftTile = (int) Math.Floor((float) bounds.Left/TilesetConstants.TileWidth);
             int rightTile = (int)Math.Ceiling(((float)bounds.Right / TilesetConstants.TileWidth)) - 1;
