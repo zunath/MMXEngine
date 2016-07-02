@@ -118,5 +118,67 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
             float result = LocalDataMethods.GetLocalNumber(entity, "Key");
             Assert.AreEqual(result, 123.0f);
         }
+
+        [Test]
+        public void DeleteLocalVariables_ShouldNotThrowException()
+        {
+            Entity entity = BuildValidEntity();
+            LocalDataMethods.SetLocalValue(entity, "haskey", "this is a test string");
+            LocalDataMethods.SetLocalValue(entity, "haskey2", 55523.3f);
+
+            Assert.DoesNotThrow(delegate
+            {
+                LocalDataMethods.DeleteLocalNumber(entity, "nokey");
+                LocalDataMethods.DeleteLocalString(entity, "nokey2");
+
+                LocalDataMethods.DeleteLocalString(entity, "haskey");
+                LocalDataMethods.DeleteLocalNumber(entity, "haskey2");
+            });
+        }
+        [Test]
+        public void DeleteLocalString_ValueShouldBeRemoved()
+        {
+            Entity entity = BuildValidEntity();
+            LocalDataMethods.SetLocalValue(entity, "key", "test string");
+            string value = LocalDataMethods.GetLocalString(entity, "key");
+            Assert.AreEqual(value, "test string");
+
+            LocalDataMethods.DeleteLocalString(entity, "key");
+            value = LocalDataMethods.GetLocalString(entity, "key");
+            Assert.AreEqual(value, string.Empty);
+        }
+
+        [Test]
+        public void DeleteLocalNumber_ValueShouldBeRemoved()
+        {
+            Entity entity = BuildValidEntity();
+            LocalDataMethods.SetLocalValue(entity, "key", 2345);
+            float value = LocalDataMethods.GetLocalNumber(entity, "key");
+            Assert.AreEqual(value, 2345);
+
+            LocalDataMethods.DeleteLocalNumber(entity, "key");
+            value = LocalDataMethods.GetLocalNumber(entity, "key");
+            Assert.AreEqual(value, 0.0f);
+        }
+        [Test]
+        public void DeleteLocalString_NoComponent_ShouldNotThrowException()
+        {
+            Entity entity = BuildInvalidEntity();
+            Assert.DoesNotThrow(delegate
+            {
+                LocalDataMethods.DeleteLocalNumber(entity, "nokey1");
+                LocalDataMethods.DeleteLocalString(entity, "nokey2");
+            });
+        }
+        [Test]
+        public void DeleteLocalVariables_NoKey_ShouldNotThrowException()
+        {
+            Entity entity = BuildValidEntity();
+            Assert.DoesNotThrow(delegate
+            {
+                LocalDataMethods.DeleteLocalNumber(entity, "nokey1");
+                LocalDataMethods.DeleteLocalString(entity, "nokey2");
+            });
+        }
     }
 }

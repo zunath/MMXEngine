@@ -34,5 +34,20 @@ namespace MMXEngine.ScriptEngine.Methods
             LocalData data = entity.GetComponent<LocalData>();
             return data.LocalFloats.ContainsKey(key) ? data.LocalFloats[key] : 0.0f;
         }
+
+        public static void DeleteLocalString(Entity entity, string key)
+        {
+            if (!entity.HasComponent<LocalData>()) return;
+            LocalData data = entity.GetComponent<LocalData>();
+            if (data.LocalStrings.ContainsKey(key))
+                data.LocalStrings.Remove(key);
+        }
+        public static void DeleteLocalNumber(Entity entity, string key)
+        {
+            if (!entity.HasComponent<LocalData>()) return;
+            LocalData data = entity.GetComponent<LocalData>();
+            if (data.LocalFloats.ContainsKey(key))
+                data.LocalFloats.Remove(key);
+        }
     }
 }
