@@ -9,6 +9,9 @@
         MoveLeft = 5,
         MoveRight = 6,
         MoveUp = 7,
-        MoveDown = 8
+        MoveDown = 8,
+
+        // Debug buttons
+        ToggleMusic = 50
     }
 }

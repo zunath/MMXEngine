@@ -6,5 +6,7 @@
     "Jump": 76,
     "Dash": 75,
     "Shoot": 74,
-    "Menu": 32
+    "Menu": 32,
+    // Debug buttons
+    "ToggleMusic": 97 
 }

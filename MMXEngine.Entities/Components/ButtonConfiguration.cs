@@ -14,5 +14,7 @@ namespace MMXEngine.ECS.Components
         public Keys Dash { get; set; }
         public Keys Shoot { get; set; }
         public Keys Menu { get; set; }
+
+        public Keys ToggleMusic { get; set; }
     }
 }

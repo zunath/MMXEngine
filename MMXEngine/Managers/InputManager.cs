@@ -74,6 +74,7 @@ namespace MMXEngine.Windows.Managers
                 case GameButton.MoveLeft: return Configuration.MoveLeft;
                 case GameButton.MoveRight: return Configuration.MoveRight;
                 case GameButton.MoveUp: return Configuration.MoveUp;
+                case GameButton.ToggleMusic: return Configuration.ToggleMusic;
                 default: throw new Exception("GameButton not mapped to Key.");
             }
         }

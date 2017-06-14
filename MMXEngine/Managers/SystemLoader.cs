@@ -24,7 +24,8 @@ namespace MMXEngine.Windows.Managers
         private readonly CollisionSystem _collisionSystem; 
         private readonly CameraSystem _cameraSystem; 
         private readonly SpriteSystem _spriteSystem; 
-        private readonly HeartbeatSystem _heartbeatSystem; 
+        private readonly HeartbeatSystem _heartbeatSystem;
+        private readonly DebugSystem _debugSystem;
 
         // Draw
         private readonly RenderSystem _renderSystem;
@@ -43,6 +44,7 @@ namespace MMXEngine.Windows.Managers
             CameraSystem cameraSystem,
             SpriteSystem spriteSystem,
             HeartbeatSystem heartbeatSystem,
+            DebugSystem debugSystem,
             // Draw
             RenderSystem renderSystem,
             RenderLevelSystem renderLevelSystem,
@@ -62,6 +64,7 @@ namespace MMXEngine.Windows.Managers
             _cameraSystem = cameraSystem;
             _spriteSystem = spriteSystem;
             _heartbeatSystem = heartbeatSystem;
+            _debugSystem = debugSystem;
 
             // Draw
             _renderSystem = renderSystem;
@@ -82,6 +85,7 @@ namespace MMXEngine.Windows.Managers
             RegisterSystem(_cameraSystem);
             RegisterSystem(_spriteSystem);
             RegisterSystem(_heartbeatSystem);
+            RegisterSystem(_debugSystem);
 
             // Draw
             RegisterSystem(_renderSystem);

@@ -1,11 +1,12 @@
 {
   "Name": "Gun Volt",
   "TextureFile": "Enemies_1",
+  "Script": "GunVolt.lua",
   "CollisionWidth": 36,
   "CollisionHeight": 52,
   "CollisionOffsetX": -18,
   "CollisionOffsetY": -23,
-  "HeartbeatInterval":  1.0,
+  "HeartbeatInterval": 1.0,
   "Animations": [
     {
       "Name": "Idle",
@@ -29,6 +30,5 @@
       ],
       "CurrentFrameID": 0
     }
-  ],
-  "Script": "GunVolt.lua"
+  ]
 }

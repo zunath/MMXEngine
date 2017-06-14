@@ -12,5 +12,7 @@ namespace MMXEngine.Interfaces.Components
         Keys Dash { get; set; }
         Keys Shoot { get; set; }
         Keys Menu { get; set; }
+
+        Keys ToggleMusic { get; set; }
     }
 }
