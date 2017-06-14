@@ -7,6 +7,7 @@
         public int Height { get; set; }
         public string Spritesheet { get; set; }
         public TileData[,] Tiles { get; set; }
+        public string BGMFile { get; set; }
 
         public LevelData()
         {

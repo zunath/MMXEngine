@@ -64,46 +64,92 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Graphics\Characters\MMX.png">
+    <Content Include="Content\Audio\BGM\bgm-boomer-kuwanger.mp3" />
+    <Content Include="Content\Audio\BGM\bgm-chill-penguin.mp3" />
+    <Content Include="Content\Audio\BGM\bgm-flame-mammoth.mp3" />
+    <Content Include="Content\Audio\BGM\bgm-launch-octopus.mp3" />
+    <Content Include="Content\Audio\BGM\bgm-sting-chameleon.mp3" />
+    <Content Include="Content\Compiled\Audio\BGM\bgm-boomer-kuwanger.wma">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Graphics\Characters\Zero.png">
+    <Content Include="Content\Compiled\Audio\BGM\bgm-chill-penguin.wma">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Graphics\Enemies\Enemies_1.png">
+    <Content Include="Content\Compiled\Audio\BGM\bgm-flame-mammoth.wma">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Graphics\Enemies\Enemies_2.png">
+    <Content Include="Content\Compiled\Audio\BGM\bgm-launch-octopus.wma">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Graphics\Enemies\Enemies_3.png">
+    <Content Include="Content\Compiled\Audio\BGM\bgm-sting-chameleon.wma">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Graphics\Enemies\Enemies_4.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Graphics\Enemies\Enemies_5.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Graphics\Enemies\Enemies_6.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Graphics\Enemies\Enemies_7.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Graphics\Items\Items.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Graphics\Tilesets\DemoMap.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Content\Graphics\Characters\MMX.png" />
+    <Content Include="Content\Graphics\Characters\Zero.png" />
+    <Content Include="Content\Graphics\Enemies\Enemies_1.png" />
+    <Content Include="Content\Graphics\Enemies\Enemies_2.png" />
+    <Content Include="Content\Graphics\Enemies\Enemies_3.png" />
+    <Content Include="Content\Graphics\Enemies\Enemies_4.png" />
+    <Content Include="Content\Graphics\Enemies\Enemies_5.png" />
+    <Content Include="Content\Graphics\Enemies\Enemies_6.png" />
+    <Content Include="Content\Graphics\Enemies\Enemies_7.png" />
+    <Content Include="Content\Graphics\Items\Items.png" />
+    <Content Include="Content\Graphics\Tilesets\DemoMap.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\Audio\Music\" />
     <Folder Include="Content\Audio\SFX\" />
+    <Folder Include="Content\Compiled\Audio\SFX\" />
     <Folder Include="Data\Effects\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Content\Compiled\Audio\BGM\bgm-boomer-kuwanger.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Compiled\Audio\BGM\bgm-chill-penguin.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Compiled\Audio\BGM\bgm-flame-mammoth.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Compiled\Audio\BGM\bgm-launch-octopus.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Compiled\Audio\BGM\bgm-sting-chameleon.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Compiled\Graphics\Characters\MMX.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Compiled\Graphics\Characters\Zero.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Compiled\Graphics\Enemies\Enemies_1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Compiled\Graphics\Enemies\Enemies_2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Compiled\Graphics\Enemies\Enemies_3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Compiled\Graphics\Enemies\Enemies_4.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Compiled\Graphics\Enemies\Enemies_5.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Compiled\Graphics\Enemies\Enemies_6.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Compiled\Graphics\Enemies\Enemies_7.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Compiled\Graphics\Items\Items.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Compiled\Graphics\Tilesets\DemoMap.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Data\Creatures\Enemies\GunVolt.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

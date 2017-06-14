@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMXEngine.Windows", "MMXEngine\MMXEngine.Windows.csproj", "{A6FD1815-559F-4814-AFDF-D6AB9ECE5EA4}"
 EndProject
@@ -46,6 +46,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. Tools", "0. Tools", "{30D328B0-74B4-40BD-9A65-41DAF32FD1AC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMXEngine.Toolkit", "MMXEngine.Toolkit\MMXEngine.Toolkit.csproj", "{C8DB5148-A90D-4C86-A518-23B666D5CE5A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7E97370D-BB03-4CF3-B5BF-B96BDC569301}"
+	ProjectSection(SolutionItems) = preProject
+		MMXEngine.mgcb = MMXEngine.mgcb
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

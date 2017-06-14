@@ -1,6 +1,6 @@
 {
   "Name": "X",
-  "TextureFile": "MMX.png",
+  "TextureFile": "MMX",
   "CollisionWidth": 16,
   "CollisionHeight": 32,
   "CollisionOffsetX": -8,

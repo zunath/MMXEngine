@@ -2,7 +2,8 @@
 	"Name": "Demo Stage",
 	"Width": 100,
 	"Height": 100,
-	"Spritesheet": "DemoMap.png",
+  "Spritesheet": "DemoMap",
+  "BGMFile": "bgm-boomer-kuwanger", 
 	"Tiles": [
 		[{
 			"X": 0,

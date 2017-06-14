@@ -1,6 +1,6 @@
 {
   "Name": "Zero",
-  "TextureFile": "Zero.png",
+  "TextureFile": "Zero",
   "Script": "Player.lua",
   "HeartbeatInterval": 1.0,
   "Animations": [

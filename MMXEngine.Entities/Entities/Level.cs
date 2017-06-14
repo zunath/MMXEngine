@@ -1,6 +1,7 @@
 ﻿using Artemis;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using MMXEngine.ECS.Components;
 using MMXEngine.ECS.Data;
 using MMXEngine.Interfaces.Entities;
@@ -37,6 +38,10 @@ namespace MMXEngine.ECS.Entities
             map.Height = levelData.Height;
             map.Spritesheet = _contentManager.Load<Texture2D>("./Graphics/Tilesets/" + levelData.Spritesheet);
             map.Tiles = levelData.Tiles;
+            map.BGM = _contentManager.Load<Song>("./Audio/BGM/" + levelData.BGMFile);
+
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Play(map.BGM);
 
             entity.AddComponent(nameable);
             entity.AddComponent(map);

@@ -1,6 +1,6 @@
 {
   "Name": "Gun Volt",
-  "TextureFile": "Enemies_1.png",
+  "TextureFile": "Enemies_1",
   "CollisionWidth": 36,
   "CollisionHeight": 52,
   "CollisionOffsetX": -18,

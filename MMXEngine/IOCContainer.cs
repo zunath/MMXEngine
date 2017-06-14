@@ -31,7 +31,7 @@ namespace MMXEngine.Windows
         {
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();
             var builder = new ContainerBuilder();
-            game.Content.RootDirectory = "Content";
+            game.Content.RootDirectory = "Content/Compiled";
 
             builder.RegisterInstance(new SpriteBatch(game.GraphicsDevice)).AsSelf();
             builder.RegisterInstance(game.Content).AsSelf();

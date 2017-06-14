@@ -1,0 +1,177 @@
+
+#----------------------------- Global Properties ----------------------------#
+
+/outputDir:bin\
+/intermediateDir:obj
+/platform:Windows
+/config:
+/profile:Reach
+/compress:False
+
+#-------------------------------- References --------------------------------#
+
+
+#---------------------------------- Content ---------------------------------#
+
+#begin MMXEngine.Content/Content/Graphics/Characters/MMX.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Graphics/Characters/MMX.png
+
+#begin MMXEngine.Content/Content/Graphics/Characters/Zero.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Graphics/Characters/Zero.png
+
+#begin MMXEngine.Content/Content/Graphics/Enemies/Enemies_1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Graphics/Enemies/Enemies_1.png
+
+#begin MMXEngine.Content/Content/Graphics/Enemies/Enemies_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Graphics/Enemies/Enemies_2.png
+
+#begin MMXEngine.Content/Content/Graphics/Enemies/Enemies_3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Graphics/Enemies/Enemies_3.png
+
+#begin MMXEngine.Content/Content/Graphics/Enemies/Enemies_4.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Graphics/Enemies/Enemies_4.png
+
+#begin MMXEngine.Content/Content/Graphics/Enemies/Enemies_5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Graphics/Enemies/Enemies_5.png
+
+#begin MMXEngine.Content/Content/Graphics/Enemies/Enemies_6.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Graphics/Enemies/Enemies_6.png
+
+#begin MMXEngine.Content/Content/Graphics/Enemies/Enemies_7.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Graphics/Enemies/Enemies_7.png
+
+#begin MMXEngine.Content/Content/Graphics/Items/Items.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Graphics/Items/Items.png
+
+#begin MMXEngine.Content/Content/Graphics/Tilesets/DemoMap.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Graphics/Tilesets/DemoMap.png
+
+#begin MMXEngine.Content/Content/Audio/BGM/bgm-chill-penguin.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/BGM/bgm-chill-penguin.mp3
+
+#begin MMXEngine.Content/Content/Audio/BGM/bgm-launch-octopus.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/BGM/bgm-launch-octopus.mp3
+
+#begin MMXEngine.Content/Content/Audio/BGM/bgm-flame-mammoth.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/BGM/bgm-flame-mammoth.mp3
+
+#begin MMXEngine.Content/Content/Audio/BGM/bgm-sting-chameleon.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/BGM/bgm-sting-chameleon.mp3
+
+#begin MMXEngine.Content/Content/Audio/BGM/bgm-boomer-kuwanger.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/BGM/bgm-boomer-kuwanger.mp3
+
