@@ -3,7 +3,6 @@ using Artemis.Attributes;
 using Artemis.Manager;
 using Artemis.System;
 using Microsoft.Xna.Framework;
-using MMXEngine.Common.Attributes;
 using MMXEngine.Common.Enumerations;
 using MMXEngine.Common.Extensions;
 using MMXEngine.ECS.Components;
@@ -11,7 +10,6 @@ using MMXEngine.Interfaces.Managers;
 
 namespace MMXEngine.Systems.Update
 {
-    [LoadableSystem(5)]
     [ArtemisEntitySystem(
         ExecutionType = ExecutionType.Synchronous,
         GameLoopType = GameLoopType.Update,

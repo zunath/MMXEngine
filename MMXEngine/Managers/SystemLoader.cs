@@ -1,67 +1,100 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using Artemis;
 using Artemis.Attributes;
-using Artemis.Manager;
 using Artemis.System;
-using Autofac;
-using MMXEngine.Common.Attributes;
 using MMXEngine.Interfaces.Systems;
+using MMXEngine.Systems.Draw;
+using MMXEngine.Systems.Single;
+using MMXEngine.Systems.Update;
 
 namespace MMXEngine.Windows.Managers
 {
     public class SystemLoader : ISystemLoader
     {
         private readonly EntityWorld _world;
-        private readonly IComponentContext _context;
 
-        public SystemLoader(EntityWorld world, 
-            IComponentContext context)
+        // Single
+        private readonly LoadButtonConfigurationSystem _loadButtonConfigurationSystem;
+
+        // Update
+        private readonly GravitySystem _gravitySystem; 
+        private readonly PhysicsSystem _physicsSystem; 
+        private readonly PlayerMovementSystem _playerMovementSystem; 
+        private readonly EnemySystem _enemySystem; 
+        private readonly CollisionSystem _collisionSystem; 
+        private readonly CameraSystem _cameraSystem; 
+        private readonly SpriteSystem _spriteSystem; 
+        private readonly HeartbeatSystem _heartbeatSystem; 
+
+        // Draw
+        private readonly RenderSystem _renderSystem;
+        private readonly RenderLevelSystem _renderLevelSystem;
+        private readonly RenderCollisionBoxSystem _renderCollisionBoxSystem;
+
+        public SystemLoader(EntityWorld world,
+            // Single
+            LoadButtonConfigurationSystem loadButtonConfigurationSystem,
+            // Update
+            GravitySystem gravitySystem,
+            PhysicsSystem physicsSystem,
+            PlayerMovementSystem playerMovementSystem,
+            EnemySystem enemySystem,
+            CollisionSystem collisionSystem,
+            CameraSystem cameraSystem,
+            SpriteSystem spriteSystem,
+            HeartbeatSystem heartbeatSystem,
+            // Draw
+            RenderSystem renderSystem,
+            RenderLevelSystem renderLevelSystem,
+            RenderCollisionBoxSystem renderCollisionBoxSystem)
         {
             _world = world;
-            _context = context;
+
+            // Single
+            _loadButtonConfigurationSystem = loadButtonConfigurationSystem;
+
+            // Update
+            _gravitySystem = gravitySystem;
+            _physicsSystem = physicsSystem;
+            _playerMovementSystem = playerMovementSystem;
+            _enemySystem = enemySystem;
+            _collisionSystem = collisionSystem;
+            _cameraSystem = cameraSystem;
+            _spriteSystem = spriteSystem;
+            _heartbeatSystem = heartbeatSystem;
+
+            // Draw
+            _renderSystem = renderSystem;
+            _renderLevelSystem = renderLevelSystem;
+            _renderCollisionBoxSystem = renderCollisionBoxSystem;
         }
 
         public void Load()
         {
-            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-            var updateSystemTypes = assemblies
-                .SelectMany(s => s.GetTypes())
-                .Where(p => typeof(EntitySystem).IsAssignableFrom(p) && 
-                            !p.ToString().StartsWith("Artemis") && 
-                            ((ArtemisEntitySystem)p.GetCustomAttribute(typeof(ArtemisEntitySystem))).GameLoopType == GameLoopType.Update)
-                .OrderBy(o => ((LoadableSystemAttribute)o.GetCustomAttribute(typeof(LoadableSystemAttribute))).LoadOrder)
-                .ToList();
-            var drawSystemTypes = assemblies
-                .SelectMany(s => s.GetTypes())
-                .Where(p => typeof(EntitySystem).IsAssignableFrom(p) &&
-                            !p.ToString().StartsWith("Artemis") &&
-                            ((ArtemisEntitySystem)p.GetCustomAttribute(typeof(ArtemisEntitySystem))).GameLoopType == GameLoopType.Draw)
-                .OrderBy(o => ((LoadableSystemAttribute)o.GetCustomAttribute(typeof(LoadableSystemAttribute))).LoadOrder)
-                .ToList();
+            // Single
+            RegisterSystem(_loadButtonConfigurationSystem);
+            // Update
+            RegisterSystem(_gravitySystem);
+            RegisterSystem(_physicsSystem);
+            RegisterSystem(_playerMovementSystem);
+            RegisterSystem(_enemySystem);
+            RegisterSystem(_collisionSystem);
+            RegisterSystem(_cameraSystem);
+            RegisterSystem(_spriteSystem);
+            RegisterSystem(_heartbeatSystem);
 
-            var systemTypes = new List<Type>();
-            systemTypes.AddRange(updateSystemTypes);
-            systemTypes.AddRange(drawSystemTypes);
+            // Draw
+            RegisterSystem(_renderSystem);
+            RegisterSystem(_renderLevelSystem);
+            RegisterSystem(_renderCollisionBoxSystem);
 
-            foreach (var type in systemTypes)
-            {
-                ArtemisEntitySystem attribute = type.GetCustomAttributes(typeof (ArtemisEntitySystem), true).FirstOrDefault() as ArtemisEntitySystem;
+        }
 
-                if (attribute == null)
-                {
-                    throw new Exception("Unable to locate ArtemisEntitySystem attribute for type: " + type);
-                }
-
-                var system = _context.ResolveNamed<EntitySystem>(type.ToString());
-
-                _world.SystemManager.SetSystem(system, attribute.GameLoopType, attribute.Layer, attribute.ExecutionType);
-
-            }
-
-
+        private void RegisterSystem(EntitySystem system)
+        {
+            Type type = system.GetType();
+            ArtemisEntitySystem attribute = (ArtemisEntitySystem)type.GetCustomAttributes(typeof(ArtemisEntitySystem), true)[0];
+            _world.SystemManager.SetSystem(system, attribute.GameLoopType, attribute.Layer, attribute.ExecutionType);
         }
     }
 }

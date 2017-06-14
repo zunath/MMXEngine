@@ -1,5 +1,4 @@
-﻿using System;
-using Artemis;
+﻿using Artemis;
 using MMXEngine.ECS.Components;
 using MMXEngine.Interfaces.Systems;
 

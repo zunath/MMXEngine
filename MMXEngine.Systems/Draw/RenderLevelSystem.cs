@@ -4,14 +4,12 @@ using Artemis.Manager;
 using Artemis.System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MMXEngine.Common.Attributes;
 using MMXEngine.Common.Constants;
 using MMXEngine.ECS.Components;
 using MMXEngine.ECS.Data;
 
 namespace MMXEngine.Systems.Draw
 {
-    [LoadableSystem(1)]
     [ArtemisEntitySystem(
         ExecutionType = ExecutionType.Synchronous,
         GameLoopType = GameLoopType.Draw,
