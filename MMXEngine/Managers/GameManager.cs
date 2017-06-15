@@ -1,11 +1,11 @@
 ﻿using Artemis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MMXEngine.Contracts.Entities;
+using MMXEngine.Contracts.Factories;
+using MMXEngine.Contracts.Managers;
+using MMXEngine.Contracts.Systems;
 using MMXEngine.ECS.Screens;
-using MMXEngine.Interfaces.Entities;
-using MMXEngine.Interfaces.Factories;
-using MMXEngine.Interfaces.Managers;
-using MMXEngine.Interfaces.Systems;
 
 namespace MMXEngine.Windows.Managers
 {

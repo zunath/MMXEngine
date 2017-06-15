@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace MMXEngine.Interfaces.Managers
+namespace MMXEngine.Contracts.Managers
 {
     public interface ICameraManager
     {

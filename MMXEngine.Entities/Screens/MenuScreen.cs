@@ -1,4 +1,4 @@
-﻿using MMXEngine.Interfaces.Entities;
+﻿using MMXEngine.Contracts.Entities;
 
 namespace MMXEngine.ECS.Screens
 {

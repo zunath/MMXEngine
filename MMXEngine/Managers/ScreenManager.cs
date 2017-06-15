@@ -1,6 +1,6 @@
 ﻿using Artemis;
-using MMXEngine.Interfaces.Entities;
-using MMXEngine.Interfaces.Managers;
+using MMXEngine.Contracts.Entities;
+using MMXEngine.Contracts.Managers;
 
 namespace MMXEngine.Windows.Managers
 {

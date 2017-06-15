@@ -1,6 +1,6 @@
-﻿using MMXEngine.Interfaces.Entities;
+﻿using MMXEngine.Contracts.Entities;
 
-namespace MMXEngine.Interfaces.Managers
+namespace MMXEngine.Contracts.Managers
 {
     public interface IScreenManager
     {

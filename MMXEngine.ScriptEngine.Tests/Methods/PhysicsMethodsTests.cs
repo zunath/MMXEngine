@@ -10,6 +10,14 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
     [TestFixture]
     public class PhysicsMethodsTests
     {
+        private PhysicsMethods _physicsMethods;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _physicsMethods = new PhysicsMethods();
+        }
+
         private Entity BuildValidEntity()
         {
             EntityWorld world = TestHelpers.CreateEntityWorld();
@@ -43,7 +51,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetVelocityX_ShouldReturn10()
         {
             Entity entity = BuildValidEntity();
-            float x = PhysicsMethods.GetVelocityX(entity);
+            float x = _physicsMethods.GetVelocityX(entity);
             Assert.AreEqual(x, 10.0f);
         }
 
@@ -51,7 +59,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetVelocityX_NoComponent_ShouldReturnZero()
         {
             Entity entity = BuildInvalidEntity();
-            float x = PhysicsMethods.GetVelocityX(entity);
+            float x = _physicsMethods.GetVelocityX(entity);
             Assert.AreEqual(x, 0.0f);
         }
 
@@ -59,7 +67,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetVelocityY_ShouldReturn15()
         {
             Entity entity = BuildValidEntity();
-            float y = PhysicsMethods.GetVelocityY(entity);
+            float y = _physicsMethods.GetVelocityY(entity);
             Assert.AreEqual(y, 15.0f);
         }
 
@@ -67,7 +75,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetVelocityY_NoComponent_ShouldReturnZero()
         {
             Entity entity = BuildInvalidEntity();
-            float y = PhysicsMethods.GetVelocityY(entity);
+            float y = _physicsMethods.GetVelocityY(entity);
             Assert.AreEqual(y, 0.0f);
         }
 
@@ -75,7 +83,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void SetVelocityX_ShouldBe44()
         {
             Entity entity = BuildValidEntity();
-            PhysicsMethods.SetVelocityX(entity, 44.0f);
+            _physicsMethods.SetVelocityX(entity, 44.0f);
             Assert.AreEqual(entity.GetComponent<Velocity>().X, 44.0f);
         }
 
@@ -85,7 +93,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
             Entity entity = BuildInvalidEntity();
             Assert.DoesNotThrow(delegate
             {
-                PhysicsMethods.SetVelocityX(entity, 44.0f);
+                _physicsMethods.SetVelocityX(entity, 44.0f);
             });
         }
 
@@ -93,7 +101,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void SetVelocityY_ShouldBe33()
         {
             Entity entity = BuildValidEntity();
-            PhysicsMethods.SetVelocityY(entity, 33.0f);
+            _physicsMethods.SetVelocityY(entity, 33.0f);
             Assert.AreEqual(entity.GetComponent<Velocity>().Y, 33.0f);
         }
 
@@ -103,7 +111,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
             Entity entity = BuildInvalidEntity();
             Assert.DoesNotThrow(delegate
             {
-                PhysicsMethods.SetVelocityY(entity, 33.0f);
+                _physicsMethods.SetVelocityY(entity, 33.0f);
             });
         }
 
@@ -111,7 +119,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetPositionX_ShouldEqual40()
         {
             Entity entity = BuildValidEntity();
-            float x = PhysicsMethods.GetPositionX(entity);
+            float x = _physicsMethods.GetPositionX(entity);
             Assert.AreEqual(x, 40.0f);
         }
 
@@ -119,7 +127,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetPositionX_NoComponent_ShouldEqualZero()
         {
             Entity entity = BuildInvalidEntity();
-            float x = PhysicsMethods.GetPositionX(entity);
+            float x = _physicsMethods.GetPositionX(entity);
             Assert.AreEqual(x, 0.0f);
         }
 
@@ -127,7 +135,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetPositionY_ShouldEqual100()
         {
             Entity entity = BuildValidEntity();
-            float y = PhysicsMethods.GetPositionY(entity);
+            float y = _physicsMethods.GetPositionY(entity);
             Assert.AreEqual(y, 100.0f);
         }
 
@@ -135,7 +143,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetPositionY_NoComponent_ShouldEqualZero()
         {
             Entity entity = BuildInvalidEntity();
-            float y = PhysicsMethods.GetPositionY(entity);
+            float y = _physicsMethods.GetPositionY(entity);
             Assert.AreEqual(y, 0.0f);
         }
 
@@ -143,7 +151,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetFacing_ShouldEqualUp()
         {
             Entity entity = BuildValidEntity();
-            Direction facing = PhysicsMethods.GetFacing(entity);
+            Direction facing = _physicsMethods.GetFacing(entity);
             Assert.AreEqual(facing, Direction.Up);
         }
 
@@ -151,14 +159,14 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetFacing_NoComponent_ShouldEqualUnknown()
         {
             Entity entity = BuildInvalidEntity();
-            Direction facing = PhysicsMethods.GetFacing(entity);
+            Direction facing = _physicsMethods.GetFacing(entity);
             Assert.AreEqual(facing, Direction.Unknown);
         }
         [Test]
         public void SetFacing_ShouldEqualDown()
         {
             Entity entity = BuildValidEntity();
-            PhysicsMethods.SetFacing(entity, Direction.Down);
+            _physicsMethods.SetFacing(entity, Direction.Down);
 
             Assert.AreEqual(entity.GetComponent<Position>().Facing, Direction.Down);
         }
@@ -166,14 +174,14 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void SetFacing_NoComponent_ShouldNotThrowException()
         {
             Entity entity = BuildInvalidEntity();
-            Assert.DoesNotThrow(() => PhysicsMethods.SetFacing(entity, Direction.Down));
+            Assert.DoesNotThrow(() => _physicsMethods.SetFacing(entity, Direction.Down));
         }
 
         [Test]
         public void GetIsOnGround_ShouldBeTrue()
         {
             Entity entity = BuildValidEntity();
-            bool isOnGround = PhysicsMethods.GetIsOnGround(entity);
+            bool isOnGround = _physicsMethods.GetIsOnGround(entity);
             Assert.AreEqual(isOnGround, true);
         }
 
@@ -182,7 +190,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         {
             Entity entity = BuildValidEntity();
             entity.GetComponent<Position>().IsOnGround = false;
-            bool isOnGround = PhysicsMethods.GetIsOnGround(entity);
+            bool isOnGround = _physicsMethods.GetIsOnGround(entity);
             Assert.AreEqual(isOnGround, false);
         }
 
@@ -190,7 +198,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetIsOnGround_NoComponent_ShouldBeFalse()
         {
             Entity entity = BuildInvalidEntity();
-            bool isOnGround = PhysicsMethods.GetIsOnGround(entity);
+            bool isOnGround = _physicsMethods.GetIsOnGround(entity);
             Assert.AreEqual(isOnGround, false);
         }
 

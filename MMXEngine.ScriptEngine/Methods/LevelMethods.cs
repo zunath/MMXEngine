@@ -1,13 +1,13 @@
 ﻿using System;
 using Artemis;
+using MMXEngine.Contracts.ScriptMethods;
 using MMXEngine.ECS.Components;
-using MMXEngine.Interfaces.Systems;
 
 namespace MMXEngine.ScriptEngine.Methods
 {
-    public class LevelMethods: IScriptMethodGroup
+    public class LevelMethods: ILevelMethods
     {
-        public static int GetMapWidth(Entity entity)
+        public int GetMapWidth(Entity entity)
         {
             try
             {
@@ -19,7 +19,7 @@ namespace MMXEngine.ScriptEngine.Methods
             }
         }
 
-        public static int GetMapHeight(Entity entity)
+        public int GetMapHeight(Entity entity)
         {
             try
             {

@@ -3,8 +3,8 @@ using Artemis.Attributes;
 using Artemis.Manager;
 using Artemis.System;
 using Microsoft.Xna.Framework;
+using MMXEngine.Contracts.Managers;
 using MMXEngine.ECS.Components;
-using MMXEngine.Interfaces.Managers;
 
 namespace MMXEngine.Systems.Update
 {

@@ -4,6 +4,7 @@
 	"Height": 100,
   "Spritesheet": "DemoMap",
   "BGMFile": "bgm-boomer-kuwanger", 
+  "Script":  "DemoMap.lua", 
 	"Tiles": [
 		[{
 			"X": 0,

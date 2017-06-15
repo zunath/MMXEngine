@@ -1,4 +1,4 @@
-﻿namespace MMXEngine.Interfaces.Managers
+﻿namespace MMXEngine.Contracts.Managers
 {
     public interface IDataManager
     {

@@ -13,6 +13,14 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
     [TestFixture]
     public class SpriteMethodsTests
     {
+        private SpriteMethods _spriteMethods;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _spriteMethods = new SpriteMethods();
+        }
+
         private Entity BuildEntity()
         {
             EntityWorld world = TestHelpers.CreateEntityWorld();
@@ -34,7 +42,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void SetColorPalette_ShouldBeRed()
         {
             Entity entity = BuildEntity();
-            SpriteMethods.SetColorPalette(entity, ColorType.Red);
+            _spriteMethods.SetColorPalette(entity, ColorType.Red);
 
             Color? color = entity.GetComponent<Sprite>().ColorOverride;
             Assert.IsNotNull(color);
@@ -51,7 +59,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void SetColorPalette_ShouldBeCustom()
         {
             Entity entity = BuildEntity();
-            SpriteMethods.SetColorPaletteCustom(entity, 50, 60, 70, 80);
+            _spriteMethods.SetColorPaletteCustom(entity, 50, 60, 70, 80);
 
             Color? color = entity.GetComponent<Sprite>().ColorOverride;
             Assert.IsNotNull(color);
@@ -66,9 +74,9 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void ResetColorPalette_ShouldBeNull()
         {
             Entity entity = BuildEntity();
-            SpriteMethods.SetColorPalette(entity, ColorType.Black);
+            _spriteMethods.SetColorPalette(entity, ColorType.Black);
             Assert.IsNotNull(entity.GetComponent<Sprite>().ColorOverride);
-            SpriteMethods.ResetColorPalette(entity);
+            _spriteMethods.ResetColorPalette(entity);
             Assert.IsNull(entity.GetComponent<Sprite>().ColorOverride);
         }
     }

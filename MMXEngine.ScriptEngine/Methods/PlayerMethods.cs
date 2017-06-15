@@ -1,14 +1,14 @@
 ﻿using System;
 using Artemis;
 using Artemis.System;
+using MMXEngine.Contracts.ScriptMethods;
 using MMXEngine.ECS.Components;
-using MMXEngine.Interfaces.Systems;
 
 namespace MMXEngine.ScriptEngine.Methods
 {
-    public class PlayerMethods: IScriptMethodGroup
+    public class PlayerMethods: IPlayerMethods
     {
-        public static bool IsPlayerShooting()
+        public bool IsPlayerShooting()
         {
             try
             {

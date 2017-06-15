@@ -1,7 +1,7 @@
 ﻿using MMXEngine.Common.Enumerations;
-using MMXEngine.Interfaces.Components;
+using MMXEngine.Contracts.Components;
 
-namespace MMXEngine.Interfaces.Managers
+namespace MMXEngine.Contracts.Managers
 {
     public interface IInputManager
     {

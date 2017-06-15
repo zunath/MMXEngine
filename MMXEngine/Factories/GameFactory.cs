@@ -1,4 +1,4 @@
-﻿using MMXEngine.Interfaces.Managers;
+﻿using MMXEngine.Contracts.Managers;
 
 namespace MMXEngine.Windows.Factories
 {

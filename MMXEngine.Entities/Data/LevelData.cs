@@ -8,6 +8,7 @@
         public string Spritesheet { get; set; }
         public TileData[,] Tiles { get; set; }
         public string BGMFile { get; set; }
+        public string Script { get; set; }
 
         public LevelData()
         {

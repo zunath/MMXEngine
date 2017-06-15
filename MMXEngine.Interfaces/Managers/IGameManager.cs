@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
-using XnaContentManager = Microsoft.Xna.Framework.Content.ContentManager;
 
-namespace MMXEngine.Interfaces.Managers
+namespace MMXEngine.Contracts.Managers
 {
     public interface IGameManager
     {

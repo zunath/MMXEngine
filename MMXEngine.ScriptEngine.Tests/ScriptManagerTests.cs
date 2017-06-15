@@ -1,4 +1,7 @@
 ﻿using System.IO;
+using System.IO.Abstractions.TestingHelpers;
+using MMXEngine.Contracts.ScriptMethods;
+using Moq;
 using NUnit.Framework;
 
 namespace MMXEngine.ScriptEngine.Tests
@@ -7,26 +10,38 @@ namespace MMXEngine.ScriptEngine.Tests
     public class ScriptManagerTests
     {
         private ScriptManager _manager;
+        private MockFileSystem _fileSystem;
 
         [SetUp]
         public void Setup()
         {
-            _manager = new ScriptManager();
+            _fileSystem = new MockFileSystem();
+
+            _manager = new ScriptManager(
+                _fileSystem, 
+                new Mock<IAudioMethods>().Object,
+                new Mock<IEntityMethods>().Object,
+                new Mock<ILevelMethods>().Object,
+                new Mock<ILocalDataMethods>().Object,
+                new Mock<IMiscellaneousMethods>().Object,
+                new Mock<IPhysicsMethods>().Object,
+                new Mock<IPlayerMethods>().Object,
+                new Mock<ISpriteMethods>().Object);
         }
 
         [Test]
         public void QueueScript_ShouldNotThrowExceptions()
         {
-            string tempFilePath = "./Scripts/TestFile.lua";
-            Directory.CreateDirectory("./Scripts");
-            FileStream stream = File.Create(tempFilePath);
-            stream.Close();
+            const string tempFilePath = ".\\Scripts\\TestFile.lua";
+            _fileSystem.Directory.CreateDirectory(".\\Scripts\\");
+
+            _fileSystem.AddFile(tempFilePath, "function Main() end");
             Assert.DoesNotThrow(delegate
             {
                 _manager.QueueScript("TestFile.lua", null);
             });
-            File.Delete(tempFilePath);
-            Directory.Delete("./Scripts");
+
+            _fileSystem.RemoveFile(tempFilePath);
         }
 
         [Test]
@@ -41,10 +56,10 @@ namespace MMXEngine.ScriptEngine.Tests
         [Test]
         public void ExecuteScript_ShouldNotThrowException()
         {
-            string tempFilePath = "./Scripts/TestScript.lua";
-            string scriptBody = "function Main() end";
-            Directory.CreateDirectory("./Scripts");
-            File.WriteAllText(tempFilePath, scriptBody);
+            const string tempFilePath = ".\\Scripts\\TestScript.lua";
+            const string scriptBody = "function Main() end";
+            _fileSystem.Directory.CreateDirectory(".\\Scripts");
+            _fileSystem.AddFile(tempFilePath, scriptBody);
 
             Assert.DoesNotThrow(delegate
             {
@@ -53,8 +68,8 @@ namespace MMXEngine.ScriptEngine.Tests
             });
             
 
-            File.Delete(tempFilePath);
-            Directory.Delete("./Scripts");
+            _fileSystem.RemoveFile(tempFilePath);
+            _fileSystem.Directory.Delete(".\\Scripts");
         }
 
     }

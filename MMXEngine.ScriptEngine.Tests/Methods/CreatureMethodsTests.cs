@@ -1,9 +1,11 @@
 ﻿using Artemis;
 using Artemis.System;
 using MMXEngine.Common.Enumerations;
+using MMXEngine.Contracts.Factories;
 using MMXEngine.ECS.Components;
 using MMXEngine.ScriptEngine.Methods;
 using MMXEngine.Testing.Shared;
+using Moq;
 using NUnit.Framework;
 
 namespace MMXEngine.ScriptEngine.Tests.Methods
@@ -11,13 +13,22 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
     [TestFixture]
     public class CreatureMethodsTests
     {
+        private EntityMethods _entityMethods;
+
+        [SetUp]
+        public void SetUp()
+        {
+            Mock<IEntityFactory> mockFactory = new Mock<IEntityFactory>();
+            _entityMethods = new EntityMethods(mockFactory.Object);
+        }
+
         [Test]
         public void GetPlayer_ShouldReturnPlayerObject()
         {
             EntityWorld world = TestHelpers.CreateEntityWorld();
             Entity player = world.CreateEntity();
             EntitySystem.BlackBoard.SetEntry("Player", player);
-            Entity result = CreatureMethods.GetPlayer();
+            Entity result = _entityMethods.GetPlayer();
 
             Assert.AreSame(player, result);
         }
@@ -25,7 +36,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         [Test]
         public void GetPlayer_ShouldReturnNull()
         {
-            Entity result = CreatureMethods.GetPlayer();
+            Entity result = _entityMethods.GetPlayer();
             Assert.IsNull(result);
         }
         
@@ -52,7 +63,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetCharacterType_ShouldBeX()
         {
             Entity player = BuildPlayerEntity(CharacterType.X);
-            CharacterType type = CreatureMethods.GetCharacterType(player);
+            CharacterType type = _entityMethods.GetCharacterType(player);
             Assert.AreEqual(type, CharacterType.X);
         }
 
@@ -60,7 +71,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetCharacterType_ShouldBeZero()
         {
             Entity player = BuildPlayerEntity(CharacterType.Zero);
-            CharacterType type = CreatureMethods.GetCharacterType(player);
+            CharacterType type = _entityMethods.GetCharacterType(player);
             Assert.AreEqual(type, CharacterType.Zero);
         }
 
@@ -69,7 +80,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         {
             EntityWorld world = TestHelpers.CreateEntityWorld();
             Entity notAPlayer = world.CreateEntity();
-            CharacterType type = CreatureMethods.GetCharacterType(notAPlayer);
+            CharacterType type = _entityMethods.GetCharacterType(notAPlayer);
             Assert.AreEqual(type, CharacterType.Unknown);
         }
 
@@ -77,7 +88,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetCurrentHitPoints_ShouldBe50()
         {
             Entity player = BuildPlayerEntity(CharacterType.X);
-            int hp = CreatureMethods.GetCurrentHitPoints(player);
+            int hp = _entityMethods.GetCurrentHitPoints(player);
             Assert.AreEqual(hp, 50);
         }
 
@@ -86,7 +97,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         {
             EntityWorld world = TestHelpers.CreateEntityWorld();
             Entity notAnEntityWithHealth = world.CreateEntity();
-            int hp = CreatureMethods.GetCurrentHitPoints(notAnEntityWithHealth);
+            int hp = _entityMethods.GetCurrentHitPoints(notAnEntityWithHealth);
             Assert.AreEqual(hp, -1);
         }
 
@@ -94,7 +105,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetMaxHitPoints_ShouldBe100()
         {
             Entity player = BuildPlayerEntity(CharacterType.X);
-            int hp = CreatureMethods.GetMaxHitPoints(player);
+            int hp = _entityMethods.GetMaxHitPoints(player);
             Assert.AreEqual(hp, 100);
         }
 
@@ -103,7 +114,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         {
             EntityWorld world = TestHelpers.CreateEntityWorld();
             Entity notAnEntityWithHealth = world.CreateEntity();
-            int hp = CreatureMethods.GetMaxHitPoints(notAnEntityWithHealth);
+            int hp = _entityMethods.GetMaxHitPoints(notAnEntityWithHealth);
             Assert.AreEqual(hp, -1);
         }
 
@@ -111,7 +122,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void ApplyDamage_ResultHPShouldBe10()
         {
             Entity player = BuildPlayerEntity(CharacterType.X);
-            int result = CreatureMethods.ApplyDamage(player, 40);
+            int result = _entityMethods.ApplyDamage(player, 40);
             Assert.AreEqual(result, 10);
         }
 
@@ -120,7 +131,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         {
             EntityWorld world = TestHelpers.CreateEntityWorld();
             Entity entityWithoutHealth = world.CreateEntity();
-            int result = CreatureMethods.ApplyDamage(entityWithoutHealth, 10);
+            int result = _entityMethods.ApplyDamage(entityWithoutHealth, 10);
             Assert.AreEqual(result, -1);
         }
 
@@ -129,7 +140,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         {
             Entity player = BuildPlayerEntity(CharacterType.X);
             player.AddComponent(new Hostile());
-            bool isHostile = CreatureMethods.GetIsHostile(player);
+            bool isHostile = _entityMethods.GetIsHostile(player);
             Assert.AreEqual(isHostile, true);
         }
 
@@ -137,14 +148,14 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetIsHostile_NotHostile()
         {
             Entity player = BuildPlayerEntity(CharacterType.X);
-            bool isHostile = CreatureMethods.GetIsHostile(player);
+            bool isHostile = _entityMethods.GetIsHostile(player);
             Assert.AreEqual(isHostile, false);
         }
 
         [Test]
         public void GetIsHostile_Exception_ShouldBeNotHostile()
         {
-            bool isHostile = CreatureMethods.GetIsHostile(null);
+            bool isHostile = _entityMethods.GetIsHostile(null);
             Assert.AreEqual(isHostile, false);
         }
     }

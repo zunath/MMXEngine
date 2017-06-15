@@ -1,37 +1,68 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Reflection;
+using System.IO.Abstractions;
 using Artemis;
 using MMXEngine.Common.Enumerations;
-using MMXEngine.Interfaces.Managers;
-using MMXEngine.Interfaces.Systems;
+using MMXEngine.Contracts.Managers;
+using MMXEngine.Contracts.ScriptMethods;
 using NLua;
 
 namespace MMXEngine.ScriptEngine
 {
     public class ScriptManager : IScriptManager
     {
-        private readonly Lua _lua;
-        private readonly Queue<Tuple<string, Entity, string>> _scriptQueue; 
+        private readonly Lua _luaEngine;
+        private readonly Queue<ScriptQueueObject> _scriptQueue;
+        private readonly IFileSystem _fileSystem;
 
-        public ScriptManager()
+        // Methods
+        private readonly IAudioMethods _audioMethods;
+        private readonly IEntityMethods _entityMethods;
+        private readonly ILevelMethods _levelMethods;
+        private readonly ILocalDataMethods _localDataMethods;
+        private readonly IMiscellaneousMethods _miscellaneousMethods;
+        private readonly IPhysicsMethods _physicsMethods;
+        private readonly IPlayerMethods _playerMethods;
+        private readonly ISpriteMethods _spriteMethods;
+
+        public ScriptManager(
+            IFileSystem fileSystem,
+            IAudioMethods audioMethods,
+            IEntityMethods entityMethods,
+            ILevelMethods levelMethods,
+            ILocalDataMethods localDataMethods,
+            IMiscellaneousMethods miscellaneousMethods,
+            IPhysicsMethods physicsMethods,
+            IPlayerMethods playerMethods,
+            ISpriteMethods spriteMethods)
         {
-            _scriptQueue = new Queue<Tuple<string, Entity, string>>();
-            _lua = new Lua();
+            _fileSystem = fileSystem;
+
+            _audioMethods = audioMethods;
+            _entityMethods = entityMethods;
+            _levelMethods = levelMethods;
+            _localDataMethods = localDataMethods;
+            _miscellaneousMethods = miscellaneousMethods;
+            _physicsMethods = physicsMethods;
+            _playerMethods = playerMethods;
+            _spriteMethods = spriteMethods;
+
+            _scriptQueue = new Queue<ScriptQueueObject>();
+            _luaEngine = new Lua();
             SandboxVM();
-            RegisterScriptMethods();
+            RegisterEnumerations();
+            RegisterMethods();
         }
 
         public void QueueScript(string fileName, Entity entity, string methodName = "Main")
         {
-            if (!File.Exists("./Scripts/" + fileName))
+            if (!_fileSystem.File.Exists(".\\Scripts\\" + fileName))
             {
                 throw new FileNotFoundException("Script '" + fileName + "' could not be found.");
             }
 
-            _scriptQueue.Enqueue(new Tuple<string, Entity, string>(fileName, entity, methodName));
+            _scriptQueue.Enqueue(new ScriptQueueObject(fileName, methodName, entity));
         }
 
         public void ExecuteScripts()
@@ -39,20 +70,34 @@ namespace MMXEngine.ScriptEngine
             while(_scriptQueue.Count > 0)
             {
                 var script = _scriptQueue.Dequeue();
-                _lua["this"] = script.Item2;
-                _lua.DoFile("./Scripts/" + script.Item1);
+                _luaEngine["self"] = script.TargetObject;
 
-                if (_lua.GetFunction(script.Item3) != null)
+                string text = _fileSystem.File.ReadAllText(".\\Scripts\\" + script.FilePath);
+                _luaEngine.DoString(text);
+
+                if (_luaEngine.GetFunction(script.MethodName) != null)
                 {
-                    LuaFunction function = (LuaFunction)_lua[script.Item3];
-                    function.Call();
+                    try
+                    {
+                        ((LuaFunction)_luaEngine[script.MethodName]).Call();
+                    }
+                    catch (Exception)
+                    {
+                        string fileName = _fileSystem.Path.GetFileName(script.FilePath);
+                        // TODO: Log script error
+                        throw;
+                    }
                 }
             }
         }
 
         private void SandboxVM()
         {
-            _lua.DoString("import = function() end");
+            _luaEngine.DoString("import = function() end");
+        }
+
+        private void RegisterEnumerations()
+        {
             EnumerationToTable("CharacterType", typeof(CharacterType));
             EnumerationToTable("CollisionType", typeof(CollisionType));
             EnumerationToTable("DirectionType", typeof(Direction));
@@ -60,29 +105,26 @@ namespace MMXEngine.ScriptEngine
             EnumerationToTable("Color", typeof(ColorType));
         }
 
+        private void RegisterMethods()
+        {
+            _luaEngine["Audio"] = _audioMethods;
+            _luaEngine["Entity"] = _entityMethods;
+            _luaEngine["Level"] = _levelMethods;
+            _luaEngine["LocalData"] = _localDataMethods;
+            _luaEngine["Misc"] = _miscellaneousMethods;
+            _luaEngine["Physics"] = _physicsMethods;
+            _luaEngine["Player"] = _playerMethods;
+            _luaEngine["Sprite"] = _spriteMethods;
+        }
+
         private void EnumerationToTable(string luaTableName, Type enumType)
         {
-            _lua.NewTable(luaTableName);
-            LuaTable lt = (LuaTable)_lua[luaTableName];
+            _luaEngine.NewTable(luaTableName);
+            LuaTable lt = (LuaTable)_luaEngine[luaTableName];
 
             foreach (var val in Enum.GetValues(enumType))
             {
                 lt[Enum.GetName(enumType, val)] = val;
-            }
-        }
-
-        private void RegisterScriptMethods()
-        {
-            var methods = AppDomain.CurrentDomain.GetAssemblies()
-                .SelectMany(x => x.GetTypes())
-                .Where(p => typeof(IScriptMethodGroup).IsAssignableFrom(p))
-                .SelectMany(m => m.GetMethods())
-                .Where(p => p.DeclaringType != typeof(object))
-                .ToList();
-            
-            foreach (MethodInfo method in methods)
-            {
-                _lua.RegisterFunction(method.Name, method);
             }
         }
     }

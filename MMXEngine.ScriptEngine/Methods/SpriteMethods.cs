@@ -2,14 +2,14 @@
 using MMXEngine.Common.Attributes;
 using MMXEngine.Common.Enumerations;
 using MMXEngine.Common.Extensions;
+using MMXEngine.Contracts.ScriptMethods;
 using MMXEngine.ECS.Components;
-using MMXEngine.Interfaces.Systems;
 
 namespace MMXEngine.ScriptEngine.Methods
 {
-    public class SpriteMethods: IScriptMethodGroup
+    public class SpriteMethods: ISpriteMethods
     {
-        public static void SetColorPaletteCustom(Entity entity, int red, int green, int blue, int alpha)
+        public void SetColorPaletteCustom(Entity entity, int red, int green, int blue, int alpha)
         {
             if (entity.HasComponent<Sprite>())
             {
@@ -17,7 +17,7 @@ namespace MMXEngine.ScriptEngine.Methods
             }
         }
 
-        public static void SetColorPalette(Entity entity, ColorType color)
+        public void SetColorPalette(Entity entity, ColorType color)
         {
             if (entity.HasComponent<Sprite>())
             {
@@ -26,7 +26,7 @@ namespace MMXEngine.ScriptEngine.Methods
             }
         }
 
-        public static void ResetColorPalette(Entity entity)
+        public void ResetColorPalette(Entity entity)
         {
             if (entity.HasComponent<Sprite>())
             {

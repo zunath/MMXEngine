@@ -2,12 +2,12 @@
 using Artemis;
 using Artemis.Attributes;
 using Artemis.System;
-using MMXEngine.Interfaces.Systems;
+using MMXEngine.Contracts.Systems;
 using MMXEngine.Systems.Draw;
 using MMXEngine.Systems.Single;
 using MMXEngine.Systems.Update;
 
-namespace MMXEngine.Windows.Managers
+namespace MMXEngine.Windows.Loaders
 {
     public class SystemLoader : ISystemLoader
     {

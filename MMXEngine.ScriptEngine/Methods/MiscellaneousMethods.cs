@@ -1,18 +1,18 @@
 ﻿using System;
 using Artemis;
+using MMXEngine.Contracts.ScriptMethods;
 using MMXEngine.ECS.Components;
-using MMXEngine.Interfaces.Systems;
 
 namespace MMXEngine.ScriptEngine.Methods
 {
-    public class MiscellaneousMethods: IScriptMethodGroup
+    public class MiscellaneousMethods: IMiscellaneousMethods
     {
-        public static void Print(string message)
+        public void Print(string message)
         {
             Console.WriteLine(message);
         }
 
-        public static string GetScriptName(Entity entity)
+        public string GetScriptName(Entity entity)
         {
             try
             {

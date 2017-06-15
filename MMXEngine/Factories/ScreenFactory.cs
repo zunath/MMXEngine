@@ -1,6 +1,6 @@
 ﻿using Autofac;
-using MMXEngine.Interfaces.Entities;
-using MMXEngine.Interfaces.Factories;
+using MMXEngine.Contracts.Entities;
+using MMXEngine.Contracts.Factories;
 
 namespace MMXEngine.Windows.Factories
 {

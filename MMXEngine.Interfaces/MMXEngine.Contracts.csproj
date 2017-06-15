@@ -7,9 +7,9 @@
     <ProjectGuid>{345D211C-7EC0-4BE4-AE58-24DF72534D9F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MMXEngine.Interfaces</RootNamespace>
-    <AssemblyName>MMXEngine.Interfaces</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <RootNamespace>MMXEngine.Contracts</RootNamespace>
+    <AssemblyName>MMXEngine.Contracts</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -56,11 +56,15 @@
     <Reference Include="Autofac, Version=4.6.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.6.0\lib\net45\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="MonoGame.Framework, Version=3.4.0.456, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="MonoGame.Framework, Version=3.6.0.1625, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MonoGame.Framework.WindowsDX.3.6.0.1625\lib\net40\MonoGame.Framework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Abstractions, Version=2.0.0.144, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Abstractions.2.0.0.144\lib\net40\System.IO.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -83,7 +87,15 @@
     <Compile Include="Managers\IScreenManager.cs" />
     <Compile Include="Managers\IScriptManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Systems\IScriptMethodGroup.cs" />
+    <Compile Include="ScriptMethods\IAudioMethods.cs" />
+    <Compile Include="ScriptMethods\IEntityMethods.cs" />
+    <Compile Include="ScriptMethods\ILevelMethods.cs" />
+    <Compile Include="ScriptMethods\ILocalDataMethods.cs" />
+    <Compile Include="ScriptMethods\IMiscellaneousMethods.cs" />
+    <Compile Include="ScriptMethods\IPhysicsMethods.cs" />
+    <Compile Include="ScriptMethods\IPlayerMethods.cs" />
+    <Compile Include="ScriptMethods\ISpriteMethods.cs" />
+    <Compile Include="Systems\ILevelLoader.cs" />
     <Compile Include="Systems\ISystemLoader.cs" />
   </ItemGroup>
   <ItemGroup>

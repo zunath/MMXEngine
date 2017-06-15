@@ -1,6 +1,6 @@
-﻿using MMXEngine.Interfaces.Entities;
+﻿using MMXEngine.Contracts.Entities;
 
-namespace MMXEngine.Interfaces.Factories
+namespace MMXEngine.Contracts.Factories
 {
     public interface IScreenFactory
     {

@@ -10,6 +10,14 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
     [TestFixture]
     public class PlayerMethodsTests
     {
+        private PlayerMethods _playerMethods;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _playerMethods = new PlayerMethods();
+        }
+
         private void BuildValidEntity()
         {
             EntityWorld world = TestHelpers.CreateEntityWorld();
@@ -33,7 +41,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void IsPlayerShooting_ShouldBeTrue()
         {
             BuildValidEntity();
-            bool isPlayerShooting = PlayerMethods.IsPlayerShooting();
+            bool isPlayerShooting = _playerMethods.IsPlayerShooting();
             Assert.IsTrue(isPlayerShooting);
         }
 
@@ -42,7 +50,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         {
             BuildValidEntity();
             EntitySystem.BlackBoard.GetEntry<Entity>("Player").GetComponent<PlayerAction>().IsShooting = false;
-            bool isPlayerShooting = PlayerMethods.IsPlayerShooting();
+            bool isPlayerShooting = _playerMethods.IsPlayerShooting();
             Assert.IsFalse(isPlayerShooting);
         }
 
@@ -50,7 +58,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void IsPlayerShooting_InvalidPlayer_ShouldBeFalse()
         {
             BuildInvalidEntity();
-            bool isPlayerShooting = PlayerMethods.IsPlayerShooting();
+            bool isPlayerShooting = _playerMethods.IsPlayerShooting();
             Assert.IsFalse(isPlayerShooting);
         }
     }

@@ -1,4 +1,4 @@
-﻿namespace MMXEngine.Interfaces.Entities
+﻿namespace MMXEngine.Contracts.Entities
 {
     public interface IScreen
     {

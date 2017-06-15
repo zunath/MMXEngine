@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.Xna.Framework.Input;
 using MMXEngine.Common.Enumerations;
-using MMXEngine.Interfaces.Components;
-using MMXEngine.Interfaces.Managers;
+using MMXEngine.Contracts.Components;
+using MMXEngine.Contracts.Managers;
 
 namespace MMXEngine.Windows.Managers
 {

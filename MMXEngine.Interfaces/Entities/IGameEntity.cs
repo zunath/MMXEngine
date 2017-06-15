@@ -1,6 +1,6 @@
 ﻿using Artemis;
 
-namespace MMXEngine.Interfaces.Entities
+namespace MMXEngine.Contracts.Entities
 {
     public interface IGameEntity
     {

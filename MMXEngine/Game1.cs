@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using MMXEngine.Interfaces.Managers;
+using MMXEngine.Contracts.Managers;
 using MMXEngine.Windows.Factories;
 
 namespace MMXEngine.Windows

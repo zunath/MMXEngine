@@ -10,6 +10,14 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
     [TestFixture]
     public class LocalDataMethodsTests
     {
+        private LocalDataMethods _localDataMethods;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _localDataMethods = new LocalDataMethods();
+        }
+
         private Entity BuildValidEntity()
         {
             EntityWorld world = TestHelpers.CreateEntityWorld();
@@ -29,7 +37,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void SetLocalValue_ShouldEqual100Int()
         {
             Entity entity = BuildValidEntity();
-            LocalDataMethods.SetLocalValue(entity, "Test", 100);
+            _localDataMethods.SetLocalValue(entity, "Test", 100);
             int value = Convert.ToInt32(entity.GetComponent<LocalData>().LocalFloats["Test"]);
 
             Assert.AreEqual(value, 100);
@@ -38,7 +46,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void SetLocalValue_ShouldEqual50Float()
         {
             Entity entity = BuildValidEntity();
-            LocalDataMethods.SetLocalValue(entity, "Test", 50.0f);
+            _localDataMethods.SetLocalValue(entity, "Test", 50.0f);
             float value = entity.GetComponent<LocalData>().LocalFloats["Test"];
 
             Assert.AreEqual(value, 50.0f);
@@ -47,7 +55,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void SetLocalValue_ShouldEqualString()
         {
             Entity entity = BuildValidEntity();
-            LocalDataMethods.SetLocalValue(entity, "Test", "This is a sample message.");
+            _localDataMethods.SetLocalValue(entity, "Test", "This is a sample message.");
             string value = entity.GetComponent<LocalData>().LocalStrings["Test"];
             Assert.AreEqual(value, "This is a sample message.");
         }
@@ -56,16 +64,16 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetLocalFloat_ShouldEqualValue()
         {
             Entity entity = BuildValidEntity();
-            LocalDataMethods.SetLocalValue(entity, "Test", 543.32f);
-            Assert.AreEqual(LocalDataMethods.GetLocalNumber(entity, "Test"), 543.32f);
+            _localDataMethods.SetLocalValue(entity, "Test", 543.32f);
+            Assert.AreEqual(_localDataMethods.GetLocalNumber(entity, "Test"), 543.32f);
         }
 
         [Test]
         public void GetLocalString_ShouldEqualValue()
         {
             Entity entity = BuildValidEntity();
-            LocalDataMethods.SetLocalValue(entity, "Test", "Setting a simple message.");
-            Assert.AreEqual(LocalDataMethods.GetLocalString(entity, "Test"), "Setting a simple message.");
+            _localDataMethods.SetLocalValue(entity, "Test", "Setting a simple message.");
+            Assert.AreEqual(_localDataMethods.GetLocalString(entity, "Test"), "Setting a simple message.");
         }
 
         [Test]
@@ -73,10 +81,10 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         {
             Entity entity = BuildInvalidEntity();
             Assert.DoesNotThrow(delegate
-            { 
-                LocalDataMethods.SetLocalValue(entity, "TestVal1", 100.0f);
-                LocalDataMethods.SetLocalValue(entity, "TestVal2", 4444);
-                LocalDataMethods.SetLocalValue(entity, "TestVal3", "Sample string set here");
+            {
+                _localDataMethods.SetLocalValue(entity, "TestVal1", 100.0f);
+                _localDataMethods.SetLocalValue(entity, "TestVal2", 4444);
+                _localDataMethods.SetLocalValue(entity, "TestVal3", "Sample string set here");
             });
         }
         
@@ -84,14 +92,14 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetLocalFloat_NoComponent_ShouldReturn0Point0()
         {
             Entity entity = BuildInvalidEntity();
-            float value = LocalDataMethods.GetLocalNumber(entity, "nocomponent");
+            float value = _localDataMethods.GetLocalNumber(entity, "nocomponent");
             Assert.AreEqual(value, 0.0f);
         }
         [Test]
         public void GetLocalString_NoComponent_ShouldReturnEmptyString()
         {
             Entity entity = BuildInvalidEntity();
-            string value = LocalDataMethods.GetLocalString(entity, "nocomponent");
+            string value = _localDataMethods.GetLocalString(entity, "nocomponent");
             Assert.AreEqual(value, string.Empty);
         }
         
@@ -99,14 +107,14 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetLocalFloat_NoKey_ShouldReturn0Point0()
         {
             Entity entity = BuildValidEntity();
-            float value = LocalDataMethods.GetLocalNumber(entity, "nokey");
+            float value = _localDataMethods.GetLocalNumber(entity, "nokey");
             Assert.AreEqual(value, 0.0f);
         }
         [Test]
         public void GetLocalString_NoKey_ShouldReturnEmptyString()
         {
             Entity entity = BuildValidEntity();
-            string value = LocalDataMethods.GetLocalString(entity, "nokey");
+            string value = _localDataMethods.GetLocalString(entity, "nokey");
             Assert.AreEqual(value, string.Empty);
         }
 
@@ -114,8 +122,8 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void SetLocalInt_GetLocalFloat_ShouldReturn123Point0()
         {
             Entity entity = BuildValidEntity();
-            LocalDataMethods.SetLocalValue(entity, "Key", 123);
-            float result = LocalDataMethods.GetLocalNumber(entity, "Key");
+            _localDataMethods.SetLocalValue(entity, "Key", 123);
+            float result = _localDataMethods.GetLocalNumber(entity, "Key");
             Assert.AreEqual(result, 123.0f);
         }
 
@@ -123,28 +131,28 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void DeleteLocalVariables_ShouldNotThrowException()
         {
             Entity entity = BuildValidEntity();
-            LocalDataMethods.SetLocalValue(entity, "haskey", "this is a test string");
-            LocalDataMethods.SetLocalValue(entity, "haskey2", 55523.3f);
+            _localDataMethods.SetLocalValue(entity, "haskey", "this is a test string");
+            _localDataMethods.SetLocalValue(entity, "haskey2", 55523.3f);
 
             Assert.DoesNotThrow(delegate
             {
-                LocalDataMethods.DeleteLocalNumber(entity, "nokey");
-                LocalDataMethods.DeleteLocalString(entity, "nokey2");
+                _localDataMethods.DeleteLocalNumber(entity, "nokey");
+                _localDataMethods.DeleteLocalString(entity, "nokey2");
 
-                LocalDataMethods.DeleteLocalString(entity, "haskey");
-                LocalDataMethods.DeleteLocalNumber(entity, "haskey2");
+                _localDataMethods.DeleteLocalString(entity, "haskey");
+                _localDataMethods.DeleteLocalNumber(entity, "haskey2");
             });
         }
         [Test]
         public void DeleteLocalString_ValueShouldBeRemoved()
         {
             Entity entity = BuildValidEntity();
-            LocalDataMethods.SetLocalValue(entity, "key", "test string");
-            string value = LocalDataMethods.GetLocalString(entity, "key");
+            _localDataMethods.SetLocalValue(entity, "key", "test string");
+            string value = _localDataMethods.GetLocalString(entity, "key");
             Assert.AreEqual(value, "test string");
 
-            LocalDataMethods.DeleteLocalString(entity, "key");
-            value = LocalDataMethods.GetLocalString(entity, "key");
+            _localDataMethods.DeleteLocalString(entity, "key");
+            value = _localDataMethods.GetLocalString(entity, "key");
             Assert.AreEqual(value, string.Empty);
         }
 
@@ -152,12 +160,12 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void DeleteLocalNumber_ValueShouldBeRemoved()
         {
             Entity entity = BuildValidEntity();
-            LocalDataMethods.SetLocalValue(entity, "key", 2345);
-            float value = LocalDataMethods.GetLocalNumber(entity, "key");
+            _localDataMethods.SetLocalValue(entity, "key", 2345);
+            float value = _localDataMethods.GetLocalNumber(entity, "key");
             Assert.AreEqual(value, 2345);
 
-            LocalDataMethods.DeleteLocalNumber(entity, "key");
-            value = LocalDataMethods.GetLocalNumber(entity, "key");
+            _localDataMethods.DeleteLocalNumber(entity, "key");
+            value = _localDataMethods.GetLocalNumber(entity, "key");
             Assert.AreEqual(value, 0.0f);
         }
         [Test]
@@ -166,8 +174,8 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
             Entity entity = BuildInvalidEntity();
             Assert.DoesNotThrow(delegate
             {
-                LocalDataMethods.DeleteLocalNumber(entity, "nokey1");
-                LocalDataMethods.DeleteLocalString(entity, "nokey2");
+                _localDataMethods.DeleteLocalNumber(entity, "nokey1");
+                _localDataMethods.DeleteLocalString(entity, "nokey2");
             });
         }
         [Test]
@@ -176,8 +184,8 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
             Entity entity = BuildValidEntity();
             Assert.DoesNotThrow(delegate
             {
-                LocalDataMethods.DeleteLocalNumber(entity, "nokey1");
-                LocalDataMethods.DeleteLocalString(entity, "nokey2");
+                _localDataMethods.DeleteLocalNumber(entity, "nokey1");
+                _localDataMethods.DeleteLocalString(entity, "nokey2");
             });
         }
     }

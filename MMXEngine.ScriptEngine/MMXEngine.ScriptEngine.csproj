@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MMXEngine.ScriptEngine</RootNamespace>
     <AssemblyName>MMXEngine.ScriptEngine</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -56,12 +56,19 @@
       <HintPath>..\packages\NLua.1.3.2.1\lib\net45\KeraLua.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MonoGame.Framework, Version=3.6.0.1625, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MonoGame.Framework.WindowsDX.3.6.0.1625\lib\net40\MonoGame.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NLua, Version=1.3.2.0, Culture=neutral, PublicKeyToken=8df2ab518030ea95, processorArchitecture=MSIL">
       <HintPath>..\packages\NLua.1.3.2.1\lib\net45\NLua.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Abstractions, Version=2.0.0.144, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Abstractions.2.0.0.144\lib\net40\System.IO.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -70,7 +77,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Methods\CreatureMethods.cs" />
+    <Compile Include="Methods\AudioMethods.cs" />
     <Compile Include="Methods\EntityMethods.cs" />
     <Compile Include="Methods\LevelMethods.cs" />
     <Compile Include="Methods\LocalDataMethods.cs" />
@@ -80,6 +87,7 @@
     <Compile Include="Methods\SpriteMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScriptManager.cs" />
+    <Compile Include="ScriptQueueObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -93,9 +101,9 @@
       <Project>{42df8606-533d-4c5c-9cf0-437446b8f6dc}</Project>
       <Name>MMXEngine.ECS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MMXEngine.Interfaces\MMXEngine.Interfaces.csproj">
+    <ProjectReference Include="..\MMXEngine.Interfaces\MMXEngine.Contracts.csproj">
       <Project>{345d211c-7ec0-4be4-ae58-24df72534d9f}</Project>
-      <Name>MMXEngine.Interfaces</Name>
+      <Name>MMXEngine.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMXEngine.Windows", "MMXEngine\MMXEngine.Windows.csproj", "{A6FD1815-559F-4814-AFDF-D6AB9ECE5EA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMXEngine.Interfaces", "MMXEngine.Interfaces\MMXEngine.Interfaces.csproj", "{345D211C-7EC0-4BE4-AE58-24DF72534D9F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMXEngine.Contracts", "MMXEngine.Interfaces\MMXEngine.Contracts.csproj", "{345D211C-7EC0-4BE4-AE58-24DF72534D9F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMXEngine.ECS", "MMXEngine.Entities\MMXEngine.ECS.csproj", "{42DF8606-533D-4C5C-9CF0-437446B8F6DC}"
 EndProject
@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Game", "1. Game", "{948D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Entities + Components", "4. Entities + Components", "{C7361AE3-AE8F-4F95-934C-9C053FE46DC9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Interfaces", "5. Interfaces", "{C087D4C7-17F6-4E4A-958B-F7C37F84E6E0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Contracts", "5. Contracts", "{C087D4C7-17F6-4E4A-958B-F7C37F84E6E0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMXEngine.ECS.Tests", "MMXEngine.Entities.Tests\MMXEngine.ECS.Tests.csproj", "{0C9298D2-EBF5-4927-A4D1-16AD30BAB007}"
 EndProject

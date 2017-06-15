@@ -3,7 +3,7 @@ using Artemis.Manager;
 using Artemis.System;
 using Microsoft.Xna.Framework.Media;
 using MMXEngine.Common.Enumerations;
-using MMXEngine.Interfaces.Managers;
+using MMXEngine.Contracts.Managers;
 
 namespace MMXEngine.Systems.Update
 {

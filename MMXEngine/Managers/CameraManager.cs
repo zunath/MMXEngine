@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MMXEngine.Interfaces.Managers;
+using MMXEngine.Contracts.Managers;
 
 namespace MMXEngine.Windows.Managers
 {

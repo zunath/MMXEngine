@@ -3,11 +3,11 @@ using Artemis.System;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Common.Enumerations;
+using MMXEngine.Contracts.Entities;
+using MMXEngine.Contracts.Factories;
+using MMXEngine.Contracts.Managers;
 using MMXEngine.ECS.Components;
 using MMXEngine.ECS.Data;
-using MMXEngine.Interfaces.Entities;
-using MMXEngine.Interfaces.Factories;
-using MMXEngine.Interfaces.Managers;
 
 namespace MMXEngine.ECS.Entities
 {

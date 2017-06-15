@@ -2,11 +2,11 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
+using MMXEngine.Contracts.Entities;
+using MMXEngine.Contracts.Factories;
+using MMXEngine.Contracts.Managers;
 using MMXEngine.ECS.Components;
 using MMXEngine.ECS.Data;
-using MMXEngine.Interfaces.Entities;
-using MMXEngine.Interfaces.Factories;
-using MMXEngine.Interfaces.Managers;
 
 namespace MMXEngine.ECS.Entities
 {
@@ -40,11 +40,19 @@ namespace MMXEngine.ECS.Entities
             map.Tiles = levelData.Tiles;
             map.BGM = _contentManager.Load<Song>("./Audio/BGM/" + levelData.BGMFile);
 
+            Script script = _componentFactory.Create<Script>();
+            script.FilePath = levelData.Script;
+
+            Heartbeat hb = _componentFactory.Create<Heartbeat>();
+            hb.Interval = 1.0f;
+
             MediaPlayer.IsRepeating = true;
             MediaPlayer.Play(map.BGM);
 
             entity.AddComponent(nameable);
             entity.AddComponent(map);
+            entity.AddComponent(script);
+            entity.AddComponent(hb);
             return entity;
         }
     }

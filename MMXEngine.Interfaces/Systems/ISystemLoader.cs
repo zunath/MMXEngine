@@ -1,4 +1,4 @@
-﻿namespace MMXEngine.Interfaces.Systems
+﻿namespace MMXEngine.Contracts.Systems
 {
     public interface ISystemLoader
     {

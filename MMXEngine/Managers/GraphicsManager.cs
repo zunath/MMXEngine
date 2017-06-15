@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
-using MMXEngine.Interfaces.Managers;
+using MMXEngine.Contracts.Managers;
 using XnaGraphicsDeviceManager = Microsoft.Xna.Framework.GraphicsDeviceManager;
 
 namespace MMXEngine.Windows.Managers

@@ -1,28 +1,20 @@
-﻿using Artemis;
-using MMXEngine.Common.Enumerations;
-using MMXEngine.ECS.Components;
-using MMXEngine.ECS.Entities;
-using MMXEngine.Interfaces.Entities;
-using MMXEngine.Interfaces.Factories;
+﻿using MMXEngine.Contracts.Entities;
+using MMXEngine.Contracts.Systems;
 
 namespace MMXEngine.ECS.Screens
 {
     public class GameScreen: IScreen
     {
-        private readonly IEntityFactory _entityFactory;
+        private readonly ILevelLoader _levelLoader;
 
-        public GameScreen(IEntityFactory entityFactory)
+        public GameScreen(ILevelLoader levelLoader)
         {
-            _entityFactory = entityFactory;
+            _levelLoader = levelLoader;
         }
 
         public void Initialize()
         {
-            _entityFactory.Create<Level>("DemoMap");
-            _entityFactory.Create<Player>(CharacterType.X, 16, -16);
-
-            Entity enemy = _entityFactory.Create<Enemy>("GunVolt", 100, 0);
-            enemy.GetComponent<Position>().Facing = Direction.Left;
+            _levelLoader.Load("DemoMap");
         }
 
         public void Update()

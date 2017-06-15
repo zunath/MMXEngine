@@ -4,8 +4,8 @@ using Artemis.Manager;
 using Artemis.System;
 using MMXEngine.Common.Enumerations;
 using MMXEngine.Common.Extensions;
+using MMXEngine.Contracts.Managers;
 using MMXEngine.ECS.Components;
-using MMXEngine.Interfaces.Managers;
 
 namespace MMXEngine.Systems.Update
 {

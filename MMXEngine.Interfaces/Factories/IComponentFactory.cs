@@ -1,6 +1,6 @@
 ﻿using Artemis.Interface;
 
-namespace MMXEngine.Interfaces.Factories
+namespace MMXEngine.Contracts.Factories
 {
     public interface IComponentFactory
     {

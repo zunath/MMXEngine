@@ -9,6 +9,14 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
     [TestFixture]
     public class LevelMethodsTests
     {
+        private LevelMethods _levelMethods;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _levelMethods = new LevelMethods();
+        }
+
         private Entity BuildMapEntity()
         {
             EntityWorld world = TestHelpers.CreateEntityWorld();
@@ -27,7 +35,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetMapWidth_ShouldEqualTo32()
         {
             Entity map = BuildMapEntity();
-            int width = LevelMethods.GetMapWidth(map);
+            int width = _levelMethods.GetMapWidth(map);
 
             Assert.AreEqual(width, 32);
         }
@@ -37,7 +45,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         {
             EntityWorld world = TestHelpers.CreateEntityWorld();
             Entity entity = world.CreateEntity();
-            int width = LevelMethods.GetMapWidth(entity);
+            int width = _levelMethods.GetMapWidth(entity);
             Assert.AreEqual(width, -1);
         }
 
@@ -45,7 +53,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void GetMapHeight_ShouldBeEqualTo20()
         {
             Entity map = BuildMapEntity();
-            int height = LevelMethods.GetMapHeight(map);
+            int height = _levelMethods.GetMapHeight(map);
             Assert.AreEqual(height, 20);
         }
 
@@ -54,7 +62,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         {
             EntityWorld world = TestHelpers.CreateEntityWorld();
             Entity entity = world.CreateEntity();
-            int height = LevelMethods.GetMapHeight(entity);
+            int height = _levelMethods.GetMapHeight(entity);
             Assert.AreEqual(height, -1);
         }
     }

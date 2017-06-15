@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Input;
 
-namespace MMXEngine.Interfaces.Components
+namespace MMXEngine.Contracts.Components
 {
     public interface IButtonConfiguration
     {

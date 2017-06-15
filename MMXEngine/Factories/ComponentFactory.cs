@@ -1,6 +1,6 @@
 ﻿using Artemis.Interface;
 using Autofac;
-using MMXEngine.Interfaces.Factories;
+using MMXEngine.Contracts.Factories;
 
 namespace MMXEngine.Windows.Factories
 {

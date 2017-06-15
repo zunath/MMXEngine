@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MMXEngine.ECS</RootNamespace>
     <AssemblyName>MMXEngine.ECS</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -61,6 +61,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Abstractions, Version=2.0.0.144, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Abstractions.2.0.0.144\lib\net40\System.IO.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -104,9 +107,9 @@
       <Project>{3ad013d0-9e57-49b7-a48b-8bfaeaff1db8}</Project>
       <Name>MMXEngine.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MMXEngine.Interfaces\MMXEngine.Interfaces.csproj">
+    <ProjectReference Include="..\MMXEngine.Interfaces\MMXEngine.Contracts.csproj">
       <Project>{345d211c-7ec0-4be4-ae58-24df72534d9f}</Project>
-      <Name>MMXEngine.Interfaces</Name>
+      <Name>MMXEngine.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

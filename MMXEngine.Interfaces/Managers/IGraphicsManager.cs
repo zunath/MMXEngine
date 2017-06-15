@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using XnaGraphicsDeviceManager = Microsoft.Xna.Framework.GraphicsDeviceManager;
 
-namespace MMXEngine.Interfaces.Managers
+namespace MMXEngine.Contracts.Managers
 {
     public interface IGraphicsManager
     {

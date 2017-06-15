@@ -1,6 +1,6 @@
 ﻿using Artemis.Interface;
 using Microsoft.Xna.Framework.Input;
-using MMXEngine.Interfaces.Components;
+using MMXEngine.Contracts.Components;
 
 namespace MMXEngine.ECS.Components
 {

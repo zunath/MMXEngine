@@ -1,9 +1,9 @@
 ﻿using Artemis.Attributes;
 using Artemis.Manager;
 using Artemis.System;
+using MMXEngine.Contracts.Components;
+using MMXEngine.Contracts.Managers;
 using MMXEngine.ECS.Components;
-using MMXEngine.Interfaces.Components;
-using MMXEngine.Interfaces.Managers;
 
 namespace MMXEngine.Systems.Single
 {

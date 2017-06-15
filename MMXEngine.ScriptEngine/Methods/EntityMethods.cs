@@ -1,13 +1,29 @@
 ﻿using System;
 using Artemis;
+using Artemis.System;
+using MMXEngine.Common.Enumerations;
+using MMXEngine.Contracts.Factories;
+using MMXEngine.Contracts.ScriptMethods;
 using MMXEngine.ECS.Components;
-using MMXEngine.Interfaces.Systems;
+using MMXEngine.ECS.Entities;
 
 namespace MMXEngine.ScriptEngine.Methods
 {
-    public class EntityMethods: IScriptMethodGroup
+    public class EntityMethods: IEntityMethods
     {
-        public static string GetName(Entity entity)
+        private readonly IEntityFactory _entityFactory;
+
+        public EntityMethods(IEntityFactory entityFactory)
+        {
+            _entityFactory = entityFactory;
+        }
+        
+        public Entity GetPlayer()
+        {
+            return (Entity)EntitySystem.BlackBoard.GetEntry("Player");
+        }
+
+        public string GetName(Entity entity)
         {
             try
             {
@@ -16,6 +32,84 @@ namespace MMXEngine.ScriptEngine.Methods
             catch (Exception)
             {
                 return string.Empty;
+            }
+        }
+
+        public Entity CreateEnemy(string name, int x, int y, Direction direction)
+        {
+            try
+            {
+                Entity enemy = _entityFactory.Create<Enemy>(name, x, y);
+                enemy.GetComponent<Position>().Facing = direction;
+                return enemy;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public CharacterType GetCharacterType(Entity entity)
+        {
+            try
+            {
+                return entity.GetComponent<PlayerCharacter>().CharacterType;
+            }
+            catch (Exception)
+            {
+                return CharacterType.Unknown;
+            }
+            
+        }
+
+        public int GetCurrentHitPoints(Entity entity)
+        {
+            try
+            {
+                return entity.GetComponent<Health>().CurrentHitPoints;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+
+        public int GetMaxHitPoints(Entity entity)
+        {
+            try
+            {
+                return entity.GetComponent<Health>().MaxHitPoints;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+
+        public int ApplyDamage(Entity entity, int amount)
+        {
+            try
+            {
+                Health health = entity.GetComponent<Health>();
+                health.CurrentHitPoints -= amount;
+
+                return health.CurrentHitPoints;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+        
+        public bool GetIsHostile(Entity entity)
+        {
+            try
+            {
+                return entity.HasComponent<Hostile>();
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
     }
