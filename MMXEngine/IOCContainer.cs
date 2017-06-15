@@ -11,6 +11,7 @@ using MMXEngine.Contracts.Entities;
 using MMXEngine.Contracts.Factories;
 using MMXEngine.Contracts.Managers;
 using MMXEngine.Contracts.ScriptMethods;
+using MMXEngine.Contracts.States;
 using MMXEngine.Contracts.Systems;
 using MMXEngine.ECS.Entities;
 using MMXEngine.ScriptEngine;
@@ -59,6 +60,7 @@ namespace MMXEngine.Windows
             builder.RegisterType<EntityFactory>().As<IEntityFactory>().SingleInstance();
             builder.RegisterType<ComponentFactory>().As<IComponentFactory>().SingleInstance();
             builder.RegisterType<ScreenFactory>().As<IScreenFactory>().SingleInstance();
+            builder.RegisterType<PlayerStateFactory>().As<IPlayerStateFactory>().SingleInstance();
             
             // Loaders
             builder.RegisterType<LevelLoader>().As<ILevelLoader>();
@@ -93,6 +95,15 @@ namespace MMXEngine.Windows
             foreach (Type type in components)
             {
                 builder.RegisterType(type).As<IComponent>().Named<IComponent>(type.ToString());
+            }
+
+            // Register IPlayerState implementations
+            var states = assemblies
+                .SelectMany(s => s.GetTypes())
+                .Where(p => typeof(IPlayerState).IsAssignableFrom(p) && p.IsClass);
+            foreach (Type type in states)
+            {
+                builder.RegisterType(type).As<IPlayerState>().Named<IPlayerState>(type.ToString());
             }
 
             // Register systems excluding Artemis implementations

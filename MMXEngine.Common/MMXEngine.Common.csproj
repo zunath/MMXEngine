@@ -80,6 +80,7 @@
     <Compile Include="Enumerations\ColorType.cs" />
     <Compile Include="Enumerations\Direction.cs" />
     <Compile Include="Enumerations\GameButton.cs" />
+    <Compile Include="Enumerations\PlayerState.cs" />
     <Compile Include="Enumerations\ScriptEvent.cs" />
     <Compile Include="Extensions\EntityWorldExtensions.cs" />
     <Compile Include="Extensions\EnumerationExtensions.cs" />

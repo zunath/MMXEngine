@@ -41,7 +41,7 @@ namespace MMXEngine.ECS.Entities
             map.BGM = _contentManager.Load<Song>("./Audio/BGM/" + levelData.BGMFile);
 
             Script script = _componentFactory.Create<Script>();
-            script.FilePath = levelData.Script;
+            script.FilePath = "Levels/" + levelData.Script;
 
             Heartbeat hb = _componentFactory.Create<Heartbeat>();
             hb.Interval = 1.0f;

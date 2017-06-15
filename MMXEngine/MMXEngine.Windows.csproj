@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Factories\ComponentFactory.cs" />
     <Compile Include="Factories\EntityFactory.cs" />
+    <Compile Include="Factories\PlayerStateFactory.cs" />
     <Compile Include="Factories\ScreenFactory.cs" />
     <Compile Include="IOCContainer.cs" />
     <Compile Include="Factories\GameFactory.cs" />

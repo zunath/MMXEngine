@@ -85,7 +85,7 @@
     <Compile Include="Single\LoadButtonConfigurationSystem.cs" />
     <Compile Include="Update\CollisionSystem.cs" />
     <Compile Include="Update\PhysicsSystem.cs" />
-    <Compile Include="Update\PlayerMovementSystem.cs" />
+    <Compile Include="Update\PlayerStateSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MMXEngine.Common\MMXEngine.Common.csproj">

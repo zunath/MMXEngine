@@ -19,7 +19,7 @@ namespace MMXEngine.Windows.Loaders
         // Update
         private readonly GravitySystem _gravitySystem; 
         private readonly PhysicsSystem _physicsSystem; 
-        private readonly PlayerMovementSystem _playerMovementSystem; 
+        private readonly PlayerStateSystem _playerStateSystem; 
         private readonly EnemySystem _enemySystem; 
         private readonly CollisionSystem _collisionSystem; 
         private readonly CameraSystem _cameraSystem; 
@@ -38,7 +38,7 @@ namespace MMXEngine.Windows.Loaders
             // Update
             GravitySystem gravitySystem,
             PhysicsSystem physicsSystem,
-            PlayerMovementSystem playerMovementSystem,
+            PlayerStateSystem playerStateSystem,
             EnemySystem enemySystem,
             CollisionSystem collisionSystem,
             CameraSystem cameraSystem,
@@ -58,7 +58,7 @@ namespace MMXEngine.Windows.Loaders
             // Update
             _gravitySystem = gravitySystem;
             _physicsSystem = physicsSystem;
-            _playerMovementSystem = playerMovementSystem;
+            _playerStateSystem = playerStateSystem;
             _enemySystem = enemySystem;
             _collisionSystem = collisionSystem;
             _cameraSystem = cameraSystem;
@@ -79,7 +79,7 @@ namespace MMXEngine.Windows.Loaders
             // Update
             RegisterSystem(_gravitySystem);
             RegisterSystem(_physicsSystem);
-            RegisterSystem(_playerMovementSystem);
+            RegisterSystem(_playerStateSystem);
             RegisterSystem(_enemySystem);
             RegisterSystem(_collisionSystem);
             RegisterSystem(_cameraSystem);

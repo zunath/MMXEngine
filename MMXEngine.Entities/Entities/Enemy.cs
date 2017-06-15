@@ -57,7 +57,7 @@ namespace MMXEngine.ECS.Entities
             entity.AddComponent(nameable);
 
             Script script = _componentFactory.Create<Script>();
-            script.FilePath = data.Script;
+            script.FilePath = "Enemies/" + data.Script;
             entity.AddComponent(script);
 
             CollisionBox box = _componentFactory.Create<CollisionBox>();

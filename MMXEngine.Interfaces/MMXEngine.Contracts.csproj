@@ -78,6 +78,7 @@
     <Compile Include="Entities\IScreen.cs" />
     <Compile Include="Factories\IComponentFactory.cs" />
     <Compile Include="Factories\IEntityFactory.cs" />
+    <Compile Include="Factories\IPlayerStateFactory.cs" />
     <Compile Include="Factories\IScreenFactory.cs" />
     <Compile Include="Managers\ICameraManager.cs" />
     <Compile Include="Managers\IDataManager.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="ScriptMethods\IPhysicsMethods.cs" />
     <Compile Include="ScriptMethods\IPlayerMethods.cs" />
     <Compile Include="ScriptMethods\ISpriteMethods.cs" />
+    <Compile Include="States\IPlayerState.cs" />
     <Compile Include="Systems\ILevelLoader.cs" />
     <Compile Include="Systems\ISystemLoader.cs" />
   </ItemGroup>

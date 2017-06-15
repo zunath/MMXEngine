@@ -8,6 +8,7 @@ using MMXEngine.Contracts.Factories;
 using MMXEngine.Contracts.Managers;
 using MMXEngine.ECS.Components;
 using MMXEngine.ECS.Data;
+using MMXEngine.ECS.States.Player;
 
 namespace MMXEngine.ECS.Entities
 {
@@ -15,15 +16,18 @@ namespace MMXEngine.ECS.Entities
     {
         private readonly IComponentFactory _componentFactory;
         private readonly IDataManager _dataManager;
+        private readonly IPlayerStateFactory _playerStateFactory;
         private readonly ContentManager _contentManager;
         private CharacterType _characterType;
         private PlayerData _playerData;
 
-        public Player(IComponentFactory factory,
+        public Player(IComponentFactory componentFactory,
+            IPlayerStateFactory playerStateFactory,
             IDataManager dataManager,
             ContentManager contentManager)
         {
-            _componentFactory = factory;
+            _componentFactory = componentFactory;
+            _playerStateFactory = playerStateFactory;
             _contentManager = contentManager;
             _dataManager = dataManager;
         }
@@ -62,8 +66,15 @@ namespace MMXEngine.ECS.Entities
             entity.AddComponent(heartbeat);
 
             Script script = _componentFactory.Create<Script>();
-            script.FilePath = _playerData.Script;
+            script.FilePath = "Players/" + _playerData.Script;
             entity.AddComponent(script);
+
+            PlayerStateMap stateMap = _componentFactory.Create<PlayerStateMap>();
+            stateMap.States.Add(PlayerState.Idle, _playerStateFactory.Create<IdleState>());
+            stateMap.States.Add(PlayerState.MoveLeft, _playerStateFactory.Create<MoveLeftState>());
+            stateMap.States.Add(PlayerState.MoveRight, _playerStateFactory.Create<MoveRightState>());
+            stateMap.CurrentState = PlayerState.Idle;
+            entity.AddComponent(stateMap);
 
             EntitySystem.BlackBoard.SetEntry("Player", entity);
 
