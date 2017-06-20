@@ -13,7 +13,7 @@ namespace MMXEngine.ScriptEngine.Methods
             try
             {
                 Entity player = (Entity) EntitySystem.BlackBoard.GetEntry("Player");
-                return player.GetComponent<PlayerAction>().IsShooting;
+                return player.GetComponent<PlayerCharacter>().IsShooting;
             }
             catch (Exception)
             {

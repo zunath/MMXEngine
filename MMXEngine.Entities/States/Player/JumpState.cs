@@ -1,55 +1,52 @@
 ﻿using Artemis;
+using MMXEngine.Common.Constants;
 using MMXEngine.Common.Enumerations;
+using MMXEngine.Common.Extensions;
 using MMXEngine.Contracts.Managers;
 using MMXEngine.Contracts.States;
 using MMXEngine.ECS.Components;
 
 namespace MMXEngine.ECS.States.Player
 {
-    public class MoveState: IPlayerState
+    public class JumpState: IPlayerState
     {
+        private readonly EntityWorld _world;
         private readonly IInputManager _input;
 
-        public MoveState(IInputManager input)
+        public JumpState(
+            EntityWorld world,
+            IInputManager input)
         {
+            _world = world;
             _input = input;
         }
 
         public void HandleInput(Entity player)
         {
             PlayerStateMap map = player.GetComponent<PlayerStateMap>();
-            Position position = player.GetComponent<Position>();
             PlayerCharacter character = player.GetComponent<PlayerCharacter>();
 
-            if (_input.IsDown(GameButton.MoveLeft))
+            if (_input.IsDown(GameButton.Jump))
             {
-                map.CurrentState = PlayerState.Move;
-
-                if (!character.IsDashing)
-                {
-                    position.Facing = Direction.Left;
-                }
+                map.CurrentState = PlayerState.Jump;
             }
-            else if (_input.IsDown(GameButton.MoveRight))
+            else if (_input.IsUp(GameButton.Jump))
             {
-                map.CurrentState = PlayerState.Move;
-
-                if (!character.IsDashing)
-                {
-                    position.Facing = Direction.Right;
-                }
+                character.CurrentJumpLength = 0.0f;
             }
+
         }
 
         public void EnterState(Entity player)
         {
             Sprite sprite = player.GetComponent<Sprite>();
-            sprite.SetCurrentAnimation("Move");
+            sprite.SetCurrentAnimation("Jump");
         }
 
         public void ExitState(Entity player)
         {
-            
+            PlayerCharacter character = player.GetComponent<PlayerCharacter>();
+            character.IsJumping = false;
         }
 
         public void ProcessState(Entity player)
@@ -58,15 +55,17 @@ namespace MMXEngine.ECS.States.Player
             Velocity velocity = player.GetComponent<Velocity>();
             PlayerCharacter character = player.GetComponent<PlayerCharacter>();
 
-            if (character.IsDashing) return;
+            character.CurrentJumpLength += _world.DeltaSeconds();
 
-            if (position.Facing == Direction.Left)
+            if (character.CurrentJumpLength > character.MaxJumpLength)
             {
-                velocity.X = -character.MoveSpeed;
+                character.IsJumping = false;
             }
             else
             {
-                velocity.X = character.MoveSpeed;
+                velocity.Y = -character.JumpSpeed;
+                character.IsJumping = true;
+                position.IsOnGround = false;
             }
         }
     }

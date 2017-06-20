@@ -22,15 +22,15 @@ namespace MMXEngine.ECS.States.Player
         public void HandleInput(Entity player)
         {
             PlayerStateMap map = player.GetComponent<PlayerStateMap>();
-            PlayerAction action = player.GetComponent<PlayerAction>();
+            PlayerCharacter character = player.GetComponent<PlayerCharacter>();
 
             if (_input.IsDown(GameButton.Dash) &&
-                action.CurrentDashLength <= action.MaxDashLength)
+                character.CurrentDashLength <= character.MaxDashLength)
             {
                 map.CurrentState = PlayerState.Dash;
             }
             else if(_input.IsDown(GameButton.Dash) &&
-                action.CurrentDashLength > action.MaxDashLength)
+                character.CurrentDashLength > character.MaxDashLength)
             {
                 if (!_input.IsDown(GameButton.MoveLeft) &&
                     !_input.IsDown(GameButton.MoveRight))
@@ -41,7 +41,7 @@ namespace MMXEngine.ECS.States.Player
             }
             else if (_input.IsUp(GameButton.Dash))
             {
-                action.CurrentDashLength = 0.0f;
+                character.CurrentDashLength = 0.0f;
             }
         }
 
@@ -56,35 +56,35 @@ namespace MMXEngine.ECS.States.Player
             Sprite sprite = player.GetComponent<Sprite>();
             sprite.SetCurrentAnimation("DashEnd");
 
-            PlayerAction action = player.GetComponent<PlayerAction>();
-            action.IsDashing = false;
+            PlayerCharacter character = player.GetComponent<PlayerCharacter>();
+            character.IsDashing = false;
         }
 
         public void ProcessState(Entity player)
         {
             Position position = player.GetComponent<Position>();
             Velocity velocity = player.GetComponent<Velocity>();
-            PlayerAction action = player.GetComponent<PlayerAction>();
+            PlayerCharacter character = player.GetComponent<PlayerCharacter>();
 
             if (position.Facing == Direction.Left)
             {
-                velocity.X = -2.5f;
+                velocity.X = -character.DashSpeed;
             }
             else
             {
-                velocity.X = 2.5f;
+                velocity.X = character.DashSpeed;
             }
 
-            action.CurrentDashLength += _world.DeltaSeconds();
+            character.CurrentDashLength += _world.DeltaSeconds();
 
-            if (action.CurrentDashLength > action.MaxDashLength)
+            if (character.CurrentDashLength > character.MaxDashLength)
             {
                 velocity.X = 0.0f;
-                action.IsDashing = false;
+                character.IsDashing = false;
             }
             else
             {
-                action.IsDashing = true;
+                character.IsDashing = true;
             }
         }
     }

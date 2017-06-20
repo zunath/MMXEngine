@@ -71,6 +71,10 @@ namespace MMXEngine.ECS.Entities
             hb.Interval = data.HeartbeatInterval;
             entity.AddComponent(hb);
 
+            Gravity gravity = _componentFactory.Create<Gravity>();
+            gravity.Speed = 4.0f;
+            entity.AddComponent(gravity);
+
             return entity;
         }
     }

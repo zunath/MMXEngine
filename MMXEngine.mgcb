@@ -175,3 +175,46 @@
 /processorParam:Quality=Best
 /build:MMXEngine.Content/Content/Audio/BGM/bgm-boomer-kuwanger.mp3
 
+#begin MMXEngine.Content/Content/Graphics/UI/UI.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Graphics/UI/UI.png
+
+#begin MMXEngine.Content/Content/Graphics/UI/TextDark.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Graphics/UI/TextDark.png
+
+#begin MMXEngine.Content/Content/Graphics/UI/TextLight.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Graphics/UI/TextLight.png
+
+#begin MMXEngine.Content/Content/Fonts/Arial.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:MMXEngine.Content/Content/Fonts/Arial.spritefont
+

@@ -99,6 +99,9 @@
     <Content Include="Content\Graphics\Enemies\Enemies_7.png" />
     <Content Include="Content\Graphics\Items\Items.png" />
     <Content Include="Content\Graphics\Tilesets\DemoMap.png" />
+    <Content Include="Content\Graphics\UI\TextDark.png" />
+    <Content Include="Content\Graphics\UI\TextLight.png" />
+    <Content Include="Content\Graphics\UI\UI.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Audio\SFX\" />
@@ -119,6 +122,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Content\Compiled\Audio\BGM\bgm-sting-chameleon.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Compiled\Fonts\Arial.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Content\Compiled\Graphics\Characters\MMX.xnb">
@@ -154,6 +160,16 @@
     <None Include="Content\Compiled\Graphics\Tilesets\DemoMap.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Content\Compiled\UI\TextDark.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Compiled\UI\TextLight.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Compiled\UI\UI.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Fonts\Arial.spritefont" />
     <None Include="Data\Creatures\Enemies\GunVolt.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

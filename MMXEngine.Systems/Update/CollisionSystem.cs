@@ -28,6 +28,9 @@ namespace MMXEngine.Systems.Update
         
         public override void Process(Entity entity)
         {
+            Position position = entity.GetComponent<Position>();
+            position.IsOnGround = false;
+
             ProcessLevelCollisions(entity);
         }
         
@@ -42,8 +45,7 @@ namespace MMXEngine.Systems.Update
                 (int)position.X + box.OffsetX,
                 (int)position.Y + box.OffsetY,
                 box.Width,
-                box.Height
-                );
+                box.Height);
 
             int leftTile = (int) Math.Floor((float) bounds.Left/TilesetConstants.TileWidth);
             int rightTile = (int)Math.Ceiling(((float)bounds.Right / TilesetConstants.TileWidth)) - 1;

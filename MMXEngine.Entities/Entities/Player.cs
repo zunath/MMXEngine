@@ -38,9 +38,15 @@ namespace MMXEngine.ECS.Entities
             LoadPlayerDataFile();
 
             entity.AddComponent(BuildSprite());
-            PlayerAction action = _componentFactory.Create<PlayerAction>();
-            action.MaxDashLength = _playerData.MaxDashLength;
-            entity.AddComponent(action);
+            PlayerCharacter character = _componentFactory.Create<PlayerCharacter>();
+            character.MaxDashLength = _playerData.MaxDashLength;
+            character.MaxJumpLength = _playerData.MaxJumpLength;
+            character.MoveSpeed = _playerData.MoveSpeed;
+            character.DashSpeed = _playerData.DashSpeed;
+            character.JumpSpeed = _playerData.JumpSpeed;
+            character.CharacterType = _characterType;
+
+            entity.AddComponent(character);
             entity.AddComponent(_componentFactory.Create<Health>());
 
             Position position = _componentFactory.Create<Position>();
@@ -53,9 +59,6 @@ namespace MMXEngine.ECS.Entities
             entity.AddComponent(_componentFactory.Create<Velocity>());
             entity.AddComponent(_componentFactory.Create<Renderable>());
             entity.AddComponent(BuildCollisionBox());
-            PlayerCharacter playerCharacter = _componentFactory.Create<PlayerCharacter>();
-            playerCharacter.CharacterType = _characterType;
-            entity.AddComponent(playerCharacter);
 
             Nameable nameable = _componentFactory.Create<Nameable>();
             nameable.Name = _playerData.Name;
@@ -73,8 +76,14 @@ namespace MMXEngine.ECS.Entities
             stateMap.States.Add(PlayerState.Idle, _playerStateFactory.Create<IdleState>());
             stateMap.States.Add(PlayerState.Move, _playerStateFactory.Create<MoveState>());
             stateMap.States.Add(PlayerState.Dash, _playerStateFactory.Create<DashState>());
+            stateMap.States.Add(PlayerState.Jump, _playerStateFactory.Create<JumpState>());
+            stateMap.States.Add(PlayerState.Fall, _playerStateFactory.Create<FallState>());
             stateMap.CurrentState = PlayerState.Idle;
             entity.AddComponent(stateMap);
+
+            Gravity gravity = _componentFactory.Create<Gravity>();
+            gravity.Speed = _playerData.GravitySpeed;
+            entity.AddComponent(gravity);
 
             EntitySystem.BlackBoard.SetEntry("Player", entity);
 

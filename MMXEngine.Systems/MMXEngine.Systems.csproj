@@ -75,9 +75,11 @@
     <Compile Include="Draw\RenderCollisionBoxSystem.cs" />
     <Compile Include="Draw\RenderLevelSystem.cs" />
     <Compile Include="Draw\RenderSystem.cs" />
+    <Compile Include="Draw\RenderTextSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Update\CameraSystem.cs" />
     <Compile Include="Update\DebugSystem.cs" />
+    <Compile Include="Update\DebugTextSystem.cs" />
     <Compile Include="Update\EnemySystem.cs" />
     <Compile Include="Update\GravitySystem.cs" />
     <Compile Include="Update\HeartbeatSystem.cs" />

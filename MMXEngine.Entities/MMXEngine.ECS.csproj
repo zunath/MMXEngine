@@ -75,13 +75,13 @@
     <Compile Include="Components\Animation.cs" />
     <Compile Include="Components\ButtonConfiguration.cs" />
     <Compile Include="Components\CollisionBox.cs" />
+    <Compile Include="Components\Gravity.cs" />
     <Compile Include="Components\Heartbeat.cs" />
     <Compile Include="Components\Hostile.cs" />
     <Compile Include="Components\Frame.cs" />
     <Compile Include="Components\LocalData.cs" />
     <Compile Include="Components\Map.cs" />
     <Compile Include="Components\Nameable.cs" />
-    <Compile Include="Components\PlayerAction.cs" />
     <Compile Include="Components\PlayerCharacter.cs" />
     <Compile Include="Components\PlayerStateMap.cs" />
     <Compile Include="Components\Position.cs" />
@@ -90,10 +90,12 @@
     <Compile Include="Components\Sprite.cs" />
     <Compile Include="Components\Health.cs" />
     <Compile Include="Components\Velocity.cs" />
+    <Compile Include="Components\VisibleText.cs" />
     <Compile Include="Data\CreatureData.cs" />
     <Compile Include="Data\LevelData.cs" />
     <Compile Include="Data\PlayerData.cs" />
     <Compile Include="Data\TileData.cs" />
+    <Compile Include="Entities\DebugWindow.cs" />
     <Compile Include="Entities\Enemy.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Level.cs" />
@@ -103,7 +105,9 @@
     <Compile Include="Screens\GameScreen.cs" />
     <Compile Include="Screens\MenuScreen.cs" />
     <Compile Include="States\Player\DashState.cs" />
+    <Compile Include="States\Player\FallState.cs" />
     <Compile Include="States\Player\IdleState.cs" />
+    <Compile Include="States\Player\JumpState.cs" />
     <Compile Include="States\Player\MoveState.cs" />
   </ItemGroup>
   <ItemGroup>

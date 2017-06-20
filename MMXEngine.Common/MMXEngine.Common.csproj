@@ -74,7 +74,6 @@
   <ItemGroup>
     <Compile Include="Attributes\ColorTypeAttribute.cs" />
     <Compile Include="Constants\TilesetConstants.cs" />
-    <Compile Include="Constants\WorldConstants.cs" />
     <Compile Include="Enumerations\CharacterType.cs" />
     <Compile Include="Enumerations\CollisionType.cs" />
     <Compile Include="Enumerations\ColorType.cs" />

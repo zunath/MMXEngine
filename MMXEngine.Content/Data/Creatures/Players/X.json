@@ -8,6 +8,13 @@
   "Script": "X.lua",
   "HeartbeatInterval": 1.0,
   "MaxDashLength": 0.5,
+  "MaxJumpLength": 0.25,
+  "MoveSpeed": 1.5,
+  "DashSpeed": 2.5, 
+  "JumpSpeed": 8.0,
+  "MaxFallSpeed": 8.0,
+  "GravitySpeed": 4.0, 
+  "MaxNumberOfJumps": 1, 
   "Animations": [
     {
       "Name": "Idle",
@@ -237,7 +244,7 @@
           "Y": 63,
           "Width": 24,
           "Height": 37,
-          "Length": 1.0,
+          "Length": 0.1,
           "OffsetX": 0,
           "OffsetY": 0,
           "OnlyRunOnce": true
@@ -247,7 +254,7 @@
           "Y": 59,
           "Width": 15,
           "Height": 41,
-          "Length": 1.0,
+          "Length": 0.05,
           "OffsetX": 0,
           "OffsetY": 0,
           "OnlyRunOnce": true
@@ -257,17 +264,22 @@
           "Y": 54,
           "Width": 19,
           "Height": 46,
-          "Length": 1.0,
+          "Length": 3,
           "OffsetX": 0,
-          "OffsetY": 0,
-          "OnlyRunOnce": true
-        },
+          "OffsetY": 0
+        }
+      ]
+    },
+    {
+      "Name": "Falling",
+      "Frames": [
+
         {
           "X": 274,
           "Y": 59,
           "Width": 23,
           "Height": 41,
-          "Length": 1.0,
+          "Length": 0.15,
           "OffsetX": 0,
           "OffsetY": 0,
           "OnlyRunOnce": true
@@ -277,11 +289,11 @@
           "Y": 58,
           "Width": 27,
           "Height": 42,
-          "Length": 1.0,
+          "Length": 0.15,
           "OffsetX": -1,
           "OffsetY": 1
         }
-      ]
+      ] 
     },
     {
       "Name": "Land",

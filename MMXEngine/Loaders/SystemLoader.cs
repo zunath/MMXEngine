@@ -26,11 +26,13 @@ namespace MMXEngine.Windows.Loaders
         private readonly SpriteSystem _spriteSystem; 
         private readonly HeartbeatSystem _heartbeatSystem;
         private readonly DebugSystem _debugSystem;
+        private readonly DebugTextSystem _debugTextSystem;
 
         // Draw
         private readonly RenderSystem _renderSystem;
         private readonly RenderLevelSystem _renderLevelSystem;
         private readonly RenderCollisionBoxSystem _renderCollisionBoxSystem;
+        private readonly RenderTextSystem _renderTextSystem;
 
         public SystemLoader(EntityWorld world,
             // Single
@@ -45,10 +47,12 @@ namespace MMXEngine.Windows.Loaders
             SpriteSystem spriteSystem,
             HeartbeatSystem heartbeatSystem,
             DebugSystem debugSystem,
+            DebugTextSystem debugTextSystem,
             // Draw
             RenderSystem renderSystem,
             RenderLevelSystem renderLevelSystem,
-            RenderCollisionBoxSystem renderCollisionBoxSystem)
+            RenderCollisionBoxSystem renderCollisionBoxSystem,
+            RenderTextSystem renderTextSystem)
         {
             _world = world;
 
@@ -65,11 +69,13 @@ namespace MMXEngine.Windows.Loaders
             _spriteSystem = spriteSystem;
             _heartbeatSystem = heartbeatSystem;
             _debugSystem = debugSystem;
+            _debugTextSystem = debugTextSystem;
 
             // Draw
             _renderSystem = renderSystem;
             _renderLevelSystem = renderLevelSystem;
             _renderCollisionBoxSystem = renderCollisionBoxSystem;
+            _renderTextSystem = renderTextSystem;
         }
 
         public void Load()
@@ -86,11 +92,13 @@ namespace MMXEngine.Windows.Loaders
             RegisterSystem(_spriteSystem);
             RegisterSystem(_heartbeatSystem);
             RegisterSystem(_debugSystem);
+            RegisterSystem(_debugTextSystem);
 
             // Draw
             RegisterSystem(_renderSystem);
             RegisterSystem(_renderLevelSystem);
             RegisterSystem(_renderCollisionBoxSystem);
+            RegisterSystem(_renderTextSystem);
 
         }
 

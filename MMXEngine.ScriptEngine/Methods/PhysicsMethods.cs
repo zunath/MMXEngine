@@ -6,7 +6,7 @@ using MMXEngine.ECS.Components;
 
 namespace MMXEngine.ScriptEngine.Methods
 {
-    public class PhysicsMethods: IPhysicsMethods
+    public class PhysicsMethods : IPhysicsMethods
     {
         public float GetVelocityX(Entity entity)
         {
@@ -101,6 +101,28 @@ namespace MMXEngine.ScriptEngine.Methods
             catch (Exception)
             {
                 return false;
+            }
+        }
+
+        public float GetGravity(Entity entity)
+        {
+            try
+            {
+                return entity.HasComponent<Gravity>() ?
+                    entity.GetComponent<Gravity>().Speed :
+                    0.0f;
+            }
+            catch (Exception)
+            {
+                return -1f;
+            }
+        }
+
+        public void SetGravity(Entity entity, float value)
+        {
+            if (entity.HasComponent<Gravity>())
+            {
+                entity.GetComponent<Gravity>().Speed = value;
             }
         }
     }

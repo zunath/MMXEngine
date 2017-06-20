@@ -22,11 +22,11 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         {
             EntityWorld world = TestHelpers.CreateEntityWorld();
             Entity entity = world.CreateEntity();
-            PlayerAction actionComponent = new PlayerAction
+            PlayerCharacter characterComponent = new PlayerCharacter
             {
                 IsShooting = true
             };
-            entity.AddComponent(actionComponent);
+            entity.AddComponent(characterComponent);
             EntitySystem.BlackBoard.SetEntry("Player", entity);
         }
 
@@ -49,7 +49,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         public void IsPlayerShooting_ShouldBeFalse()
         {
             BuildValidEntity();
-            EntitySystem.BlackBoard.GetEntry<Entity>("Player").GetComponent<PlayerAction>().IsShooting = false;
+            EntitySystem.BlackBoard.GetEntry<Entity>("Player").GetComponent<PlayerCharacter>().IsShooting = false;
             bool isPlayerShooting = _playerMethods.IsPlayerShooting();
             Assert.IsFalse(isPlayerShooting);
         }

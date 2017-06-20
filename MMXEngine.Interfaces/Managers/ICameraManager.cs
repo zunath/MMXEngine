@@ -12,6 +12,7 @@ namespace MMXEngine.Contracts.Managers
         Vector2 Origin { get; }
         Vector2 ScreenCenter { get; }
         Vector2 Focus { get; set; }
+        Vector2 TopLeft { get; }
         
         void Update();
     }

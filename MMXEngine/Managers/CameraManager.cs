@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Contracts.Managers;
 
@@ -15,6 +16,7 @@ namespace MMXEngine.Windows.Managers
         public Vector2 ScreenCenter { get; private set; }
         private readonly GraphicsDevice _graphics;
         public Vector2 Focus { get; set; }
+        public Vector2 TopLeft { get; private set; }
 
         public CameraManager(GraphicsDevice graphics)
         {
@@ -41,6 +43,10 @@ namespace MMXEngine.Windows.Managers
                 Position.Y + (Focus.Y - Position.Y));
 
             InverseTransform = Matrix.Invert(Transform);
+            
+            TopLeft = new Vector2(
+                Position.X - Origin.X,
+                Position.Y - Origin.Y);
         }
     }
 }

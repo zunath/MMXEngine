@@ -44,7 +44,7 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         {
             EntityWorld world = TestHelpers.CreateEntityWorld();
             Entity entity = world.CreateEntity();
-            PlayerCharacter playerComponent = new PlayerCharacter
+            PlayerCharacter playerComponent = new PlayerCharacter()
             {
                 CharacterType = charType
             };

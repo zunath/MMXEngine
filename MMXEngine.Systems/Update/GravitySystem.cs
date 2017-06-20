@@ -2,8 +2,6 @@
 using Artemis.Attributes;
 using Artemis.Manager;
 using Artemis.System;
-using MMXEngine.Common.Constants;
-using MMXEngine.Contracts.Managers;
 using MMXEngine.ECS.Components;
 
 namespace MMXEngine.Systems.Update
@@ -14,21 +12,21 @@ namespace MMXEngine.Systems.Update
         Layer = 1)]
     public class GravitySystem: EntityProcessingSystem
     {
-        private IInputManager _inputManager;
-
-        public GravitySystem(IInputManager inputManager) 
-            : base(Aspect.All(typeof(Velocity), typeof(Position)))
+        public GravitySystem() 
+            : base(Aspect.All(typeof(Velocity), 
+                typeof(Gravity)))
         {
-            _inputManager = inputManager;
         }
 
         public override void Process(Entity entity)
         {
-            Position position = entity.GetComponent<Position>();
             Velocity velocity = entity.GetComponent<Velocity>();
+            Gravity gravity = entity.GetComponent<Gravity>();
 
-            velocity.Y += WorldConstants.Gravity;
-            if (velocity.Y > WorldConstants.Gravity) velocity.Y = WorldConstants.Gravity;
+            velocity.Y += gravity.Speed;
+
+            if (velocity.Y > gravity.Speed)
+                velocity.Y = gravity.Speed;
         }
     }
 }
