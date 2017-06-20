@@ -4,7 +4,7 @@
     {
         Unknown = 0,
         Idle = 1,
-        MoveLeft = 2,
-        MoveRight = 3
+        Move = 2,
+        Dash = 3
     }
 }

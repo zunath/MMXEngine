@@ -71,8 +71,8 @@ namespace MMXEngine.ECS.Entities
 
             PlayerStateMap stateMap = _componentFactory.Create<PlayerStateMap>();
             stateMap.States.Add(PlayerState.Idle, _playerStateFactory.Create<IdleState>());
-            stateMap.States.Add(PlayerState.MoveLeft, _playerStateFactory.Create<MoveLeftState>());
-            stateMap.States.Add(PlayerState.MoveRight, _playerStateFactory.Create<MoveRightState>());
+            stateMap.States.Add(PlayerState.Move, _playerStateFactory.Create<MoveState>());
+            stateMap.States.Add(PlayerState.Dash, _playerStateFactory.Create<DashState>());
             stateMap.CurrentState = PlayerState.Idle;
             entity.AddComponent(stateMap);
 

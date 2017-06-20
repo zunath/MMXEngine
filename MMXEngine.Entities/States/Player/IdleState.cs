@@ -1,4 +1,6 @@
 ﻿using Artemis;
+using MMXEngine.Common.Enumerations;
+using MMXEngine.Contracts.Managers;
 using MMXEngine.Contracts.States;
 using MMXEngine.ECS.Components;
 
@@ -6,6 +8,26 @@ namespace MMXEngine.ECS.States.Player
 {
     public class IdleState: IPlayerState
     {
+        private readonly IInputManager _input;
+
+        public IdleState(IInputManager input)
+        {
+            _input = input;
+        }
+
+        public void HandleInput(Entity player)
+        {
+            PlayerStateMap map = player.GetComponent<PlayerStateMap>();
+
+            if (_input.IsUp(GameButton.Dash) &&
+                _input.IsUp(GameButton.Jump) &&
+                _input.IsUp(GameButton.MoveRight) &&
+                _input.IsUp(GameButton.MoveLeft))
+            {
+                map.CurrentState = PlayerState.Idle;
+            }
+        }
+
         public void EnterState(Entity player)
         {
             Sprite sprite = player.GetComponent<Sprite>();
