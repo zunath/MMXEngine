@@ -108,6 +108,7 @@
     <Compile Include="States\Player\FallState.cs" />
     <Compile Include="States\Player\IdleState.cs" />
     <Compile Include="States\Player\JumpState.cs" />
+    <Compile Include="States\Player\LandState.cs" />
     <Compile Include="States\Player\MoveState.cs" />
   </ItemGroup>
   <ItemGroup>

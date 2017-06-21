@@ -21,19 +21,26 @@ namespace MMXEngine.Systems.Update
         private readonly EntityWorld _world;
 
         public CollisionSystem(EntityWorld world):
-            base(Aspect.All(typeof(CollisionBox), typeof(Position), typeof(Velocity)))
+            base(Aspect.All(typeof(CollisionBox), 
+                typeof(Position), 
+                typeof(Velocity)))
         {
             _world = world;
         }
         
         public override void Process(Entity entity)
         {
-            Position position = entity.GetComponent<Position>();
-            position.IsOnGround = false;
-
+            ResetVariablesForThisFrame(entity);
             ProcessLevelCollisions(entity);
         }
-        
+
+        private void ResetVariablesForThisFrame(Entity entity)
+        {
+            Position position = entity.GetComponent<Position>();
+            position.WasOnGroundLastFrame = position.IsOnGround;
+            position.IsOnGround = false;
+        }
+
         private void ProcessLevelCollisions(Entity entity)
         {
             Entity level = _world.EntityManager.GetEntities(Aspect.All(typeof(Map)))[0];
@@ -69,8 +76,7 @@ namespace MMXEngine.Systems.Update
                             x * TilesetConstants.TileWidth,
                             y * TilesetConstants.TileHeight,
                             TilesetConstants.TileWidth,
-                            TilesetConstants.TileHeight
-                            );
+                            TilesetConstants.TileHeight);
 
                         Vector2 depth = bounds.GetIntersectionDepth(tileBounds);
                         var type = bounds.GetCollisionType(tileBounds);

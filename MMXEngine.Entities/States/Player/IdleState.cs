@@ -17,12 +17,13 @@ namespace MMXEngine.ECS.States.Player
 
         public void HandleInput(Entity player)
         {
+            PlayerCharacter character = player.GetComponent<PlayerCharacter>();
             PlayerStateMap map = player.GetComponent<PlayerStateMap>();
 
             if (_input.IsUp(GameButton.Dash) &&
-                _input.IsUp(GameButton.Jump) &&
                 _input.IsUp(GameButton.MoveRight) &&
-                _input.IsUp(GameButton.MoveLeft))
+                _input.IsUp(GameButton.MoveLeft) &&
+                !character.IsLanding)
             {
                 map.CurrentState = PlayerState.Idle;
             }

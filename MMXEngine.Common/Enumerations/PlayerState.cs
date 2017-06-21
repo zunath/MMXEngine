@@ -7,6 +7,7 @@
         Move = 2,
         Dash = 3,
         Jump = 4,
-        Fall = 5
+        Fall = 5,
+        Land = 6
     }
 }

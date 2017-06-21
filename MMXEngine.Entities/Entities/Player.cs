@@ -45,6 +45,7 @@ namespace MMXEngine.ECS.Entities
             character.DashSpeed = _playerData.DashSpeed;
             character.JumpSpeed = _playerData.JumpSpeed;
             character.CharacterType = _characterType;
+            character.MaxNumberOfJumps = _playerData.MaxNumberOfJumps;
 
             entity.AddComponent(character);
             entity.AddComponent(_componentFactory.Create<Health>());
@@ -78,6 +79,7 @@ namespace MMXEngine.ECS.Entities
             stateMap.States.Add(PlayerState.Dash, _playerStateFactory.Create<DashState>());
             stateMap.States.Add(PlayerState.Jump, _playerStateFactory.Create<JumpState>());
             stateMap.States.Add(PlayerState.Fall, _playerStateFactory.Create<FallState>());
+            stateMap.States.Add(PlayerState.Land, _playerStateFactory.Create<LandState>());
             stateMap.CurrentState = PlayerState.Idle;
             entity.AddComponent(stateMap);
 

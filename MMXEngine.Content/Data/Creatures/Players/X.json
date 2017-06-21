@@ -244,7 +244,7 @@
           "Y": 63,
           "Width": 24,
           "Height": 37,
-          "Length": 0.1,
+          "Length": 0.08,
           "OffsetX": 0,
           "OffsetY": 0,
           "OnlyRunOnce": true
@@ -254,7 +254,7 @@
           "Y": 59,
           "Width": 15,
           "Height": 41,
-          "Length": 0.05,
+          "Length": 0.08,
           "OffsetX": 0,
           "OffsetY": 0,
           "OnlyRunOnce": true
@@ -273,13 +273,12 @@
     {
       "Name": "Falling",
       "Frames": [
-
         {
           "X": 274,
           "Y": 59,
           "Width": 23,
           "Height": 41,
-          "Length": 0.15,
+          "Length": 0.25,
           "OffsetX": 0,
           "OffsetY": 0,
           "OnlyRunOnce": true
@@ -303,16 +302,19 @@
           "Y": 62,
           "Width": 24,
           "Height": 38,
-          "OffsetX": -1,
-          "OffsetY": 0
+          "Length": 0.025,
+          "OffsetX": 3,
+          "OffsetY": -2,
+          "OnlyRunOnce": true
         },
         {
           "X": 356,
           "Y": 68,
           "Width": 30,
           "Height": 32,
-          "OffsetX": -7,
-          "OffsetY": 0
+          "Length": 0.025, 
+          "OffsetX": 0,
+          "OffsetY": 1
         }
       ]
     },

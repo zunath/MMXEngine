@@ -9,5 +9,6 @@
         public float JumpSpeed { get; set; }
         public float MaxFallSpeed { get; set; }
         public float GravitySpeed { get; set; }
+        public int MaxNumberOfJumps { get; set; }
     }
 }

@@ -28,9 +28,13 @@ namespace MMXEngine.ECS.States.Player
 
             if (_input.IsDown(GameButton.Jump))
             {
-                map.CurrentState = PlayerState.Jump;
+                if (character.CurrentJumpLength < character.MaxJumpLength)
+                {
+                    map.CurrentState = PlayerState.Jump;
+                }
             }
-            else if (_input.IsUp(GameButton.Jump))
+            else if (_input.IsUp(GameButton.Jump) &&
+                _input.WasUpLastFrame(GameButton.Jump))
             {
                 character.CurrentJumpLength = 0.0f;
             }
