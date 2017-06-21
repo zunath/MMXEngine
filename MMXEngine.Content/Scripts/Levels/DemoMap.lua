@@ -8,6 +8,7 @@ function OnLoad()
 
 	Audio:PauseMusic();
 
-	local enemy = Entity:CreateEnemy("GunVolt", 200, 0, DirectionType.Left);
+	local enemy = Entity:CreateEnemy("GunVolt", 200, -200, DirectionType.Left);
+	local item = Entity:CreateItem("OneUp", 8, -100);
 
 end

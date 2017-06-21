@@ -20,6 +20,9 @@ namespace MMXEngine.ScriptEngine.Methods
         
         public Entity GetPlayer()
         {
+            if((Entity)EntitySystem.BlackBoard.GetEntry("Player") == null)
+                throw new Exception("Player has not been added to the Artemis blackboard.");
+
             return (Entity)EntitySystem.BlackBoard.GetEntry("Player");
         }
 
@@ -42,6 +45,19 @@ namespace MMXEngine.ScriptEngine.Methods
                 Entity enemy = _entityFactory.Create<Enemy>(name, x, y);
                 enemy.GetComponent<Position>().Facing = direction;
                 return enemy;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public Entity CreateItem(string name, int x, int y)
+        {
+            try
+            {
+                Entity item = _entityFactory.Create<Item>(name, x, y);
+                return item;
             }
             catch (Exception)
             {

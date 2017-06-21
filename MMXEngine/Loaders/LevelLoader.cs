@@ -23,7 +23,7 @@ namespace MMXEngine.Windows.Loaders
         public void Load(string mapName)
         {
             Entity level = _entityFactory.Create<Level>(mapName);
-            _entityFactory.Create<Player>(CharacterType.X, 16, 16);
+            _entityFactory.Create<Player>(CharacterType.X, 16, -30);
 
             Script script = level.GetComponent<Script>();
             _scriptManager.QueueScript(script.FilePath, level, "OnLoad");

@@ -36,8 +36,7 @@ namespace MMXEngine.Systems.Draw
                     (int)position.X + box.OffsetX,
                     (int)position.Y + box.OffsetY,
                     box.Width,
-                    box.Height
-                    );
+                    box.Height);
                 _spriteBatch.DrawRectangle(bounds, box.Color);
             }
 

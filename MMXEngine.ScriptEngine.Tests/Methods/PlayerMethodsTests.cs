@@ -27,6 +27,10 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
                 IsShooting = true
             };
             entity.AddComponent(characterComponent);
+
+            PlayerStats stats = new PlayerStats();
+            entity.AddComponent(stats);
+
             EntitySystem.BlackBoard.SetEntry("Player", entity);
         }
 
@@ -61,5 +65,34 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
             bool isPlayerShooting = _playerMethods.IsPlayerShooting();
             Assert.IsFalse(isPlayerShooting);
         }
+
+        [Test]
+        public void GetPlayerNumberOfLives_ShouldBeZero()
+        {
+            BuildValidEntity();
+            _playerMethods.SetPlayerNumberOfLives(-200);
+            int lives = _playerMethods.GetPlayerNumberOfLives();
+            Assert.AreEqual(lives, 0);
+        }
+
+        [Test]
+        public void GetPlayerNumberOfLives_ShouldBeFive()
+        {
+            BuildValidEntity();
+            _playerMethods.SetPlayerNumberOfLives(5);
+            int lives = _playerMethods.GetPlayerNumberOfLives();
+            Assert.AreEqual(lives, 5);
+
+        }
+
+        [Test]
+        public void GetPlayerNumberOfLives_ShouldBeNine()
+        {
+            BuildValidEntity();
+            _playerMethods.SetPlayerNumberOfLives(8383);
+            int lives = _playerMethods.GetPlayerNumberOfLives();
+            Assert.AreEqual(lives, 9);
+        }
+
     }
 }

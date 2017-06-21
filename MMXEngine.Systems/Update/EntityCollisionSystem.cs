@@ -14,14 +14,14 @@ namespace MMXEngine.Systems.Update
         ExecutionType = ExecutionType.Synchronous,
         GameLoopType = GameLoopType.Update,
         Layer = 1)]
-    public class EnemySystem: EntityProcessingSystem
+    public class EntityCollisionSystem: EntityProcessingSystem
     {
         private readonly IScriptManager _scriptManager;
 
-        public EnemySystem(IScriptManager scriptManager)
-            : base(Aspect.All(typeof(Hostile), 
-                typeof(Position),
-                typeof(CollisionBox)))
+        public EntityCollisionSystem(IScriptManager scriptManager)
+            : base(Aspect.All(typeof(Position),
+                typeof(CollisionBox),
+                typeof(Script)))
         {
             _scriptManager = scriptManager;
         }
@@ -44,11 +44,10 @@ namespace MMXEngine.Systems.Update
                 (int)enemyPosition.Y + enemyBox.OffsetY,
                 enemyBox.Width,
                 enemyBox.Height);
+            Script script = entity.GetComponent<Script>();
 
             var type = playerRectangle.GetCollisionType(enemyRectangle);
-
-            if (type == CollisionType.None || !entity.HasComponent<Script>()) return;
-            Script script = entity.GetComponent<Script>();
+            if (type == CollisionType.None || string.IsNullOrWhiteSpace(script.FilePath)) return;
             _scriptManager.QueueScript(script.FilePath, entity, "OnTouch");
         }
         

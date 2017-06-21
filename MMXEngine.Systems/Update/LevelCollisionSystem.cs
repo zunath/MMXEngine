@@ -16,11 +16,11 @@ namespace MMXEngine.Systems.Update
         ExecutionType = ExecutionType.Synchronous,
         GameLoopType = GameLoopType.Update,
         Layer = 1)]
-    public class CollisionSystem : EntityProcessingSystem
+    public class LevelCollisionSystem : EntityProcessingSystem
     {
         private readonly EntityWorld _world;
 
-        public CollisionSystem(EntityWorld world):
+        public LevelCollisionSystem(EntityWorld world):
             base(Aspect.All(typeof(CollisionBox), 
                 typeof(Position), 
                 typeof(Velocity)))
@@ -78,29 +78,26 @@ namespace MMXEngine.Systems.Update
                             TilesetConstants.TileWidth,
                             TilesetConstants.TileHeight);
 
-                        Vector2 depth = bounds.GetIntersectionDepth(tileBounds);
-                        var type = bounds.GetCollisionType(tileBounds);
+                        CollisionType collisionType = bounds.GetCollisionType(tileBounds);
 
-                        // Entity's bottom collided with top of tile.
-                        if (type == CollisionType.Top)
+                        if (collisionType == CollisionType.Top)
                         {
-                            position.Y += depth.Y;
+                            position.Y += tileBounds.Top - bounds.Bottom;
                             position.IsOnGround = true;
                             break;
                         }
-                        else if (type == CollisionType.Left)
+                        else if (collisionType == CollisionType.Bottom)
                         {
-                            
+                            position.Y += tileBounds.Bottom - bounds.Top;
                         }
-                        else if (type == CollisionType.Right)
+                        else if (collisionType == CollisionType.Left)
                         {
-                            
+                            position.X += tileBounds.Right - bounds.Left;
                         }
-                        else if (type == CollisionType.Bottom)
+                        else if (collisionType == CollisionType.Right)
                         {
-                            
+                            position.X += tileBounds.Left - bounds.Right;
                         }
-
                     }
                 }
             }

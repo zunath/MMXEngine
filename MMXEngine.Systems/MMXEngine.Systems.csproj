@@ -80,12 +80,12 @@
     <Compile Include="Update\CameraSystem.cs" />
     <Compile Include="Update\DebugSystem.cs" />
     <Compile Include="Update\DebugTextSystem.cs" />
-    <Compile Include="Update\EnemySystem.cs" />
+    <Compile Include="Update\EntityCollisionSystem.cs" />
     <Compile Include="Update\GravitySystem.cs" />
     <Compile Include="Update\HeartbeatSystem.cs" />
     <Compile Include="Update\SpriteSystem.cs" />
     <Compile Include="Single\LoadButtonConfigurationSystem.cs" />
-    <Compile Include="Update\CollisionSystem.cs" />
+    <Compile Include="Update\LevelCollisionSystem.cs" />
     <Compile Include="Update\PhysicsSystem.cs" />
     <Compile Include="Update\PlayerStateSystem.cs" />
   </ItemGroup>

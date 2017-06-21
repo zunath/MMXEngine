@@ -1,0 +1,34 @@
+﻿{
+  "Name": "One Up",
+  "TextureFile": "Items",
+  "Script": "OneUp.lua",
+  "CollisionWidth": 16,
+  "CollisionHeight": 16,
+  "CollisionOffsetX": -8,
+  "CollisionOffsetY": -8,
+  "HeartbeatInterval": 1.0,
+  "Animations": [
+    {
+      "Name": "Idle",
+      "IsDefaultAnimation": true,
+      "Frames": [
+        {
+          "X": 430,
+          "Y": 146,
+          "Height": 16,
+          "Width": 16,
+          "Length": 0.5
+        },
+        {
+          "X": 450,
+          "Y": 146,
+          "Height": 16,
+          "Width": 16,
+          "Length": 0.5
+        }
+
+      ],
+      "CurrentFrameID": 0
+    }
+  ]
+}

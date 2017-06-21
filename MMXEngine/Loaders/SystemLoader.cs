@@ -20,8 +20,8 @@ namespace MMXEngine.Windows.Loaders
         private readonly GravitySystem _gravitySystem; 
         private readonly PhysicsSystem _physicsSystem; 
         private readonly PlayerStateSystem _playerStateSystem; 
-        private readonly EnemySystem _enemySystem; 
-        private readonly CollisionSystem _collisionSystem; 
+        private readonly EntityCollisionSystem _entityCollisionSystem; 
+        private readonly LevelCollisionSystem _levelCollisionSystem; 
         private readonly CameraSystem _cameraSystem; 
         private readonly SpriteSystem _spriteSystem; 
         private readonly HeartbeatSystem _heartbeatSystem;
@@ -41,8 +41,8 @@ namespace MMXEngine.Windows.Loaders
             GravitySystem gravitySystem,
             PhysicsSystem physicsSystem,
             PlayerStateSystem playerStateSystem,
-            EnemySystem enemySystem,
-            CollisionSystem collisionSystem,
+            EntityCollisionSystem entityCollisionSystem,
+            LevelCollisionSystem levelCollisionSystem,
             CameraSystem cameraSystem,
             SpriteSystem spriteSystem,
             HeartbeatSystem heartbeatSystem,
@@ -63,8 +63,8 @@ namespace MMXEngine.Windows.Loaders
             _gravitySystem = gravitySystem;
             _physicsSystem = physicsSystem;
             _playerStateSystem = playerStateSystem;
-            _enemySystem = enemySystem;
-            _collisionSystem = collisionSystem;
+            _entityCollisionSystem = entityCollisionSystem;
+            _levelCollisionSystem = levelCollisionSystem;
             _cameraSystem = cameraSystem;
             _spriteSystem = spriteSystem;
             _heartbeatSystem = heartbeatSystem;
@@ -86,8 +86,8 @@ namespace MMXEngine.Windows.Loaders
             RegisterSystem(_gravitySystem);
             RegisterSystem(_physicsSystem);
             RegisterSystem(_playerStateSystem);
-            RegisterSystem(_enemySystem);
-            RegisterSystem(_collisionSystem);
+            RegisterSystem(_entityCollisionSystem);
+            RegisterSystem(_levelCollisionSystem);
             RegisterSystem(_cameraSystem);
             RegisterSystem(_spriteSystem);
             RegisterSystem(_heartbeatSystem);

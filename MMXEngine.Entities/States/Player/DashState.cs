@@ -11,7 +11,8 @@ namespace MMXEngine.ECS.States.Player
     {
         private readonly EntityWorld _world;
         private readonly IInputManager _input;
-
+        private bool _dashInAirAttempted;
+        
         public DashState(EntityWorld world,
             IInputManager input)
         {
@@ -23,25 +24,33 @@ namespace MMXEngine.ECS.States.Player
         {
             PlayerStateMap map = player.GetComponent<PlayerStateMap>();
             PlayerCharacter character = player.GetComponent<PlayerCharacter>();
-
-            if (_input.IsDown(GameButton.Dash) &&
-                character.CurrentDashLength <= character.MaxDashLength)
+            Position position = player.GetComponent<Position>();
+            
+            if (_input.IsDown(GameButton.Dash))
             {
-                map.CurrentState = PlayerState.Dash;
-            }
-            else if(_input.IsDown(GameButton.Dash) &&
-                character.CurrentDashLength > character.MaxDashLength)
-            {
-                if (!_input.IsDown(GameButton.MoveLeft) &&
-                    !_input.IsDown(GameButton.MoveRight))
+                if (!position.IsOnGround)
                 {
-                    map.CurrentState = PlayerState.Idle;
+                    _dashInAirAttempted = true;
                 }
 
+                if (character.CurrentDashLength <= character.MaxDashLength &&
+                    !_dashInAirAttempted)
+                {
+                    map.CurrentState = PlayerState.Dash;
+                }
+                else
+                {
+                    if (!_input.IsDown(GameButton.MoveLeft) &&
+                        !_input.IsDown(GameButton.MoveRight))
+                    {
+                        map.CurrentState = PlayerState.Idle;
+                    }
+                }
             }
-            else if (_input.IsUp(GameButton.Dash))
+            else
             {
                 character.CurrentDashLength = 0.0f;
+                _dashInAirAttempted = false;
             }
         }
 

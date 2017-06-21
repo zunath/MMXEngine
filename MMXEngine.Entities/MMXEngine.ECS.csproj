@@ -84,6 +84,7 @@
     <Compile Include="Components\Nameable.cs" />
     <Compile Include="Components\PlayerCharacter.cs" />
     <Compile Include="Components\PlayerStateMap.cs" />
+    <Compile Include="Components\PlayerStats.cs" />
     <Compile Include="Components\Position.cs" />
     <Compile Include="Components\Renderable.cs" />
     <Compile Include="Components\Script.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Components\Velocity.cs" />
     <Compile Include="Components\VisibleText.cs" />
     <Compile Include="Data\CreatureData.cs" />
+    <Compile Include="Data\ItemData.cs" />
     <Compile Include="Data\LevelData.cs" />
     <Compile Include="Data\PlayerData.cs" />
     <Compile Include="Data\TileData.cs" />
