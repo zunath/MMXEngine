@@ -218,3 +218,117 @@
 /processorParam:TextureFormat=Compressed
 /build:MMXEngine.Content/Content/Fonts/Arial.spritefont
 
+#begin MMXEngine.Content/Content/Graphics/Effects/Effects.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Graphics/Effects/Effects.png
+
+#begin MMXEngine.Content/Content/Graphics/Backgrounds/MaverickBackground.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Graphics/Backgrounds/MaverickBackground.png
+
+#begin MMXEngine.Content/Content/Audio/SFX/BulletDeflected.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/SFX/BulletDeflected.wav
+
+#begin MMXEngine.Content/Content/Audio/SFX/ChargeHold.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/SFX/ChargeHold.wav
+
+#begin MMXEngine.Content/Content/Audio/SFX/ChargeStart.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/SFX/ChargeStart.wav
+
+#begin MMXEngine.Content/Content/Audio/SFX/CursorChange.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/SFX/CursorChange.wav
+
+#begin MMXEngine.Content/Content/Audio/SFX/Damaged.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/SFX/Damaged.wav
+
+#begin MMXEngine.Content/Content/Audio/SFX/Damaged2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/SFX/Damaged2.wav
+
+#begin MMXEngine.Content/Content/Audio/SFX/Damaged3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/SFX/Damaged3.wav
+
+#begin MMXEngine.Content/Content/Audio/SFX/Death.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/SFX/Death.wav
+
+#begin MMXEngine.Content/Content/Audio/SFX/Hadouken.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/SFX/Hadouken.wav
+
+#begin MMXEngine.Content/Content/Audio/SFX/HealthRecover.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/SFX/HealthRecover.wav
+
+#begin MMXEngine.Content/Content/Audio/SFX/OneUp.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/SFX/OneUp.wav
+
+#begin MMXEngine.Content/Content/Audio/SFX/OneUp2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/SFX/OneUp2.wav
+
+#begin MMXEngine.Content/Content/Audio/SFX/Selection.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/SFX/Selection.wav
+
+#begin MMXEngine.Content/Content/Audio/SFX/SubTankFinish.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/SFX/SubTankFinish.wav
+
+#begin MMXEngine.Content/Content/Audio/SFX/SubTankRecover.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:MMXEngine.Content/Content/Audio/SFX/SubTankRecover.wav
+

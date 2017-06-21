@@ -14,12 +14,10 @@ namespace MMXEngine.ECS.Entities
             _componentFactory = componentFactory;
         }
 
-        public Entity BuildEntity(Entity entity, params object[] args)
+        public void BuildEntity(Entity entity, params object[] args)
         {
             entity.AddComponent(_componentFactory.Create<Position>());
             entity.AddComponent(_componentFactory.Create<VisibleText>());
-
-            return entity;
         }
     }
 }

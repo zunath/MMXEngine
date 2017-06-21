@@ -30,5 +30,6 @@ namespace MMXEngine.ScriptEngine.Methods
                 return -1;
             }
         }
+
     }
 }

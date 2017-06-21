@@ -21,7 +21,8 @@ namespace MMXEngine.Windows.Factories
         {
             Entity entity = _world.CreateEntity();
             IGameEntity gameObject = _context.ResolveNamed<IGameEntity>(typeof (T).ToString());
-            return gameObject.BuildEntity(entity, args);
+            gameObject.BuildEntity(entity, args);
+            return entity;
         }
     }
 }

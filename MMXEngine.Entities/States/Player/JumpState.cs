@@ -12,6 +12,7 @@ namespace MMXEngine.ECS.States.Player
     {
         private readonly EntityWorld _world;
         private readonly IInputManager _input;
+        private bool _isDashJump;
 
         public JumpState(
             EntityWorld world,
@@ -45,6 +46,9 @@ namespace MMXEngine.ECS.States.Player
         {
             Sprite sprite = player.GetComponent<Sprite>();
             sprite.SetCurrentAnimation("Jump");
+
+            PlayerStateMap map = player.GetComponent<PlayerStateMap>();
+            _isDashJump = map.PreviousState == PlayerState.Dash;
         }
 
         public void ExitState(Entity player)
@@ -70,6 +74,20 @@ namespace MMXEngine.ECS.States.Player
                 velocity.Y = -character.JumpSpeed;
                 character.IsJumping = true;
                 position.IsOnGround = false;
+
+                if (_input.IsDown(GameButton.MoveLeft))
+                {
+                    velocity.X = _isDashJump ? -character.DashSpeed : -character.MoveSpeed;
+                }
+                else if (_input.IsDown(GameButton.MoveRight))
+                {
+                    velocity.X = _isDashJump ? character.DashSpeed : character.MoveSpeed;
+                }
+                else
+                {
+                    velocity.X = 0;
+                }
+
             }
         }
     }

@@ -25,7 +25,7 @@ namespace MMXEngine.ECS.Entities
             _contentManager = contentManager;
         }
 
-        public Entity BuildEntity(Entity entity, params object[] args)
+        public void BuildEntity(Entity entity, params object[] args)
         {
             string dataFile = "./Levels/" + args[0] + ".json";
             LevelData levelData = _dataManager.Load<LevelData>(dataFile);
@@ -53,7 +53,6 @@ namespace MMXEngine.ECS.Entities
             entity.AddComponent(map);
             entity.AddComponent(script);
             entity.AddComponent(hb);
-            return entity;
         }
     }
 }

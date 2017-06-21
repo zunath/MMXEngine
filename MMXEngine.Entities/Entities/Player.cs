@@ -32,7 +32,7 @@ namespace MMXEngine.ECS.Entities
             _dataManager = dataManager;
         }
 
-        public Entity BuildEntity(Entity entity, params object[] args)
+        public void BuildEntity(Entity entity, params object[] args)
         {
             _characterType = args.Length > 0 ? (CharacterType) args[0] : CharacterType.X;
             LoadPlayerDataFile();
@@ -87,9 +87,11 @@ namespace MMXEngine.ECS.Entities
             gravity.Speed = _playerData.GravitySpeed;
             entity.AddComponent(gravity);
 
-            EntitySystem.BlackBoard.SetEntry("Player", entity);
+            PlayerStats stats = _componentFactory.Create<PlayerStats>();
+            stats.Lives = 2;
+            entity.AddComponent(stats);
 
-            return entity;
+            EntitySystem.BlackBoard.SetEntry("Player", entity);
         }
 
         private void LoadPlayerDataFile()

@@ -24,7 +24,7 @@ namespace MMXEngine.ECS.Entities
             _contentManager = contentManager;
         }
 
-        public Entity BuildEntity(Entity entity, params object[] args)
+        public void BuildEntity(Entity entity, params object[] args)
         {
             string itemResourceFile = args[0] as string;
             string dataFile = "/Items/" + itemResourceFile + ".json";
@@ -68,8 +68,6 @@ namespace MMXEngine.ECS.Entities
             Gravity gravity = _componentFactory.Create<Gravity>();
             gravity.Speed = 4.0f;
             entity.AddComponent(gravity);
-
-            return entity;
         }
     }
 }

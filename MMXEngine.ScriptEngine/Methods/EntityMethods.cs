@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO.Abstractions;
 using Artemis;
 using Artemis.System;
 using MMXEngine.Common.Enumerations;
@@ -127,6 +128,18 @@ namespace MMXEngine.ScriptEngine.Methods
             {
                 return false;
             }
+        }
+
+        public void SetBackground(string fileName, int x = 0, int y =0)
+        {
+            _entityFactory.Create<Background>(fileName, x, y);
+        }
+
+        public void DestroyObject(Entity entity)
+        {
+            if (entity == EntitySystem.BlackBoard.GetEntry("Player")) return;
+
+            entity.Delete();
         }
     }
 }

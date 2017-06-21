@@ -4,6 +4,6 @@ namespace MMXEngine.Contracts.Entities
 {
     public interface IGameEntity
     {
-        Entity BuildEntity(Entity entity, params object[] args);
+        void BuildEntity(Entity entity, params object[] args);
     }
 }

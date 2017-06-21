@@ -33,6 +33,7 @@ namespace MMXEngine.Windows.Loaders
         private readonly RenderLevelSystem _renderLevelSystem;
         private readonly RenderCollisionBoxSystem _renderCollisionBoxSystem;
         private readonly RenderTextSystem _renderTextSystem;
+        private readonly RenderStaticGraphicSystem _renderStaticGraphicSystem;
 
         public SystemLoader(EntityWorld world,
             // Single
@@ -52,7 +53,8 @@ namespace MMXEngine.Windows.Loaders
             RenderSystem renderSystem,
             RenderLevelSystem renderLevelSystem,
             RenderCollisionBoxSystem renderCollisionBoxSystem,
-            RenderTextSystem renderTextSystem)
+            RenderTextSystem renderTextSystem,
+            RenderStaticGraphicSystem renderStaticGraphicSystem)
         {
             _world = world;
 
@@ -76,6 +78,7 @@ namespace MMXEngine.Windows.Loaders
             _renderLevelSystem = renderLevelSystem;
             _renderCollisionBoxSystem = renderCollisionBoxSystem;
             _renderTextSystem = renderTextSystem;
+            _renderStaticGraphicSystem = renderStaticGraphicSystem;
         }
 
         public void Load()
@@ -95,11 +98,11 @@ namespace MMXEngine.Windows.Loaders
             RegisterSystem(_debugTextSystem);
 
             // Draw
+            RegisterSystem(_renderStaticGraphicSystem);
             RegisterSystem(_renderSystem);
             RegisterSystem(_renderLevelSystem);
             RegisterSystem(_renderCollisionBoxSystem);
             RegisterSystem(_renderTextSystem);
-
         }
 
         private void RegisterSystem(EntitySystem system)

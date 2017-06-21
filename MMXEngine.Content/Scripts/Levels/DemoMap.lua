@@ -9,6 +9,6 @@ function OnLoad()
 	Audio:PauseMusic();
 
 	local enemy = Entity:CreateEnemy("GunVolt", 200, -200, DirectionType.Left);
-	local item = Entity:CreateItem("OneUp", 8, -100);
-
+	local item = Entity:CreateItem("OneUp", 50, -100);
+	local background = Entity:SetBackground("MaverickBackground", -100, -100);
 end

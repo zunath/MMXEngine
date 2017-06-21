@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO.Abstractions;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
 using MMXEngine.Contracts.ScriptMethods;
@@ -34,7 +35,7 @@ namespace MMXEngine.ScriptEngine.Methods
         {
             try
             {
-                string path = "./Content/Compiled/Audio/BGM/" + bgmFileName + ".xnb";
+                string path = ".\\Audio\\BGM\\" + bgmFileName;
                 if (!_fileSystem.File.Exists(path))
                     return false;
 
@@ -49,5 +50,11 @@ namespace MMXEngine.ScriptEngine.Methods
             }
         }
 
+        public void PlaySFX(string sfxFileName)
+        {
+            string path = ".\\Audio\\SFX\\" + sfxFileName;
+            SoundEffect sfx = _contentManager.Load<SoundEffect>(path);
+            sfx.Play();
+        }
     }
 }
