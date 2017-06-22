@@ -58,7 +58,6 @@ namespace MMXEngine.Windows.Managers
             _inputManager.Update();
             _world.Update();
             _screenManager.Update();
-            _cameraManager.Update();
             _scriptManager.ExecuteScripts();
         }
         

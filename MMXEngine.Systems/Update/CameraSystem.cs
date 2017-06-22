@@ -27,7 +27,7 @@ namespace MMXEngine.Systems.Update
             if (player == null) return;
 
             Position position = player.GetComponent<Position>();
-            _cameraManager.Focus = new Vector2(position.X, position.Y);
+            _cameraManager.Focus(position.X, position.Y+30);
         }
     }
 }

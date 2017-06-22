@@ -10,10 +10,17 @@ namespace MMXEngine.Contracts.Managers
         Matrix InverseTransform { get; }
         Vector2 Position { get; set; }
         Vector2 Origin { get; }
-        Vector2 ScreenCenter { get; }
-        Vector2 Focus { get; set; }
         Vector2 TopLeft { get; }
-        
-        void Update();
+        Vector2 TopRight { get; }
+        Vector2 BottomLeft { get; }
+        Vector2 BottomRight { get; }
+
+        Vector2 WorldToScreen(Vector2 position);
+        Vector2 WorldToScreen(float x, float y);
+        Vector2 ScreenToWorld(Vector2 screenPosition);
+        Vector2 ScreenToWorld(float screenX, float screenY);
+
+        void Focus(Vector2 position);
+        void Focus(float x, float y);
     }
 }
