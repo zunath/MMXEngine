@@ -48,7 +48,11 @@ namespace MMXEngine.ECS.Entities
             character.MaxNumberOfJumps = _playerData.MaxNumberOfJumps;
 
             entity.AddComponent(character);
-            entity.AddComponent(_componentFactory.Create<Health>());
+
+            Health health = _componentFactory.Create<Health>();
+            health.MaxHitPoints = 16;
+            health.CurrentHitPoints = 8;
+            entity.AddComponent(health);
 
             Position position = _componentFactory.Create<Position>();
             position.Facing = Direction.Right;
@@ -123,7 +127,7 @@ namespace MMXEngine.ECS.Entities
             box.Height = _playerData.CollisionHeight;
             box.OffsetX = _playerData.CollisionOffsetX;
             box.OffsetY = _playerData.CollisionOffsetY;
-            box.IsVisible = true;
+            box.IsVisible = false;
 
             return box;
         }

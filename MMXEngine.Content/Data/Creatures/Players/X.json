@@ -21,8 +21,8 @@
       "IsDefaultAnimation": true,
       "Frames": [
         {
-          "X": 323,
-          "Y": 17,
+          "X": 226,
+          "Y": 29,
           "Width": 30,
           "Height": 34,
           "Length": 3.0,
@@ -30,8 +30,8 @@
           "OffsetY": 0
         },
         {
-          "X": 357,
-          "Y": 17,
+          "X": 261,
+          "Y": 29,
           "Width": 30,
           "Height": 34,
           "Length": 0.1,
@@ -39,8 +39,8 @@
           "OffsetY": 0
         },
         {
-          "X": 391,
-          "Y": 17,
+          "X": 295,
+          "Y": 29,
           "Width": 30,
           "Height": 34,
           "Length": 0.1,
@@ -48,8 +48,8 @@
           "OffsetY": 0
         },
         {
-          "X": 357,
-          "Y": 17,
+          "X": 261,
+          "Y": 29,
           "Width": 30,
           "Height": 34,
           "Length": 0.1,
@@ -57,8 +57,8 @@
           "OffsetY": 0
         },
         {
-          "X": 323,
-          "Y": 17,
+          "X": 226,
+          "Y": 29,
           "Width": 30,
           "Height": 34,
           "Length": 1.0,
@@ -66,8 +66,8 @@
           "OffsetY": 0
         },
         {
-          "X": 357,
-          "Y": 17,
+          "X": 261,
+          "Y": 29,
           "Width": 30,
           "Height": 34,
           "Length": 0.1,
@@ -75,8 +75,8 @@
           "OffsetY": 0
         },
         {
-          "X": 391,
-          "Y": 17,
+          "X": 295,
+          "Y": 29,
           "Width": 30,
           "Height": 34,
           "Length": 0.1,
@@ -84,8 +84,8 @@
           "OffsetY": 0
         },
         {
-          "X": 357,
-          "Y": 17,
+          "X": 261,
+          "Y": 29,
           "Width": 30,
           "Height": 34,
           "Length": 0.1,
@@ -93,8 +93,8 @@
           "OffsetY": 0
         },
         {
-          "X": 323,
-          "Y": 17,
+          "X": 226,
+          "Y": 29,
           "Width": 30,
           "Height": 34,
           "Length": 0.1,
@@ -102,8 +102,8 @@
           "OffsetY": 0
         },
         {
-          "X": 357,
-          "Y": 17,
+          "X": 261,
+          "Y": 29,
           "Width": 30,
           "Height": 34,
           "Length": 0.1,
@@ -111,8 +111,8 @@
           "OffsetY": 0
         },
         {
-          "X": 391,
-          "Y": 17,
+          "X": 295,
+          "Y": 29,
           "Width": 30,
           "Height": 34,
           "Length": 0.1,
@@ -120,8 +120,8 @@
           "OffsetY": 0
         },
         {
-          "X": 357,
-          "Y": 17,
+          "X": 261,
+          "Y": 29,
           "Width": 30,
           "Height": 34,
           "Length": 0.1,
@@ -135,8 +135,8 @@
       "Name": "Move",
       "Frames": [
         {
-          "X": 106,
-          "Y": 107,
+          "X": 5,
+          "Y": 67,
           "Width": 30,
           "Height": 34,
           "Length": 0.04,
@@ -145,8 +145,8 @@
           "OnlyRunOnce": true
         },
         {
-          "X": 137,
-          "Y": 107,
+          "X": 50,
+          "Y": 67,
           "Width": 20,
           "Height": 34,
           "Length": 0.04,
@@ -154,17 +154,17 @@
           "OffsetY": 0
         },
         {
-          "X": 157,
-          "Y": 106,
+          "X": 75,
+          "Y": 67,
           "Width": 24,
           "Height": 35,
           "Length": 0.04,
-          "OffsetX": -1,
+          "OffsetX": 0,
           "OffsetY": 0
         },
         {
-          "X": 181,
-          "Y": 107,
+          "X": 105,
+          "Y": 68,
           "Width": 32,
           "Height": 34,
           "Length": 0.04,
@@ -172,8 +172,8 @@
           "OffsetY": 0
         },
         {
-          "X": 213,
-          "Y": 108,
+          "X": 145,
+          "Y": 68,
           "Width": 34,
           "Height": 33,
           "Length": 0.04,
@@ -181,8 +181,8 @@
           "OffsetY": -1
         },
         {
-          "X": 247,
-          "Y": 108,
+          "X": 190,
+          "Y": 68,
           "Width": 26,
           "Height": 33,
           "Length": 0.04,
@@ -190,8 +190,8 @@
           "OffsetY": -1
         },
         {
-          "X": 276,
-          "Y": 107,
+          "X": 222,
+          "Y": 67,
           "Width": 22,
           "Height": 34,
           "Length": 0.04,
@@ -199,8 +199,8 @@
           "OffsetY": 0
         },
         {
-          "X": 298,
-          "Y": 106,
+          "X": 248,
+          "Y": 67,
           "Width": 26,
           "Height": 35,
           "Length": 0.04,
@@ -208,8 +208,8 @@
           "OffsetY": 0
         },
         {
-          "X": 326,
-          "Y": 107,
+          "X": 280,
+          "Y": 67,
           "Width": 30,
           "Height": 34,
           "Length": 0.04,
@@ -217,8 +217,8 @@
           "OffsetY": 0
         },
         {
-          "X": 357,
-          "Y": 108,
+          "X": 318,
+          "Y": 68,
           "Width": 34,
           "Height": 33,
           "Length": 0.04,
@@ -226,8 +226,8 @@
           "OffsetY": -1
         },
         {
-          "X": 391,
-          "Y": 107,
+          "X": 359,
+          "Y": 67,
           "Width": 30,
           "Height": 34,
           "Length": 0.04,
@@ -240,8 +240,8 @@
       "Name": "Jump",
       "Frames": [
         {
-          "X": 202,
-          "Y": 63,
+          "X": 6,
+          "Y": 148,
           "Width": 24,
           "Height": 37,
           "Length": 0.08,
@@ -250,8 +250,8 @@
           "OnlyRunOnce": true
         },
         {
-          "X": 231,
-          "Y": 59,
+          "X": 37,
+          "Y": 148,
           "Width": 15,
           "Height": 41,
           "Length": 0.08,
@@ -260,8 +260,8 @@
           "OnlyRunOnce": true
         },
         {
-          "X": 252,
-          "Y": 54,
+          "X": 56,
+          "Y": 146,
           "Width": 19,
           "Height": 46,
           "Length": 3,
@@ -274,8 +274,8 @@
       "Name": "Falling",
       "Frames": [
         {
-          "X": 274,
-          "Y": 59,
+          "X": 80,
+          "Y": 150,
           "Width": 23,
           "Height": 41,
           "Length": 0.3,
@@ -284,8 +284,8 @@
           "OnlyRunOnce": true
         },
         {
-          "X": 299,
-          "Y": 58,
+          "X": 108,
+          "Y": 150,
           "Width": 27,
           "Height": 42,
           "Length": 0.15,
@@ -298,8 +298,8 @@
       "Name": "Land",
       "Frames": [
         {
-          "X": 331,
-          "Y": 62,
+          "X": 139,
+          "Y": 151,
           "Width": 24,
           "Height": 38,
           "Length": 0.025,
@@ -308,8 +308,8 @@
           "OnlyRunOnce": true
         },
         {
-          "X": 356,
-          "Y": 68,
+          "X": 166,
+          "Y": 153,
           "Width": 30,
           "Height": 32,
           "Length": 0.025, 
@@ -322,8 +322,8 @@
       "Name": "Dash",
       "Frames": [
         {
-          "X": 285,
-          "Y": 158,
+          "X": 4,
+          "Y": 335,
           "Width": 29,
           "Height": 31,
           "Length": 0.1,
@@ -332,8 +332,8 @@
           "OnlyRunOnce": true
         },
         {
-          "X": 317,
-          "Y": 163,
+          "X": 34,
+          "Y": 341,
           "Width": 38,
           "Height": 26,
           "Length": 0.1,
@@ -347,8 +347,8 @@
       "NextAnimation": "Idle",
       "Frames": [
         {
-          "X": 317,
-          "Y": 163,
+          "X": 34,
+          "Y": 341,
           "Width": 38,
           "Height": 26,
           "Length":  0.05,
@@ -356,8 +356,8 @@
           "OffsetY": 5
         },
         {
-          "X": 285,
-          "Y": 158,
+          "X": 4,
+          "Y": 335,
           "Width": 29,
           "Height": 31,
           "Length": 0.05,

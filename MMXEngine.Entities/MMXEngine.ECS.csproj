@@ -103,6 +103,7 @@
     <Compile Include="Entities\Enemy.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Level.cs" />
+    <Compile Include="Entities\LifeBar.cs" />
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\Projectile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

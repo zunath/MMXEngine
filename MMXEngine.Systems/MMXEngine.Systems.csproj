@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Draw\RenderCollisionBoxSystem.cs" />
     <Compile Include="Draw\RenderLevelSystem.cs" />
+    <Compile Include="Draw\RenderLifeBarSystem.cs" />
     <Compile Include="Draw\RenderStaticGraphicSystem.cs" />
     <Compile Include="Draw\RenderSystem.cs" />
     <Compile Include="Draw\RenderTextSystem.cs" />
