@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\x86\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -91,6 +91,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Scripts\Enemies\GunVolt.lua" />
+    <None Include="Scripts\Items\OneUp.lua" />
+    <None Include="Scripts\Levels\DemoMap.lua" />
+    <None Include="Scripts\Players\Player.lua" />
+    <None Include="Scripts\Players\X.lua" />
+    <None Include="Scripts\Players\Zero.lua" />
+    <None Include="Scripts\Templates\EnemyTemplate.lua" />
+    <None Include="Scripts\Templates\ItemTemplate.lua" />
+    <None Include="Scripts\Templates\LevelTemplate.lua" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MMXEngine.Common\MMXEngine.Common.csproj">
@@ -109,8 +118,8 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-xcopy /s /y "C:\Projects\MMXEngine\packages\NLua.1.3.2.1\lib\native\*.*" "$(TargetDir)"</PostBuildEvent>
+    <PostBuildEvent>xcopy /s /y "$(SolutionDir)packages\NLua.1.3.2.1\lib\native\*.*" "$(TargetDir)"
+xcopy /s /y "$(SolutionDir)MMXEngine.ScriptEngine\Scripts\*.*" "$(TargetDir)Content\Compiled\Scripts\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -57,7 +57,7 @@ namespace MMXEngine.ScriptEngine
 
         public void QueueScript(string fileName, Entity entity, string methodName = "Main")
         {
-            if (!_fileSystem.File.Exists(".\\Scripts\\" + fileName))
+            if (!_fileSystem.File.Exists(".\\Content\\Compiled\\Scripts\\" + fileName))
             {
                 throw new FileNotFoundException("Script '" + fileName + "' could not be found.");
             }
@@ -72,7 +72,7 @@ namespace MMXEngine.ScriptEngine
                 var script = _scriptQueue.Dequeue();
                 _luaEngine["self"] = script.TargetObject;
 
-                string text = _fileSystem.File.ReadAllText(".\\Scripts\\" + script.FilePath);
+                string text = _fileSystem.File.ReadAllText(".\\Content\\Compiled\\Scripts\\" + script.FilePath);
                 _luaEngine.DoString(text);
 
                 if (_luaEngine.GetFunction(script.MethodName) != null)
