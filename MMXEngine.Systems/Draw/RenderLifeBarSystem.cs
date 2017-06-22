@@ -43,8 +43,8 @@ namespace MMXEngine.Systems.Draw
                     _camera.TopLeft.Y + 70);
 
             Rectangle sourceBottom = new Rectangle(2, 55, 14, 16);
-            Rectangle sourceLife = new Rectangle(2, 51, 14, 3);
-            Rectangle sourceEmpty = new Rectangle(2, 33, 14, 3);
+            Rectangle sourceLife = new Rectangle(2, 51, 14, 2);
+            Rectangle sourceEmpty = new Rectangle(2, 32, 14, 2);
             Rectangle sourceTop = new Rectangle(2, 13, 14, 4);
 
             if(character.CharacterType == CharacterType.Zero)
