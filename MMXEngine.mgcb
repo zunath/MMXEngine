@@ -332,3 +332,15 @@
 /processorParam:Quality=Best
 /build:MMXEngine.Content/Content/Audio/SFX/SubTankRecover.wav
 
+#begin MMXEngine.Content/Content/Graphics/Tilesets/DemoTiles.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Graphics/Tilesets/DemoTiles.png
+

@@ -2,9 +2,9 @@
 	"Name": "Demo Stage",
 	"Width": 100,
 	"Height": 100,
-  "Spritesheet": "DemoMap",
+  "Spritesheet": "DemoTiles",
   "BGMFile": "bgm-boomer-kuwanger", 
-  "Script":  "DemoMap.lua", 
+  "Script":  "DemoMap", 
 	"Tiles": [
 		[{
 			"X": 0,

@@ -69,9 +69,14 @@ namespace MMXEngine.Systems.Draw
                 if (x > hp.CurrentHitPoints)
                     source = sourceEmpty;
 
-                position = new Vector2(
-                    position.X,
-                    position.Y - 2);
+                if(x == 1)
+                    position = new Vector2(
+                        position.X,
+                        position.Y - 1);
+                else 
+                    position = new Vector2(
+                        position.X,
+                        position.Y - 2);
 
                 _spriteBatch.Draw(_texture,
                     position,
@@ -86,7 +91,7 @@ namespace MMXEngine.Systems.Draw
 
             position = new Vector2(
                 position.X,
-                position.Y - 2);
+                position.Y - 4);
 
             _spriteBatch.Draw(_texture,
                 position,

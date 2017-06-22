@@ -1,4 +1,5 @@
-﻿
+﻿local base = require('Content.Compiled.Scripts.Players.Player');
+
 function OnDamaged()
 
 end

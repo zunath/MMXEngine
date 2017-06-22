@@ -1,7 +1,7 @@
 ﻿{
   "Name": "One Up",
   "TextureFile": "Items",
-  "Script": "OneUp.lua",
+  "Script": "OneUp",
   "CollisionWidth": 16,
   "CollisionHeight": 16,
   "CollisionOffsetX": -8,

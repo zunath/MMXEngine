@@ -32,7 +32,7 @@ namespace MMXEngine.ScriptEngine.Tests
         [Test]
         public void QueueScript_ShouldNotThrowExceptions()
         {
-            const string tempFilePath = ".\\Scripts\\TestFile.lua";
+            const string tempFilePath = ".\\Content\\Compiled\\Scripts\\TestFile.lua";
             _fileSystem.Directory.CreateDirectory(".\\Scripts\\");
 
             _fileSystem.AddFile(tempFilePath, "function Main() end");
@@ -56,7 +56,7 @@ namespace MMXEngine.ScriptEngine.Tests
         [Test]
         public void ExecuteScript_ShouldNotThrowException()
         {
-            const string tempFilePath = ".\\Scripts\\TestScript.lua";
+            const string tempFilePath = ".\\Content\\Compiled\\Scripts\\TestScript.lua";
             const string scriptBody = "function Main() end";
             _fileSystem.Directory.CreateDirectory(".\\Scripts");
             _fileSystem.AddFile(tempFilePath, scriptBody);

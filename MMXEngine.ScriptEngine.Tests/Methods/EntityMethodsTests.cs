@@ -144,6 +144,82 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         }
 
         [Test]
+        public void SetCurrentHitPoints_ShouldBeSetToMaximum()
+        {
+            Entity player = BuildPlayerEntity(CharacterType.X);
+            _methods.SetCurrentHitPoints(player, 5000);
+            int hp = _methods.GetCurrentHitPoints(player);
+            Assert.AreEqual(100, hp);
+        }
+
+        [Test]
+        public void SetCurrentHitPoints_ShouldBeSetTo0()
+        {
+            Entity player = BuildPlayerEntity(CharacterType.X);
+            _methods.SetCurrentHitPoints(player, -4000);
+            int hp = _methods.GetCurrentHitPoints(player);
+            Assert.AreEqual(0, hp);
+        }
+
+        [Test]
+        public void SetCurrentHitPoints_ShouldBeSetTo80()
+        {
+            Entity player = BuildPlayerEntity(CharacterType.X);
+            _methods.SetCurrentHitPoints(player, 80);
+            int hp = _methods.GetCurrentHitPoints(player);
+            Assert.AreEqual(80, hp);
+        }
+
+        [Test]
+        public void SetCurrentHitPoints_NoComponent_ShouldNotThrow()
+        {
+            Entity notAnEntityWithHealth = _world.CreateEntity();
+            Assert.DoesNotThrow(() =>
+            {
+                _methods.SetCurrentHitPoints(notAnEntityWithHealth, 50);
+            });
+        }
+
+        [Test]
+        public void SetMaxHitPoints_ShouldBeSetTo1()
+        {
+            Entity player = BuildPlayerEntity(CharacterType.X);
+            _methods.SetMaxHitPoints(player, -500);
+            int hp = _methods.GetMaxHitPoints(player);
+            Assert.AreEqual(1, hp);
+        }
+
+        [Test]
+        public void SetMaxHitPoints_ShouldBeSetTo50()
+        {
+            Entity player = BuildPlayerEntity(CharacterType.X);
+            _methods.SetMaxHitPoints(player, 50);
+            int hp = _methods.GetMaxHitPoints(player);
+            Assert.AreEqual(50, hp);
+        }
+
+        [Test]
+        public void SetMaxHitPoints_CurrentHP_ShouldBeSetTo30()
+        {
+            Entity player = BuildPlayerEntity(CharacterType.X);
+            _methods.SetMaxHitPoints(player, 30);
+            int hp = _methods.GetCurrentHitPoints(player);
+            int maxHP = _methods.GetMaxHitPoints(player);
+            Assert.AreEqual(30, hp);
+            Assert.AreEqual(30, maxHP);
+        }
+
+        [Test]
+        public void SetMaxHitPoints_NoComponent_ShouldNotThrow()
+        {
+            Entity player = _world.CreateEntity();
+            Assert.DoesNotThrow(() =>
+            {
+                _methods.SetMaxHitPoints(player, 5000);
+            });
+        }
+
+        [Test]
         public void ApplyDamage_ResultHPShouldBe10()
         {
             Entity player = BuildPlayerEntity(CharacterType.X);

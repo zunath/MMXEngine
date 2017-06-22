@@ -57,6 +57,8 @@ namespace MMXEngine.ScriptEngine
 
         public void QueueScript(string fileName, Entity entity, string methodName = "Main")
         {
+            fileName = _fileSystem.Path.GetDirectoryName(fileName) + "\\" +
+                _fileSystem.Path.GetFileNameWithoutExtension(fileName) + ".lua";
             if (!_fileSystem.File.Exists(".\\Content\\Compiled\\Scripts\\" + fileName))
             {
                 throw new FileNotFoundException("Script '" + fileName + "' could not be found.");

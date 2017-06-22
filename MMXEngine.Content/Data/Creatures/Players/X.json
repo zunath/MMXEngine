@@ -5,7 +5,7 @@
   "CollisionHeight": 32,
   "CollisionOffsetX": -8,
   "CollisionOffsetY": -16,
-  "Script": "X.lua",
+  "Script": "X",
   "HeartbeatInterval": 1.0,
   "MaxDashLength": 0.5,
   "MaxJumpLength": 0.3,

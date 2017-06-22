@@ -116,6 +116,7 @@
     <Content Include="Content\Graphics\Enemies\Enemies_7.png" />
     <Content Include="Content\Graphics\Items\Items.png" />
     <Content Include="Content\Graphics\Tilesets\DemoMap.png" />
+    <Content Include="Content\Graphics\Tilesets\DemoTiles.png" />
     <Content Include="Content\Graphics\UI\TextDark.png" />
     <Content Include="Content\Graphics\UI\TextLight.png" />
     <Content Include="Content\Graphics\UI\UI.png" />
@@ -226,6 +227,9 @@
     <None Include="Content\Compiled\Graphics\Tilesets\DemoMap.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Content\Compiled\Graphics\Tilesets\DemoTiles.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Content\Compiled\UI\TextDark.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -249,6 +253,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Data\Items\OneUp.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\Levels\ChillPenguin.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Data\Levels\DemoMap.json">

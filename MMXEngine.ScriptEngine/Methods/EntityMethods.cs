@@ -103,6 +103,27 @@ namespace MMXEngine.ScriptEngine.Methods
             }
         }
 
+        public void SetCurrentHitPoints(Entity entity, int value)
+        {
+            if (!entity.HasComponent<Health>()) return;
+            Health health = entity.GetComponent<Health>();
+
+            if (value < 0) value = 0;
+            else if (value > health.MaxHitPoints) value = health.MaxHitPoints;
+            health.CurrentHitPoints = value;
+        }
+
+        public void SetMaxHitPoints(Entity entity, int value)
+        {
+            if (!entity.HasComponent<Health>()) return;
+            Health health = entity.GetComponent<Health>();
+
+            if (value < 1) value = 1;
+            health.MaxHitPoints = value;
+
+            if (health.CurrentHitPoints > health.MaxHitPoints) health.CurrentHitPoints = health.MaxHitPoints;
+        }
+
         public int ApplyDamage(Entity entity, int amount)
         {
             try
