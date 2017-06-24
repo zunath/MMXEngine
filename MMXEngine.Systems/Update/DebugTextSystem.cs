@@ -33,12 +33,14 @@ namespace MMXEngine.Systems.Update
             Velocity velocity = player.GetComponent<Velocity>();
             Position position = player.GetComponent<Position>();
             PlayerStateMap stateMap = player.GetComponent<PlayerStateMap>();
+            PlayerCharacter character = player.GetComponent<PlayerCharacter>();
 
             string text = $"VelocityX: {velocity.X}\n" +
                           $"VelocityY: {velocity.Y}\n" +
                           $"PosX: {position.X}\n" +
                           $"PosY: {position.Y}\n" +
-                          $"CurrentState: {stateMap.CurrentState}";
+                          $"CurrentState: {stateMap.CurrentState}\n" +
+                          $"IsWallSliding: {character.IsWallSliding}\n";
 
             VisibleText textComponent = entity.GetComponent<VisibleText>();
             textComponent.Message = text;

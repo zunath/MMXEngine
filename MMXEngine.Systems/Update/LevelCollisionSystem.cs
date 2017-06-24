@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using MMXEngine.Common.Constants;
 using MMXEngine.Common.Enumerations;
 using MMXEngine.Common.Extensions;
+using MMXEngine.Contracts.Managers;
 using MMXEngine.ECS.Components;
 using MMXEngine.ECS.Data;
 
@@ -19,13 +20,16 @@ namespace MMXEngine.Systems.Update
     public class LevelCollisionSystem : EntityProcessingSystem
     {
         private readonly EntityWorld _world;
+        private readonly IInputManager _input;
 
-        public LevelCollisionSystem(EntityWorld world):
+        public LevelCollisionSystem(EntityWorld world,
+            IInputManager input):
             base(Aspect.All(typeof(CollisionBox), 
                 typeof(Position), 
                 typeof(Velocity)))
         {
             _world = world;
+            _input = input;
         }
         
         public override void Process(Entity entity)
@@ -39,6 +43,13 @@ namespace MMXEngine.Systems.Update
             Position position = entity.GetComponent<Position>();
             position.WasOnGroundLastFrame = position.IsOnGround;
             position.IsOnGround = false;
+
+            if (entity.HasComponent<PlayerCharacter>())
+            {
+                PlayerCharacter character = entity.GetComponent<PlayerCharacter>();
+                character.WasWallSlidingLastFrame = character.IsWallSliding;
+                character.IsWallSliding = false;
+            }
         }
 
         private void ProcessLevelCollisions(Entity entity)
@@ -48,6 +59,7 @@ namespace MMXEngine.Systems.Update
             Map map = level.GetComponent<Map>();
             CollisionBox box = entity.GetComponent<CollisionBox>();
             Position position = entity.GetComponent<Position>();
+            PlayerCharacter character = entity.GetComponent<PlayerCharacter>();
             Rectangle bounds = new Rectangle(
                 (int)position.X + box.OffsetX,
                 (int)position.Y + box.OffsetY,
@@ -89,14 +101,27 @@ namespace MMXEngine.Systems.Update
                         else if (collisionType == CollisionType.Bottom)
                         {
                             position.Y += tileBounds.Bottom - bounds.Top;
+                            break;
                         }
                         else if (collisionType == CollisionType.Left)
                         {
                             position.X += tileBounds.Right - bounds.Left;
+                            if (!position.IsOnGround && _input.IsDown(GameButton.MoveLeft))
+                            {
+                                character.IsWallSliding = true;
+                            }
+
+                            break;
                         }
                         else if (collisionType == CollisionType.Right)
                         {
                             position.X += tileBounds.Left - bounds.Right;
+                            if (!position.IsOnGround && _input.IsDown(GameButton.MoveRight))
+                            {
+                                character.IsWallSliding = true;
+                            }
+
+                            break;
                         }
                     }
                 }

@@ -29,5 +29,9 @@ namespace MMXEngine.ECS.Components
 
         public int CurrentNumberOfJumps { get; set; }
         public int MaxNumberOfJumps { get; set; }
+
+        public bool WasWallSlidingLastFrame { get; set; }
+        public bool IsWallSliding { get; set; }
+
     }
 }
