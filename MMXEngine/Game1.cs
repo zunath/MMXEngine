@@ -1,10 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using MMXEngine.Contracts.Managers;
-using MMXEngine.Windows.Factories;
+using MMXEngine.ECS.Screens;
 
-namespace MMXEngine.Windows
+namespace MMXEngine.Windows.Game
 {
-    public class Game1 : Game
+    public class Game1 : Microsoft.Xna.Framework.Game
     {
         private readonly GraphicsDeviceManager _graphics;
         private IGameManager _gameManager;
@@ -16,9 +16,9 @@ namespace MMXEngine.Windows
         
         protected override void Initialize()
         {
-            IOCContainer.Register(this);
-            _gameManager = GameFactory.GetGameManager();
-            _gameManager.Initialize(_graphics);
+            GameIOCContainer.Register(this);
+            _gameManager = GameIOCContainer.Resolve<IGameManager>();
+            _gameManager.Initialize<GameScreen>(_graphics);
 
             base.Initialize();
         }

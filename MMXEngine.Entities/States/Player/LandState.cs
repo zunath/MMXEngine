@@ -1,7 +1,6 @@
 ﻿using Artemis;
 using MMXEngine.Common.Enumerations;
 using MMXEngine.Common.Extensions;
-using MMXEngine.Contracts.Managers;
 using MMXEngine.Contracts.States;
 using MMXEngine.ECS.Components;
 

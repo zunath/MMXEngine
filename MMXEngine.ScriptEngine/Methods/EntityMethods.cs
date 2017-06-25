@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO.Abstractions;
 using Artemis;
 using Artemis.System;
 using MMXEngine.Common.Enumerations;

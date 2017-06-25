@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="MMXEngine.Windows.Editor.Views.MenuBarView.MenuBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MMXEngine.Windows.Editor.Views.MenuBarView"
+             xmlns:mvvm="http://prismlibrary.com/"
+             mc:Ignorable="d" 
+             mvvm:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Menu>
+            <MenuItem Header="File">
+                <MenuItem
+                    Header="Exit"
+                    Command="{Binding ExitCommand}">
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem
+                    Header="Undo"
+                    Command="{Binding UndoCommand}">
+                </MenuItem>
+                <MenuItem
+                    Header="Redo"
+                    Command="{Binding RedoCommand}">
+                </MenuItem>
+                <MenuItem
+                    Header="Copy"
+                    Command="{Binding CopyCommand}">
+                </MenuItem>
+                <MenuItem
+                    Header="Cut"
+                    Command="{Binding CutCommand}">
+                </MenuItem>
+                <MenuItem
+                    Header="Paste"
+                    Command="{Binding PasteCommand}">
+                </MenuItem>
+            </MenuItem>
+            
+        </Menu>
+    </Grid>
+</UserControl>

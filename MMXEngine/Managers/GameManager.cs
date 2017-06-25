@@ -5,9 +5,8 @@ using MMXEngine.Contracts.Entities;
 using MMXEngine.Contracts.Factories;
 using MMXEngine.Contracts.Managers;
 using MMXEngine.Contracts.Systems;
-using MMXEngine.ECS.Screens;
 
-namespace MMXEngine.Windows.Managers
+namespace MMXEngine.Windows.Game.Managers
 {
     public class GameManager : IGameManager
     {
@@ -43,13 +42,14 @@ namespace MMXEngine.Windows.Managers
             _cameraManager = cameraManager;
             _scriptManager = scriptManager;
         }
-        
-        public void Initialize(GraphicsDeviceManager graphics)
+
+        public void Initialize<T>(GraphicsDeviceManager graphics)
+            where T : IScreen
         {
             _graphicsManager.Initialize(graphics);
             _systemLoader.Load();
 
-            IScreen initialScreen = _screenFactory.Create<GameScreen>();
+            IScreen initialScreen = _screenFactory.Create(typeof(T));
             _screenManager.ChangeScreen(initialScreen);
         }
         

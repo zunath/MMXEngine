@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MMXEngine.Windows
+namespace MMXEngine.Windows.Game
 {
 #if WINDOWS || LINUX
     /// <summary>

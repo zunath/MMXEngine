@@ -1,10 +1,11 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MMXEngine.Common.Enumerations;
 using MMXEngine.Contracts.Components;
 using MMXEngine.Contracts.Managers;
 
-namespace MMXEngine.Windows.Managers
+namespace MMXEngine.Windows.Game.Managers
 {
     public class InputManager : IInputManager
     {
@@ -59,6 +60,41 @@ namespace MMXEngine.Windows.Managers
             {
                 throw new Exception("SetConfiguration - Configuration is already set!");
             }
+        }
+
+        public bool IsLeftMouseDown()
+        {
+            throw new NotSupportedException();
+        }
+
+        public bool IsLeftMouseUp()
+        {
+            throw new NotSupportedException();
+        }
+
+        public bool IsRightMouseDown()
+        {
+            throw new NotSupportedException();
+        }
+
+        public bool IsRightMouseUp()
+        {
+            throw new NotSupportedException();
+        }
+
+        public bool IsLeftMousePressed()
+        {
+            throw new NotSupportedException();
+        }
+
+        public bool IsRightMousePressed()
+        {
+            throw new NotSupportedException();
+        }
+
+        public Vector2 GetMousePosition()
+        {
+            throw new NotSupportedException();
         }
 
 

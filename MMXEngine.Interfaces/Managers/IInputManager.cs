@@ -1,4 +1,5 @@
-﻿using MMXEngine.Common.Enumerations;
+﻿using Microsoft.Xna.Framework;
+using MMXEngine.Common.Enumerations;
 using MMXEngine.Contracts.Components;
 
 namespace MMXEngine.Contracts.Managers
@@ -12,5 +13,16 @@ namespace MMXEngine.Contracts.Managers
         bool WasUpLastFrame(GameButton button);
         void Update();
         void SetConfiguration(IButtonConfiguration configuration);
+
+
+        bool IsLeftMouseDown();
+        bool IsLeftMouseUp();
+        bool IsRightMouseDown();
+        bool IsRightMouseUp();
+        bool IsLeftMousePressed();
+        bool IsRightMousePressed();
+
+        Vector2 GetMousePosition();
+
     }
 }

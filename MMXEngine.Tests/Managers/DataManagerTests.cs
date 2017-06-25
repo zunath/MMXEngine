@@ -4,10 +4,10 @@ using System.IO.Abstractions;
 using System.IO.Abstractions.TestingHelpers;
 using MMXEngine.ECS.Components;
 using MMXEngine.ECS.Data;
-using MMXEngine.Windows.Managers;
+using MMXEngine.Windows.Shared.Managers;
 using NUnit.Framework;
 
-namespace MMXEngine.Tests.Managers
+namespace MMXEngine.Windows.Game.Tests.Managers
 {
     [TestFixture]
     public class DataManagerTests

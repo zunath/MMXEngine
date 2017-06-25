@@ -4,7 +4,6 @@ using Artemis.Manager;
 using Artemis.System;
 using MMXEngine.Contracts.Managers;
 using MMXEngine.ECS.Components;
-using MMXEngine.ECS.Entities;
 
 namespace MMXEngine.Systems.Update
 {

@@ -114,9 +114,9 @@
       <Project>{33b6bf66-2a68-42ef-95dc-b289424d3c95}</Project>
       <Name>MMXEngine.Testing.Shared</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MMXEngine\MMXEngine.Windows.csproj">
+    <ProjectReference Include="..\MMXEngine\MMXEngine.Windows.Game.csproj">
       <Project>{a6fd1815-559f-4814-afdf-d6ab9ece5ea4}</Project>
-      <Name>MMXEngine.Windows</Name>
+      <Name>MMXEngine.Windows.Game</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
