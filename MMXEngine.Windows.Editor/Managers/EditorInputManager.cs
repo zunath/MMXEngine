@@ -5,7 +5,7 @@ using MMXEngine.Common.Enumerations;
 using MMXEngine.Contracts.Components;
 using MMXEngine.Contracts.Managers;
 using MMXEngine.Windows.Editor.GameWorld;
-using MMXEngine.Windows.Editor.Interop.Input;
+using MonoGame.Framework.WpfInterop.Input;
 
 namespace MMXEngine.Windows.Editor.Managers
 {

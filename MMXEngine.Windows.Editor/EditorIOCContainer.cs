@@ -88,7 +88,7 @@ namespace MMXEngine.Windows.Editor
             builder.RegisterInstance(new SpriteBatch(device)).AsSelf();
             builder.RegisterInstance(new Camera2D(device)).AsSelf();
 
-            var game = new EditorGame(device);
+            var game = new EditorGame();
             builder.RegisterInstance(game);
             builder.RegisterType<Texture2D>();
             builder.RegisterInstance(game.Content).AsSelf();

@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using MMXEngine.Windows.Editor.Events.Application;
-using MMXEngine.Windows.Editor.GameWorld;
 using Prism.Events;
 
 namespace MMXEngine.Windows.Editor.Views.ApplicationRootView
@@ -14,14 +13,12 @@ namespace MMXEngine.Windows.Editor.Views.ApplicationRootView
             InitializeComponent();
         }
 
-        public ApplicationRoot(IEventAggregator eventAggregator,
-            EditorGame game)
+        public ApplicationRoot(IEventAggregator eventAggregator)
         {
             InitializeComponent();
 
             _eventAggregator = eventAggregator;
 
-            GameGrid.Children.Add(game);
 
             _eventAggregator.GetEvent<ApplicationClosedEvent>().Subscribe(CloseApplication);
 

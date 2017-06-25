@@ -59,6 +59,9 @@
       <HintPath>..\packages\MonoGame.Framework.WindowsDX.3.6.0.1625\lib\net40\MonoGame.Framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MonoGame.Framework.WpfInterop, Version=1.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MonoGame.Framework.WpfInterop.1.5.2\lib\net45\MonoGame.Framework.WpfInterop.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -130,23 +133,33 @@
     <Compile Include="EditorSystemLoader.cs" />
     <Compile Include="Events\Application\ApplicationClosedEvent.cs" />
     <Compile Include="GameWorld\EditorGame.cs" />
-    <Compile Include="Interop\D3D11Host.cs" />
-    <Compile Include="Interop\D3D11Image.cs" />
-    <Compile Include="Interop\D3D9.cs" />
-    <Compile Include="Interop\Input\WindowHelper.cs" />
-    <Compile Include="Interop\Input\WPFKeyboard.cs" />
-    <Compile Include="Interop\Input\WPFMouse.cs" />
-    <Compile Include="Interop\WPFDrawableGameComponent.cs" />
-    <Compile Include="Interop\WPFGame.cs" />
-    <Compile Include="Interop\WPFGameComponent.cs" />
-    <Compile Include="Interop\WPFGraphicsDeviceService.cs" />
     <Compile Include="Managers\EditorInputManager.cs" />
     <Compile Include="Managers\EditorGameManager.cs" />
+    <Compile Include="Views\AnimationEditorView\AnimationEditor.xaml.cs">
+      <DependentUpon>AnimationEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AnimationEditorView\AnimationEditorViewModel.cs" />
     <Compile Include="Views\ApplicationRootView\ApplicationRootViewModel.cs" />
+    <Compile Include="Views\EnemyEditorView\EnemyEditor.xaml.cs">
+      <DependentUpon>EnemyEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EnemyEditorView\EnemyEditorViewModel.cs" />
+    <Compile Include="Views\ItemEditorView\ItemEditor.xaml.cs">
+      <DependentUpon>ItemEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ItemEditorView\ItemEditorViewModel.cs" />
+    <Compile Include="Views\LevelEditorView\LevelEditor.xaml.cs">
+      <DependentUpon>LevelEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LevelEditorView\LevelEditorViewModel.cs" />
     <Compile Include="Views\MenuBarView\MenuBar.xaml.cs">
       <DependentUpon>MenuBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MenuBarView\MenuBarViewModel.cs" />
+    <Compile Include="Views\ScriptEditorView\ScriptEditor.xaml.cs">
+      <DependentUpon>ScriptEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ScriptEditorView\ScriptEditorViewModel.cs" />
     <Compile Include="Views\TileSelectorView\TileSelector.xaml.cs">
       <DependentUpon>TileSelector.xaml</DependentUpon>
     </Compile>
@@ -155,6 +168,10 @@
       <DependentUpon>ToolBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ToolBarView\ToolBarViewModel.cs" />
+    <Page Include="Views\AnimationEditorView\AnimationEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ApplicationRootView\ApplicationRoot.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -168,7 +185,23 @@
       <DependentUpon>ApplicationRoot.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\EnemyEditorView\EnemyEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ItemEditorView\ItemEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LevelEditorView\LevelEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MenuBarView\MenuBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ScriptEditorView\ScriptEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

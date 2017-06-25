@@ -3,7 +3,6 @@ using System.Reflection;
 using System.Windows;
 using Autofac;
 using Microsoft.Practices.ServiceLocation;
-using MMXEngine.Contracts.Systems;
 using MMXEngine.Windows.Editor.Views.ApplicationRootView;
 using Prism.Autofac;
 using Prism.Mvvm;

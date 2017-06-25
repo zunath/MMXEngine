@@ -6,44 +6,60 @@
         xmlns:local="clr-namespace:MMXEngine.Windows.Editor"
         xmlns:menuBarView="clr-namespace:MMXEngine.Windows.Editor.Views.MenuBarView"
         xmlns:toolBarView="clr-namespace:MMXEngine.Windows.Editor.Views.ToolBarView"
+        xmlns:levelEditorView="clr-namespace:MMXEngine.Windows.Editor.Views.LevelEditorView"
+        xmlns:enemyEditorView="clr-namespace:MMXEngine.Windows.Editor.Views.EnemyEditorView"
+        xmlns:itemEditorView="clr-namespace:MMXEngine.Windows.Editor.Views.ItemEditorView"
+        xmlns:animationEditorView="clr-namespace:MMXEngine.Windows.Editor.Views.AnimationEditorView"
+        xmlns:scriptEditorView="clr-namespace:MMXEngine.Windows.Editor.Views.ScriptEditorView"
+        xmlns:mvvm="http://prismlibrary.com/"
+        xmlns:gameWorld="clr-namespace:MMXEngine.Windows.Editor.GameWorld"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525"
+        mvvm:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="5"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-
 
         <menuBarView:MenuBar
             Grid.Column="0"
-            Grid.Row="0"
-            Grid.ColumnSpan="5">
+            Grid.Row="0">
         </menuBarView:MenuBar>
-
         <toolBarView:ToolBar
-            Grid.ColumnSpan="5"
             Grid.Column="0"
             Grid.Row="1">
         </toolBarView:ToolBar>
         
-        <Grid x:Name="GameGrid"
-              Grid.Row="2"
-              Grid.Column="0"
-              Grid.ColumnSpan="3"
-              Grid.RowSpan="3">
+        <TabControl
+            Grid.Column="0"
+            Grid.Row="2">
+
+            <TabItem Header="Level">
+                <levelEditorView:LevelEditor></levelEditorView:LevelEditor>
+            </TabItem>
             
-        </Grid>
+            <TabItem Header="Enemy">
+                <enemyEditorView:EnemyEditor></enemyEditorView:EnemyEditor>
+            </TabItem>
+            
+            <TabItem Header="Item">
+                <itemEditorView:ItemEditor></itemEditorView:ItemEditor>
+            </TabItem>
+            
+            <TabItem Header="Animation">
+                <animationEditorView:AnimationEditor></animationEditorView:AnimationEditor>
+            </TabItem>
+            
+            <TabItem Header="Script">
+                <scriptEditorView:ScriptEditor></scriptEditorView:ScriptEditor>
+            </TabItem>
+            
+        </TabControl>
+        
+
         
     </Grid>
 </Window>
