@@ -5,10 +5,63 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MMXEngine.Windows.Editor.Views.ScriptEditorView"
              xmlns:mvvm="http://prismlibrary.com/"
+             xmlns:avalon="http://icsharpcode.net/sharpdevelop/avalonedit"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
-             mvvm:ViewModelLocator.AutoWireViewModel="True">
+             mvvm:ViewModelLocator.AutoWireViewModel="True"
+             Loaded="ScriptEditor_OnLoaded">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="5"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <GridSplitter 
+            Grid.Column="2"
+            Grid.Row="0"
+            Grid.RowSpan="4">
+        </GridSplitter>
+
+        <avalon:TextEditor
+            x:Name="Editor"
+            Grid.Column="0"
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="3"
+            FontFamily="Consolas"
+            SyntaxHighlighting="Lua"
+            FontSize="12pt">
+        </avalon:TextEditor>
+
+        
+        <TabControl
+            Grid.Row="1"
+            Grid.Column="3"
+            Grid.RowSpan="3">
             
+            <TabItem Header="Methods">
+
+                <ListBox
+                    ItemsSource="{Binding Methods}">
+                </ListBox>
+            </TabItem>
+
+            <TabItem Header="Constants">
+                <ListBox
+                    ItemsSource="{Binding Constants}">
+                </ListBox>
+            </TabItem>
+            
+        </TabControl>
+        
+        
     </Grid>
 </UserControl>

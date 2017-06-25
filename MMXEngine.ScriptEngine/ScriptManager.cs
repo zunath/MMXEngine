@@ -93,6 +93,26 @@ namespace MMXEngine.ScriptEngine
             }
         }
 
+        public IEnumerable<string> GetRegisteredMethods()
+        {
+            return _luaEngine.Globals;
+        }
+
+        public IEnumerable<string> GetRegisteredEnumerations()
+        {
+            List<string> enumerations = new List<string>();
+
+            enumerations.AddRange(TableToEnumerationText("CharacterType"));
+            enumerations.AddRange(TableToEnumerationText("CollisionType"));
+            enumerations.AddRange(TableToEnumerationText("DirectionType"));
+            enumerations.AddRange(TableToEnumerationText("GameButton"));
+            enumerations.AddRange(TableToEnumerationText("Color"));
+
+            enumerations.Sort();
+
+            return enumerations;
+        }
+
         private void SandboxVM()
         {
             _luaEngine.DoString("import = function() end");
@@ -128,6 +148,19 @@ namespace MMXEngine.ScriptEngine
             {
                 lt[Enum.GetName(enumType, val)] = val;
             }
+        }
+
+        private List<string> TableToEnumerationText(string luaTableName)
+        {
+            LuaTable lt = _luaEngine.GetTable(luaTableName);
+            List<string> values = new List<string>();
+
+            foreach (var value in lt.Values)
+            {
+                values.Add(luaTableName + "." + value);
+            }
+
+            return values;
         }
     }
 }
