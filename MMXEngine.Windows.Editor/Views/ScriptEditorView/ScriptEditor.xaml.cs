@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Windows;
 using System.Windows.Resources;
 using System.Xml;
@@ -17,7 +16,7 @@ namespace MMXEngine.Windows.Editor.Views.ScriptEditorView
         {
             InitializeComponent();
         }
-
+        
         private void ScriptEditor_OnLoaded(object sender, RoutedEventArgs e)
         {
             Uri uri = new Uri("/AvalonLanguageFiles/lua.xshd", UriKind.Relative);

@@ -1,13 +1,22 @@
 ﻿using System;
 using Artemis;
 using Artemis.System;
+using MMXEngine.Common.Attributes;
 using MMXEngine.Contracts.ScriptMethods;
 using MMXEngine.ECS.Components;
 
 namespace MMXEngine.ScriptEngine.Methods
 {
+    /// <summary>
+    /// Script methods used for manipulating player entities..
+    /// </summary>
+    [ScriptNamespace("Player")]
     public class PlayerMethods: IPlayerMethods
     {
+        /// <summary>
+        /// Returns whether the player is currently shooting.
+        /// </summary>
+        /// <returns>True if player is shooting. False otherwise.</returns>
         public bool IsPlayerShooting()
         {
             try
@@ -21,6 +30,10 @@ namespace MMXEngine.ScriptEngine.Methods
             }
         }
 
+        /// <summary>
+        /// Returns the current number of player lives.
+        /// </summary>
+        /// <returns>The number of player lives.</returns>
         public int GetPlayerNumberOfLives()
         {
             try
@@ -34,6 +47,10 @@ namespace MMXEngine.ScriptEngine.Methods
             }
         }
 
+        /// <summary>
+        /// Sets the player's current number of lives.
+        /// </summary>
+        /// <param name="value">The number of lives to set. Must be between 0-9.</param>
         public void SetPlayerNumberOfLives(int value)
         {
             Entity player = (Entity) EntitySystem.BlackBoard.GetEntry("Player");

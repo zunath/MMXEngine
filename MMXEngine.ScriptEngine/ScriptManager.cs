@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Abstractions;
+using System.Linq;
+using System.Reflection;
 using Artemis;
+using MMXEngine.Common.Attributes;
 using MMXEngine.Common.Enumerations;
 using MMXEngine.Contracts.Managers;
 using MMXEngine.Contracts.ScriptMethods;
 using NLua;
+#pragma warning disable 1591
 
 namespace MMXEngine.ScriptEngine
 {
@@ -129,14 +133,19 @@ namespace MMXEngine.ScriptEngine
 
         private void RegisterMethods()
         {
-            _luaEngine["Audio"] = _audioMethods;
-            _luaEngine["Entity"] = _entityMethods;
-            _luaEngine["Level"] = _levelMethods;
-            _luaEngine["LocalData"] = _localDataMethods;
-            _luaEngine["Misc"] = _miscellaneousMethods;
-            _luaEngine["Physics"] = _physicsMethods;
-            _luaEngine["Player"] = _playerMethods;
-            _luaEngine["Sprite"] = _spriteMethods;
+            _luaEngine[GetMethodNamespace(_audioMethods)] = _audioMethods;
+            _luaEngine[GetMethodNamespace(_entityMethods)] = _entityMethods;
+            _luaEngine[GetMethodNamespace(_levelMethods)] = _levelMethods;
+            _luaEngine[GetMethodNamespace(_localDataMethods)] = _localDataMethods;
+            _luaEngine[GetMethodNamespace(_miscellaneousMethods)] = _miscellaneousMethods;
+            _luaEngine[GetMethodNamespace(_physicsMethods)] = _physicsMethods;
+            _luaEngine[GetMethodNamespace(_playerMethods)] = _playerMethods;
+            _luaEngine[GetMethodNamespace(_spriteMethods)] = _spriteMethods;
+        }
+
+        private static string GetMethodNamespace(object methodGroup)
+        {
+            return ((ScriptNamespaceAttribute)methodGroup.GetType().GetCustomAttribute(typeof(ScriptNamespaceAttribute))).Namespace;
         }
 
         private void EnumerationToTable(string luaTableName, Type enumType)
@@ -164,3 +173,4 @@ namespace MMXEngine.ScriptEngine
         }
     }
 }
+#pragma warning restore 1591

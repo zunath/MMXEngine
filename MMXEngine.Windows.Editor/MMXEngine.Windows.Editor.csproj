@@ -19,7 +19,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\x86\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -132,12 +132,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behaviors\AvalonEditBehavior.cs" />
     <Compile Include="EditorIOCContainer.cs" />
     <Compile Include="EditorSystemLoader.cs" />
     <Compile Include="Events\Application\ApplicationClosedEvent.cs" />
     <Compile Include="GameWorld\EditorGame.cs" />
     <Compile Include="Managers\EditorInputManager.cs" />
     <Compile Include="Managers\EditorGameManager.cs" />
+    <Compile Include="Objects\ScriptMethod.cs" />
     <Compile Include="Views\AnimationEditorView\AnimationEditor.xaml.cs">
       <DependentUpon>AnimationEditor.xaml</DependentUpon>
     </Compile>

@@ -1,7 +1,9 @@
 ﻿using Artemis;
+using MMXEngine.Contracts.Factories;
 using MMXEngine.ECS.Components;
 using MMXEngine.ScriptEngine.Methods;
 using MMXEngine.Testing.Shared;
+using Moq;
 using NUnit.Framework;
 
 namespace MMXEngine.ScriptEngine.Tests.Methods
@@ -14,7 +16,8 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
         [SetUp]
         public void SetUp()
         {
-            _levelMethods = new LevelMethods();
+            Mock<IEntityFactory> entityFactory = new Mock<IEntityFactory>();
+            _levelMethods = new LevelMethods(entityFactory.Object);
         }
 
         private Entity BuildMapEntity()

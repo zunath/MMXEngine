@@ -3,7 +3,7 @@
     public interface IAudioMethods
     {
         void ResumeMusic();
-        void PauseMusic();
+        //void PauseMusic();
         bool PlayMusic(string bgmFileName);
     }
 }
