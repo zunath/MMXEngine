@@ -14,13 +14,11 @@ namespace MMXEngine.Windows.Editor.Views.ItemEditorView
     {
         private readonly IDataManager _dataManager;
 
-        private readonly OpenFileDialog _openFile;
         private readonly SaveFileDialog _saveFile;
 
         public ItemEditorViewModel(IDataManager dataManager)
         {
             _dataManager = dataManager;
-            _openFile = new OpenFileDialog();
             _saveFile = new SaveFileDialog();
 
             NewItemCommand = new DelegateCommand(NewItem);
@@ -80,16 +78,23 @@ namespace MMXEngine.Windows.Editor.Views.ItemEditorView
 
         private void OpenItem()
         {
-            _openFile.Filter = FileFilters.DataFileFilter;
+            FileOpenerData data = new FileOpenerData("json", "Items", "item", "Data\\Items\\", true, false);
 
-            if (_openFile.ShowDialog() == true)
-            {
-                var itemData = _dataManager.Load<ItemData>(_openFile.FileName);
-                Name = itemData.Name;
-                TextureFileName = itemData.TextureFile;
-                ScriptFileName = itemData.Script;
-                HeartbeatInterval = itemData.HeartbeatInterval;
-            }
+            SelectFileRequest.Raise(new Notification
+                {
+                    Title = "Open Item",
+                    Content = data
+                },
+                notification =>
+                {
+                    if (data.WasActionCanceled) return;
+
+                    var itemData = _dataManager.Load<ItemData>($"Items\\{data.OpenedFile}");
+                    Name = itemData.Name;
+                    TextureFileName = itemData.TextureFile;
+                    ScriptFileName = itemData.Script;
+                    HeartbeatInterval = itemData.HeartbeatInterval;
+                });
         }
 
         public DelegateCommand SaveItemCommand { get; set; }
@@ -104,14 +109,14 @@ namespace MMXEngine.Windows.Editor.Views.ItemEditorView
                 TextureFile = TextureFileName
             };
 
-            _dataManager.Save("../../../MMXEngine.Content/Data/Items/" + _saveFile.FileName, data);
+            _dataManager.Save("Items\\" + _saveFile.FileName, data);
         }
 
         public DelegateCommand SelectTextureFileCommand { get; set; }
 
         private void SelectTexture()
         {
-            FileOpenerData data = new FileOpenerData("png", "Textures", "texture", "../../../MMXEngine.Content/Content/Graphics/Items/", true, true);
+            FileOpenerData data = new FileOpenerData("xnb", "Textures", "texture", "Graphics\\", true, true);
 
             SelectFileRequest.Raise(new Notification
             {
@@ -120,6 +125,7 @@ namespace MMXEngine.Windows.Editor.Views.ItemEditorView
             },
             notification =>
             {
+                if (data.WasActionCanceled) return;
                 TextureFileName = data.UserSelectedNoneOption ? string.Empty : data.OpenedFile;
             });
         }
@@ -128,7 +134,7 @@ namespace MMXEngine.Windows.Editor.Views.ItemEditorView
 
         private void SelectScript()
         {
-            FileOpenerData data = new FileOpenerData("lua", "Scripts", "script", "../../../MMXEngine.ScriptEngine/Scripts/", true, true);
+            FileOpenerData data = new FileOpenerData("lua", "Scripts", "script", "Scripts\\", true, true);
 
             SelectFileRequest.Raise(new Notification
             {
@@ -137,6 +143,7 @@ namespace MMXEngine.Windows.Editor.Views.ItemEditorView
             },
             notification =>
             {
+                if (data.WasActionCanceled) return;
                 ScriptFileName = data.UserSelectedNoneOption ? string.Empty : data.OpenedFile;
             });
         }

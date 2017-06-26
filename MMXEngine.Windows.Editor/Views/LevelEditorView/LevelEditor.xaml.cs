@@ -1,4 +1,5 @@
-﻿using MMXEngine.Windows.Editor.GameWorld;
+﻿using System.ComponentModel;
+using MMXEngine.Windows.Editor.GameWorld;
 
 namespace MMXEngine.Windows.Editor.Views.LevelEditorView
 {
@@ -10,6 +11,9 @@ namespace MMXEngine.Windows.Editor.Views.LevelEditorView
         public LevelEditor()
         {
             InitializeComponent();
+
+            if (DesignerProperties.GetIsInDesignMode(this)) return;
+            ((LevelEditorViewModel) DataContext).GameGrid = GameGrid;
         }
     }
 }

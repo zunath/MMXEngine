@@ -88,21 +88,11 @@
     <Content Include="Content\Audio\SFX\Selection.wav" />
     <Content Include="Content\Audio\SFX\SubTankFinish.wav" />
     <Content Include="Content\Audio\SFX\SubTankRecover.wav" />
-    <Content Include="Content\Compiled\Audio\BGM\bgm-boomer-kuwanger.wma">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Compiled\Audio\BGM\bgm-chill-penguin.wma">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Compiled\Audio\BGM\bgm-flame-mammoth.wma">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Compiled\Audio\BGM\bgm-launch-octopus.wma">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Compiled\Audio\BGM\bgm-sting-chameleon.wma">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Content\Compiled\Audio\BGM\bgm-boomer-kuwanger.wma" />
+    <Content Include="Content\Compiled\Audio\BGM\bgm-chill-penguin.wma" />
+    <Content Include="Content\Compiled\Audio\BGM\bgm-flame-mammoth.wma" />
+    <Content Include="Content\Compiled\Audio\BGM\bgm-launch-octopus.wma" />
+    <Content Include="Content\Compiled\Audio\BGM\bgm-sting-chameleon.wma" />
     <Content Include="Content\Graphics\Backgrounds\MaverickBackground.png" />
     <Content Include="Content\Graphics\Characters\MMX.png" />
     <Content Include="Content\Graphics\Characters\Zero.png" />
@@ -125,145 +115,59 @@
     <Folder Include="Data\Effects\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\Compiled\Audio\BGM\bgm-boomer-kuwanger.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Audio\BGM\bgm-chill-penguin.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Audio\BGM\bgm-flame-mammoth.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Audio\BGM\bgm-launch-octopus.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Audio\BGM\bgm-sting-chameleon.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Audio\SFX\BulletDeflected.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Audio\SFX\ChargeHold.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Audio\SFX\ChargeStart.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Audio\SFX\CursorChange.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Audio\SFX\Damaged.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Audio\SFX\Damaged2.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Audio\SFX\Damaged3.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Audio\SFX\Death.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Audio\SFX\Hadouken.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Audio\SFX\HealthRecover.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Audio\SFX\OneUp.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Audio\SFX\OneUp2.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Audio\SFX\Selection.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Audio\SFX\SubTankFinish.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Audio\SFX\SubTankRecover.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Fonts\Arial.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Graphics\Backgrounds\MaverickBackground.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Graphics\Characters\MMX.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Graphics\Characters\Zero.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Graphics\Effects\Effects.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Graphics\Enemies\Enemies_1.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Graphics\Enemies\Enemies_2.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Graphics\Enemies\Enemies_3.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Graphics\Enemies\Enemies_4.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Graphics\Enemies\Enemies_5.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Graphics\Enemies\Enemies_6.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Graphics\Enemies\Enemies_7.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Graphics\Items\Items.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Graphics\Tilesets\DemoMap.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\Graphics\Tilesets\DemoTiles.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\UI\TextDark.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\UI\TextLight.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Compiled\UI\UI.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Content\Compiled\Audio\BGM\bgm-boomer-kuwanger.xnb" />
+    <None Include="Content\Compiled\Audio\BGM\bgm-chill-penguin.xnb" />
+    <None Include="Content\Compiled\Audio\BGM\bgm-flame-mammoth.xnb" />
+    <None Include="Content\Compiled\Audio\BGM\bgm-launch-octopus.xnb" />
+    <None Include="Content\Compiled\Audio\BGM\bgm-sting-chameleon.xnb" />
+    <None Include="Content\Compiled\Audio\SFX\BulletDeflected.xnb" />
+    <None Include="Content\Compiled\Audio\SFX\ChargeHold.xnb" />
+    <None Include="Content\Compiled\Audio\SFX\ChargeStart.xnb" />
+    <None Include="Content\Compiled\Audio\SFX\CursorChange.xnb" />
+    <None Include="Content\Compiled\Audio\SFX\Damaged.xnb" />
+    <None Include="Content\Compiled\Audio\SFX\Damaged2.xnb" />
+    <None Include="Content\Compiled\Audio\SFX\Damaged3.xnb" />
+    <None Include="Content\Compiled\Audio\SFX\Death.xnb" />
+    <None Include="Content\Compiled\Audio\SFX\Hadouken.xnb" />
+    <None Include="Content\Compiled\Audio\SFX\HealthRecover.xnb" />
+    <None Include="Content\Compiled\Audio\SFX\OneUp.xnb" />
+    <None Include="Content\Compiled\Audio\SFX\OneUp2.xnb" />
+    <None Include="Content\Compiled\Audio\SFX\Selection.xnb" />
+    <None Include="Content\Compiled\Audio\SFX\SubTankFinish.xnb" />
+    <None Include="Content\Compiled\Audio\SFX\SubTankRecover.xnb" />
+    <None Include="Content\Compiled\Fonts\Arial.xnb" />
+    <None Include="Content\Compiled\Graphics\Backgrounds\MaverickBackground.xnb" />
+    <None Include="Content\Compiled\Graphics\Characters\MMX.xnb" />
+    <None Include="Content\Compiled\Graphics\Characters\Zero.xnb" />
+    <None Include="Content\Compiled\Graphics\Effects\Effects.xnb" />
+    <None Include="Content\Compiled\Graphics\Enemies\Enemies_1.xnb" />
+    <None Include="Content\Compiled\Graphics\Enemies\Enemies_2.xnb" />
+    <None Include="Content\Compiled\Graphics\Enemies\Enemies_3.xnb" />
+    <None Include="Content\Compiled\Graphics\Enemies\Enemies_4.xnb" />
+    <None Include="Content\Compiled\Graphics\Enemies\Enemies_5.xnb" />
+    <None Include="Content\Compiled\Graphics\Enemies\Enemies_6.xnb" />
+    <None Include="Content\Compiled\Graphics\Enemies\Enemies_7.xnb" />
+    <None Include="Content\Compiled\Graphics\Items\Items.xnb" />
+    <None Include="Content\Compiled\Graphics\Tilesets\DemoMap.xnb" />
+    <None Include="Content\Compiled\Graphics\Tilesets\DemoTiles.xnb" />
+    <None Include="Content\Compiled\UI\TextDark.xnb" />
+    <None Include="Content\Compiled\UI\TextLight.xnb" />
+    <None Include="Content\Compiled\UI\UI.xnb" />
     <None Include="Content\Fonts\Arial.spritefont" />
-    <None Include="Data\Creatures\Enemies\GunVolt.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\ButtonConfiguration.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Creatures\Players\Zero.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Creatures\Players\X.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Items\OneUp.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Levels\ChillPenguin.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Levels\DemoMap.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Data\Creatures\Enemies\GunVolt.json" />
+    <None Include="Data\ButtonConfiguration.json" />
+    <None Include="Data\Creatures\Players\Zero.json" />
+    <None Include="Data\Creatures\Players\X.json" />
+    <None Include="Data\Items\OneUp.json" />
+    <None Include="Data\Levels\ChillPenguin.json" />
+    <None Include="Data\Levels\DemoMap.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /s /y /D "$(SolutionDir)MMXEngine.Content\Content\Compiled\*.*" "$(TargetDir)Content\"
+xcopy /s /y /D "$(SolutionDir)MMXEngine.Content\Data\*.*" "$(TargetDir)Content\Data\"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

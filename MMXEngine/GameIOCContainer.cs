@@ -30,7 +30,7 @@ namespace MMXEngine.Windows.Game
         public static void Register(Microsoft.Xna.Framework.Game game)
         {
             var builder = new ContainerBuilder();
-            game.Content.RootDirectory = "Content/Compiled";
+            game.Content.RootDirectory = "Content";
 
             builder.RegisterInstance(new SpriteBatch(game.GraphicsDevice)).AsSelf();
             builder.RegisterInstance(game.Content).AsSelf();

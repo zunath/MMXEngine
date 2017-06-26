@@ -139,7 +139,7 @@ namespace MMXEngine.Windows.Editor.Views.ScriptEditorView
         private void BuildScriptMethods()
         {
             List<ScriptMethod> methodList = new List<ScriptMethod>();
-            const string xmlDocumentationFilePath = ".\\Data\\ScriptData.xml";
+            const string xmlDocumentationFilePath = ".\\Content\\Data\\ScriptData.xml";
 
             var methodTypes = Assembly.GetAssembly(typeof(ScriptManager)).GetTypes()
                 .Where(t => string.Equals(t.Namespace, "MMXEngine.ScriptEngine.Methods", StringComparison.Ordinal))

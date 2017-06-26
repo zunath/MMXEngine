@@ -171,14 +171,14 @@ namespace MMXEngine.Windows.Game.Tests.Managers
         [Test]
         public void DataManager_NoDirectoryExists_ShouldCreateDirectory()
         {
-            if (_fileSystem.Directory.Exists(".\\Data\\"))
+            if (_fileSystem.Directory.Exists(".\\Content\\Data\\"))
             {
-                _fileSystem.Directory.Delete(".\\Data\\");
+                _fileSystem.Directory.Delete(".\\Content\\Data\\");
             }
             
             _data.Save("testData.dat", "some test data");
 
-            Assert.IsTrue(_fileSystem.Directory.Exists(".\\Data\\"));
+            Assert.IsTrue(_fileSystem.Directory.Exists(".\\Content\\Data\\"));
         }
 
         [Test]

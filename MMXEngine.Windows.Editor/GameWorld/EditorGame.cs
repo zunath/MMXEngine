@@ -21,7 +21,6 @@ namespace MMXEngine.Windows.Editor.GameWorld
 
         protected override void Initialize()
         {
-            Content.RootDirectory = "Content/Compiled";
             _gameManager = ServiceLocator.Current.TryResolve<IGameManager>();
             _gameManager.Initialize<LevelEditorScreen>(null);
             

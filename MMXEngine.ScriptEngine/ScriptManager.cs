@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.IO.Abstractions;
+using System.Linq;
 using System.Reflection;
 using Artemis;
 using MMXEngine.Common.Attributes;
@@ -64,7 +66,7 @@ namespace MMXEngine.ScriptEngine
         {
             fileName = _fileSystem.Path.GetDirectoryName(fileName) + "\\" +
                 _fileSystem.Path.GetFileNameWithoutExtension(fileName) + ".lua";
-            if (!_fileSystem.File.Exists(".\\Content\\Compiled\\Scripts\\" + fileName))
+            if (!_fileSystem.File.Exists(".\\Content\\Scripts\\" + fileName))
             {
                 throw new FileNotFoundException("Script '" + fileName + "' could not be found.");
             }
@@ -79,7 +81,7 @@ namespace MMXEngine.ScriptEngine
                 var script = _scriptQueue.Dequeue();
                 _luaEngine["self"] = script.TargetObject;
 
-                string text = _fileSystem.File.ReadAllText(".\\Content\\Compiled\\Scripts\\" + script.FilePath);
+                string text = _fileSystem.File.ReadAllText(".\\Content\\Scripts\\" + script.FilePath);
                 _luaEngine.DoString(text);
 
                 if (_luaEngine.GetFunction(script.MethodName) != null)
@@ -141,7 +143,9 @@ namespace MMXEngine.ScriptEngine
 
         private static string GetMethodNamespace(object methodGroup)
         {
-            return ((ScriptNamespaceAttribute)methodGroup.GetType().GetCustomAttribute(typeof(ScriptNamespaceAttribute))).Namespace;
+            var attributes = TypeDescriptor.GetAttributes(methodGroup.GetType()).OfType<ScriptNamespaceAttribute>().ToArray();
+
+            return attributes[0].Namespace;
         }
 
         private void EnumerationToTable(string luaTableName, Type enumType)

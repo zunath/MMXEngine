@@ -5,10 +5,77 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MMXEngine.Windows.Editor.Views.FileSaverView"
              xmlns:mvvm="http://prismlibrary.com/"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              mvvm:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <ListBox 
+            Grid.Column="0"
+            Grid.Row="0"
+            Grid.RowSpan="4"
+            Grid.ColumnSpan="3"
+            ItemsSource="{Binding Files}" 
+            SelectedItem="{Binding SelectedFile}"
+            SelectionMode="Single"/>
+
+
+        <Label
+            Grid.Column="0"
+            Grid.Row="4"
+            Content="File Name:">
+        </Label>
+
+        <TextBox
+            Grid.Column="1"
+            Grid.Row="4"
+            Grid.ColumnSpan="2"
+            Margin="5,5,5,5"
+            Text="{Binding FileName}">
+        </TextBox>
+
+        <StackPanel
+            Grid.Row="5"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Orientation="Horizontal"
+            HorizontalAlignment="Center">
+
+            <Button
+                MinWidth="92"    
+                Margin="4,4,4,4"
+                Command="{Binding SaveFileCommand}"
+                IsDefault="True"
+                Content="{Binding SaveButtonText}">
+            </Button>
+            <Button
+                MinWidth="92"    
+                Margin="4,4,4,4"
+                Command="{Binding CancelCommand}"
+                IsCancel="True"
+                Content="Cancel">
+            </Button>
+        </StackPanel>
+
+
+        <i:Interaction.Triggers>
+            <mvvm:InteractionRequestTrigger SourceObject="{Binding SaveFileConfirmationRequest, Mode=OneWay}">
+                <mvvm:PopupWindowAction IsModal="True" CenterOverAssociatedObject="True"/>
+            </mvvm:InteractionRequestTrigger>
+        </i:Interaction.Triggers>
     </Grid>
 </UserControl>

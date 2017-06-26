@@ -1,27 +1,20 @@
 ﻿using System;
-using System.IO;
 using System.IO.Abstractions;
-using System.Windows;
-using MMXEngine.Common.Observables;
+using Microsoft.Xna.Framework.Content;
 using MMXEngine.Windows.Editor.Objects;
+using MMXEngine.Windows.Editor.ViewModelBases;
 using Prism.Commands;
 using Prism.Interactivity.InteractionRequest;
-using Prism.Mvvm;
 
 namespace MMXEngine.Windows.Editor.Views.FileOpenerView
 {
-    public class FileOpenerViewModel: BindableBase, IInteractionRequestAware
+    public class FileOpenerViewModel: OpenSaveViewModelBase, IInteractionRequestAware
     {
-        private readonly IFileSystem _fileSystem;
-        private FileSystemWatcher _fileSystemWatcher;
         private FileOpenerData _data;
 
-        public FileOpenerViewModel(IFileSystem fileSystem)
+        public FileOpenerViewModel(IFileSystem fileSystem, ContentManager content)
+            : base(fileSystem, content)
         {
-            _fileSystem = fileSystem;
-
-            Files = new ObservableCollectionEx<string>();
-
             OpenFileCommand = new DelegateCommand(OpenFile);
             CancelCommand = new DelegateCommand(Cancel);
         }
@@ -38,38 +31,25 @@ namespace MMXEngine.Windows.Editor.Views.FileOpenerView
             }
         }
 
-        private void CleanModel()
+        private new void CleanModel()
         {
+            base.CleanModel();
+
             _data = null;
             HeaderText = string.Empty;
             OpenFileButtonText = string.Empty;
-
-            if (_fileSystemWatcher != null)
-            {
-                _fileSystemWatcher.Created -= FileSystemWatcherOnCreated;
-                _fileSystemWatcher.Deleted -= FileSystemWatcherOnDeleted;
-                _fileSystemWatcher.Renamed -= FileSystemWatcherOnRenamed;
-            }
-
-            Files?.Clear();
         }
 
         private void LoadFileOpenerData()
         {
-            _data.RootDirectory = _data.RootDirectory.Replace("/", "\\");
+            RootDirectory = _data.RootDirectory;
+            Extension = _data.Extension;
             HeaderText = $"Please select a {_data.CategorySingle.ToLower()} file to open.";
             OpenFileButtonText = $"Open {_data.CategorySingle}";
 
             if (_data.WatchDirectory)
             {
-                _fileSystemWatcher = new FileSystemWatcher(_data.RootDirectory, $"*.{_data.Extension}")
-                {
-                    IncludeSubdirectories = true
-                };
-                _fileSystemWatcher.Created += FileSystemWatcherOnCreated;
-                _fileSystemWatcher.Deleted += FileSystemWatcherOnDeleted;
-                _fileSystemWatcher.Renamed += FileSystemWatcherOnRenamed;
-                _fileSystemWatcher.EnableRaisingEvents = true;
+                LoadFileWatcher();
             }
 
             if (_data.ShowNoneOption)
@@ -77,60 +57,8 @@ namespace MMXEngine.Windows.Editor.Views.FileOpenerView
                 Files.Add("<NONE>");
             }
 
-            foreach (var file in _fileSystem.Directory.GetFiles(_data.RootDirectory, $"*.{_data.Extension}", SearchOption.AllDirectories))
-            {
-                Files.Add(FilePathToRelativeToRootDirectory(file));
-            }
+            LoadFiles();
         }
-
-        private string FilePathToRelativeToRootDirectory(string filePath)
-        {
-            var fileName = _fileSystem.Path.GetFileName(filePath);
-            var directoryName = _fileSystem.Path.GetDirectoryName(filePath);
-            if (!directoryName.EndsWith("\\"))
-                directoryName += "\\";
-
-            string directory = directoryName
-                .Replace(_data.RootDirectory, string.Empty);
-            return $"{directory}{fileName}";
-        }
-
-        private void FileSystemWatcherOnCreated(object sender, FileSystemEventArgs e)
-        {
-            string name = FilePathToRelativeToRootDirectory(e.Name);
-            if (Path.GetExtension(e.Name) != $".{_data.Extension.ToLower()}") return;
-
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                Files.Add(name);
-            });
-        }
-
-        private void FileSystemWatcherOnDeleted(object sender, FileSystemEventArgs e)
-        {
-            string name = FilePathToRelativeToRootDirectory(e.Name);
-            if (Path.GetExtension(e.Name) != $".{_data.Extension.ToLower()}") return;
-
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                Files.Remove(name);
-            });
-        }
-
-        private void FileSystemWatcherOnRenamed(object sender, RenamedEventArgs e)
-        {
-            string oldName = FilePathToRelativeToRootDirectory(e.OldName);
-            string newName = FilePathToRelativeToRootDirectory(e.Name);
-            
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                if (Path.GetExtension(e.OldName) == $".{_data.Extension.ToLower()}")
-                    Files.Remove(oldName);
-                if (Path.GetExtension(e.Name) == $".{_data.Extension.ToLower()}")
-                    Files.Add(newName);
-            });
-        }
-
 
 
         public Action FinishInteraction { get; set; }
@@ -144,13 +72,6 @@ namespace MMXEngine.Windows.Editor.Views.FileOpenerView
             set => SetProperty(ref _headerText, value);
         }
 
-        private ObservableCollectionEx<string> _files;
-
-        public ObservableCollectionEx<string> Files
-        {
-            get => _files;
-            set => SetProperty(ref _files, value);
-        }
 
         private string _selectedFile;
 
@@ -164,7 +85,7 @@ namespace MMXEngine.Windows.Editor.Views.FileOpenerView
 
         private void OpenFile()
         {
-            _data.OpenedFile = _selectedFile;
+            _data.OpenedFile = SelectedFile;
             _data.UserSelectedNoneOption = SelectedFile == "<NONE>";
 
             FinishInteraction();
@@ -183,6 +104,7 @@ namespace MMXEngine.Windows.Editor.Views.FileOpenerView
 
         private void Cancel()
         {
+            _data.WasActionCanceled = true;
             FinishInteraction();
             CleanModel();
         }
