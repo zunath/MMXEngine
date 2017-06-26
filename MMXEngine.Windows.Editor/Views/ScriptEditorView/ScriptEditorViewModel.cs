@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using Microsoft.Win32;
 using MMXEngine.Common.Attributes;
+using MMXEngine.Common.Constants;
 using MMXEngine.Common.Extensions;
 using MMXEngine.Contracts.Managers;
 using MMXEngine.ScriptEngine;
@@ -23,7 +24,6 @@ namespace MMXEngine.Windows.Editor.Views.ScriptEditorView
         private readonly IFileSystem _fileSystem;
         private readonly OpenFileDialog _openFile;
         private readonly SaveFileDialog _saveFile;
-        private const string FileFilter = "Lua files (*.lua)|*.lua";
 
         public ScriptEditorViewModel(IScriptManager scriptManager,
             IEventAggregator eventAggregator,
@@ -37,8 +37,8 @@ namespace MMXEngine.Windows.Editor.Views.ScriptEditorView
             _openFile = new OpenFileDialog();
             _saveFile = new SaveFileDialog();
 
-            _openFile.Filter = FileFilter;
-            _saveFile.Filter = FileFilter;
+            _openFile.Filter = FileFilters.ScriptFileFilter;
+            _saveFile.Filter = FileFilters.ScriptFileFilter;
 
             LoadHelperBox();
 

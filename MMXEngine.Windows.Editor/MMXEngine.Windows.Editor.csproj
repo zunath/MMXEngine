@@ -142,6 +142,7 @@
     <Compile Include="GameWorld\EditorGame.cs" />
     <Compile Include="Managers\EditorInputManager.cs" />
     <Compile Include="Managers\EditorGameManager.cs" />
+    <Compile Include="Objects\FileOpenerData.cs" />
     <Compile Include="Objects\ScriptMethod.cs" />
     <Compile Include="Views\AnimationEditorView\AnimationEditor.xaml.cs">
       <DependentUpon>AnimationEditor.xaml</DependentUpon>
@@ -152,6 +153,14 @@
       <DependentUpon>EnemyEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EnemyEditorView\EnemyEditorViewModel.cs" />
+    <Compile Include="Views\FileOpenerView\FileOpener.xaml.cs">
+      <DependentUpon>FileOpener.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FileOpenerView\FileOpenerViewModel.cs" />
+    <Compile Include="Views\FileSaverView\FileSaver.xaml.cs">
+      <DependentUpon>FileSaver.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FileSaverView\FileSaverViewModel.cs" />
     <Compile Include="Views\ItemEditorView\ItemEditor.xaml.cs">
       <DependentUpon>ItemEditor.xaml</DependentUpon>
     </Compile>
@@ -194,6 +203,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\EnemyEditorView\EnemyEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FileOpenerView\FileOpener.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FileSaverView\FileSaver.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

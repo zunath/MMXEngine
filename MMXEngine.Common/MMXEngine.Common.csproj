@@ -70,10 +70,12 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\ColorTypeAttribute.cs" />
     <Compile Include="Attributes\ScriptNamespaceAttribute.cs" />
+    <Compile Include="Constants\FileFilters.cs" />
     <Compile Include="Constants\TilesetConstants.cs" />
     <Compile Include="Enumerations\CharacterType.cs" />
     <Compile Include="Enumerations\CollisionType.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="Extensions\RectangleExtensions.cs" />
     <Compile Include="Extensions\SpriteBatchExtensions.cs" />
     <Compile Include="Extensions\XmlDocumentationExtensions.cs" />
+    <Compile Include="Observables\ObservableCollectionEx.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

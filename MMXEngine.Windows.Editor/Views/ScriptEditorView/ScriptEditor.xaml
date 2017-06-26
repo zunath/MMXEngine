@@ -47,7 +47,8 @@
             Grid.RowSpan="3"
             FontFamily="Consolas"
             SyntaxHighlighting="Lua"
-            FontSize="12pt">
+            FontSize="12pt"
+            ShowLineNumbers="True">
             <i:Interaction.Behaviors>
                 <behaviors:AvalonEditBehavior
                     Text="{Binding ScriptText}">
