@@ -4,9 +4,7 @@ using System.IO.Abstractions;
 using System.Windows;
 using MMXEngine.Common.Observables;
 using MMXEngine.Windows.Editor.Objects;
-using MonoGame.Extended.Collections;
 using Prism.Commands;
-using Prism.Events;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;
 
@@ -14,15 +12,12 @@ namespace MMXEngine.Windows.Editor.Views.FileOpenerView
 {
     public class FileOpenerViewModel: BindableBase, IInteractionRequestAware
     {
-        private readonly IEventAggregator _eventAggregator;
         private readonly IFileSystem _fileSystem;
         private FileSystemWatcher _fileSystemWatcher;
         private FileOpenerData _data;
 
-        public FileOpenerViewModel(IEventAggregator eventAggregator,
-            IFileSystem fileSystem)
+        public FileOpenerViewModel(IFileSystem fileSystem)
         {
-            _eventAggregator = eventAggregator;
             _fileSystem = fileSystem;
 
             Files = new ObservableCollectionEx<string>();
@@ -90,9 +85,14 @@ namespace MMXEngine.Windows.Editor.Views.FileOpenerView
 
         private string FilePathToRelativeToRootDirectory(string filePath)
         {
-            string directory = _fileSystem.Path.GetDirectoryName(filePath)
+            var fileName = _fileSystem.Path.GetFileName(filePath);
+            var directoryName = _fileSystem.Path.GetDirectoryName(filePath);
+            if (!directoryName.EndsWith("\\"))
+                directoryName += "\\";
+
+            string directory = directoryName
                 .Replace(_data.RootDirectory, string.Empty);
-            return $"{directory}\\{_fileSystem.Path.GetFileName(filePath)}";
+            return $"{directory}{fileName}";
         }
 
         private void FileSystemWatcherOnCreated(object sender, FileSystemEventArgs e)
