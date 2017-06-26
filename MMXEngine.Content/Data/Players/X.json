@@ -1,11 +1,11 @@
 {
   "Name": "X",
-  "TextureFile": "MMX",
+  "TextureFile": "Players\\MMX.xnb",
   "CollisionWidth": 16,
   "CollisionHeight": 32,
   "CollisionOffsetX": -8,
   "CollisionOffsetY": -16,
-  "Script": "X",
+  "Script": "Players\\X.lua",
   "HeartbeatInterval": 1.0,
   "MaxDashLength": 0.5,
   "MaxJumpLength": 0.3,

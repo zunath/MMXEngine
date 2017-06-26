@@ -1,12 +1,12 @@
 ﻿{
   "Name": "One Up",
-  "TextureFile": "Items",
-  "Script": "OneUp",
   "CollisionWidth": 16,
   "CollisionHeight": 16,
   "CollisionOffsetX": -8,
   "CollisionOffsetY": -8,
   "HeartbeatInterval": 1.0,
+  "TextureFile": "Items\\Items.xnb",
+  "Script": "Items\\OneUp.lua",
   "Animations": [
     {
       "Name": "Idle",

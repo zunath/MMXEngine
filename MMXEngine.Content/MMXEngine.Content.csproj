@@ -94,8 +94,8 @@
     <Content Include="Content\Compiled\Audio\BGM\bgm-launch-octopus.wma" />
     <Content Include="Content\Compiled\Audio\BGM\bgm-sting-chameleon.wma" />
     <Content Include="Content\Graphics\Backgrounds\MaverickBackground.png" />
-    <Content Include="Content\Graphics\Characters\MMX.png" />
-    <Content Include="Content\Graphics\Characters\Zero.png" />
+    <Content Include="Content\Graphics\Players\MMX.png" />
+    <Content Include="Content\Graphics\Players\Zero.png" />
     <Content Include="Content\Graphics\Effects\Effects.png" />
     <Content Include="Content\Graphics\Enemies\Enemies_1.png" />
     <Content Include="Content\Graphics\Enemies\Enemies_2.png" />
@@ -137,8 +137,8 @@
     <None Include="Content\Compiled\Audio\SFX\SubTankRecover.xnb" />
     <None Include="Content\Compiled\Fonts\Arial.xnb" />
     <None Include="Content\Compiled\Graphics\Backgrounds\MaverickBackground.xnb" />
-    <None Include="Content\Compiled\Graphics\Characters\MMX.xnb" />
-    <None Include="Content\Compiled\Graphics\Characters\Zero.xnb" />
+    <None Include="Content\Compiled\Graphics\Players\MMX.xnb" />
+    <None Include="Content\Compiled\Graphics\Players\Zero.xnb" />
     <None Include="Content\Compiled\Graphics\Effects\Effects.xnb" />
     <None Include="Content\Compiled\Graphics\Enemies\Enemies_1.xnb" />
     <None Include="Content\Compiled\Graphics\Enemies\Enemies_2.xnb" />
@@ -154,10 +154,10 @@
     <None Include="Content\Compiled\UI\TextLight.xnb" />
     <None Include="Content\Compiled\UI\UI.xnb" />
     <None Include="Content\Fonts\Arial.spritefont" />
-    <None Include="Data\Creatures\Enemies\GunVolt.json" />
+    <None Include="Data\Enemies\GunVolt.json" />
     <None Include="Data\ButtonConfiguration.json" />
-    <None Include="Data\Creatures\Players\Zero.json" />
-    <None Include="Data\Creatures\Players\X.json" />
+    <None Include="Data\Players\Zero.json" />
+    <None Include="Data\Players\X.json" />
     <None Include="Data\Items\OneUp.json" />
     <None Include="Data\Levels\ChillPenguin.json" />
     <None Include="Data\Levels\DemoMap.json" />

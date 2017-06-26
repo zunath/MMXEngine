@@ -3,6 +3,6 @@
     public interface IDataManager
     {
         T Load<T>(string fileName);
-        void Save(string fileName, object data);
+        void Save(string fileName, object data, bool createDirectory = false);
     }
 }

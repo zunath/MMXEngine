@@ -9,6 +9,7 @@
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:fileOpenerView="clr-namespace:MMXEngine.Windows.Editor.Views.FileOpenerView"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:fileSaverView="clr-namespace:MMXEngine.Windows.Editor.Views.FileSaverView"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              mvvm:ViewModelLocator.AutoWireViewModel="True">
@@ -176,5 +177,19 @@
             </mvvm:PopupWindowAction>
         </mvvm:InteractionRequestTrigger>
 
+        <mvvm:InteractionRequestTrigger SourceObject="{Binding SaveFileRequest, Mode=OneWay}">
+            <mvvm:PopupWindowAction IsModal="True" 
+                                    CenterOverAssociatedObject="True">
+                <mvvm:PopupWindowAction.WindowContent>
+                    <fileSaverView:FileSaver
+                        MinWidth="300"
+                        MinHeight="300"
+                        Width="Auto"
+                        Height="Auto"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"/>
+                </mvvm:PopupWindowAction.WindowContent>
+            </mvvm:PopupWindowAction>
+        </mvvm:InteractionRequestTrigger>
     </i:Interaction.Triggers>
 </UserControl>

@@ -1,4 +1,5 @@
-﻿using Artemis;
+﻿using System.IO.Abstractions;
+using Artemis;
 using Artemis.System;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -20,16 +21,19 @@ namespace MMXEngine.ECS.Entities
         private readonly ContentManager _contentManager;
         private CharacterType _characterType;
         private PlayerData _playerData;
+        private readonly IFileSystem _fileSystem;
 
         public Player(IComponentFactory componentFactory,
             IPlayerStateFactory playerStateFactory,
             IDataManager dataManager,
-            ContentManager contentManager)
+            ContentManager contentManager,
+            IFileSystem fileSystem)
         {
             _componentFactory = componentFactory;
             _playerStateFactory = playerStateFactory;
             _contentManager = contentManager;
             _dataManager = dataManager;
+            _fileSystem = fileSystem;
         }
 
         public void BuildEntity(Entity entity, params object[] args)
@@ -74,7 +78,7 @@ namespace MMXEngine.ECS.Entities
             entity.AddComponent(heartbeat);
 
             Script script = _componentFactory.Create<Script>();
-            script.FilePath = "Players/" + _playerData.Script;
+            script.FilePath = _playerData.Script;
             entity.AddComponent(script);
 
             PlayerStateMap stateMap = _componentFactory.Create<PlayerStateMap>();
@@ -101,13 +105,13 @@ namespace MMXEngine.ECS.Entities
         private void LoadPlayerDataFile()
         {
             string dataFile = _characterType == CharacterType.X ? "X.json" : "Zero.json";
-            _playerData = _dataManager.Load<PlayerData>("Creatures/Players/" + dataFile);
+            _playerData = _dataManager.Load<PlayerData>("Players/" + dataFile);
         }
 
         private Sprite BuildSprite()
         {
             Sprite sprite = _componentFactory.Create<Sprite>();
-            sprite.Texture = _contentManager.Load<Texture2D>("Graphics/Characters/" + _playerData.TextureFile);
+            sprite.Texture = _contentManager.Load<Texture2D>(".\\Graphics\\" + _fileSystem.Path.ChangeExtension(_playerData.TextureFile, null));
             foreach(Animation animation in _playerData.Animations)
             {
                 sprite.Animations.Add(animation.Name, animation);

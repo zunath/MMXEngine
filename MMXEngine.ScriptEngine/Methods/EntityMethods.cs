@@ -92,7 +92,7 @@ namespace MMXEngine.ScriptEngine.Methods
                 Entity item = _entityFactory.Create<Item>(name, x, y);
                 return item;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return null;
             }

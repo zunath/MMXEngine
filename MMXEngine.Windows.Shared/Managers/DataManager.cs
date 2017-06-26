@@ -25,7 +25,7 @@ namespace MMXEngine.Windows.Shared.Managers
             return JsonConvert.DeserializeObject<T>(_fileSystem.File.ReadAllText(path));
         }
 
-        public void Save(string fileName, object data)
+        public void Save(string fileName, object data, bool createDirectory = false)
         {
             string path = RootDirectory + fileName;
             string json = JsonConvert.SerializeObject(data);
@@ -33,6 +33,14 @@ namespace MMXEngine.Windows.Shared.Managers
             if (!_fileSystem.Directory.Exists(RootDirectory))
             {
                 _fileSystem.Directory.CreateDirectory(RootDirectory);
+            }
+
+            if (createDirectory)
+            {
+                if (!_fileSystem.Directory.Exists(_fileSystem.Path.GetDirectoryName(path)))
+                {
+                    _fileSystem.Directory.CreateDirectory(_fileSystem.Path.GetDirectoryName(path));
+                }
             }
 
             _fileSystem.File.WriteAllText(path, json);

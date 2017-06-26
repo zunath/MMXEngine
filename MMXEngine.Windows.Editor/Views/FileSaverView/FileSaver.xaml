@@ -45,7 +45,8 @@
             Grid.Row="4"
             Grid.ColumnSpan="2"
             Margin="5,5,5,5"
-            Text="{Binding FileName}">
+            Text="{Binding FileName}"
+            TabIndex="0">
         </TextBox>
 
         <StackPanel
@@ -60,14 +61,16 @@
                 Margin="4,4,4,4"
                 Command="{Binding SaveFileCommand}"
                 IsDefault="True"
-                Content="{Binding SaveButtonText}">
+                Content="{Binding SaveButtonText}"
+                TabIndex="1">
             </Button>
             <Button
                 MinWidth="92"    
                 Margin="4,4,4,4"
                 Command="{Binding CancelCommand}"
                 IsCancel="True"
-                Content="Cancel">
+                Content="Cancel"
+                TabIndex="2">
             </Button>
         </StackPanel>
 

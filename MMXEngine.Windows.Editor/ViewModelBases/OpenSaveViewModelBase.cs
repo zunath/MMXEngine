@@ -9,7 +9,7 @@ namespace MMXEngine.Windows.Editor.ViewModelBases
 {
     public abstract class OpenSaveViewModelBase: BindableBase
     {
-        private readonly IFileSystem _fileSystem;
+        protected readonly IFileSystem FileSystem;
         private FileSystemWatcher _fileSystemWatcher;
         private readonly ContentManager _content;
 
@@ -45,7 +45,7 @@ namespace MMXEngine.Windows.Editor.ViewModelBases
 
         protected OpenSaveViewModelBase(IFileSystem fileSystem, ContentManager content)
         {
-            _fileSystem = fileSystem;
+            FileSystem = fileSystem;
             _content = content;
 
             Files = new ObservableCollectionEx<string>();
@@ -67,7 +67,7 @@ namespace MMXEngine.Windows.Editor.ViewModelBases
 
         protected void LoadFiles()
         {
-            foreach (var file in _fileSystem.Directory.GetFiles(RootDirectory, $"*.{Extension}", SearchOption.AllDirectories))
+            foreach (var file in FileSystem.Directory.GetFiles(RootDirectory, $"*.{Extension}", SearchOption.AllDirectories))
             {
                 Files.Add(FilePathToRelativeToRootDirectory(file));
             }
@@ -87,8 +87,8 @@ namespace MMXEngine.Windows.Editor.ViewModelBases
 
         private string FilePathToRelativeToRootDirectory(string filePath)
         {
-            var fileName = _fileSystem.Path.GetFileName(filePath);
-            var directoryName = _fileSystem.Path.GetDirectoryName(filePath);
+            var fileName = FileSystem.Path.GetFileName(filePath);
+            var directoryName = FileSystem.Path.GetDirectoryName(filePath);
             if (!directoryName.EndsWith("\\"))
                 directoryName += "\\";
 

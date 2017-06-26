@@ -1,7 +1,7 @@
 {
   "Name": "Gun Volt",
-  "TextureFile": "Enemies_1",
-  "Script": "GunVolt",
+  "TextureFile": "Enemies\\Enemies_1.xnb",
+  "Script": "Enemies\\GunVolt.lua",
   "CollisionWidth": 36,
   "CollisionHeight": 52,
   "CollisionOffsetX": -18,

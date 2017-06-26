@@ -1,7 +1,4 @@
-﻿using System;
-using Microsoft.Win32;
-using MMXEngine.Common.Constants;
-using MMXEngine.Contracts.Managers;
+﻿using MMXEngine.Contracts.Managers;
 using MMXEngine.ECS.Data;
 using MMXEngine.Windows.Editor.Objects;
 using Prism.Commands;
@@ -13,13 +10,10 @@ namespace MMXEngine.Windows.Editor.Views.ItemEditorView
     public class ItemEditorViewModel: BindableBase
     {
         private readonly IDataManager _dataManager;
-
-        private readonly SaveFileDialog _saveFile;
-
+        
         public ItemEditorViewModel(IDataManager dataManager)
         {
             _dataManager = dataManager;
-            _saveFile = new SaveFileDialog();
 
             NewItemCommand = new DelegateCommand(NewItem);
             OpenItemCommand = new DelegateCommand(OpenItem);
@@ -29,6 +23,9 @@ namespace MMXEngine.Windows.Editor.Views.ItemEditorView
             SelectScriptFileCommand = new DelegateCommand(SelectScript);
 
             SelectFileRequest = new InteractionRequest<INotification>();
+            SaveFileRequest = new InteractionRequest<INotification>();
+
+            HeartbeatInterval = 1.0f;
         }
 
         private string _name;
@@ -101,15 +98,27 @@ namespace MMXEngine.Windows.Editor.Views.ItemEditorView
 
         private void SaveItem()
         {
-            ItemData data = new ItemData
-            {
-                Name = Name,
-                HeartbeatInterval = HeartbeatInterval,
-                Script = ScriptFileName,
-                TextureFile = TextureFileName
-            };
+            FileSaverData data = new FileSaverData("json", "Items", "item", "Data\\Items\\", true);
 
-            _dataManager.Save("Items\\" + _saveFile.FileName, data);
+            SaveFileRequest.Raise(new Notification
+                {
+                    Title = "Save Item",
+                    Content = data
+                },
+                notification =>
+                {
+                    if (data.WasActionCanceled) return;
+
+                    ItemData itemData = new ItemData
+                    {
+                        Name = Name,
+                        HeartbeatInterval = HeartbeatInterval,
+                        Script = ScriptFileName,
+                        TextureFile = TextureFileName
+                    };
+
+                    _dataManager.Save("Items\\Custom\\" + data.SavedFile, itemData, true);
+                });
         }
 
         public DelegateCommand SelectTextureFileCommand { get; set; }
@@ -149,6 +158,7 @@ namespace MMXEngine.Windows.Editor.Views.ItemEditorView
         }
 
         public InteractionRequest<INotification> SelectFileRequest { get; }
+        public InteractionRequest<INotification> SaveFileRequest { get; }
 
     }
 }

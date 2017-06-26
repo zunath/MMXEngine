@@ -1,4 +1,5 @@
-﻿using Artemis;
+﻿using System.IO.Abstractions;
+using Artemis;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Contracts.Entities;
@@ -14,24 +15,27 @@ namespace MMXEngine.ECS.Entities
         private readonly IComponentFactory _componentFactory;
         private readonly IDataManager _dataManager;
         private readonly ContentManager _contentManager;
+        private readonly IFileSystem _fileSystem;
 
         public Enemy(IComponentFactory componentFactory,
             IDataManager dataManager,
-            ContentManager contentManager)
+            ContentManager contentManager,
+            IFileSystem fileSystem)
         {
             _componentFactory = componentFactory;
             _dataManager = dataManager;
             _contentManager = contentManager;
+            _fileSystem = fileSystem;
         }
 
         public void BuildEntity(Entity entity, params object[] args)
         {
             string enemyResourceFile = args[0] as string;
-            string dataFile = "/Creatures/Enemies/" + enemyResourceFile + ".json";
+            string dataFile = "\\Enemies\\" + enemyResourceFile + ".json";
             CreatureData data = _dataManager.Load<CreatureData>(dataFile);
 
             Sprite sprite = _componentFactory.Create<Sprite>();
-            sprite.Texture = _contentManager.Load<Texture2D>("./Graphics/Enemies/" + data.TextureFile);
+            sprite.Texture = _contentManager.Load<Texture2D>(".\\Graphics\\" + _fileSystem.Path.ChangeExtension(data.TextureFile, null));
             foreach (Animation animation in data.Animations)
             {
                 sprite.Animations.Add(animation.Name, animation);
@@ -57,7 +61,7 @@ namespace MMXEngine.ECS.Entities
             entity.AddComponent(nameable);
 
             Script script = _componentFactory.Create<Script>();
-            script.FilePath = "Enemies/" + data.Script;
+            script.FilePath = data.Script;
             entity.AddComponent(script);
 
             CollisionBox box = _componentFactory.Create<CollisionBox>();

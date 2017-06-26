@@ -14,7 +14,7 @@ namespace MMXEngine.Windows.Editor.Views.FileSaverView
 
         public FileSaverViewModel(IFileSystem fileSystem, ContentManager content)
             : base(fileSystem, content)
-        {   
+        {
             SaveFileCommand = new DelegateCommand(SaveFile);
             CancelCommand = new DelegateCommand(Cancel);
         }
@@ -48,6 +48,8 @@ namespace MMXEngine.Windows.Editor.Views.FileSaverView
             FileName = string.Empty;
 
             SaveButtonText = $"Save {_data.CategorySingle}";
+
+            LoadFiles();
         }
         
         private string _selectedFile;
@@ -55,7 +57,11 @@ namespace MMXEngine.Windows.Editor.Views.FileSaverView
         public string SelectedFile
         {
             get => _selectedFile;
-            set => SetProperty(ref _selectedFile, value);
+            set
+            {
+                SetProperty(ref _selectedFile, value);
+                SetProperty(ref _fileName, SelectedFile);
+            }
         }
 
         private string _fileName;
@@ -78,7 +84,7 @@ namespace MMXEngine.Windows.Editor.Views.FileSaverView
 
         private void SaveFile()
         {
-            _data.SavedFile = SelectedFile;
+            _data.SavedFile = FileSystem.Path.GetFileNameWithoutExtension(FileName) + ".json";
             FinishInteraction();
             CleanModel();
         }

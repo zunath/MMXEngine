@@ -1,6 +1,5 @@
 ﻿using Microsoft.Practices.ServiceLocation;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Contracts.Managers;
 using MMXEngine.ECS.Screens;
 using MonoGame.Framework.WpfInterop;
