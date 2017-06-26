@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Resources;
 using System.Xml;
@@ -19,6 +20,8 @@ namespace MMXEngine.Windows.Editor.Views.ScriptEditorView
         
         private void ScriptEditor_OnLoaded(object sender, RoutedEventArgs e)
         {
+            if (DesignerProperties.GetIsInDesignMode(this)) return;
+
             Uri uri = new Uri("/AvalonLanguageFiles/lua.xshd", UriKind.Relative);
             StreamResourceInfo resourceInfo = Application.GetResourceStream(uri);
             if (resourceInfo == null)

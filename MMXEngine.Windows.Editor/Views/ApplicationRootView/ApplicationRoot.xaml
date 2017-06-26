@@ -14,7 +14,7 @@
         xmlns:mvvm="http://prismlibrary.com/"
         xmlns:gameWorld="clr-namespace:MMXEngine.Windows.Editor.GameWorld"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525"
+        Title="MegaMan X Engine Editor" Height="350" Width="525"
         mvvm:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
 
