@@ -22,7 +22,7 @@
             OpenedFile = string.Empty;
             ShowNoneOption = false;
             UserSelectedNoneOption = false;
-            WasActionCanceled = false;
+            WasActionCanceled = true;
         }
 
         public FileOpenerData(string extension, string categoryName, string categorySingle, string rootDirectory, bool watchDirectory, bool showNoneOption)
@@ -35,7 +35,7 @@
             OpenedFile = string.Empty;
             ShowNoneOption = showNoneOption;
             UserSelectedNoneOption = false;
-            WasActionCanceled = false;
+            WasActionCanceled = true;
         }
 
     }

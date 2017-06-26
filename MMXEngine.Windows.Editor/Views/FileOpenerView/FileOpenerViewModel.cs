@@ -25,6 +25,7 @@ namespace MMXEngine.Windows.Editor.Views.FileOpenerView
             get => _notification;
             set
             {
+                CleanModel();
                 SetProperty(ref _notification, value);
                 _data = (FileOpenerData)_notification.Content;
                 LoadFileOpenerData();
@@ -44,7 +45,7 @@ namespace MMXEngine.Windows.Editor.Views.FileOpenerView
         {
             RootDirectory = _data.RootDirectory;
             Extension = _data.Extension;
-            HeaderText = $"Please select a {_data.CategorySingle.ToLower()} file to open.";
+            HeaderText = $"Please select the {_data.CategorySingle.ToLower()} file to open.";
             OpenFileButtonText = $"Open {_data.CategorySingle}";
 
             if (_data.WatchDirectory)
@@ -85,6 +86,10 @@ namespace MMXEngine.Windows.Editor.Views.FileOpenerView
 
         private void OpenFile()
         {
+            if (string.IsNullOrWhiteSpace(SelectedFile))
+                return;
+
+            _data.WasActionCanceled = false;
             _data.OpenedFile = SelectedFile;
             _data.UserSelectedNoneOption = SelectedFile == "<NONE>";
 
@@ -104,9 +109,8 @@ namespace MMXEngine.Windows.Editor.Views.FileOpenerView
 
         private void Cancel()
         {
-            _data.WasActionCanceled = true;
             FinishInteraction();
-            CleanModel();
         }
+
     }
 }

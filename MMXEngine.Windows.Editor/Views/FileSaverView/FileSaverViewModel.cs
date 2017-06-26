@@ -26,6 +26,7 @@ namespace MMXEngine.Windows.Editor.Views.FileSaverView
             get => _notification;
             set
             {
+                CleanModel();
                 SetProperty(ref _notification, value);
                 _data = (FileSaverData) _notification.Content;
                 LoadFileSaverData();
@@ -84,6 +85,10 @@ namespace MMXEngine.Windows.Editor.Views.FileSaverView
 
         private void SaveFile()
         {
+            if (string.IsNullOrWhiteSpace(FileName))
+                return;
+
+            _data.WasActionCanceled = false;
             _data.SavedFile = FileSystem.Path.GetFileNameWithoutExtension(FileName) + ".json";
             FinishInteraction();
             CleanModel();
@@ -93,9 +98,7 @@ namespace MMXEngine.Windows.Editor.Views.FileSaverView
 
         private void Cancel()
         {
-            _data.WasActionCanceled = true;
             FinishInteraction();
-            CleanModel();
         }
 
         public Action FinishInteraction { get; set; }

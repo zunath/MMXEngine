@@ -17,7 +17,7 @@
             CategorySingle = string.Empty;
             RootDirectory = string.Empty;
             WatchDirectory = true;
-            WasActionCanceled = false;
+            WasActionCanceled = true;
         }
 
         public FileSaverData(string extension, string categoryName, string categorySingle, string rootDirectory, bool watchDirectory)
@@ -27,7 +27,7 @@
             CategorySingle = categorySingle;
             RootDirectory = rootDirectory;
             WatchDirectory = watchDirectory;
-            WasActionCanceled = false;
+            WasActionCanceled = true;
         }
     }
 }

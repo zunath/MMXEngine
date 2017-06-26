@@ -21,7 +21,7 @@ namespace MMXEngine.Windows.Editor.Views.ItemEditorView
 
             SelectTextureFileCommand = new DelegateCommand(SelectTexture);
             SelectScriptFileCommand = new DelegateCommand(SelectScript);
-
+            
             SelectFileRequest = new InteractionRequest<INotification>();
             SaveFileRequest = new InteractionRequest<INotification>();
 
