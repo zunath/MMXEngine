@@ -7,8 +7,8 @@ namespace MMXEngine.Contracts.Managers
     {
         void QueueScript(string scriptName, Entity entity, string methodName = "Main");
         void ExecuteScripts();
-
-        IEnumerable<string> GetRegisteredMethods();
         IEnumerable<string> GetRegisteredEnumerations();
+
+        string ValidateScript(string scriptText);
     }
 }

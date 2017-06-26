@@ -8,6 +8,7 @@
              xmlns:avalon="http://icsharpcode.net/sharpdevelop/avalonedit"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:behaviors="clr-namespace:MMXEngine.Windows.Editor.Behaviors"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              mvvm:ViewModelLocator.AutoWireViewModel="True"
@@ -16,22 +17,26 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="5"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="5"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
 
         <GridSplitter 
             Grid.Column="2"
             Grid.Row="0"
-            Grid.RowSpan="4">
+            Grid.RowSpan="4"
+            Width="5"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Stretch"
+            ShowsPreview="True">
         </GridSplitter>
 
         <avalon:TextEditor
@@ -45,8 +50,7 @@
             FontSize="12pt">
             <i:Interaction.Behaviors>
                 <behaviors:AvalonEditBehavior
-                    Text="{Binding ScriptText}"
-                    CaretOffset="{Binding CaretOffset}">
+                    Text="{Binding ScriptText}">
                 </behaviors:AvalonEditBehavior>
             </i:Interaction.Behaviors>
         </avalon:TextEditor>
@@ -89,21 +93,58 @@
             
         </TabControl>
 
-        <GridSplitter
+        <GridSplitter 
             Grid.Column="0"
-            Grid.RowSpan="2"
-            Grid.Row="4">
+            Grid.ColumnSpan="4"
+            Grid.Row="4"
+            Height="5"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            ShowsPreview="True"
+            Background="LightGray">
         </GridSplitter>
-        
+
+
         <TextBox
             Grid.Row="5"
             Grid.Column="0"
             Grid.ColumnSpan="4"
             Text="{Binding HelpText}"
             HorizontalScrollBarVisibility="Auto"
-            VerticalScrollBarVisibility="Auto">
+            VerticalScrollBarVisibility="Auto"
+            IsReadOnly="True"
+            MinHeight="30">
             
         </TextBox>
+        
+        <StackPanel
+            Grid.Column="0"
+            Grid.Row="0"
+            Grid.ColumnSpan="4"
+            Background="LightGray"
+            Orientation="Horizontal">
+
+            <Button 
+                fa:Awesome.Content="ListAlt"
+                Width="32"
+                Height="32"
+                HorizontalAlignment="Left"
+                ToolTip="Compile"
+                Command="{Binding ValidateScriptCommand}">
+
+            </Button>
+            <Button 
+                fa:Awesome.Content="Save"
+                Width="32"
+                Height="32"
+                HorizontalAlignment="Left"
+                ToolTip="Save"
+                Command="{Binding SaveScriptCommand}">
+
+            </Button>
+
+        </StackPanel>
+        
         
     </Grid>
 

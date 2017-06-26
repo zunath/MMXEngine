@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Abstractions;
-using System.Linq;
 using System.Reflection;
 using Artemis;
 using MMXEngine.Common.Attributes;
@@ -10,7 +9,9 @@ using MMXEngine.Common.Enumerations;
 using MMXEngine.Contracts.Managers;
 using MMXEngine.Contracts.ScriptMethods;
 using NLua;
-#pragma warning disable 1591
+using NLua.Exceptions;
+
+#pragma warning disable 1591 
 
 namespace MMXEngine.ScriptEngine
 {
@@ -96,12 +97,7 @@ namespace MMXEngine.ScriptEngine
                 }
             }
         }
-
-        public IEnumerable<string> GetRegisteredMethods()
-        {
-            return _luaEngine.Globals;
-        }
-
+        
         public IEnumerable<string> GetRegisteredEnumerations()
         {
             List<string> enumerations = new List<string>();
@@ -170,6 +166,19 @@ namespace MMXEngine.ScriptEngine
             }
 
             return values;
+        }
+
+        public string ValidateScript(string scriptText)
+        {
+            try
+            {
+                _luaEngine.DoString(scriptText);
+                return string.Empty;
+            }
+            catch (LuaScriptException ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }

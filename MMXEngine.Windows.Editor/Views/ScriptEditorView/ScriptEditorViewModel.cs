@@ -26,12 +26,14 @@ namespace MMXEngine.Windows.Editor.Views.ScriptEditorView
             _scriptManager = scriptManager;
             _eventAggregator = eventAggregator;
             Constants = new ObservableCollection<string>();
+            ScriptText = string.Empty;
 
             LoadHelperBox();
 
             CopyMethodTextCommand = new DelegateCommand(CopyMethodText);
             CopyConstantTextCommand = new DelegateCommand(CopyConstantText);
-            
+            ValidateScriptCommand = new DelegateCommand(ValidateScript);
+            SaveScriptCommand = new DelegateCommand(SaveScript);
         }
 
         private ObservableCollection<ScriptMethod> _methods;
@@ -209,6 +211,24 @@ namespace MMXEngine.Windows.Editor.Views.ScriptEditorView
             helpText += $"{ method.Prototype}\n";
 
             return helpText;
+        }
+
+        public DelegateCommand ValidateScriptCommand { get; set; }
+
+        private void ValidateScript()
+        {
+            string result = _scriptManager.ValidateScript(ScriptText);
+
+            HelpText = string.IsNullOrWhiteSpace(result) ? 
+                "Script compiled successfully." : 
+                result;
+        }
+
+        public DelegateCommand SaveScriptCommand { get; set; }
+
+        private void SaveScript()
+        {
+            
         }
 
     }
