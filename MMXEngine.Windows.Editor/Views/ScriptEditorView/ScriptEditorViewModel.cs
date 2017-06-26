@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Abstractions;
 using System.Linq;
 using System.Reflection;
-using ICSharpCode.AvalonEdit.Document;
+using Microsoft.Win32;
 using MMXEngine.Common.Attributes;
 using MMXEngine.Common.Extensions;
 using MMXEngine.Contracts.Managers;
@@ -19,21 +20,34 @@ namespace MMXEngine.Windows.Editor.Views.ScriptEditorView
     {
         private readonly IEventAggregator _eventAggregator;
         private readonly IScriptManager _scriptManager;
+        private readonly IFileSystem _fileSystem;
+        private readonly OpenFileDialog _openFile;
+        private readonly SaveFileDialog _saveFile;
+        private const string FileFilter = "Lua files (*.lua)|*.lua";
 
         public ScriptEditorViewModel(IScriptManager scriptManager,
-            IEventAggregator eventAggregator)
+            IEventAggregator eventAggregator,
+            IFileSystem fileSystem)
         {
             _scriptManager = scriptManager;
             _eventAggregator = eventAggregator;
+            _fileSystem = fileSystem;
             Constants = new ObservableCollection<string>();
             ScriptText = string.Empty;
+            _openFile = new OpenFileDialog();
+            _saveFile = new SaveFileDialog();
+
+            _openFile.Filter = FileFilter;
+            _saveFile.Filter = FileFilter;
 
             LoadHelperBox();
 
             CopyMethodTextCommand = new DelegateCommand(CopyMethodText);
             CopyConstantTextCommand = new DelegateCommand(CopyConstantText);
             ValidateScriptCommand = new DelegateCommand(ValidateScript);
+            NewScriptCommand = new DelegateCommand(NewScript);
             SaveScriptCommand = new DelegateCommand(SaveScript);
+            OpenScriptCommand = new DelegateCommand(OpenScript);
         }
 
         private ObservableCollection<ScriptMethod> _methods;
@@ -76,8 +90,6 @@ namespace MMXEngine.Windows.Editor.Views.ScriptEditorView
 
         private void CopyMethodText()
         {
-            if (ScriptText == null) ScriptText = string.Empty;
-
             // TODO: Insert text at the caret.
         }
         
@@ -85,8 +97,6 @@ namespace MMXEngine.Windows.Editor.Views.ScriptEditorView
 
         private void CopyConstantText()
         {
-            if (ScriptText == null) ScriptText = string.Empty;
-
             // TODO: Insert text at the caret.
         }
 
@@ -224,11 +234,37 @@ namespace MMXEngine.Windows.Editor.Views.ScriptEditorView
                 result;
         }
 
+        public DelegateCommand NewScriptCommand { get; set; }
+
+        private void NewScript()
+        {
+            ScriptText = string.Empty;
+        }
+
         public DelegateCommand SaveScriptCommand { get; set; }
 
         private void SaveScript()
         {
-            
+            if (_saveFile.ShowDialog() == true)
+            {
+                _fileSystem.File.WriteAllText(_saveFile.FileName, ScriptText);
+
+                string result = _scriptManager.ValidateScript(ScriptText);
+                if (string.IsNullOrWhiteSpace(result))
+                    HelpText = "File saved successfully.";
+                else
+                    HelpText = "File saved successfully but had compilation errors.\n\n" + result;
+            }
+        }
+
+        public DelegateCommand OpenScriptCommand { get; set; }
+
+        private void OpenScript()
+        {
+            if (_openFile.ShowDialog() == true)
+            {
+                ScriptText =  _fileSystem.File.ReadAllText(_openFile.FileName);
+            }
         }
 
     }

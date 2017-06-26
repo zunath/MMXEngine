@@ -47,7 +47,8 @@ namespace MMXEngine.Windows.Editor.Behaviors
             if (editor?.Document == null) return;
             var caretOffset = editor.CaretOffset;
             editor.Document.Text = dependencyPropertyChangedEventArgs.NewValue.ToString();
-            editor.CaretOffset = caretOffset;
+
+            editor.CaretOffset = caretOffset > editor.Document.TextLength ? 0 : caretOffset;
         }
     }
 }

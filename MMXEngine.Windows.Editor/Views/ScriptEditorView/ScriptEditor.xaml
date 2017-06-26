@@ -133,6 +133,28 @@
                 Command="{Binding ValidateScriptCommand}">
 
             </Button>
+            
+            <Separator Margin="3,3,3,3"></Separator>
+
+            <Button 
+                fa:Awesome.Content="File"
+                Width="32"
+                Height="32"
+                HorizontalAlignment="Left"
+                ToolTip="New"
+                Command="{Binding NewScriptCommand}">
+            </Button>
+            
+            <Separator Margin="3,3,3,3"></Separator>
+            
+            <Button 
+                fa:Awesome.Content="FolderOpen"
+                Width="32"
+                Height="32"
+                HorizontalAlignment="Left"
+                ToolTip="Open"
+                Command="{Binding OpenScriptCommand}">
+            </Button>
             <Button 
                 fa:Awesome.Content="Save"
                 Width="32"
@@ -140,7 +162,6 @@
                 HorizontalAlignment="Left"
                 ToolTip="Save"
                 Command="{Binding SaveScriptCommand}">
-
             </Button>
 
         </StackPanel>
