@@ -14,10 +14,7 @@ namespace MMXEngine.ECS.Components
 
         public int CurrentFrameID
         {
-            get
-            {
-                return _currentFrameID;
-            }
+            get => _currentFrameID;
             set
             {
                 if (value > Frames.Count - 1)

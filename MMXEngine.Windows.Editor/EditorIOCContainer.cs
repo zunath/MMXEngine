@@ -91,8 +91,6 @@ namespace MMXEngine.Windows.Editor
             var game = new EditorGame();
             builder.RegisterInstance(game);
             builder.RegisterType<Texture2D>();
-
-            game.Content.RootDirectory = "Content";
             builder.RegisterInstance(game.Content).AsSelf();
         }
     }

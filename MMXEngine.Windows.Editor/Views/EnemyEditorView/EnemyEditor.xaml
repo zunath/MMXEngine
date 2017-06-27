@@ -10,6 +10,7 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:fileOpenerView="clr-namespace:MMXEngine.Windows.Editor.Views.FileOpenerView"
              xmlns:fileSaverView="clr-namespace:MMXEngine.Windows.Editor.Views.FileSaverView"
+             xmlns:animationEditorView="clr-namespace:MMXEngine.Windows.Editor.Views.AnimationEditorView"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              mvvm:ViewModelLocator.AutoWireViewModel="True">
@@ -26,7 +27,7 @@
             <RowDefinition Height="32"></RowDefinition>
             <RowDefinition Height="32"></RowDefinition>
             <RowDefinition Height="32"></RowDefinition>
-            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
 
@@ -159,6 +160,11 @@
 
         </xctk:DoubleUpDown>
 
+        <animationEditorView:AnimationEditor
+            Grid.Row="5"
+            Grid.Column="0"
+            Grid.ColumnSpan="3">
+        </animationEditorView:AnimationEditor>
     </Grid>
 
     <i:Interaction.Triggers>
