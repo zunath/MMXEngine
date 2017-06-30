@@ -3,6 +3,7 @@ using MMXEngine.Contracts.Entities;
 using MMXEngine.Contracts.Factories;
 using MMXEngine.Contracts.Managers;
 using MMXEngine.Contracts.Systems;
+using MMXEngine.ECS.Data;
 using MMXEngine.Windows.Editor.Events.LevelEditor;
 using Prism.Events;
 
@@ -23,7 +24,9 @@ namespace MMXEngine.Windows.Editor.Screens
             _eventAggregator = eventAggregator;
 
             _eventAggregator.GetEvent<LevelTextureChangedEvent>().Subscribe(OnLevelTextureChanged);
+            _eventAggregator.GetEvent<LevelOpenedEvent>().Subscribe(OnLevelOpened);
         }
+
 
         public void Initialize()
         {
@@ -47,6 +50,11 @@ namespace MMXEngine.Windows.Editor.Screens
         private void OnLevelTextureChanged(string levelTexture)
         {
             
+        }
+
+        private void OnLevelOpened(LevelData levelData)
+        {
+
         }
     }
 }

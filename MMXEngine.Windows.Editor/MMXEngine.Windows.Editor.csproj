@@ -140,6 +140,7 @@
     <Compile Include="EditorGame.cs" />
     <Compile Include="Events\Application\ApplicationWindowLoadedEvent.cs" />
     <Compile Include="EditorLevelLoader.cs" />
+    <Compile Include="Events\LevelEditor\LevelOpenedEvent.cs" />
     <Compile Include="Events\LevelEditor\LevelTextureChangedEvent.cs" />
     <Compile Include="Helpers\BitmapImageHelpers.cs" />
     <Compile Include="Interop\D3D11Host.cs" />
@@ -201,6 +202,10 @@
       <DependentUpon>LevelProperties.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LevelPropertiesView\LevelPropertiesViewModel.cs" />
+    <Compile Include="Views\LevelSelectorView\LevelSelector.xaml.cs">
+      <DependentUpon>LevelSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LevelSelectorView\LevelSelectorViewModel.cs" />
     <Compile Include="Views\MenuBarView\MenuBar.xaml.cs">
       <DependentUpon>MenuBar.xaml</DependentUpon>
     </Compile>
@@ -221,6 +226,10 @@
       <DependentUpon>ToolBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ToolBarView\ToolBarViewModel.cs" />
+    <Compile Include="Views\TreeSelectorView\TreeSelector.xaml.cs">
+      <DependentUpon>TreeSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TreeSelectorView\TreeSelectorViewModel.cs" />
     <Page Include="Views\AnimationEditorView\AnimationEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -270,6 +279,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\LevelSelectorView\LevelSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MenuBarView\MenuBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -287,6 +300,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ToolBarView\ToolBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TreeSelectorView\TreeSelector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

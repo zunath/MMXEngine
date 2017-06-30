@@ -43,7 +43,7 @@
                 Width="32"
                 Height="32"
                 HorizontalAlignment="Left"
-                ToolTip="New"
+                ToolTip="New Folder"
                 Command="{Binding NewFolderCommand}">
             </Button>
 
@@ -62,7 +62,7 @@
                 Width="32"
                 Height="32"
                 HorizontalAlignment="Left"
-                ToolTip="Save"
+                ToolTip="Delete"
                 Command="{Binding DeleteEnemyCommand}">
             </Button>
 
