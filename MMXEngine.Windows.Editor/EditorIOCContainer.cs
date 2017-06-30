@@ -2,6 +2,8 @@
 using System.IO.Abstractions;
 using Artemis;
 using Autofac;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Contracts.Factories;
 using MMXEngine.Contracts.Managers;
@@ -11,7 +13,7 @@ using MMXEngine.ECS.Entities;
 using MMXEngine.ScriptEngine;
 using MMXEngine.ScriptEngine.Methods;
 using MMXEngine.Systems.Update;
-using MMXEngine.Windows.Editor.GameWorld;
+using MMXEngine.Windows.Editor.Interop;
 using MMXEngine.Windows.Editor.Managers;
 using MMXEngine.Windows.Shared;
 using MMXEngine.Windows.Shared.Factories;
@@ -38,6 +40,7 @@ namespace MMXEngine.Windows.Editor
             builder.RegisterType<EditorInputManager>().As<IInputManager>().SingleInstance();
             builder.RegisterType<CameraManager>().As<ICameraManager>().SingleInstance();
             builder.RegisterType<ScriptManager>().As<IScriptManager>().SingleInstance();
+            builder.RegisterType<ContentManagerWrapper>().As<IContentManager>().SingleInstance();
 
 
             // Factories
@@ -87,11 +90,12 @@ namespace MMXEngine.Windows.Editor
             builder.RegisterInstance(device).AsSelf();
             builder.RegisterInstance(new SpriteBatch(device)).AsSelf();
             builder.RegisterInstance(new Camera2D(device)).AsSelf();
+            
 
-            var game = new EditorGame();
-            builder.RegisterInstance(game);
+            builder.RegisterType<EditorGame>()
+                .WithParameter("graphics", device)
+                .SingleInstance();
             builder.RegisterType<Texture2D>();
-            builder.RegisterInstance(game.Content).AsSelf();
         }
     }
 }

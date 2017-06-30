@@ -3,6 +3,7 @@ using System.IO.Abstractions;
 using System.Windows;
 using Microsoft.Xna.Framework.Content;
 using MMXEngine.Common.Observables;
+using MMXEngine.Contracts.Managers;
 using Prism.Mvvm;
 
 namespace MMXEngine.Windows.Editor.ViewModelBases
@@ -11,7 +12,7 @@ namespace MMXEngine.Windows.Editor.ViewModelBases
     {
         protected readonly IFileSystem FileSystem;
         private FileSystemWatcher _fileSystemWatcher;
-        private readonly ContentManager _content;
+        private readonly IContentManager _content;
 
         private string _rootDirectory;
 
@@ -43,7 +44,7 @@ namespace MMXEngine.Windows.Editor.ViewModelBases
             set => SetProperty(ref _files, value);
         }
 
-        protected OpenSaveViewModelBase(IFileSystem fileSystem, ContentManager content)
+        protected OpenSaveViewModelBase(IFileSystem fileSystem, IContentManager content)
         {
             FileSystem = fileSystem;
             _content = content;

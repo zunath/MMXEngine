@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="MMXEngine.Windows.Editor.Views.SelectorView.Selector"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MMXEngine.Windows.Editor.Views.SelectorView"
+             xmlns:mvvm="http://prismlibrary.com/"
+             xmlns:levelPropertiesView="clr-namespace:MMXEngine.Windows.Editor.Views.LevelPropertiesView"
+             xmlns:itemSelectorView="clr-namespace:MMXEngine.Windows.Editor.Views.ItemSelectorView"
+             xmlns:enemySelectorView="clr-namespace:MMXEngine.Windows.Editor.Views.EnemySelectorView"
+             xmlns:tileSelectorView="clr-namespace:MMXEngine.Windows.Editor.Views.TileSelectorView"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             mvvm:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Tiles">
+                <tileSelectorView:TileSelector></tileSelectorView:TileSelector>
+            </TabItem>
+            <TabItem Header="Enemies">
+                <enemySelectorView:EnemySelector></enemySelectorView:EnemySelector>
+            </TabItem>
+            <TabItem Header="Items">
+                <itemSelectorView:ItemSelector></itemSelectorView:ItemSelector>
+            </TabItem>
+            <TabItem Header="Properties">
+                <levelPropertiesView:LevelProperties></levelPropertiesView:LevelProperties>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

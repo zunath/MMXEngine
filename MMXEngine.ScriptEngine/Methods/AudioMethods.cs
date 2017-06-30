@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
 using MMXEngine.Common.Attributes;
+using MMXEngine.Contracts.Managers;
 using MMXEngine.Contracts.ScriptMethods;
 
 namespace MMXEngine.ScriptEngine.Methods
@@ -14,7 +15,7 @@ namespace MMXEngine.ScriptEngine.Methods
     [ScriptNamespace("Audio")]
     public class AudioMethods: IAudioMethods
     {
-        private readonly ContentManager _contentManager;
+        private readonly IContentManager _contentManager;
         private readonly IFileSystem _fileSystem;
         
         /// <summary>
@@ -22,7 +23,7 @@ namespace MMXEngine.ScriptEngine.Methods
         /// </summary>
         /// <param name="contentManager">The MonoGame content manager</param>
         /// <param name="fileSystem">The file system</param>
-        public AudioMethods(ContentManager contentManager,
+        public AudioMethods(IContentManager contentManager,
             IFileSystem fileSystem)
         {
             _contentManager = contentManager;

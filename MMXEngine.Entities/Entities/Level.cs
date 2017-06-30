@@ -14,11 +14,11 @@ namespace MMXEngine.ECS.Entities
     {
         private readonly IComponentFactory _componentFactory;
         private readonly IDataManager _dataManager;
-        private readonly ContentManager _contentManager;
+        private readonly IContentManager _contentManager;
 
         public Level(IComponentFactory componentFactory,
             IDataManager dataManager,
-            ContentManager contentManager)
+            IContentManager contentManager)
         {
             _componentFactory = componentFactory;
             _dataManager = dataManager;

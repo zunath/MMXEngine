@@ -1,5 +1,6 @@
 ﻿using Artemis;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Contracts.Entities;
 using MMXEngine.Contracts.Factories;
@@ -78,6 +79,16 @@ namespace MMXEngine.Windows.Game.Managers
         
         public void Exit()
         {
+        }
+
+        public void LoadContent(ContentManager content)
+        {
+            
+        }
+
+        public void UnloadContent(ContentManager content)
+        {
+            
         }
     }
 }

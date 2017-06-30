@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO.Abstractions;
 using Microsoft.Xna.Framework.Content;
+using MMXEngine.Contracts.Managers;
 using MMXEngine.Windows.Editor.Objects;
 using MMXEngine.Windows.Editor.ViewModelBases;
 using Prism.Commands;
@@ -12,7 +13,7 @@ namespace MMXEngine.Windows.Editor.Views.FileOpenerView
     {
         private FileOpenerData _data;
 
-        public FileOpenerViewModel(IFileSystem fileSystem, ContentManager content)
+        public FileOpenerViewModel(IFileSystem fileSystem, IContentManager content)
             : base(fileSystem, content)
         {
             OpenFileCommand = new DelegateCommand(OpenFile);

@@ -12,7 +12,7 @@ namespace MMXEngine.Windows.Editor.Views.LevelEditorView
             InitializeComponent();
 
             if (DesignerProperties.GetIsInDesignMode(this)) return;
-            ((LevelEditorViewModel) DataContext).GameGrid = GameGrid;
+            ((LevelEditorViewModel)DataContext).GameGrid = GameGrid;
         }
     }
 }

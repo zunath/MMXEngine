@@ -19,20 +19,23 @@ namespace MMXEngine.Systems.Draw
     {
         private readonly SpriteBatch _spriteBatch;
         private readonly ICameraManager _camera;
-        private readonly Texture2D _texture;
+        private readonly IContentManager _content;
+        private Texture2D _texture;
 
         public RenderLifeBarSystem(SpriteBatch spriteBatch,
             ICameraManager camera,
-            ContentManager content)
+            IContentManager content)
         {
             _spriteBatch = spriteBatch;
             _camera = camera;
-
-            _texture = content.Load<Texture2D>(".\\Graphics\\Items\\Items");
+            _content = content;
         }
 
         public override void Process()
         {
+            if(_texture == null)
+                _texture = _content.Load<Texture2D>(".\\Graphics\\Items\\Items");
+
             Entity player = BlackBoard.GetEntry<Entity>("Player");
             Health hp = player.GetComponent<Health>();
             PlayerCharacter character = player.GetComponent<PlayerCharacter>();

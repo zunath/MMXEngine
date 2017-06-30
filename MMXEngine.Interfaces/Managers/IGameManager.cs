@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using MMXEngine.Contracts.Entities;
 
 namespace MMXEngine.Contracts.Managers
@@ -10,5 +11,7 @@ namespace MMXEngine.Contracts.Managers
         void Update(GameTime gameTime);
         void Draw();
         void Exit();
+        void LoadContent(ContentManager content);
+        void UnloadContent(ContentManager content);
     }
 }

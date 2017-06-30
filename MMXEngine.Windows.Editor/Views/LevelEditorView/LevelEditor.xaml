@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:MMXEngine.Windows.Editor.Views.LevelEditorView"
              xmlns:mvvm="http://prismlibrary.com/"
              xmlns:toolBarView="clr-namespace:MMXEngine.Windows.Editor.Views.ToolBarView"
-             xmlns:gameWorld="clr-namespace:MMXEngine.Windows.Editor.GameWorld"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              mvvm:ViewModelLocator.AutoWireViewModel="True">
@@ -37,8 +36,7 @@
             Grid.RowSpan="3"
             Grid.Column="0"
             Grid.ColumnSpan="3">
-            
-        </Grid>
 
+        </Grid>
     </Grid>
 </UserControl>

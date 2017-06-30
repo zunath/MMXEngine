@@ -1,5 +1,6 @@
 ﻿using Artemis;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Contracts.Entities;
 using MMXEngine.Contracts.Factories;
@@ -19,6 +20,7 @@ namespace MMXEngine.Windows.Editor.Managers
         private readonly IInputManager _inputManager;
         private readonly ICameraManager _cameraManager;
         private readonly IScriptManager _scriptManager;
+        private readonly IContentManager _contentManager;
 
         public EditorGameManager(
             EntityWorld world,
@@ -29,7 +31,8 @@ namespace MMXEngine.Windows.Editor.Managers
             IScreenFactory screenFactory,
             IInputManager inputManager,
             ICameraManager cameraManager,
-            IScriptManager scriptManager
+            IScriptManager scriptManager,
+            IContentManager contentManager
             )
         {
             _world = world;
@@ -41,6 +44,7 @@ namespace MMXEngine.Windows.Editor.Managers
             _inputManager = inputManager;
             _cameraManager = cameraManager;
             _scriptManager = scriptManager;
+            _contentManager = contentManager;
         }
 
         public void Initialize<T>(GraphicsDeviceManager graphics)
@@ -77,6 +81,16 @@ namespace MMXEngine.Windows.Editor.Managers
         
         public void Exit()
         {
+        }
+
+        public void LoadContent(ContentManager content)
+        {
+            _contentManager.LoadContent(content);
+        }
+
+        public void UnloadContent(ContentManager content)
+        {
+            _contentManager.Unload();
         }
     }
 }

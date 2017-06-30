@@ -18,7 +18,7 @@ namespace MMXEngine.ECS.Entities
         private readonly IComponentFactory _componentFactory;
         private readonly IDataManager _dataManager;
         private readonly IPlayerStateFactory _playerStateFactory;
-        private readonly ContentManager _contentManager;
+        private readonly IContentManager _contentManager;
         private CharacterType _characterType;
         private PlayerData _playerData;
         private readonly IFileSystem _fileSystem;
@@ -26,7 +26,7 @@ namespace MMXEngine.ECS.Entities
         public Player(IComponentFactory componentFactory,
             IPlayerStateFactory playerStateFactory,
             IDataManager dataManager,
-            ContentManager contentManager,
+            IContentManager contentManager,
             IFileSystem fileSystem)
         {
             _componentFactory = componentFactory;

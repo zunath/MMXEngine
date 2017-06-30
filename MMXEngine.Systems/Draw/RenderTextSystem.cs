@@ -5,6 +5,7 @@ using Artemis.System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using MMXEngine.Contracts.Managers;
 using MMXEngine.ECS.Components;
 
 namespace MMXEngine.Systems.Draw
@@ -16,10 +17,10 @@ namespace MMXEngine.Systems.Draw
     public class RenderTextSystem: EntityProcessingSystem
     {
         private readonly SpriteBatch _spriteBatch;
-        private readonly ContentManager _contentManager;
+        private readonly IContentManager _contentManager;
 
         public RenderTextSystem(SpriteBatch spriteBatch,
-            ContentManager contentManager)
+            IContentManager contentManager)
             : base(Aspect.All(typeof(VisibleText),
                 typeof(Position)))
         {

@@ -1,5 +1,4 @@
 ﻿using System.Windows.Controls;
-using MMXEngine.Windows.Editor.GameWorld;
 using Prism.Mvvm;
 
 namespace MMXEngine.Windows.Editor.Views.LevelEditorView

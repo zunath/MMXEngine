@@ -27,8 +27,6 @@ namespace MMXEngine.Windows.Shared
 
             Script script = level.GetComponent<Script>();
             _scriptManager.QueueScript(script.FilePath, level, "OnLoad");
-
-
         }
     }
 }

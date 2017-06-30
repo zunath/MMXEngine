@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Contracts.Entities;
 using MMXEngine.Contracts.Factories;
+using MMXEngine.Contracts.Managers;
 using MMXEngine.ECS.Components;
 
 namespace MMXEngine.ECS.Entities
@@ -12,10 +13,10 @@ namespace MMXEngine.ECS.Entities
     public class Background: IGameEntity
     {
         private readonly IComponentFactory _componentFactory;
-        private readonly ContentManager _content;
+        private readonly IContentManager _content;
 
         public Background(IComponentFactory componentFactory,
-            ContentManager content)
+            IContentManager content)
         {
             _componentFactory = componentFactory;
             _content = content;

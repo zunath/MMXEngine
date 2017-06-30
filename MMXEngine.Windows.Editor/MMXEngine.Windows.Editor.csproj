@@ -65,9 +65,6 @@
       <HintPath>..\packages\MonoGame.Framework.WindowsDX.3.6.0.1625\lib\net40\MonoGame.Framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MonoGame.Framework.WpfInterop, Version=1.5.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MonoGame.Framework.WpfInterop.1.5.2\lib\net45\MonoGame.Framework.WpfInterop.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -139,7 +136,18 @@
     <Compile Include="EditorIOCContainer.cs" />
     <Compile Include="EditorSystemLoader.cs" />
     <Compile Include="Events\Application\ApplicationClosedEvent.cs" />
-    <Compile Include="GameWorld\EditorGame.cs" />
+    <Compile Include="EditorGame.cs" />
+    <Compile Include="Interop\D3D11Host.cs" />
+    <Compile Include="Interop\D3D11Image.cs" />
+    <Compile Include="Interop\D3D9.cs" />
+    <Compile Include="Interop\Input\WindowHelper.cs" />
+    <Compile Include="Interop\Input\WPFKeyboard.cs" />
+    <Compile Include="Interop\Input\WPFMouse.cs" />
+    <Compile Include="Interop\WPFDrawableGameComponent.cs" />
+    <Compile Include="Interop\WPFGame.cs" />
+    <Compile Include="Interop\WPFGameComponent.cs" />
+    <Compile Include="Interop\WPFGraphicsDeviceService.cs" />
+    <Compile Include="Managers\ContentManagerWrapper.cs" />
     <Compile Include="Managers\EditorInputManager.cs" />
     <Compile Include="Managers\EditorGameManager.cs" />
     <Compile Include="Objects\FileOpenerData.cs" />
@@ -155,6 +163,10 @@
       <DependentUpon>EnemyEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EnemyEditorView\EnemyEditorViewModel.cs" />
+    <Compile Include="Views\EnemySelectorView\EnemySelector.xaml.cs">
+      <DependentUpon>EnemySelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EnemySelectorView\EnemySelectorViewModel.cs" />
     <Compile Include="Views\FileOpenerView\FileOpener.xaml.cs">
       <DependentUpon>FileOpener.xaml</DependentUpon>
     </Compile>
@@ -167,10 +179,18 @@
       <DependentUpon>ItemEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ItemEditorView\ItemEditorViewModel.cs" />
+    <Compile Include="Views\ItemSelectorView\ItemSelector.xaml.cs">
+      <DependentUpon>ItemSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ItemSelectorView\ItemSelectorViewModel.cs" />
     <Compile Include="Views\LevelEditorView\LevelEditor.xaml.cs">
       <DependentUpon>LevelEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LevelEditorView\LevelEditorViewModel.cs" />
+    <Compile Include="Views\LevelPropertiesView\LevelProperties.xaml.cs">
+      <DependentUpon>LevelProperties.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LevelPropertiesView\LevelPropertiesViewModel.cs" />
     <Compile Include="Views\MenuBarView\MenuBar.xaml.cs">
       <DependentUpon>MenuBar.xaml</DependentUpon>
     </Compile>
@@ -179,6 +199,10 @@
       <DependentUpon>ScriptEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ScriptEditorView\ScriptEditorViewModel.cs" />
+    <Compile Include="Views\SelectorView\Selector.xaml.cs">
+      <DependentUpon>Selector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectorView\SelectorViewModel.cs" />
     <Compile Include="Views\TileSelectorView\TileSelector.xaml.cs">
       <DependentUpon>TileSelector.xaml</DependentUpon>
     </Compile>
@@ -208,6 +232,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\EnemySelectorView\EnemySelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\FileOpenerView\FileOpener.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -220,7 +248,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ItemSelectorView\ItemSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LevelEditorView\LevelEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LevelPropertiesView\LevelProperties.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -229,6 +265,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ScriptEditorView\ScriptEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SelectorView\Selector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

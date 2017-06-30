@@ -4,8 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using MMXEngine.Common.Enumerations;
 using MMXEngine.Contracts.Components;
 using MMXEngine.Contracts.Managers;
-using MMXEngine.Windows.Editor.GameWorld;
-using MonoGame.Framework.WpfInterop.Input;
+using MMXEngine.Windows.Editor.Interop.Input;
 
 namespace MMXEngine.Windows.Editor.Managers
 {
@@ -28,27 +27,27 @@ namespace MMXEngine.Windows.Editor.Managers
 
         public bool IsPressed(GameButton button)
         {
-            throw new NotSupportedException();
+            return false;
         }
 
         public bool IsDown(GameButton button)
         {
-            throw new NotSupportedException();
+            return false;
         }
 
         public bool IsUp(GameButton button)
         {
-            throw new NotSupportedException();
+            return false;
         }
 
         public bool WasDownLastFrame(GameButton button)
         {
-            throw new NotSupportedException();
+            return false;
         }
 
         public bool WasUpLastFrame(GameButton button)
         {
-            throw new NotSupportedException();
+            return false;
         }
 
         public void Update()
@@ -62,7 +61,7 @@ namespace MMXEngine.Windows.Editor.Managers
 
         public void SetConfiguration(IButtonConfiguration configuration)
         {
-            throw new NotSupportedException();
+
         }
 
         public bool IsLeftMouseDown()

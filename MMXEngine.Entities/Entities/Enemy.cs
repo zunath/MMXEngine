@@ -14,12 +14,12 @@ namespace MMXEngine.ECS.Entities
     {
         private readonly IComponentFactory _componentFactory;
         private readonly IDataManager _dataManager;
-        private readonly ContentManager _contentManager;
+        private readonly IContentManager _contentManager;
         private readonly IFileSystem _fileSystem;
 
         public Enemy(IComponentFactory componentFactory,
             IDataManager dataManager,
-            ContentManager contentManager,
+            IContentManager contentManager,
             IFileSystem fileSystem)
         {
             _componentFactory = componentFactory;
