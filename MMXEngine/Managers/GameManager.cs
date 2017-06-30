@@ -20,6 +20,7 @@ namespace MMXEngine.Windows.Game.Managers
         private readonly IInputManager _inputManager;
         private readonly ICameraManager _cameraManager;
         private readonly IScriptManager _scriptManager;
+        private readonly IContentManager _contentManager;
 
         public GameManager(
             EntityWorld world,
@@ -30,8 +31,8 @@ namespace MMXEngine.Windows.Game.Managers
             IScreenFactory screenFactory,
             IInputManager inputManager,
             ICameraManager cameraManager,
-            IScriptManager scriptManager
-            )
+            IScriptManager scriptManager,
+            IContentManager contentManager)
         {
             _world = world;
             _spriteBatch = spriteBatch;
@@ -42,6 +43,7 @@ namespace MMXEngine.Windows.Game.Managers
             _inputManager = inputManager;
             _cameraManager = cameraManager;
             _scriptManager = scriptManager;
+            _contentManager = contentManager;
         }
 
         public void Initialize<T>(GraphicsDeviceManager graphics)
@@ -83,12 +85,12 @@ namespace MMXEngine.Windows.Game.Managers
 
         public void LoadContent(ContentManager content)
         {
-            
+            _contentManager.LoadContent(content);
         }
 
         public void UnloadContent(ContentManager content)
         {
-            
+            _contentManager.Unload();
         }
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Contracts.Managers;
 
-namespace MMXEngine.Windows.Editor.Managers
+namespace MMXEngine.Windows.Game.Managers
 {
     public class ContentManagerWrapper: IContentManager
     {

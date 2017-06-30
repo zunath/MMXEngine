@@ -147,7 +147,6 @@
     <Compile Include="Interop\WPFGame.cs" />
     <Compile Include="Interop\WPFGameComponent.cs" />
     <Compile Include="Interop\WPFGraphicsDeviceService.cs" />
-    <Compile Include="Managers\ContentManagerWrapper.cs" />
     <Compile Include="Managers\EditorInputManager.cs" />
     <Compile Include="Managers\EditorGameManager.cs" />
     <Compile Include="Objects\FileOpenerData.cs" />

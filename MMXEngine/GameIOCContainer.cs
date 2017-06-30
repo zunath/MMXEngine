@@ -49,6 +49,7 @@ namespace MMXEngine.Windows.Game
             builder.RegisterType<InputManager>().As<IInputManager>().SingleInstance();
             builder.RegisterType<CameraManager>().As<ICameraManager>().SingleInstance();
             builder.RegisterType<ScriptManager>().As<IScriptManager>().SingleInstance();
+            builder.RegisterType<ContentManagerWrapper>().As<IContentManager>().SingleInstance();
 
             // Factories
             builder.RegisterType<EntityFactory>().As<IEntityFactory>().SingleInstance();
