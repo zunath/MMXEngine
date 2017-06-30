@@ -3,72 +3,75 @@ using Microsoft.Xna.Framework;
 
 namespace MMXEngine.Windows.Editor.Interop
 {
-    public class WpfGameComponent : IGameComponent, IUpdateable
-    {
-        #region Fields
+	/// <summary>
+	/// A game component much like the original, but compatible with <see cref="WpfGame"/>.
+	/// </summary>
+	public class WpfGameComponent : IGameComponent, IUpdateable
+	{
+		#region Fields
 
-        private bool _enabled = true;
-        private int _updateOrder;
+		private bool _enabled = true;
+		private int _updateOrder;
 
-        #endregion
+		#endregion
 
-        #region Constructors
+		#region Constructors
 
-        public WpfGameComponent(WpfGame game)
-        {
-            Game = game;
-        }
+		public WpfGameComponent(WpfGame game)
+		{
+			Game = game;
+		}
 
-        #endregion
+		#endregion
 
-        #region Events
+		#region Events
 
-        public event EventHandler<EventArgs> EnabledChanged;
+		public event EventHandler<EventArgs> EnabledChanged;
 
-        public event EventHandler<EventArgs> UpdateOrderChanged;
+		public event EventHandler<EventArgs> UpdateOrderChanged;
 
-        #endregion
+		#endregion
 
-        #region Properties
+		#region Properties
 
-        public WpfGame Game { get; }
+		public WpfGame Game { get; }
 
-        public bool Enabled
-        {
-            get { return _enabled; }
-            set
-            {
-                if (_enabled == value)
-                    return;
+		public bool Enabled
+		{
+			get { return _enabled; }
+			set
+			{
+				if (_enabled == value)
+					return;
 
-                _enabled = value;
-                var ev = EnabledChanged;
-                ev?.Invoke(this, EventArgs.Empty);
-            }
-        }
+				_enabled = value;
+				var ev = EnabledChanged;
+				ev?.Invoke(this, EventArgs.Empty);
+			}
+		}
 
-        public int UpdateOrder
-        {
-            get { return _updateOrder; }
-            set
-            {
-                if (_updateOrder == value)
-                    return;
+		public int UpdateOrder
+		{
+			get { return _updateOrder; }
+			set
+			{
+				if (_updateOrder == value)
+					return;
 
-                _updateOrder = value;
-                var ev = UpdateOrderChanged;
-                ev?.Invoke(this, EventArgs.Empty);
-            }
-        }
+				_updateOrder = value;
+				var ev = UpdateOrderChanged;
+				ev?.Invoke(this, EventArgs.Empty);
+			}
+		}
 
-        #endregion
+		#endregion
 
-        #region Methods
+		#region Methods
 
-        public virtual void Initialize() { }
+		public virtual void Initialize() { }
 
-        public virtual void Update(GameTime gameTime) { }
+		public virtual void Update(GameTime gameTime) { }
 
-        #endregion
-    }
+		#endregion
+	}
 }

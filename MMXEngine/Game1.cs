@@ -19,7 +19,7 @@ namespace MMXEngine.Windows.Game
             GameIOCContainer.Register(this);
             _gameManager = GameIOCContainer.Resolve<IGameManager>();
             _gameManager.LoadContent(Content);
-            _gameManager.Initialize<GameScreen>(_graphics);
+            _gameManager.Initialize(_graphics, typeof(GameScreen));
 
             base.Initialize();
         }

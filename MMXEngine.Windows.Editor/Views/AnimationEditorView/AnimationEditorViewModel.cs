@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Common.Observables;
 using MMXEngine.ECS.Components;
+using MMXEngine.ECS.Screens;
 using MMXEngine.Windows.Editor.Objects;
 using Prism.Commands;
 using Prism.Interactivity.InteractionRequest;
@@ -23,6 +24,7 @@ namespace MMXEngine.Windows.Editor.Views.AnimationEditorView
         {
             _fileSystem = fileSystem;
             _game = game;
+            _game.SetInitialScreen<AnimationEditorScreen>();
 
             SelectSpriteSheetCommand = new DelegateCommand(SelectSpriteSheet);
 

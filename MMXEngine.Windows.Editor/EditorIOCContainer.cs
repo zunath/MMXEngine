@@ -48,7 +48,7 @@ namespace MMXEngine.Windows.Editor
             builder.RegisterType<PlayerStateFactory>().As<IPlayerStateFactory>().SingleInstance();
 
             // Loaders
-            builder.RegisterType<LevelLoader>().As<ILevelLoader>();
+            builder.RegisterType<EditorLevelLoader>().As<ILevelLoader>();
             builder.RegisterType<EditorSystemLoader>().As<ISystemLoader>();
 
             // Script Methods

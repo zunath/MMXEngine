@@ -23,6 +23,7 @@ namespace MMXEngine.ECS.Screens
 
         public void Initialize()
         {
+            _levelLoader.Load("DemoMap");
         }
 
         public void Update()

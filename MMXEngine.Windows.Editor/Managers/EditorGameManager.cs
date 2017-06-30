@@ -1,4 +1,5 @@
-﻿using Artemis;
+﻿using System;
+using Artemis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -47,12 +48,15 @@ namespace MMXEngine.Windows.Editor.Managers
             _contentManager = contentManager;
         }
 
-        public void Initialize<T>(GraphicsDeviceManager graphics)
-            where T : IScreen
+        public void Initialize(GraphicsDeviceManager graphics, Type screenType)
         {
+            if (!typeof(IScreen).IsAssignableFrom(screenType))
+            {
+                throw new Exception("screenType must implement the IScreen interface.");
+            }
             _systemLoader.Load();
 
-            IScreen initialScreen = _screenFactory.Create(typeof(T));
+            IScreen initialScreen = _screenFactory.Create(screenType);
             _screenManager.ChangeScreen(initialScreen);
         }
         

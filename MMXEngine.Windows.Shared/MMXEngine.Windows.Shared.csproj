@@ -70,7 +70,6 @@
     <Compile Include="Factories\PlayerStateFactory.cs" />
     <Compile Include="Factories\ScreenFactory.cs" />
     <Compile Include="Helpers\IOCContainerHelper.cs" />
-    <Compile Include="LevelLoader.cs" />
     <Compile Include="Managers\CameraManager.cs" />
     <Compile Include="Managers\DataManager.cs" />
     <Compile Include="Managers\GraphicsManager.cs" />

@@ -58,7 +58,7 @@ namespace MMXEngine.Windows.Game
             builder.RegisterType<PlayerStateFactory>().As<IPlayerStateFactory>().SingleInstance();
             
             // Loaders
-            builder.RegisterType<LevelLoader>().As<ILevelLoader>();
+            builder.RegisterType<GameLevelLoader>().As<ILevelLoader>();
             builder.RegisterType<GameSystemLoader>().As<ISystemLoader>();
 
             // Script Methods

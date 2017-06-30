@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using MMXEngine.ECS.Screens;
 using Prism.Mvvm;
 
 namespace MMXEngine.Windows.Editor.Views.LevelEditorView
@@ -10,6 +11,7 @@ namespace MMXEngine.Windows.Editor.Views.LevelEditorView
         public LevelEditorViewModel(EditorGame game)
         {
             _game = game;
+            _game.SetInitialScreen<LevelEditorScreen>();
         }
 
         private Grid _gameGrid;

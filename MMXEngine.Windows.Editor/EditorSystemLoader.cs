@@ -9,10 +9,7 @@ namespace MMXEngine.Windows.Editor
     {
 
         // Update
-        private readonly CameraSystem _cameraSystem;
         private readonly SpriteSystem _spriteSystem;
-        private readonly DebugSystem _debugSystem;
-        private readonly DebugTextSystem _debugTextSystem;
 
         // Draw
         private readonly RenderSystem _renderSystem;
@@ -22,10 +19,7 @@ namespace MMXEngine.Windows.Editor
 
         public EditorSystemLoader(EntityWorld world,
             // Update
-            CameraSystem cameraSystem,
             SpriteSystem spriteSystem,
-            DebugSystem debugSystem,
-            DebugTextSystem debugTextSystem,
             // Draw
             RenderSystem renderSystem,
             RenderLevelSystem renderLevelSystem,
@@ -34,10 +28,7 @@ namespace MMXEngine.Windows.Editor
             : base(world)
         {
             // Update
-            _cameraSystem = cameraSystem;
             _spriteSystem = spriteSystem;
-            _debugSystem = debugSystem;
-            _debugTextSystem = debugTextSystem;
 
             // Draw
             _renderSystem = renderSystem;
@@ -49,10 +40,7 @@ namespace MMXEngine.Windows.Editor
         public override void Load()
         {
             // Update
-            RegisterSystem(_cameraSystem);
             RegisterSystem(_spriteSystem);
-            RegisterSystem(_debugSystem);
-            RegisterSystem(_debugTextSystem);
 
             // Draw
             RegisterSystem(_renderStaticGraphicSystem);

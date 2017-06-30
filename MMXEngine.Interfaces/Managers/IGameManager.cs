@@ -1,13 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-using MMXEngine.Contracts.Entities;
 
 namespace MMXEngine.Contracts.Managers
 {
     public interface IGameManager
     {
-        void Initialize<T>(GraphicsDeviceManager graphics)
-            where T: IScreen;
+        void Initialize(GraphicsDeviceManager graphics, Type screenType);
         void Update(GameTime gameTime);
         void Draw();
         void Exit();
