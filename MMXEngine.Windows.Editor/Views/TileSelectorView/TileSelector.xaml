@@ -9,6 +9,13 @@
              d:DesignHeight="300" d:DesignWidth="300"
              mvvm:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-            
+        <Image
+            Source="{Binding Texture}"
+            Width="{Binding Texture.Width}"
+            Height="{Binding Texture.Height}"
+            Stretch="Fill"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+        </Image>
     </Grid>
 </UserControl>

@@ -1,5 +1,6 @@
 ﻿using System.Windows.Controls;
 using MMXEngine.ECS.Screens;
+using MMXEngine.Windows.Editor.Screens;
 using Prism.Mvvm;
 
 namespace MMXEngine.Windows.Editor.Views.LevelEditorView

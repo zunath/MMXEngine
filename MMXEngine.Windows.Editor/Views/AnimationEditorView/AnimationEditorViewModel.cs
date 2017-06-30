@@ -1,12 +1,10 @@
 ﻿using System.IO.Abstractions;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Common.Observables;
 using MMXEngine.ECS.Components;
-using MMXEngine.ECS.Screens;
 using MMXEngine.Windows.Editor.Objects;
+using MMXEngine.Windows.Editor.Screens;
 using Prism.Commands;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;

@@ -90,6 +90,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Abstractions, Version=2.0.0.144, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.Abstractions.2.0.0.144\lib\net40\System.IO.Abstractions.dll</HintPath>
     </Reference>
@@ -139,6 +140,8 @@
     <Compile Include="EditorGame.cs" />
     <Compile Include="Events\Application\ApplicationWindowLoadedEvent.cs" />
     <Compile Include="EditorLevelLoader.cs" />
+    <Compile Include="Events\LevelEditor\LevelTextureChangedEvent.cs" />
+    <Compile Include="Helpers\BitmapImageHelpers.cs" />
     <Compile Include="Interop\D3D11Host.cs" />
     <Compile Include="Interop\Input\WindowHelper.cs" />
     <Compile Include="Interop\Input\WpfKeyboard.cs" />
@@ -158,6 +161,8 @@
     <Compile Include="Objects\FileSaverData.cs" />
     <Compile Include="Objects\PathItem.cs" />
     <Compile Include="Objects\ScriptMethod.cs" />
+    <Compile Include="Screens\AnimationEditorScreen.cs" />
+    <Compile Include="Screens\LevelEditorScreen.cs" />
     <Compile Include="ViewModelBases\OpenSaveViewModelBase.cs" />
     <Compile Include="Views\AnimationEditorView\AnimationEditor.xaml.cs">
       <DependentUpon>AnimationEditor.xaml</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿using MMXEngine.Contracts.Entities;
 
-namespace MMXEngine.ECS.Screens
+namespace MMXEngine.Windows.Editor.Screens
 {
     public class AnimationEditorScreen: IScreen
     {
