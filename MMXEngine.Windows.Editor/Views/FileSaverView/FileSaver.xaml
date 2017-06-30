@@ -75,10 +75,10 @@
         </StackPanel>
 
 
-        <i:Interaction.Triggers>
+        <!--<i:Interaction.Triggers>
             <mvvm:InteractionRequestTrigger SourceObject="{Binding SaveFileConfirmationRequest, Mode=OneWay}">
                 <mvvm:PopupWindowAction IsModal="True" CenterOverAssociatedObject="True"/>
             </mvvm:InteractionRequestTrigger>
-        </i:Interaction.Triggers>
+        </i:Interaction.Triggers>-->
     </Grid>
 </UserControl>

@@ -13,6 +13,7 @@
         xmlns:scriptEditorView="clr-namespace:MMXEngine.Windows.Editor.Views.ScriptEditorView"
         xmlns:mvvm="http://prismlibrary.com/"
         xmlns:selectorView="clr-namespace:MMXEngine.Windows.Editor.Views.SelectorView"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         Title="MegaMan X Engine Editor" Height="350" Width="525"
         mvvm:ViewModelLocator.AutoWireViewModel="True">
@@ -64,4 +65,12 @@
         </selectorView:Selector>
         
     </Grid>
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding WindowLoadedCommand}">
+            </i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
 </Window>

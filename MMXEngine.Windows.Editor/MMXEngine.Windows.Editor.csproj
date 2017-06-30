@@ -137,6 +137,7 @@
     <Compile Include="EditorSystemLoader.cs" />
     <Compile Include="Events\Application\ApplicationClosedEvent.cs" />
     <Compile Include="EditorGame.cs" />
+    <Compile Include="Events\Application\ApplicationWindowLoadedEvent.cs" />
     <Compile Include="Interop\D3D11Host.cs" />
     <Compile Include="Interop\D3D11Image.cs" />
     <Compile Include="Interop\D3D9.cs" />
@@ -149,8 +150,11 @@
     <Compile Include="Interop\WPFGraphicsDeviceService.cs" />
     <Compile Include="Managers\EditorInputManager.cs" />
     <Compile Include="Managers\EditorGameManager.cs" />
+    <Compile Include="Objects\DirectoryItem.cs" />
+    <Compile Include="Objects\FileItem.cs" />
     <Compile Include="Objects\FileOpenerData.cs" />
     <Compile Include="Objects\FileSaverData.cs" />
+    <Compile Include="Objects\PathItem.cs" />
     <Compile Include="Objects\ScriptMethod.cs" />
     <Compile Include="ViewModelBases\OpenSaveViewModelBase.cs" />
     <Compile Include="Views\AnimationEditorView\AnimationEditor.xaml.cs">

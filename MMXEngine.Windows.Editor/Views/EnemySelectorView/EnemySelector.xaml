@@ -5,10 +5,114 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MMXEngine.Windows.Editor.Views.EnemySelectorView"
              xmlns:mvvm="http://prismlibrary.com/"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             xmlns:objects="clr-namespace:MMXEngine.Windows.Editor.Objects"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:enemyEditorView="clr-namespace:MMXEngine.Windows.Editor.Views.EnemyEditorView"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              mvvm:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel
+            Grid.Column="0"
+            Grid.Row="0"
+            Background="LightGray"
+            Orientation="Horizontal">
+
+            <Button 
+                fa:Awesome.Content="File"
+                Width="32"
+                Height="32"
+                HorizontalAlignment="Left"
+                ToolTip="New"
+                Command="{Binding NewEnemyCommand}">
+            </Button>
+
+            <Button 
+                fa:Awesome.Content="Folder"
+                Width="32"
+                Height="32"
+                HorizontalAlignment="Left"
+                ToolTip="New"
+                Command="{Binding NewFolderCommand}">
+            </Button>
+
+            <Separator Margin="3,3,3,3"></Separator>
+
+            <Button 
+                fa:Awesome.Content="Edit"
+                Width="32"
+                Height="32"
+                HorizontalAlignment="Left"
+                ToolTip="Open"
+                Command="{Binding EditEnemyCommand}">
+            </Button>
+            <Button 
+                fa:Awesome.Content="Trash"
+                Width="32"
+                Height="32"
+                HorizontalAlignment="Left"
+                ToolTip="Save"
+                Command="{Binding DeleteEnemyCommand}">
+            </Button>
+
+        </StackPanel>
+
+
+        <TreeView
+            Grid.Column="0"
+            Grid.Row="1"
+            ItemsSource="{Binding Items}">
             
+            <TreeView.Resources>
+                <HierarchicalDataTemplate
+                    DataType="{x:Type objects:DirectoryItem}"
+                    ItemsSource="{Binding Items}">
+                    <TextBlock 
+                        Text="{Binding Path=Name}"
+                        ToolTip="{Binding Path=Path}">
+                    </TextBlock>
+                </HierarchicalDataTemplate>
+                <DataTemplate
+                    DataType="{x:Type objects:FileItem}">
+                    <TextBlock
+                        Text="{Binding Path=Name}"
+                        ToolTip="{Binding Path=Path}">
+                    </TextBlock>
+                </DataTemplate>
+            </TreeView.Resources>
+            
+        </TreeView>
+        
     </Grid>
+
+    <i:Interaction.Triggers>
+
+        <mvvm:InteractionRequestTrigger SourceObject="{Binding EnemyPropertiesRequest, Mode=OneWay}">
+            <mvvm:PopupWindowAction IsModal="True" 
+                                            CenterOverAssociatedObject="True">
+                <mvvm:PopupWindowAction.WindowContent>
+
+                    <enemyEditorView:EnemyEditor
+                        MinWidth="800"
+                        MinHeight="600"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
+
+                    </enemyEditorView:EnemyEditor>
+                </mvvm:PopupWindowAction.WindowContent>
+            </mvvm:PopupWindowAction>
+        </mvvm:InteractionRequestTrigger>
+</i:Interaction.Triggers>
+
 </UserControl>

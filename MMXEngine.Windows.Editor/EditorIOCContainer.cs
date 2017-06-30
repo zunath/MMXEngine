@@ -91,8 +91,7 @@ namespace MMXEngine.Windows.Editor
             
 
             builder.RegisterType<EditorGame>()
-                .WithParameter("graphics", device)
-                .SingleInstance();
+                .WithParameter("graphics", device);
             builder.RegisterType<Texture2D>();
         }
     }

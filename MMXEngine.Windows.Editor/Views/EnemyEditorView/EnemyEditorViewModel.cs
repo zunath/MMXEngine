@@ -14,16 +14,12 @@ namespace MMXEngine.Windows.Editor.Views.EnemyEditorView
         public EnemyEditorViewModel(IDataManager dataManager)
         {
             _dataManager = dataManager;
-
-            NewEnemyCommand = new DelegateCommand(NewEnemy);
-            OpenEnemyCommand = new DelegateCommand(OpenEnemy);
-            SaveEnemyCommand = new DelegateCommand(SaveEnemy);
-
-            SelectTextureFileCommand = new DelegateCommand(SelectTexture);
+            
+            SaveCommand = new DelegateCommand(Save);
+            CancelCommand = new DelegateCommand(Cancel);
             SelectScriptFileCommand = new DelegateCommand(SelectScript);
 
             SelectFileRequest = new InteractionRequest<INotification>();
-            SaveFileRequest = new InteractionRequest<INotification>();
 
             HeartbeatInterval = 1.0f;
         }
@@ -60,84 +56,19 @@ namespace MMXEngine.Windows.Editor.Views.EnemyEditorView
             get => _heartbeatInterval;
             set => SetProperty(ref _heartbeatInterval, value);
         }
+        
+        public DelegateCommand SaveCommand { get; set; }
 
-
-        public DelegateCommand NewEnemyCommand { get; set; }
-
-        private void NewEnemy()
+        private void Save()
         {
-            Name = string.Empty;
-            TextureFileName = string.Empty;
-            ScriptFileName = string.Empty;
-            HeartbeatInterval = 1.0f;
+            
         }
 
-        public DelegateCommand OpenEnemyCommand { get; set; }
+        public DelegateCommand CancelCommand { get; set; }
 
-        private void OpenEnemy()
+        private void Cancel()
         {
-            FileOpenerData data = new FileOpenerData("json", "Enemies", "enemy", "Data\\Enemies\\", true, false);
-
-            SelectFileRequest.Raise(new Notification
-                {
-                    Title = "Open Enemy",
-                    Content = data
-                },
-                notification =>
-                {
-                    if (data.WasActionCanceled) return;
-
-                    var enemyData = _dataManager.Load<CreatureData>($"Enemies\\{data.OpenedFile}");
-                    Name = enemyData.Name;
-                    TextureFileName = enemyData.TextureFile;
-                    ScriptFileName = enemyData.Script;
-                    HeartbeatInterval = enemyData.HeartbeatInterval;
-                });
-        }
-
-        public DelegateCommand SaveEnemyCommand { get; set; }
-
-        private void SaveEnemy()
-        {
-            FileSaverData data = new FileSaverData("json", "Enemies", "enemy", "Data\\Enemies\\", true);
-
-            SaveFileRequest.Raise(new Notification
-                {
-                    Title = "Save Enemy",
-                    Content = data
-                },
-                notification =>
-                {
-                    if (data.WasActionCanceled) return;
-
-                    CreatureData enemyData = new CreatureData
-                    {
-                        Name = Name,
-                        HeartbeatInterval = HeartbeatInterval,
-                        Script = ScriptFileName,
-                        TextureFile = TextureFileName
-                    };
-
-                    _dataManager.Save("Enemies\\Custom\\" + data.SavedFile, enemyData, true);
-                });
-        }
-
-        public DelegateCommand SelectTextureFileCommand { get; set; }
-
-        private void SelectTexture()
-        {
-            FileOpenerData data = new FileOpenerData("xnb", "Textures", "texture", "Graphics\\", true, true);
-
-            SelectFileRequest.Raise(new Notification
-                {
-                    Title = "Select Texture",
-                    Content = data
-                },
-                notification =>
-                {
-                    if (data.WasActionCanceled) return;
-                    TextureFileName = data.UserSelectedNoneOption ? string.Empty : data.OpenedFile;
-                });
+            
         }
 
         public DelegateCommand SelectScriptFileCommand { get; set; }
@@ -159,7 +90,6 @@ namespace MMXEngine.Windows.Editor.Views.EnemyEditorView
         }
 
         public InteractionRequest<INotification> SelectFileRequest { get; }
-        public InteractionRequest<INotification> SaveFileRequest { get; }
 
     }
 }

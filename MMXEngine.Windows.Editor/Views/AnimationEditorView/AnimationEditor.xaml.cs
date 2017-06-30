@@ -11,8 +11,8 @@ namespace MMXEngine.Windows.Editor.Views.AnimationEditorView
         {
             InitializeComponent();
 
-            //if (DesignerProperties.GetIsInDesignMode(this)) return;
-            //((AnimationEditorViewModel)DataContext).GameGrid = GameGrid;
+            if (DesignerProperties.GetIsInDesignMode(this)) return;
+            ((AnimationEditorViewModel)DataContext).GameGrid = GameGrid;
         }
     }
 }
