@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMXEngine.Windows.Game", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMXEngine.Contracts", "MMXEngine.Interfaces\MMXEngine.Contracts.csproj", "{345D211C-7EC0-4BE4-AE58-24DF72534D9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMXEngine.ECS", "MMXEngine.Entities\MMXEngine.ECS.csproj", "{42DF8606-533D-4C5C-9CF0-437446B8F6DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMXEngine.ECS", "MMXEngine.ECS\MMXEngine.ECS.csproj", "{42DF8606-533D-4C5C-9CF0-437446B8F6DC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Game + Editor", "2. Game + Editor", "{948DC39A-8C7B-4881-B4DD-48C33B3C1808}"
 EndProject
@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Entities + Components", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Contracts", "6. Contracts", "{C087D4C7-17F6-4E4A-958B-F7C37F84E6E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMXEngine.ECS.Tests", "MMXEngine.Entities.Tests\MMXEngine.ECS.Tests.csproj", "{0C9298D2-EBF5-4927-A4D1-16AD30BAB007}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMXEngine.ECS.Tests", "MMXEngine.ECS.Tests\MMXEngine.ECS.Tests.csproj", "{0C9298D2-EBF5-4927-A4D1-16AD30BAB007}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMXEngine.Windows.Game.Tests", "MMXEngine.Tests\MMXEngine.Windows.Game.Tests.csproj", "{568E4DF5-4569-4CC6-B6CF-D5A27A4F74C0}"
 EndProject

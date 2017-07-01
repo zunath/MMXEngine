@@ -74,7 +74,7 @@
       <Project>{3ad013d0-9e57-49b7-a48b-8bfaeaff1db8}</Project>
       <Name>MMXEngine.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MMXEngine.Entities\MMXEngine.ECS.csproj">
+    <ProjectReference Include="..\MMXEngine.ECS\MMXEngine.ECS.csproj">
       <Project>{42df8606-533d-4c5c-9cf0-437446b8f6dc}</Project>
       <Name>MMXEngine.ECS</Name>
     </ProjectReference>

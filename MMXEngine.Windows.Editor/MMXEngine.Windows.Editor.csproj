@@ -345,7 +345,7 @@
       <Project>{6604a977-5d69-4a51-9cd5-4a07c360280f}</Project>
       <Name>MMXEngine.Content</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MMXEngine.Entities\MMXEngine.ECS.csproj">
+    <ProjectReference Include="..\MMXEngine.ECS\MMXEngine.ECS.csproj">
       <Project>{42df8606-533d-4c5c-9cf0-437446b8f6dc}</Project>
       <Name>MMXEngine.ECS</Name>
     </ProjectReference>
