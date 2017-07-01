@@ -2,9 +2,12 @@
 using System.Drawing;
 using System.IO;
 using System.IO.Abstractions;
+using System.Windows;
 using System.Windows.Media.Imaging;
+using System.Windows.Resources;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Contracts.Managers;
+using MMXEngine.Windows.Editor.Events.Application;
 using MMXEngine.Windows.Editor.Events.LevelEditor;
 using MMXEngine.Windows.Editor.Helpers;
 using Prism.Events;
@@ -25,12 +28,12 @@ namespace MMXEngine.Windows.Editor.Views.TileSelectorView
             _eventAggregator = eventAggregator;
             _content = content;
             _fileSystem = fileSystem;
-
-            Texture = new BitmapImage();
+            
+            LoadNoTextureImage();
 
             _eventAggregator.GetEvent<LevelTextureChangedEvent>().Subscribe(OnLevelTextureChanged);
         }
-
+        
         private BitmapImage _texture;
 
         public BitmapImage Texture
@@ -39,7 +42,6 @@ namespace MMXEngine.Windows.Editor.Views.TileSelectorView
             set => SetProperty(ref _texture, value);
         }
         
-
         private void OnLevelTextureChanged(string textureFile)
         {
             string path = "Graphics\\Tilesets\\" + _fileSystem.Path.ChangeExtension(textureFile, null);
@@ -47,10 +49,19 @@ namespace MMXEngine.Windows.Editor.Views.TileSelectorView
             MemoryStream stream = new MemoryStream();
             texture.SaveAsPng(stream, texture.Width, texture.Height);
 
-
             Texture = BitmapImageHelpers.LoadFromStream(stream);
-
         }
+
+        private void LoadNoTextureImage()
+        {
+            Uri uri = new Uri("/Content/Graphics/NoTilesetSelected.png", UriKind.Relative);
+            StreamResourceInfo resourceInfo = Application.GetResourceStream(uri);
+            if(resourceInfo == null)
+                throw new Exception("Could not load 'No Texture' image.");
+
+            Texture = BitmapImageHelpers.LoadFromStream(resourceInfo.Stream);
+        }
+        
 
     }
 }

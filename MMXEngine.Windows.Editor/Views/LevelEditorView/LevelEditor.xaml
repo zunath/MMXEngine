@@ -12,31 +12,39 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="5"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="32"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <GridSplitter
-            Grid.Column="3"
-            Grid.Row="0"
-            Grid.RowSpan="3">
-
-        </GridSplitter>
-
-
+        
         <Grid
             x:Name="GameGrid"
             Grid.Row="0"
-            Grid.RowSpan="3"
-            Grid.Column="0"
-            Grid.ColumnSpan="3">
+            Grid.Column="0">
 
         </Grid>
+        
+        <ScrollBar
+            Grid.Column="1"
+            Grid.Row="0"
+            Width="30"
+            Value="{Binding ScrollVertical}"
+            Maximum="{Binding LevelHeight}"
+            Minimum="1">
+            
+        </ScrollBar>
+
+        <ScrollBar
+            Grid.Column="0"
+            Grid.Row="1"
+            Orientation="Horizontal"
+            Height="30"
+            Value="{Binding ScrollHorizontal}"
+            Maximum="{Binding LevelWidth}"
+            Minimum="1">
+        </ScrollBar>
+        
     </Grid>
 </UserControl>

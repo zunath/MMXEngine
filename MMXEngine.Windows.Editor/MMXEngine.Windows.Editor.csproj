@@ -370,7 +370,9 @@
       <Name>MMXEngine.Windows.Game</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Content\Graphics\NoTilesetSelected.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /y /D $(SolutionDir)packages\NLua.1.3.2.1\lib\native\x86\lua52.dll  $(ProjectDir)$(OutDir)</PostBuildEvent>

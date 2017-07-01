@@ -16,22 +16,23 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:levelSelectorView="clr-namespace:MMXEngine.Windows.Editor.Views.LevelSelectorView"
         mc:Ignorable="d"
-        Title="MegaMan X Engine Editor" Height="350" Width="525"
-        mvvm:ViewModelLocator.AutoWireViewModel="True">
+        Title="MegaMan X Engine Editor" Height="600" Width="800"
+        mvvm:ViewModelLocator.AutoWireViewModel="True"
+        WindowStartupLocation="CenterScreen">
     <Grid>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="150" Width="150"></ColumnDefinition>
-            <ColumnDefinition Width="5"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="5"></ColumnDefinition>
-            <ColumnDefinition MinWidth="150" Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition MinWidth="150" Width="250"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <menuBarView:MenuBar
@@ -55,7 +56,9 @@
             Grid.Column="1"
             Grid.Row="2"
             VerticalAlignment="Stretch"
-            Width="5">
+            Width="5"
+            ResizeDirection="Columns"
+            ResizeBehavior="PreviousAndNext">
         </GridSplitter>
         
         <levelEditorView:LevelEditor
@@ -69,7 +72,9 @@
             Grid.Column="3"
             Grid.Row="2"
             VerticalAlignment="Stretch"
-            Width="5">
+            Width="5"
+            ResizeDirection="Columns"
+            ResizeBehavior="PreviousAndNext">
         </GridSplitter>
 
         <selectorView:Selector

@@ -13,30 +13,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin MMXEngine.Content/Content/Graphics/Characters/MMX.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:MMXEngine.Content/Content/Graphics/Characters/MMX.png
-
-#begin MMXEngine.Content/Content/Graphics/Characters/Zero.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:MMXEngine.Content/Content/Graphics/Characters/Zero.png
-
 #begin MMXEngine.Content/Content/Graphics/Enemies/Enemies_1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -343,4 +319,40 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:MMXEngine.Content/Content/Graphics/Tilesets/DemoTiles.png
+
+#begin MMXEngine.Content/Content/Graphics/Players/MMX.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Graphics/Players/MMX.png
+
+#begin MMXEngine.Content/Content/Graphics/Players/Zero.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Graphics/Players/Zero.png
+
+#begin MMXEngine.Content/Content/Editor/NoTilesetSelected.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MMXEngine.Content/Content/Editor/NoTilesetSelected.png
 

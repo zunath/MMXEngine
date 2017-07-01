@@ -5,9 +5,47 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MMXEngine.Windows.Editor.Views.ToolBarView"
              xmlns:mvvm="http://prismlibrary.com/"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:enemyEditorView="clr-namespace:MMXEngine.Windows.Editor.Views.EnemyEditorView"
+             xmlns:scriptEditorView="clr-namespace:MMXEngine.Windows.Editor.Views.ScriptEditorView"
              mc:Ignorable="d" 
              mvvm:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-            
+
+        <StackPanel
+            Grid.Column="0"
+            Grid.Row="0"
+            Background="LightGray"
+            Orientation="Horizontal">
+
+            <Button 
+                fa:Awesome.Content="FileCodeOutline"
+                Width="32"
+                Height="32"
+                HorizontalAlignment="Left"
+                ToolTip="Script Editor"
+                Command="{Binding OpenScriptEditorCommand}">
+            </Button>
+
+
+        </StackPanel>
     </Grid>
+
+    <i:Interaction.Triggers>
+
+        <mvvm:InteractionRequestTrigger SourceObject="{Binding ScriptEditorRequest, Mode=OneWay}">
+            <mvvm:PopupWindowAction IsModal="True" 
+                                    CenterOverAssociatedObject="True">
+                <mvvm:PopupWindowAction.WindowContent>
+
+                    <scriptEditorView:ScriptEditor
+                        MinWidth="800"
+                        MinHeight="600">
+
+                    </scriptEditorView:ScriptEditor>
+                </mvvm:PopupWindowAction.WindowContent>
+            </mvvm:PopupWindowAction>
+        </mvvm:InteractionRequestTrigger>
+    </i:Interaction.Triggers>
 </UserControl>

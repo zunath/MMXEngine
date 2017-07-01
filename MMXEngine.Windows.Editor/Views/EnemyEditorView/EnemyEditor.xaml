@@ -103,9 +103,9 @@
 
 
         <StackPanel
-            Grid.Row="4"
+            Grid.Row="3"
             Grid.Column="0"
-            Grid.ColumnSpan="3"
+            Grid.ColumnSpan="6"
             Orientation="Horizontal"
             HorizontalAlignment="Center">
 
@@ -132,21 +132,6 @@
                                     CenterOverAssociatedObject="True">
                 <mvvm:PopupWindowAction.WindowContent>
                     <fileOpenerView:FileOpener
-                        MinWidth="300"
-                        MinHeight="300"
-                        Width="Auto"
-                        Height="Auto"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"/>
-                </mvvm:PopupWindowAction.WindowContent>
-            </mvvm:PopupWindowAction>
-        </mvvm:InteractionRequestTrigger>
-
-        <mvvm:InteractionRequestTrigger SourceObject="{Binding SaveFileRequest, Mode=OneWay}">
-            <mvvm:PopupWindowAction IsModal="True" 
-                                    CenterOverAssociatedObject="True">
-                <mvvm:PopupWindowAction.WindowContent>
-                    <fileSaverView:FileSaver
                         MinWidth="300"
                         MinHeight="300"
                         Width="Auto"
