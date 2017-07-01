@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:MMXEngine.Windows.Editor.Views.LevelSelectorView"
              xmlns:mvvm="http://prismlibrary.com/"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
+             xmlns:fileDirectoryTreeSelectorView="clr-namespace:MMXEngine.Windows.Editor.Views.FileDirectoryTreeSelectorView"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              mvvm:ViewModelLocator.AutoWireViewModel="True">
@@ -63,5 +64,13 @@
             </Button>
 
         </StackPanel>
+
+
+        <fileDirectoryTreeSelectorView:FileDirectoryTreeSelector
+            Grid.Column="0"
+            Grid.Row="1"
+            DirectorySource="./Content/Data/Levels/"
+            Filter="*.json">
+        </fileDirectoryTreeSelectorView:FileDirectoryTreeSelector>
     </Grid>
 </UserControl>

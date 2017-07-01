@@ -2,13 +2,98 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MMXEngine.Windows.Editor.Views.ItemSelectorView"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mvvm="http://prismlibrary.com/"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             xmlns:fileDirectoryTreeSelectorView="clr-namespace:MMXEngine.Windows.Editor.Views.FileDirectoryTreeSelectorView"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:itemEditorView="clr-namespace:MMXEngine.Windows.Editor.Views.ItemEditorView"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              mvvm:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-            
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel
+            Grid.Column="0"
+            Grid.Row="0"
+            Background="LightGray"
+            Orientation="Horizontal">
+
+            <Button 
+                fa:Awesome.Content="File"
+                Width="32"
+                Height="32"
+                HorizontalAlignment="Left"
+                ToolTip="New"
+                Command="{Binding NewItemCommand}">
+            </Button>
+
+            <Button 
+                fa:Awesome.Content="Folder"
+                Width="32"
+                Height="32"
+                HorizontalAlignment="Left"
+                ToolTip="New Folder"
+                Command="{Binding NewFolderCommand}">
+            </Button>
+
+            <Separator Margin="3,3,3,3"></Separator>
+
+            <Button 
+                fa:Awesome.Content="Edit"
+                Width="32"
+                Height="32"
+                HorizontalAlignment="Left"
+                ToolTip="Open"
+                Command="{Binding EditItemCommand}">
+            </Button>
+            <Button 
+                fa:Awesome.Content="Trash"
+                Width="32"
+                Height="32"
+                HorizontalAlignment="Left"
+                ToolTip="Delete"
+                Command="{Binding DeleteItemCommand}">
+            </Button>
+
+        </StackPanel>
+
+
+        <fileDirectoryTreeSelectorView:FileDirectoryTreeSelector
+            Grid.Column="0"
+            Grid.Row="1"
+            DirectorySource="./Content/Data/Items/"
+            Filter="*.json">
+        </fileDirectoryTreeSelectorView:FileDirectoryTreeSelector>
+
     </Grid>
+
+    <i:Interaction.Triggers>
+
+        <mvvm:InteractionRequestTrigger SourceObject="{Binding ItemPropertiesRequest, Mode=OneWay}">
+            <mvvm:PopupWindowAction IsModal="True" 
+                                    CenterOverAssociatedObject="True">
+                <mvvm:PopupWindowAction.WindowContent>
+
+                    <itemEditorView:ItemEditor
+                        MinWidth="800"
+                        MinHeight="600"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
+
+                    </itemEditorView:ItemEditor>
+                </mvvm:PopupWindowAction.WindowContent>
+            </mvvm:PopupWindowAction>
+        </mvvm:InteractionRequestTrigger>
+    </i:Interaction.Triggers>
+
 </UserControl>

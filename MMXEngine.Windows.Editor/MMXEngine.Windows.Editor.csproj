@@ -226,10 +226,10 @@
       <DependentUpon>ToolBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ToolBarView\ToolBarViewModel.cs" />
-    <Compile Include="Views\TreeSelectorView\TreeSelector.xaml.cs">
-      <DependentUpon>TreeSelector.xaml</DependentUpon>
+    <Compile Include="Views\FileDirectoryTreeSelectorView\FileDirectoryTreeSelector.xaml.cs">
+      <DependentUpon>FileDirectoryTreeSelector.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TreeSelectorView\TreeSelectorViewModel.cs" />
+    <Compile Include="Views\FileDirectoryTreeSelectorView\FileDirectoryTreeSelectorViewModel.cs" />
     <Page Include="Views\AnimationEditorView\AnimationEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -303,7 +303,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TreeSelectorView\TreeSelector.xaml">
+    <Page Include="Views\FileDirectoryTreeSelectorView\FileDirectoryTreeSelector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
