@@ -24,7 +24,11 @@ namespace MMXEngine.Windows.Editor.Views.LevelPropertiesView
 
             Width = 100;
             Height = 100;
+
+            _eventAggregator.GetEvent<LevelOpenedEvent>().Subscribe(OnLevelOpened);
+            _eventAggregator.GetEvent<LevelClosedEvent>().Subscribe(OnLevelClosed);
         }
+
 
         private string _name;
 
@@ -72,6 +76,14 @@ namespace MMXEngine.Windows.Editor.Views.LevelPropertiesView
         {
             get => _scriptFileName;
             set => SetProperty(ref _scriptFileName, value);
+        }
+
+        private bool _isLevelOpened;
+
+        public bool IsLevelOpened
+        {
+            get => _isLevelOpened;
+            set => SetProperty(ref _isLevelOpened, value);
         }
 
         public DelegateCommand SelectTextureCommand { get; set; }
@@ -127,6 +139,29 @@ namespace MMXEngine.Windows.Editor.Views.LevelPropertiesView
                     if (data.WasActionCanceled) return;
                     ScriptFileName = data.UserSelectedNoneOption ? string.Empty : data.OpenedFile;
                 });
+        }
+
+
+        private void OnLevelOpened(LevelData levelData)
+        {
+            IsLevelOpened = true;
+            Name = levelData.Name;
+            Width = levelData.Width;
+            Height = levelData.Height;
+            TextureFileName = levelData.Spritesheet;
+            BGMFileName = levelData.BGMFile;
+            ScriptFileName = levelData.Script;
+        }
+
+        private void OnLevelClosed()
+        {
+            IsLevelOpened = false;
+            Name = string.Empty;
+            Width = 100;
+            Height = 100;
+            TextureFileName = string.Empty;
+            BGMFileName = string.Empty;
+            ScriptFileName = string.Empty;
         }
 
         public InteractionRequest<INotification> SelectFileRequest { get; }

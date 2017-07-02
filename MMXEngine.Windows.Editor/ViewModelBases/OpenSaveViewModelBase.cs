@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using System.IO.Abstractions;
 using System.Windows;
-using Microsoft.Xna.Framework.Content;
 using MMXEngine.Common.Observables;
 using MMXEngine.Contracts.Managers;
 using Prism.Mvvm;

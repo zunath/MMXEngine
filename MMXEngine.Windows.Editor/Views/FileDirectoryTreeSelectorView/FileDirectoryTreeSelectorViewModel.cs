@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Abstractions;
 using System.Linq;
+using System.Windows.Controls;
 using MMXEngine.Common.Observables;
 using MMXEngine.Windows.Editor.Events.Application;
+using MMXEngine.Windows.Editor.Events.Controls;
 using MMXEngine.Windows.Editor.Objects;
+using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
 
@@ -25,10 +28,12 @@ namespace MMXEngine.Windows.Editor.Views.FileDirectoryTreeSelectorView
             _eventAggregator = eventAggregator;
 
             Items = new ObservableCollectionEx<PathItem>();
+            
+            OnSelectedItemChangedCommand = new DelegateCommand<TreeView>(OnSelectedItemChanged);
+
             _eventAggregator.GetEvent<ApplicationWindowLoadedEvent>().Subscribe(OnApplicationWindowLoaded);
         }
-
-
+        
         private string _directorySource;
 
         public string DirectorySource
@@ -53,6 +58,21 @@ namespace MMXEngine.Windows.Editor.Views.FileDirectoryTreeSelectorView
             set => SetProperty(ref _items, value);
         }
 
+        private PathItem _selectedItem;
+
+        public PathItem SelectedItem
+        {
+            get => _selectedItem;
+            set => SetProperty(ref _selectedItem, value);
+        }
+
+        private string _consumerID;
+
+        public string ConsumerID
+        {
+            get => _consumerID;
+            set => SetProperty(ref _consumerID, value);
+        }
 
         private IEnumerable<PathItem> LoadFiles(string path)
         {
@@ -136,6 +156,14 @@ namespace MMXEngine.Windows.Editor.Views.FileDirectoryTreeSelectorView
             
         }
 
+
+        public DelegateCommand<TreeView> OnSelectedItemChangedCommand { get; set; }
+
+        private void OnSelectedItemChanged(TreeView treeView)
+        {
+            var payload = new Tuple<string, PathItem>(ConsumerID, (PathItem)treeView.SelectedItem);
+            _eventAggregator.GetEvent<FileDirectoryTreeViewSelectedItemEvent>().Publish(payload);
+        }
 
     }
 }

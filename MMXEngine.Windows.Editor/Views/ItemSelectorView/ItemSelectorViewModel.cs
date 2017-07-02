@@ -1,4 +1,7 @@
-﻿using Prism.Commands;
+﻿using MMXEngine.ECS.Data;
+using MMXEngine.Windows.Editor.Events.LevelEditor;
+using Prism.Commands;
+using Prism.Events;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;
 
@@ -6,16 +9,30 @@ namespace MMXEngine.Windows.Editor.Views.ItemSelectorView
 {
     public class ItemSelectorViewModel: BindableBase
     {
-        public ItemSelectorViewModel()
+        private readonly IEventAggregator _eventAggregator;
+
+        public ItemSelectorViewModel(IEventAggregator eventAggregator)
         {
+            _eventAggregator = eventAggregator;
+
             NewItemCommand = new DelegateCommand(NewItem);
             NewFolderCommand = new DelegateCommand(NewFolder);
             EditItemCommand = new DelegateCommand(EditItem);
             DeleteItemCommand = new DelegateCommand(DeleteItem);
 
             ItemPropertiesRequest = new InteractionRequest<INotification>();
+
+            _eventAggregator.GetEvent<LevelOpenedEvent>().Subscribe(OnLevelOpened);
+            _eventAggregator.GetEvent<LevelClosedEvent>().Subscribe(OnLevelClosed);
         }
 
+        private bool _isLevelLoaded;
+
+        public bool IsLevelLoaded
+        {
+            get => _isLevelLoaded;
+            set => SetProperty(ref _isLevelLoaded, value);
+        }
 
         public DelegateCommand NewItemCommand { get; set; }
 
@@ -52,5 +69,14 @@ namespace MMXEngine.Windows.Editor.Views.ItemSelectorView
         public InteractionRequest<INotification> ItemPropertiesRequest { get; }
 
 
+        private void OnLevelOpened(LevelData levelData)
+        {
+            IsLevelLoaded = true;
+        }
+
+        private void OnLevelClosed()
+        {
+            IsLevelLoaded = false;
+        }
     }
 }

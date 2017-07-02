@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Contracts.Entities;
 using MMXEngine.Contracts.Managers;
-using MMXEngine.ECS.Screens;
 using MMXEngine.Windows.Editor.Interop;
 
 namespace MMXEngine.Windows.Editor

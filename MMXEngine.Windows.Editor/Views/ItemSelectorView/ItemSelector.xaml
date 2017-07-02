@@ -8,10 +8,11 @@
              xmlns:fileDirectoryTreeSelectorView="clr-namespace:MMXEngine.Windows.Editor.Views.FileDirectoryTreeSelectorView"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:itemEditorView="clr-namespace:MMXEngine.Windows.Editor.Views.ItemEditorView"
+             xmlns:behaviors="clr-namespace:MMXEngine.Windows.Editor.Behaviors"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              mvvm:ViewModelLocator.AutoWireViewModel="True">
-    <Grid>
+    <Grid IsEnabled="{Binding IsLevelLoaded}">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -68,11 +69,14 @@
         </StackPanel>
 
 
+
         <fileDirectoryTreeSelectorView:FileDirectoryTreeSelector
             Grid.Column="0"
             Grid.Row="1"
             DirectorySource="./Content/Data/Items/"
-            Filter="*.json">
+            Filter="*.json"
+            ConsumerID="4174c006-0917-49bf-ba56-87119c02a123"
+            SelectedItem="{Binding SelectedItem}">
         </fileDirectoryTreeSelectorView:FileDirectoryTreeSelector>
 
     </Grid>

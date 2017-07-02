@@ -100,6 +100,7 @@
     <Compile Include="Data\TileData.cs" />
     <Compile Include="Entities\Background.cs" />
     <Compile Include="Entities\DebugWindow.cs" />
+    <Compile Include="Entities\EditorLevel.cs" />
     <Compile Include="Entities\Enemy.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Level.cs" />

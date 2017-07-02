@@ -5,13 +5,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mvvm="http://prismlibrary.com/"
              xmlns:objects="clr-namespace:MMXEngine.Windows.Editor.Objects"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:behaviors="clr-namespace:MMXEngine.Windows.Editor.Behaviors"
+             xmlns:binding="clr-namespace:MMXEngine.Windows.Editor.Binding"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              mvvm:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
 
         <TreeView
-            ItemsSource="{Binding Items}">
+            ItemsSource="{Binding Items}"
+            x:Name="TreeView">
+
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectedItemChanged">
+                    <mvvm:InvokeCommandAction 
+                        Command="{Binding OnSelectedItemChangedCommand}"
+                        CommandParameter="{Binding ElementName=TreeView}">
+                    </mvvm:InvokeCommandAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
 
             <TreeView.Resources>
                 <HierarchicalDataTemplate

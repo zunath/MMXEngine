@@ -1,6 +1,7 @@
-﻿using MMXEngine.Common.Observables;
-using MMXEngine.Windows.Editor.Objects;
+﻿using MMXEngine.ECS.Data;
+using MMXEngine.Windows.Editor.Events.LevelEditor;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;
 
@@ -8,8 +9,11 @@ namespace MMXEngine.Windows.Editor.Views.EnemySelectorView
 {
     public class EnemySelectorViewModel: BindableBase
     {
-        public EnemySelectorViewModel()
-        { 
+        private readonly IEventAggregator _eventAggregator;
+
+        public EnemySelectorViewModel(IEventAggregator eventAggregator)
+        {
+            _eventAggregator = eventAggregator;
 
             NewEnemyCommand = new DelegateCommand(NewEnemy);
             NewFolderCommand = new DelegateCommand(NewFolder);
@@ -17,8 +21,19 @@ namespace MMXEngine.Windows.Editor.Views.EnemySelectorView
             DeleteEnemyCommand = new DelegateCommand(DeleteEnemy);
 
             EnemyPropertiesRequest = new InteractionRequest<INotification>();
+
+            _eventAggregator.GetEvent<LevelOpenedEvent>().Subscribe(OnLevelOpened);
+            _eventAggregator.GetEvent<LevelClosedEvent>().Subscribe(OnLevelClosed);
         }
-        
+
+        private bool _isLevelLoaded;
+
+        public bool IsLevelLoaded
+        {
+            get => _isLevelLoaded;
+            set => SetProperty(ref _isLevelLoaded, value);
+        }
+
         public DelegateCommand NewEnemyCommand { get; set; }
 
         private void NewEnemy()
@@ -54,6 +69,16 @@ namespace MMXEngine.Windows.Editor.Views.EnemySelectorView
         public InteractionRequest<INotification> EnemyPropertiesRequest { get; }
 
 
+
+        private void OnLevelOpened(LevelData levelData)
+        {
+            IsLevelLoaded = true;
+        }
+
+        private void OnLevelClosed()
+        {
+            IsLevelLoaded = false;
+        }
 
     }
 }

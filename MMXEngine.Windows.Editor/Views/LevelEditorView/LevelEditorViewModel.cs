@@ -1,7 +1,5 @@
-﻿using System;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using MMXEngine.ECS.Data;
-using MMXEngine.ECS.Screens;
 using MMXEngine.Windows.Editor.Events.LevelEditor;
 using MMXEngine.Windows.Editor.Screens;
 using Prism.Events;
@@ -74,6 +72,9 @@ namespace MMXEngine.Windows.Editor.Views.LevelEditorView
         {
             LevelWidth = levelData.Width;
             LevelHeight = levelData.Height;
+
+            ScrollHorizontal = 1;
+            ScrollVertical = 1;
         }
     }
 }

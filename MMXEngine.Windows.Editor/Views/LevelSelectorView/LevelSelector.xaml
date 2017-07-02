@@ -70,7 +70,9 @@
             Grid.Column="0"
             Grid.Row="1"
             DirectorySource="./Content/Data/Levels/"
-            Filter="*.json">
+            Filter="*.json"
+            ConsumerID="e43eb036-a702-4c41-b230-a6f0e7842391"
+            SelectedItem="{Binding SelectedItem}">
         </fileDirectoryTreeSelectorView:FileDirectoryTreeSelector>
     </Grid>
 </UserControl>

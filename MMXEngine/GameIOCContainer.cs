@@ -11,7 +11,6 @@ using MMXEngine.ScriptEngine;
 using MMXEngine.ScriptEngine.Methods;
 using MMXEngine.Systems.Update;
 using MMXEngine.Windows.Game.Managers;
-using MMXEngine.Windows.Shared;
 using MMXEngine.Windows.Shared.Factories;
 using MMXEngine.Windows.Shared.Helpers;
 using MMXEngine.Windows.Shared.Managers;

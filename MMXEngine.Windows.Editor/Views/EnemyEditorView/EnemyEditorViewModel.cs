@@ -1,5 +1,4 @@
 ﻿using MMXEngine.Contracts.Managers;
-using MMXEngine.ECS.Data;
 using MMXEngine.Windows.Editor.Objects;
 using Prism.Commands;
 using Prism.Interactivity.InteractionRequest;

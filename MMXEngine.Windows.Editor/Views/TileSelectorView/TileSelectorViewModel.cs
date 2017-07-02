@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.IO;
 using System.IO.Abstractions;
 using System.Windows;
@@ -7,7 +6,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Resources;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Contracts.Managers;
-using MMXEngine.Windows.Editor.Events.Application;
+using MMXEngine.ECS.Data;
 using MMXEngine.Windows.Editor.Events.LevelEditor;
 using MMXEngine.Windows.Editor.Helpers;
 using Prism.Events;
@@ -32,8 +31,11 @@ namespace MMXEngine.Windows.Editor.Views.TileSelectorView
             LoadNoTextureImage();
 
             _eventAggregator.GetEvent<LevelTextureChangedEvent>().Subscribe(OnLevelTextureChanged);
+            _eventAggregator.GetEvent<LevelOpenedEvent>().Subscribe(OnLevelOpened);
+            _eventAggregator.GetEvent<LevelClosedEvent>().Subscribe(OnLevelClosed);
         }
-        
+
+
         private BitmapImage _texture;
 
         public BitmapImage Texture
@@ -44,12 +46,7 @@ namespace MMXEngine.Windows.Editor.Views.TileSelectorView
         
         private void OnLevelTextureChanged(string textureFile)
         {
-            string path = "Graphics\\Tilesets\\" + _fileSystem.Path.ChangeExtension(textureFile, null);
-            Texture2D texture = _content.Load<Texture2D>(path);
-            MemoryStream stream = new MemoryStream();
-            texture.SaveAsPng(stream, texture.Width, texture.Height);
-
-            Texture = BitmapImageHelpers.LoadFromStream(stream);
+            LoadTexture(textureFile);
         }
 
         private void LoadNoTextureImage()
@@ -61,7 +58,27 @@ namespace MMXEngine.Windows.Editor.Views.TileSelectorView
 
             Texture = BitmapImageHelpers.LoadFromStream(resourceInfo.Stream);
         }
-        
+
+        private void LoadTexture(string textureFile)
+        {
+            string path = "Graphics\\Tilesets\\" + _fileSystem.Path.ChangeExtension(textureFile, null);
+            Texture2D texture = _content.Load<Texture2D>(path);
+            MemoryStream stream = new MemoryStream();
+            texture.SaveAsPng(stream, texture.Width, texture.Height);
+
+            Texture = BitmapImageHelpers.LoadFromStream(stream);
+        }
+
+        private void OnLevelOpened(LevelData levelData)
+        {
+            LoadTexture(levelData.Spritesheet);
+        }
+
+        private void OnLevelClosed()
+        {
+            LoadNoTextureImage();
+        }
+
 
     }
 }

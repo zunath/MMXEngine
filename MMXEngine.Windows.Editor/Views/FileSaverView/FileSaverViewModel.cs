@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO.Abstractions;
-using Microsoft.Xna.Framework.Content;
 using MMXEngine.Contracts.Managers;
 using MMXEngine.Windows.Editor.Objects;
 using MMXEngine.Windows.Editor.ViewModelBases;

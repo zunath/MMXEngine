@@ -1,5 +1,4 @@
 ﻿using Artemis;
-using Microsoft.Xna.Framework.Content;
 using MMXEngine.Contracts.Entities;
 using MMXEngine.Contracts.Factories;
 using MMXEngine.Contracts.Managers;

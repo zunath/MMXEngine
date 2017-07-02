@@ -13,7 +13,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              mvvm:ViewModelLocator.AutoWireViewModel="True">
-    <Grid>
+    <Grid IsEnabled="{Binding IsLevelLoaded}">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -74,7 +74,8 @@
             Grid.Column="0"
             Grid.Row="1"
             DirectorySource="./Content/Data/Enemies/"
-            Filter="*.json">
+            Filter="*.json"
+            ConsumerID="7ee67c1c-2ff5-44b8-a68a-4a0eec4c3ad5">
         </fileDirectoryTreeSelectorView:FileDirectoryTreeSelector>
         
     </Grid>

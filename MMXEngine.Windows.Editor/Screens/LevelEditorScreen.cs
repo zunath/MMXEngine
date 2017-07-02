@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Artemis;
 using MMXEngine.Contracts.Entities;
 using MMXEngine.Contracts.Factories;
 using MMXEngine.Contracts.Managers;
-using MMXEngine.Contracts.Systems;
 using MMXEngine.ECS.Data;
+using MMXEngine.ECS.Entities;
 using MMXEngine.Windows.Editor.Events.LevelEditor;
 using Prism.Events;
 
@@ -14,6 +14,8 @@ namespace MMXEngine.Windows.Editor.Screens
         private readonly IEntityFactory _entityFactory;
         private readonly ICameraManager _camera;
         private readonly IEventAggregator _eventAggregator;
+
+        private Entity _activeLevel;
 
         public LevelEditorScreen(IEntityFactory entityFactory,
             ICameraManager camera,
@@ -54,7 +56,21 @@ namespace MMXEngine.Windows.Editor.Screens
 
         private void OnLevelOpened(LevelData levelData)
         {
+            CloseLevel();
 
+            _activeLevel = _entityFactory.Create<EditorLevel>(
+                levelData.Width,
+                levelData.Height,
+                levelData.Name,
+                levelData.Spritesheet,
+                levelData.Tiles);
+        }
+
+        private void CloseLevel()
+        {
+            if (_activeLevel == null) return;
+            _activeLevel.Delete();
+            _eventAggregator.GetEvent<LevelClosedEvent>().Publish();
         }
     }
 }
