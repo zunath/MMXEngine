@@ -7,14 +7,8 @@ namespace MMXEngine.Windows.Shared.Managers
 {
     public class ContentManagerWrapper: IContentManager
     {
-        private readonly GraphicsDevice _graphics;
         private ContentManager _content;
-
-        public ContentManagerWrapper(GraphicsDevice graphics)
-        {
-            _graphics = graphics;
-        }
-
+        
         public string RootDirectory
         {
             get => _content.RootDirectory;
