@@ -91,6 +91,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="AssemblyTestSetup.cs" />
     <Compile Include="Extensions\EntityWorldExtensionsTests.cs" />
     <Compile Include="Extensions\RectangleExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -189,5 +189,15 @@ namespace MMXEngine.Windows.Game.Tests.Managers
                 _data.Load<string>("noFileExists.dat");
             });
         }
+
+        [Test]
+        public void DataManager_SaveFile_ShouldCreateDirectory()
+        {
+            _data.Save("DirectoryDoesntExist\\testData.dat", "some test data", true);
+
+            bool directoryExists = _fileSystem.Directory.Exists(".\\Content\\Data\\DirectoryDoesntExist");
+
+            Assert.IsTrue(directoryExists);
+        }
     }
 }

@@ -98,6 +98,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="AssemblyTestSetup.cs" />
     <Compile Include="Methods\AudioMethodsTests.cs" />
     <Compile Include="Methods\EntityMethodsTests.cs" />
     <Compile Include="Methods\LevelMethodsTests.cs" />

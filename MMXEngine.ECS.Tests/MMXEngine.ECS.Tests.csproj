@@ -91,6 +91,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="AssemblyTestSetup.cs" />
     <Compile Include="Components\AnimationTests.cs" />
     <Compile Include="Components\SpriteTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

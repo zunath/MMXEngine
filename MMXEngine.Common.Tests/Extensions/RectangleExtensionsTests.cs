@@ -68,5 +68,17 @@ namespace MMXEngine.Common.Tests.Extensions
 
             Assert.AreEqual(CollisionType.None, type);
         }
+
+		[Test]
+	    public void GetCollisionType_NoIntersection_ExactlyTheSame()
+	    {
+		    Rectangle rect1 = new Rectangle(0, 0, 32, 32);
+			Rectangle rect2 = new Rectangle(0, 0, 32, 32);
+
+		    CollisionType type = rect1.GetCollisionType(rect2);
+
+			Assert.AreEqual(CollisionType.None, type);
+	    }
+
     }
 }

@@ -13,7 +13,6 @@ using MMXEngine.ScriptEngine.Methods;
 using MMXEngine.Systems.Update;
 using MMXEngine.Windows.Editor.Contracts;
 using MMXEngine.Windows.Editor.Managers;
-using MMXEngine.Windows.Game.Managers;
 using MMXEngine.Windows.Shared.Factories;
 using MMXEngine.Windows.Shared.Helpers;
 using MMXEngine.Windows.Shared.Managers;
