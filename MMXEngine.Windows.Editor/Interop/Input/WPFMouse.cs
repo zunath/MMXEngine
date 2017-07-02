@@ -30,10 +30,7 @@ namespace MMXEngine.Windows.Editor.Interop.Input
 		/// <param name="focusElement">The element that will be used as the focus point. Provide your implementation of <see cref="WpfGame"/> here.</param>
 		public WpfMouse(WpfGame focusElement)
 		{
-			if (focusElement == null)
-				throw new ArgumentNullException(nameof(focusElement));
-
-			_focusElement = focusElement;
+		    _focusElement = focusElement ?? throw new ArgumentNullException(nameof(focusElement));
 			_focusElement.MouseWheel += HandleMouse;
 			// movement
 			_focusElement.MouseMove += HandleMouse;

@@ -61,43 +61,7 @@ namespace MMXEngine.Windows.Game.Managers
                 throw new Exception("SetConfiguration - Configuration is already set!");
             }
         }
-
-        public bool IsLeftMouseDown()
-        {
-            throw new NotSupportedException();
-        }
-
-        public bool IsLeftMouseUp()
-        {
-            throw new NotSupportedException();
-        }
-
-        public bool IsRightMouseDown()
-        {
-            throw new NotSupportedException();
-        }
-
-        public bool IsRightMouseUp()
-        {
-            throw new NotSupportedException();
-        }
-
-        public bool IsLeftMousePressed()
-        {
-            throw new NotSupportedException();
-        }
-
-        public bool IsRightMousePressed()
-        {
-            throw new NotSupportedException();
-        }
-
-        public Vector2 GetMousePosition()
-        {
-            throw new NotSupportedException();
-        }
-
-
+		
         private Keys ButtonToKey(GameButton button)
         {
             switch (button)

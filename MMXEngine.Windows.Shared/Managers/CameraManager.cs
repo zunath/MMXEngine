@@ -74,6 +74,15 @@ namespace MMXEngine.Windows.Shared.Managers
         {
             _camera.LookAt(new Vector2(x, y));
         }
-        
+
+        public void Move(float directionX, float directionY)
+        {
+            _camera.Move(new Vector2(directionX, directionY));
+        }
+
+        public void Move(Vector2 direction)
+        {
+            _camera.Move(direction);
+        }
     }
 }

@@ -136,6 +136,7 @@
     <Compile Include="Behaviors\AvalonEditBehavior.cs" />
     <Compile Include="Behaviors\BindableSelectedItemBehavior.cs" />
     <Compile Include="Binding\BindingProxy.cs" />
+    <Compile Include="Contracts\IEditorInputManager.cs" />
     <Compile Include="EditorIOCContainer.cs" />
     <Compile Include="EditorSystemLoader.cs" />
     <Compile Include="Events\Application\ApplicationClosedEvent.cs" />
@@ -145,6 +146,8 @@
     <Compile Include="Events\Controls\FileDirectoryTreeViewSelectedItemEvent.cs" />
     <Compile Include="Events\LevelEditor\LevelClosedEvent.cs" />
     <Compile Include="Events\LevelEditor\LevelOpenedEvent.cs" />
+    <Compile Include="Events\LevelEditor\LevelScrollHorizontalEvent.cs" />
+    <Compile Include="Events\LevelEditor\LevelScrollVerticalEvent.cs" />
     <Compile Include="Events\LevelEditor\LevelTextureChangedEvent.cs" />
     <Compile Include="Helpers\BitmapImageHelpers.cs" />
     <Compile Include="Interop\D3D11Host.cs" />
@@ -368,10 +371,6 @@
     <ProjectReference Include="..\MMXEngine.Windows.Shared\MMXEngine.Windows.Shared.csproj">
       <Project>{17edc701-140b-4cdf-a2f9-d2690c7d00f4}</Project>
       <Name>MMXEngine.Windows.Shared</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MMXEngine\MMXEngine.Windows.Game.csproj">
-      <Project>{A6FD1815-559F-4814-AFDF-D6AB9ECE5EA4}</Project>
-      <Name>MMXEngine.Windows.Game</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

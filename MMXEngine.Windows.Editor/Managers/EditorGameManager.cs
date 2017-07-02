@@ -7,6 +7,7 @@ using MMXEngine.Contracts.Entities;
 using MMXEngine.Contracts.Factories;
 using MMXEngine.Contracts.Managers;
 using MMXEngine.Contracts.Systems;
+using MMXEngine.Windows.Editor.Contracts;
 
 namespace MMXEngine.Windows.Editor.Managers
 {
@@ -18,7 +19,7 @@ namespace MMXEngine.Windows.Editor.Managers
         private readonly ISystemLoader _systemLoader;
         private readonly IScreenManager _screenManager;
         private readonly IScreenFactory _screenFactory;
-        private readonly IInputManager _inputManager;
+        private readonly IEditorInputManager _inputManager;
         private readonly ICameraManager _cameraManager;
         private readonly IScriptManager _scriptManager;
         private readonly IContentManager _contentManager;
@@ -30,7 +31,7 @@ namespace MMXEngine.Windows.Editor.Managers
             ISystemLoader systemLoader,
             IScreenManager screenManager,
             IScreenFactory screenFactory,
-            IInputManager inputManager,
+            IEditorInputManager inputManager,
             ICameraManager cameraManager,
             IScriptManager scriptManager,
             IContentManager contentManager

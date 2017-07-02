@@ -22,7 +22,7 @@ namespace MMXEngine.Windows.Editor.Views.AnimationEditorView
         {
             _fileSystem = fileSystem;
             _game = game;
-            _game.SetInitialScreen<AnimationEditorScreen>();
+            //_game.SetInitialScreen<AnimationEditorScreen>();
 
             SelectSpriteSheetCommand = new DelegateCommand(SelectSpriteSheet);
 

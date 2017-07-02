@@ -22,5 +22,8 @@ namespace MMXEngine.Contracts.Managers
 
         void Focus(Vector2 position);
         void Focus(float x, float y);
+
+        void Move(float directionX, float directionY);
+        void Move(Vector2 direction);
     }
 }

@@ -1,52 +1,51 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using MMXEngine.Common.Enumerations;
-using MMXEngine.Contracts.Components;
-using MMXEngine.Contracts.Managers;
+using MMXEngine.Windows.Editor.Contracts;
 using MMXEngine.Windows.Editor.Interop.Input;
 
 namespace MMXEngine.Windows.Editor.Managers
 {
-    public class EditorInputManager: IInputManager
+	public class EditorInputManager: IEditorInputManager
     {
-        private readonly WpfMouse _mouse;
-        private readonly WpfKeyboard _keyboard;
+        private WpfMouse _mouse;
+        private WpfKeyboard _keyboard;
 
         private MouseState _lastMouseState;
         private MouseState _currentMouseState;
 
         private KeyboardState _lastFrameKBState;
         private KeyboardState _currentKBState;
+		
+	    public void Register(EditorGame game)
+		{
+			_mouse = new WpfMouse(game);
+			_keyboard = new WpfKeyboard(game);
+		}
 
-        public EditorInputManager(EditorGame game)
+	    public bool IsPressed(Keys key)
         {
-            _mouse = new WpfMouse(game);
-            _keyboard = new WpfKeyboard(game);
+	        return _currentKBState.IsKeyDown(key) &&
+	               _lastFrameKBState.IsKeyDown(key);
         }
 
-        public bool IsPressed(GameButton button)
+        public bool IsDown(Keys key)
         {
-            return false;
+	        return _currentKBState.IsKeyDown(key);
         }
 
-        public bool IsDown(GameButton button)
+        public bool IsUp(Keys key)
         {
-            return false;
+	        return _currentKBState.IsKeyUp(key);
         }
 
-        public bool IsUp(GameButton button)
+        public bool WasDownLastFrame(Keys key)
         {
-            return false;
+	        return _lastFrameKBState.IsKeyDown(key);
         }
 
-        public bool WasDownLastFrame(GameButton button)
+        public bool WasUpLastFrame(Keys key)
         {
-            return false;
-        }
-
-        public bool WasUpLastFrame(GameButton button)
-        {
-            return false;
+	        return _lastFrameKBState.IsKeyUp(key);
         }
 
         public void Update()
@@ -57,12 +56,7 @@ namespace MMXEngine.Windows.Editor.Managers
             _currentKBState = _keyboard.GetState();
             _currentMouseState = _mouse.GetState();
         }
-
-        public void SetConfiguration(IButtonConfiguration configuration)
-        {
-
-        }
-
+		
         public bool IsLeftMouseDown()
         {
             return _currentMouseState.LeftButton == ButtonState.Pressed;
@@ -99,5 +93,8 @@ namespace MMXEngine.Windows.Editor.Managers
         {
             return _currentMouseState.Position.ToVector2();
         }
+
+
+
     }
 }

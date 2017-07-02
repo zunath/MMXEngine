@@ -71,6 +71,7 @@
     <Compile Include="Factories\ScreenFactory.cs" />
     <Compile Include="Helpers\IOCContainerHelper.cs" />
     <Compile Include="Managers\CameraManager.cs" />
+    <Compile Include="Managers\ContentManagerWrapper.cs" />
     <Compile Include="Managers\DataManager.cs" />
     <Compile Include="Managers\GraphicsManager.cs" />
     <Compile Include="Managers\ScreenManager.cs" />

@@ -1,7 +1,9 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows.Controls;
 using MMXEngine.ECS.Data;
 using MMXEngine.Windows.Editor.Events.LevelEditor;
 using MMXEngine.Windows.Editor.Screens;
+using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
 
@@ -20,11 +22,13 @@ namespace MMXEngine.Windows.Editor.Views.LevelEditorView
 
             _eventAggregator = eventAggregator;
 
+			OnHorizontalScrollCommand = new DelegateCommand(OnHorizontalScroll);
+			OnVerticalScrollCommand = new DelegateCommand(OnVerticalScroll);
+
             _eventAggregator.GetEvent<LevelOpenedEvent>().Subscribe(OnLevelLoaded);
         }
-
-
-        private Grid _gameGrid;
+		
+	    private Grid _gameGrid;
 
         public Grid GameGrid
         {
@@ -70,11 +74,25 @@ namespace MMXEngine.Windows.Editor.Views.LevelEditorView
 
         private void OnLevelLoaded(LevelData levelData)
         {
-            LevelWidth = levelData.Width;
-            LevelHeight = levelData.Height;
+            LevelWidth = levelData.Width-1;
+            LevelHeight = levelData.Height-1;
 
             ScrollHorizontal = 1;
             ScrollVertical = 1;
         }
+
+		public DelegateCommand OnHorizontalScrollCommand { get; set; }
+
+	    private void OnHorizontalScroll()
+	    {
+		    _eventAggregator.GetEvent<LevelScrollHorizontalEvent>().Publish(ScrollHorizontal);
+	    }
+
+		public DelegateCommand OnVerticalScrollCommand { get; set; }
+
+	    private void OnVerticalScroll()
+	    {
+		    _eventAggregator.GetEvent<LevelScrollVerticalEvent>().Publish(ScrollVertical);
+	    }
     }
 }

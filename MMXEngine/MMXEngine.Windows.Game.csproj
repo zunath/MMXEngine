@@ -75,7 +75,6 @@
     <Compile Include="GameIOCContainer.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameLevelLoader.cs" />
-    <Compile Include="Managers\ContentManagerWrapper.cs" />
     <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Managers\InputManager.cs" />
     <Compile Include="GameSystemLoader.cs" />

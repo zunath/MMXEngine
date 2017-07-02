@@ -6,10 +6,13 @@
              xmlns:local="clr-namespace:MMXEngine.Windows.Editor.Views.LevelEditorView"
              xmlns:mvvm="http://prismlibrary.com/"
              xmlns:toolBarView="clr-namespace:MMXEngine.Windows.Editor.Views.ToolBarView"
+             xmlns:editor="clr-namespace:MMXEngine.Windows.Editor"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              mvvm:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="32"></RowDefinition>
@@ -18,22 +21,28 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="32"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
         <Grid
             x:Name="GameGrid"
             Grid.Row="0"
             Grid.Column="0">
-
         </Grid>
-        
+
         <ScrollBar
+            Width="30"
             Grid.Column="1"
             Grid.Row="0"
-            Width="30"
             Value="{Binding ScrollVertical}"
             Maximum="{Binding LevelHeight}"
             Minimum="1">
-            
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="ValueChanged">
+                    <mvvm:InvokeCommandAction 
+                        Command="{Binding OnVerticalScrollCommand}">
+                    </mvvm:InvokeCommandAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
         </ScrollBar>
 
         <ScrollBar
@@ -44,7 +53,15 @@
             Value="{Binding ScrollHorizontal}"
             Maximum="{Binding LevelWidth}"
             Minimum="1">
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="ValueChanged">
+                    <mvvm:InvokeCommandAction 
+                        Command="{Binding OnHorizontalScrollCommand}">
+                    </mvvm:InvokeCommandAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
         </ScrollBar>
-        
     </Grid>
 </UserControl>

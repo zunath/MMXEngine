@@ -11,6 +11,7 @@ using MMXEngine.ECS.Entities;
 using MMXEngine.ScriptEngine;
 using MMXEngine.ScriptEngine.Methods;
 using MMXEngine.Systems.Update;
+using MMXEngine.Windows.Editor.Contracts;
 using MMXEngine.Windows.Editor.Managers;
 using MMXEngine.Windows.Game.Managers;
 using MMXEngine.Windows.Shared.Factories;
@@ -34,7 +35,7 @@ namespace MMXEngine.Windows.Editor
             builder.RegisterType<EditorGameManager>().As<IGameManager>().SingleInstance();
             builder.RegisterType<ScreenManager>().As<IScreenManager>().SingleInstance();
             builder.RegisterType<DataManager>().As<IDataManager>().SingleInstance();
-            builder.RegisterType<EditorInputManager>().As<IInputManager>().SingleInstance();
+            builder.RegisterType<EditorInputManager>().As<IEditorInputManager>().SingleInstance();
             builder.RegisterType<CameraManager>().As<ICameraManager>().SingleInstance();
             builder.RegisterType<ScriptManager>().As<IScriptManager>().SingleInstance();
             builder.RegisterType<ContentManagerWrapper>().As<IContentManager>().SingleInstance();
@@ -87,11 +88,12 @@ namespace MMXEngine.Windows.Editor
             builder.RegisterInstance(device).AsSelf();
             builder.RegisterInstance(new SpriteBatch(device)).AsSelf();
             builder.RegisterInstance(new Camera2D(device)).AsSelf();
-            
 
-            builder.RegisterType<EditorGame>()
-                .WithParameter("graphics", device);
-            builder.RegisterType<Texture2D>();
+			//var game = new EditorGame(device);
+			//builder.RegisterInstance(game);
+			builder.RegisterType<EditorGame>()
+				.WithParameter("graphics", device);
+			builder.RegisterType<Texture2D>();
         }
     }
 }
