@@ -165,7 +165,7 @@ namespace MMXEngine.ScriptEngine.Methods
             {
                 return entity.HasComponent<Gravity>() ?
                     entity.GetComponent<Gravity>().Speed :
-                    0.0f;
+                    -1.0f;
             }
             catch (Exception)
             {

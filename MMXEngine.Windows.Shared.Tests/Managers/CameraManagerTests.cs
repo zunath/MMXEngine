@@ -172,5 +172,37 @@ namespace MMXEngine.Windows.Shared.Tests.Managers
             Assert.AreEqual(426.666, _camera.TopLeft.X, 0.001f);
             Assert.AreEqual(240, _camera.TopLeft.Y, 0.001f);
         }
+
+        [Test]
+        public void CameraManager_TopRight_ShouldEqual()
+        {
+            var x = _camera.TopRight.X;
+            var y = _camera.TopRight.Y;
+
+            Assert.AreEqual(711.111f, x, 0.001f);
+            Assert.AreEqual(240, y);
+        }
+
+        [Test]
+        public void CameraManager_BottomLeft_ShouldEqual()
+        {
+            var x = _camera.BottomLeft.X;
+            var y = _camera.BottomLeft.Y;
+
+            Assert.AreEqual(426.666, x, 0.001f);
+            Assert.AreEqual(400, y);
+        }
+
+        [Test]
+        public void CameraManager_BottomRight_ShouldEqual()
+        {
+            var x = _camera.BottomRight.X;
+            var y = _camera.BottomRight.Y;
+
+            Assert.AreEqual(711.111f, x, 0.001f);
+            Assert.AreEqual(400, y);
+        }
+        
+
     }
 }

@@ -36,6 +36,11 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
                 Facing = Direction.Up
             };
             entity.AddComponent(positionComponent);
+            Gravity gravity = new Gravity
+            {
+                Speed = 5.0f
+            };
+            entity.AddComponent(gravity);
 
             return entity;
         }
@@ -200,6 +205,49 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
             Entity entity = BuildInvalidEntity();
             bool isOnGround = _physicsMethods.GetIsOnGround(entity);
             Assert.AreEqual(isOnGround, false);
+        }
+
+        [Test]
+        public void GetGravity_NoComponent_ShouldBeNegative1()
+        {
+            Entity entity = BuildInvalidEntity();
+            var gravity = _physicsMethods.GetGravity(entity);
+            Assert.AreEqual(-1, gravity);
+        }
+
+        [Test]
+        public void GetGravity_HasComponent_ShouldBe5()
+        {
+            Entity entity = BuildValidEntity();
+            var gravity = _physicsMethods.GetGravity(entity);
+            Assert.AreEqual(5, gravity);
+        }
+
+        [Test]
+        public void GetGravity_NullEntity_ShouldReturnNegative1()
+        {
+            var gravity = _physicsMethods.GetGravity(null);
+            Assert.AreEqual(-1, gravity);
+        }
+
+        [Test]
+        public void SetGravity_NoComponent_ShouldNotThrow()
+        {
+            Entity entity = BuildInvalidEntity();
+
+            Assert.DoesNotThrow(() =>
+            {
+                _physicsMethods.SetGravity(entity, 10.0f);
+            });
+        }
+
+        [Test]
+        public void SetGravity_HasComponent_ShouldBe10()
+        {
+            Entity entity = BuildValidEntity();
+            _physicsMethods.SetGravity(entity, 10.0f);
+            var gravity = _physicsMethods.GetGravity(entity);
+            Assert.AreEqual(10.0f, gravity);
         }
 
     }

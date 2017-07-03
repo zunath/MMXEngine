@@ -1,11 +1,15 @@
 ﻿using System;
 using Artemis;
+using Artemis.Blackboard;
 using Artemis.System;
+using Autofac;
 using MMXEngine.Common.Enumerations;
 using MMXEngine.Contracts.Factories;
 using MMXEngine.ECS.Components;
+using MMXEngine.ECS.Entities;
 using MMXEngine.ScriptEngine.Methods;
 using MMXEngine.Testing.Shared;
+using MMXEngine.Windows.Shared.Factories;
 using Moq;
 using NUnit.Framework;
 
@@ -16,12 +20,27 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
     {
         private EntityWorld _world;
         private EntityMethods _methods;
+        private Entity _mockEnemyWithPosition;
+        private Entity _mockEnemyWithoutPosition;
+        private Entity _mockItem;
 
         [SetUp]
         public void SetUp()
         {
             _world = TestHelpers.CreateEntityWorld();
+            _mockEnemyWithPosition = _world.CreateEntity();
+            _mockEnemyWithPosition.AddComponent(new Position());
+            _mockEnemyWithoutPosition = _world.CreateEntity();
+            _mockItem = _world.CreateEntity();
+            
             Mock<IEntityFactory> mockFactory = new Mock<IEntityFactory>();
+            mockFactory.Setup(x => x.Create<Enemy>("testName", It.IsAny<int>(), It.IsAny<int>()))
+                .Returns(_mockEnemyWithPosition);
+            mockFactory.Setup(x => x.Create<Enemy>("testWithoutPosition", It.IsAny<int>(), It.IsAny<int>()))
+                .Returns(_mockEnemyWithoutPosition);
+            mockFactory.Setup(x => x.Create<Item>("testName", It.IsAny<int>(), It.IsAny<int>()))
+                .Returns(_mockItem);
+
             _methods = new EntityMethods(mockFactory.Object);
         }
         
@@ -266,6 +285,73 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
             {
                 _methods.CreateEnemy("testName", 0, 0, Direction.Right);
             });
+        }
+
+        [Test]
+        public void CreateEnemy_ShouldReturnEnemy()
+        {
+            Entity entity = _methods.CreateEnemy("testName", 0, 0, Direction.Right);
+            Assert.IsNotNull(entity);
+        }
+
+        [Test]
+        public void CreateEnemy_NoPositionComponent_ShouldReturnNull()
+        {
+            Entity entity = _methods.CreateEnemy("testWithoutPosition", 0, 0, Direction.Right);
+            Assert.IsNull(entity);
+        }
+
+        [Test]
+        public void CreateItem_ShouldNotThrow()
+        {
+            Assert.DoesNotThrow(() =>
+            {
+                _methods.CreateItem("testName", 0, 0);
+            });
+        }
+
+        [Test]
+        public void CreateItem_ShouldReturnItem()
+        {
+            Entity entity = _methods.CreateItem("testName", 0, 0);
+            Assert.IsNotNull(entity);
+        }
+
+        [Test]
+        public void CreateItem_ThrowException_ShouldReturnNull()
+        {
+            var mockContext = new Mock<IComponentContext>();
+            var methods = new EntityMethods(new EntityFactory(_world, mockContext.Object));
+
+            Entity entity = methods.CreateItem("itemNotRegistered", 0, 0);
+            Assert.IsNull(entity);
+        }
+
+        [Test]
+        public void DestroyObject_Player_ShouldNotDestroy()
+        {
+            var originalPlayer = EntitySystem.BlackBoard.GetEntry("Player");
+
+            Entity entity = _world.CreateEntity();
+            EntitySystem.BlackBoard.SetEntry("Player", entity);
+            _methods.DestroyObject(entity);
+
+            Entity player = (Entity)EntitySystem.BlackBoard.GetEntry("Player");
+
+            Assert.IsNotNull(player);
+            Assert.IsTrue(player.IsActive);
+
+            EntitySystem.BlackBoard.SetEntry("Player", originalPlayer);
+        }
+
+        [Test]
+        public void DestroyObject_ShouldDestroy()
+        {
+            Entity entity = _world.CreateEntity();
+
+            Assert.IsFalse(entity.DeletingState);
+            _methods.DestroyObject(entity);
+            Assert.IsTrue(entity.DeletingState);
         }
     }
 }

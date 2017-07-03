@@ -68,5 +68,6 @@ namespace MMXEngine.ScriptEngine.Tests.Methods
             int height = _levelMethods.GetMapHeight(entity);
             Assert.AreEqual(height, -1);
         }
+
     }
 }

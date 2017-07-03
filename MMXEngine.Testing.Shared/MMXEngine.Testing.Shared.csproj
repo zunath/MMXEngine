@@ -93,7 +93,11 @@
   <ItemGroup>
     <Compile Include="AssemblyTestManager.cs" />
     <Compile Include="MockObjects\GraphicsDeviceMock.cs" />
+    <Compile Include="MockObjects\MockComponent.cs" />
+    <Compile Include="MockObjects\MockGameEntity.cs" />
+    <Compile Include="MockObjects\MockPlayerState.cs" />
     <Compile Include="MockObjects\MockScreen.cs" />
+    <Compile Include="MockObjects\MockSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestHelpers.cs" />
   </ItemGroup>
