@@ -6,11 +6,7 @@
   "BGMFile": "bgm-boomer-kuwanger", 
   "Script":  "DemoMap", 
 	"Tiles": [
-		[{
-			"X": 0,
-			"Y": 0,
-			"IsCollidable": true
-		}, {
+		[null, {
 			"X": 0,
 			"Y": 0,
 			"IsCollidable": true

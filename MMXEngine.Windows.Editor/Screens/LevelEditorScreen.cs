@@ -1,15 +1,12 @@
-﻿using System;
-using Artemis;
+﻿using Artemis;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
 using MMXEngine.Common.Constants;
-using MMXEngine.Common.Enumerations;
 using MMXEngine.Contracts.Entities;
 using MMXEngine.Contracts.Factories;
 using MMXEngine.Contracts.Managers;
+using MMXEngine.ECS.Components;
 using MMXEngine.ECS.Data;
 using MMXEngine.ECS.Entities;
-using MMXEngine.Windows.Editor.Contracts;
 using MMXEngine.Windows.Editor.Events.LevelEditor;
 using Prism.Events;
 
@@ -23,6 +20,7 @@ namespace MMXEngine.Windows.Editor.Screens
         private readonly IEditorInputManager _input;
 
         private Entity _activeLevel;
+        private Entity _highlightedTile;
 
         public LevelEditorScreen(IEntityFactory entityFactory,
             ICameraManager camera,
@@ -47,6 +45,8 @@ namespace MMXEngine.Windows.Editor.Screens
 				_camera.Position.X,
 				verticalPosition * TilesetConstants.TileHeight);
 		    _camera.Position = newPosition;
+
+	        _highlightedTile.GetComponent<RenderableRectangle>().TileOffsetY = verticalPosition;
 	    }
 
 	    private void OnLevelScrollHorizontal(int horizontalPosition)
@@ -55,7 +55,9 @@ namespace MMXEngine.Windows.Editor.Screens
 				horizontalPosition * TilesetConstants.TileWidth,
 				_camera.Position.Y);
 		    _camera.Position = newPosition;
-	    }
+
+	        _highlightedTile.GetComponent<RenderableRectangle>().TileOffsetX = horizontalPosition;
+        }
 
 
 	    public void Initialize()
@@ -91,12 +93,21 @@ namespace MMXEngine.Windows.Editor.Screens
                 levelData.Name,
                 levelData.Spritesheet,
                 levelData.Tiles);
+            _activeLevel.GetComponent<Map>().ShowEmptyTiles = true;
+
+            _highlightedTile = _entityFactory.Create<HighlightedTile>(
+                0,
+                0,
+                TilesetConstants.TileWidth,
+                TilesetConstants.TileHeight,
+                Color.Yellow);
         }
 
         private void CloseLevel()
         {
             if (_activeLevel == null) return;
             _activeLevel.Delete();
+            _highlightedTile.Delete();
             _eventAggregator.GetEvent<LevelClosedEvent>().Publish();
         }
     }

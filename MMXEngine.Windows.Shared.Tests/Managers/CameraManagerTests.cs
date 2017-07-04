@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using MMXEngine.Contracts.Managers;
 using MMXEngine.Testing.Shared.MockObjects;
 using MMXEngine.Windows.Shared.Managers;

@@ -159,7 +159,6 @@
     <None Include="Data\Players\Zero.json" />
     <None Include="Data\Players\X.json" />
     <None Include="Data\Items\OneUp.json" />
-    <None Include="Data\Levels\ChillPenguin.json" />
     <None Include="Data\Levels\DemoMap.json" />
     <None Include="packages.config" />
   </ItemGroup>

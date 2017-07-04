@@ -87,6 +87,7 @@
     <Compile Include="Components\PlayerStats.cs" />
     <Compile Include="Components\Position.cs" />
     <Compile Include="Components\Renderable.cs" />
+    <Compile Include="Components\RenderableRectangle.cs" />
     <Compile Include="Components\Script.cs" />
     <Compile Include="Components\Sprite.cs" />
     <Compile Include="Components\Health.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="Entities\DebugWindow.cs" />
     <Compile Include="Entities\EditorLevel.cs" />
     <Compile Include="Entities\Enemy.cs" />
+    <Compile Include="Entities\HighlightedTile.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Level.cs" />
     <Compile Include="Entities\LifeBar.cs" />

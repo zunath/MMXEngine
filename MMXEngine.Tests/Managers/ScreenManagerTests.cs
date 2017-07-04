@@ -1,5 +1,4 @@
-﻿using MMXEngine.Contracts.Entities;
-using MMXEngine.Testing.Shared;
+﻿using MMXEngine.Testing.Shared;
 using MMXEngine.Testing.Shared.MockObjects;
 using MMXEngine.Windows.Shared.Managers;
 using NUnit.Framework;

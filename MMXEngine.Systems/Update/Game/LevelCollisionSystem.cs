@@ -11,7 +11,7 @@ using MMXEngine.Contracts.Managers;
 using MMXEngine.ECS.Components;
 using MMXEngine.ECS.Data;
 
-namespace MMXEngine.Systems.Update
+namespace MMXEngine.Systems.Update.Game
 {
     [ArtemisEntitySystem(
         ExecutionType = ExecutionType.Synchronous,

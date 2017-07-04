@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Common.Extensions;
 using MMXEngine.ECS.Components;
 
-namespace MMXEngine.Systems.Draw
+namespace MMXEngine.Systems.Draw.Game
 {
     [ArtemisEntitySystem(
         ExecutionType = ExecutionType.Synchronous,

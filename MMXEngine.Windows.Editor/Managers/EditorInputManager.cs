@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using MMXEngine.Windows.Editor.Contracts;
+using MMXEngine.Contracts.Managers;
 using MMXEngine.Windows.Editor.Interop.Input;
 
 namespace MMXEngine.Windows.Editor.Managers

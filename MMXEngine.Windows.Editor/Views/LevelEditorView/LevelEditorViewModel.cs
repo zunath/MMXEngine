@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using MMXEngine.ECS.Data;
 using MMXEngine.Windows.Editor.Events.LevelEditor;
 using MMXEngine.Windows.Editor.Screens;

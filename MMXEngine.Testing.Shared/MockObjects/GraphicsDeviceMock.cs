@@ -1,9 +1,10 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace MMXEngine.Testing.Shared.MockObjects
 {
-    public class GraphicsDeviceMock
+    public class GraphicsDeviceMock: IDisposable
     {
         public static GraphicsDeviceMock Current { get; set; }
 
@@ -40,6 +41,12 @@ namespace MMXEngine.Testing.Shared.MockObjects
             _hiddenForm.Close();
             _hiddenForm.Dispose();
             _hiddenForm = null;
+        }
+
+        public void Dispose()
+        {
+            _graphicsDevice?.Dispose();
+            _hiddenForm?.Dispose();
         }
     }
 }

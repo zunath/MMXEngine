@@ -1,7 +1,9 @@
 ﻿using Artemis;
-using MMXEngine.Systems.Draw;
-using MMXEngine.Systems.Single;
-using MMXEngine.Systems.Update;
+using MMXEngine.Systems.Draw.Game;
+using MMXEngine.Systems.Draw.Shared;
+using MMXEngine.Systems.Single.Game;
+using MMXEngine.Systems.Update.Game;
+using MMXEngine.Systems.Update.Shared;
 using MMXEngine.Windows.Shared;
 
 namespace MMXEngine.Windows.Game

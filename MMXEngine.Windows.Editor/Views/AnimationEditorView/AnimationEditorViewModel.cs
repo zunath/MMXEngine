@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Common.Observables;
 using MMXEngine.ECS.Components;
 using MMXEngine.Windows.Editor.Objects;
-using MMXEngine.Windows.Editor.Screens;
 using Prism.Commands;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;

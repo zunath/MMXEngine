@@ -5,8 +5,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Contracts.Entities;
 using MMXEngine.Contracts.Managers;
-using MMXEngine.Windows.Editor.Contracts;
 using MMXEngine.Windows.Editor.Interop;
+using MMXEngine.Windows.Editor.Managers;
 
 namespace MMXEngine.Windows.Editor
 {
@@ -32,7 +32,7 @@ namespace MMXEngine.Windows.Editor
             _gameManager.LoadContent(Content);
             _gameManager.Initialize(null, _initialScreen);
 
-			ServiceLocator.Current.TryResolve<IEditorInputManager>().Register(this);
+			((EditorInputManager)ServiceLocator.Current.TryResolve<IEditorInputManager>()).Register(this);
         }
         
         protected override void Update(GameTime gameTime)

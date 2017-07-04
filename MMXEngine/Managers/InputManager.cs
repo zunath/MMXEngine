@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MMXEngine.Common.Enumerations;
 using MMXEngine.Contracts.Components;

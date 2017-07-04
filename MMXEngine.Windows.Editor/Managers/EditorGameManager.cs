@@ -7,7 +7,6 @@ using MMXEngine.Contracts.Entities;
 using MMXEngine.Contracts.Factories;
 using MMXEngine.Contracts.Managers;
 using MMXEngine.Contracts.Systems;
-using MMXEngine.Windows.Editor.Contracts;
 
 namespace MMXEngine.Windows.Editor.Managers
 {

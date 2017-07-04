@@ -1,6 +1,5 @@
 ﻿using System;
 using Artemis;
-using Artemis.Blackboard;
 using Artemis.System;
 using Autofac;
 using MMXEngine.Common.Enumerations;

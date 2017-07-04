@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
 using MMXEngine.Contracts.Managers;
 
 namespace MMXEngine.Windows.Shared.Managers

@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using MMXEngine.Common.Enumerations;
+﻿using MMXEngine.Common.Enumerations;
 using MMXEngine.Contracts.Components;
 
 namespace MMXEngine.Contracts.Managers

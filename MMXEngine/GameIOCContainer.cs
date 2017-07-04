@@ -9,7 +9,7 @@ using MMXEngine.Contracts.Systems;
 using MMXEngine.ECS.Entities;
 using MMXEngine.ScriptEngine;
 using MMXEngine.ScriptEngine.Methods;
-using MMXEngine.Systems.Update;
+using MMXEngine.Systems.Update.Game;
 using MMXEngine.Windows.Game.Managers;
 using MMXEngine.Windows.Shared.Factories;
 using MMXEngine.Windows.Shared.Helpers;

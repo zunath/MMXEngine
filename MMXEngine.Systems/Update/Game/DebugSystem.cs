@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Media;
 using MMXEngine.Common.Enumerations;
 using MMXEngine.Contracts.Managers;
 
-namespace MMXEngine.Systems.Update
+namespace MMXEngine.Systems.Update.Game
 {
     [ArtemisEntitySystem(
         ExecutionType = ExecutionType.Synchronous,

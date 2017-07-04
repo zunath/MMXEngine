@@ -5,7 +5,7 @@ using MMXEngine.Contracts.Components;
 using MMXEngine.Contracts.Managers;
 using MMXEngine.ECS.Components;
 
-namespace MMXEngine.Systems.Single
+namespace MMXEngine.Systems.Single.Game
 {
     [ArtemisEntitySystem(
         ExecutionType = ExecutionType.Synchronous,

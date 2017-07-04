@@ -1,6 +1,4 @@
-﻿using Artemis;
-using Autofac;
-using MMXEngine.Contracts.Entities;
+﻿using Autofac;
 using MMXEngine.Windows.Shared.Helpers;
 using NUnit.Framework;
 

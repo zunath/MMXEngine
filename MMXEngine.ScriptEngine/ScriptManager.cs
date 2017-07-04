@@ -16,7 +16,7 @@ using NLua.Exceptions;
 
 namespace MMXEngine.ScriptEngine
 {
-    public class ScriptManager : IScriptManager
+    public class ScriptManager : IScriptManager, IDisposable
     {
         private readonly Lua _luaEngine;
         private readonly Queue<ScriptQueueObject> _scriptQueue;
@@ -182,6 +182,11 @@ namespace MMXEngine.ScriptEngine
             {
                 return ex.Message;
             }
+        }
+
+        public void Dispose()
+        {
+            _luaEngine?.Dispose();
         }
     }
 }

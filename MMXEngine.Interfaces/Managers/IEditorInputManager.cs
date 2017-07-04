@@ -1,12 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-namespace MMXEngine.Windows.Editor.Contracts
+namespace MMXEngine.Contracts.Managers
 {
 	public interface IEditorInputManager
 	{
-		void Register(EditorGame game);
-
 		bool IsPressed(Keys key);
 		bool IsDown(Keys key);
 		bool IsUp(Keys key);

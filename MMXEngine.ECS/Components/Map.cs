@@ -12,5 +12,6 @@ namespace MMXEngine.ECS.Components
         public int Height { get; set; }
         public TileData[,] Tiles { get; set; }
         public Song BGM { get; set; }
+        public bool ShowEmptyTiles { get; set; }
     }
 }
