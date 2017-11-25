@@ -26,11 +26,12 @@ namespace MMXEngine.Windows.Editor.Interop
 			host.Services.AddService(typeof(IGraphicsDeviceService), this);
 		}
 
-		#endregion
+        #endregion
 
-		#region Events
+        #region Events
 
-		[Obsolete("Dummy implementation will never call DeviceCreated")]
+        #pragma warning disable 67
+        [Obsolete("Dummy implementation will never call DeviceCreated")]
 		public event EventHandler<EventArgs> DeviceCreated;
 
 		[Obsolete("Dummy implementation will never call DeviceDisposing")]
@@ -42,11 +43,13 @@ namespace MMXEngine.Windows.Editor.Interop
 		[Obsolete("Dummy implementation will never call DeviceResetting")]
 		public event EventHandler<EventArgs> DeviceResetting;
 
-		#endregion
+        #pragma warning restore 67
 
-		#region Properties
+        #endregion
 
-		public GraphicsDevice GraphicsDevice { get; }
+        #region Properties
+
+        public GraphicsDevice GraphicsDevice { get; }
 
 		#endregion
 	}
